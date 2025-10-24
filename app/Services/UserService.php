@@ -14,7 +14,7 @@ class UserService
         $query = User::query();
 
         if ($userType) {
-            $query->where('user_type', $userType);
+            $query->where('role', $userType);
         }
 
         if ($userType === 'serviceOwner' && $request->filled('creator_user_id')) {
@@ -52,7 +52,7 @@ class UserService
     public function createUser(array $data, string $userType, ?\Closure $extra = null)
     {
         return DB::transaction(function () use ($data, $userType, $extra) {
-            $data['user_type'] = $userType;
+            $data['role'] = $userType;
             $data['account_status'] = $data['account_status'] ?? 'active';
             // $data['password'] = Hash::make($data['password']);
             if (!empty($data['password'])) {
