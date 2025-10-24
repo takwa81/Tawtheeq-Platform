@@ -17,8 +17,8 @@ class UserService
             $query->where('role', $userType);
         }
 
-        if ($userType === 'serviceOwner' && $request->filled('creator_user_id')) {
-            $query->whereHas('serviceOwner', function ($q) use ($request) {
+        if ($userType === 'branch' && $request->filled('creator_user_id')) {
+            $query->whereHas('branch', function ($q) use ($request) {
                 $q->where('creator_user_id', $request->creator_user_id);
             });
         }
@@ -32,8 +32,8 @@ class UserService
             $query->where('phone', 'like', '%' . $request->phone . '%');
         }
 
-        if ($request->filled('account_status')) {
-            $query->where('account_status', $request->account_status);
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
         }
 
         if ($request->filled('only_trashed') && $request->only_trashed) {
@@ -53,7 +53,7 @@ class UserService
     {
         return DB::transaction(function () use ($data, $userType, $extra) {
             $data['role'] = $userType;
-            $data['account_status'] = $data['account_status'] ?? 'active';
+            $data['status'] = $data['status'] ?? 'active';
             // $data['password'] = Hash::make($data['password']);
             if (!empty($data['password'])) {
                 $data['password'] = Hash::make($data['password']);
@@ -66,7 +66,7 @@ class UserService
                 $extra($user);
             }
 
-            $user->account_status_badge = accountStatusBadge($user->account_status);
+            $user->account_status_badge = accountStatusBadge($user->status);
 
             return $user;
         });
@@ -86,14 +86,14 @@ class UserService
             $extra($user);
         }
 
-        $user->account_status_badge = accountStatusBadge($user->account_status);
+        $user->account_status_badge = accountStatusBadge($user->status);
 
         return $user;
     }
 
     public function deleteUser(User $user)
     {
-        $user->account_status = 'deleted';
+        $user->status = 'deleted';
         $user->save();
         $user->delete();
         return $user;
@@ -101,14 +101,14 @@ class UserService
 
     public function restoreUser(User $user)
     {
-        $user->account_status = 'active';
+        $user->status = 'active';
         $user->restore();
         return $user;
     }
 
     public function changeStatus(User $user, string $status)
     {
-        $user->account_status = $status;
+        $user->status = $status;
         $user->save();
         return $user;
     }

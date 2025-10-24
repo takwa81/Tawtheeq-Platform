@@ -216,8 +216,8 @@
                 </li>
 
                 <li
-                    class="menu-item {{ request()->route()->getName() === 'dashboard.subscriptions.index' ? 'active' : '' }}">
-                    <a class="menu-link" href="{{ route('dashboard.home') }}">
+                    class="menu-item {{ request()->route()->getName() === 'dashboard.subscription_packages.index' ? 'active' : '' }}">
+                    <a class="menu-link" href="{{ route('dashboard.subscription_packages.index') }}">
                         <i class="icon material-icons md-reorder"></i>
                         <span class="text"> خطط الاشتراك</span>
                     </a>

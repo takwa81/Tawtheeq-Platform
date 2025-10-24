@@ -1,34 +1,31 @@
 $(document).ready(function () {
-    const form = $("#companyForm");
-    const modal = $("#companyModal");
+    const form = $("#dataEntryForm");
+    const modal = $("#dataEntryModal");
     const submitButton = form.find("#submitButton");
-    const modalTitle = $("#companyModalLabel");
+    const modalTitle = $("#dataEntryModalLabel");
     const tableBody = $("#tableData");
 
     let isEdit = false;
     let editId = null;
 
-    function renderRow(company, logo) {
+    // Render table row
+    function renderRow(user) {
         return `
-            <tr id="row-${company.id}">
-                <td>${company.id}</td>
-                   <td>
-                     <img src="${logo}" alt="${company.name_ar}" class="rounded-circle" width="40" height="40">
-                </td>
-                <td>${company.name_ar}</td>
-                <td>${company.name_en}</td>
+            <tr id="row-${user.id}">
+                <td>${user.id}</td>
+                <td>${user.full_name}</td>
+                <td>${user.phone}</td>
+                   <td>${user.account_status_badge}</td>
                 <td>
                     <a href="javascript:void(0)" class="btn btn-md rounded font-sm edit-data"
-                        data-id="${company.id}"
-                        data-name_ar="${company.name_ar}"
-                        data-name_en="${company.name_en}"
-                        data-logo = "${logo}">
+                        data-id="${
+                            user.id
+                        }" data-full_name="${user.full_name}" data-phone="${user.phone}">
                         <i class="material-icons md-edit"></i>
                     </a>
-
-                    <form class="d-inline delete-form" action="/dashboard/companies/${
-                        company.id
-                    }" method="POST" data-id="${company.id}">
+                    <form class="d-inline delete-form" action="/dashboard/branches/${
+                        user.id
+                    }" method="POST" data-id="${user.id}">
                         <input type="hidden" name="_token" value="${$(
                             'meta[name="csrf-token"]'
                         ).attr("content")}">
@@ -38,38 +35,40 @@ $(document).ready(function () {
                         </button>
                     </form>
 
-                  
                 </td>
             </tr>
         `;
     }
 
-    // Handle edit
+    // Edit button handler
     $(document).on("click", ".edit-data", function () {
         isEdit = true;
         editId = $(this).data("id");
 
-        modalTitle.text(dashboardLang.edit_company);
-        submitButton.text(dashboardLang.edit);
+        modalTitle.text("تعديل مسؤول إدخال بيانات");
+        submitButton.text("تحديث");
 
-        form.find("#name_ar").val($(this).data("name_ar"));
-        form.find("#name_en").val($(this).data("name_en"));
-        const imagePath = $(this).data("logo");
-        $("#preview-logo").attr("src", imagePath);
+        form.find("#full_name").val($(this).data("full_name"));
+        form.find("#phone").val($(this).data("phone"));
+        form.find("#manager_id").val($(this).data("manager_id"));
 
-        form.attr("action", `/dashboard/companies/${editId}`);
+        // Hide password fields when editing
+        $("#password").closest(".col-md-6").hide();
+        $("#password_confirmation").closest(".col-md-6").hide();
+
+        form.attr("action", `/dashboard/branches/${editId}`);
         form.append('<input type="hidden" name="_method" value="PUT">');
 
         modal.modal("show");
     });
 
-    // Handle form submission
+    // Form submission
     form.on("submit", function (e) {
         e.preventDefault();
 
         submitButton.prop("disabled", true).html(`
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            ${isEdit ? dashboardLang.updating : dashboardLang.saving}
+            ${isEdit ? "جار التحديث" : "جار الحفظ"}
         `);
 
         const formData = new FormData(this);
@@ -81,58 +80,57 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
             success: function (res) {
-                const company = res.data;
-                const logo = res.logo_url;
-                const newRow = renderRow(company, logo);
+                const user = res.data;
+                const newRow = renderRow(user);
 
                 if (isEdit) {
-                    $(`#row-${company.id}`).replaceWith(newRow);
-                    toastr.success(dashboardLang.updated_successfully);
+                    $(`#row-${user.id}`).replaceWith(newRow);
+                    toastr.success("تم التحديث بنجاح");
                 } else {
-                    $("#noDataRow").remove(); // remove "no data" row if exists
+                    $("#noDataRow").remove();
                     tableBody.prepend(newRow);
-                    toastr.success(
-                        res.message ?? dashboardLang.created_successfully
-                    );
+                    toastr.success(res.message ?? "تم الإنشاء بنجاح");
                 }
 
                 submitButton
                     .prop("disabled", false)
-                    .text(isEdit ? dashboardLang.edit : dashboardLang.save);
+                    .text(isEdit ? "تحديث" : "حفظ");
+
                 form[0].reset();
+                $("#passwordField").show(); // Show password fields for next creation
                 modal.modal("hide");
             },
             error: function (xhr) {
                 submitButton
                     .prop("disabled", false)
-                    .text(isEdit ? dashboardLang.edit : dashboardLang.save);
+                    .text(isEdit ? "تحديث" : "حفظ");
 
                 if (xhr.status === 422) {
                     displayErrors(xhr.responseJSON.errors);
                 } else {
-                    toastr.error(
-                        xhr.responseJSON.message ??
-                            dashboardLang.unexpected_error
-                    );
+                    toastr.error(xhr.responseJSON.message ?? "خطأ غير متوقع");
                 }
             },
         });
     });
 
-    // Reset modal when closed
+    // Restore modal state on close
     modal.on("hidden.bs.modal", function () {
         isEdit = false;
         editId = null;
 
         form[0].reset();
         form.find('input[name="_method"]').remove();
-        form.attr("action", "/dashboard/companies");
+        form.attr("action", "/dashboard/branches");
 
-        modalTitle.text(dashboardLang.add_new_company);
-        submitButton.text(dashboardLang.save);
+        modalTitle.text("إضافة مسؤول إدخال بيانات جديد");
+        submitButton.text("حفظ");
+
+        // Show password fields
+        $("#passwordField").show();
     });
 
-    // Clear validation errors on input
+    // Clear error messages
     $("input, select, textarea").on("input", function () {
         const field = $(this).attr("name");
         $(`#${field}Error`).empty();
@@ -152,16 +150,5 @@ $(document).ready(function () {
         }
     }
 
-    document.querySelectorAll('input[type="file"]').forEach(function (input) {
-        input.addEventListener("change", function () {
-            const preview = document.getElementById("preview-" + this.id);
-            if (this.files && this.files[0] && preview) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    preview.src = e.target.result;
-                };
-                reader.readAsDataURL(this.files[0]);
-            }
-        });
-    });
+
 });

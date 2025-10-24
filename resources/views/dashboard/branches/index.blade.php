@@ -3,7 +3,7 @@
     @section('content')
         <x-dashboard.page-header :title="__('dashboard.branches')" addModalId="dataEntryModal" />
 
-        <div class="alert alert-main p-3" role="alert">
+        <div class="alert alert-secondary p-3 text-light" role="alert">
             <i class="material-icons md-info me-2 fs-4 align-top"></i>
             <strong>ملاحظات:</strong>
             <div class="row mt-2" style="font-size: 13px; line-height: 1.4;">
@@ -18,7 +18,6 @@
         </div>
 
 
-
         <!-- Search & Filters -->
         <div class="my-2">
             <x-dashboard.search-sort :route="route('dashboard.branches.index')" :showName="true">
@@ -27,14 +26,14 @@
                         placeholder="ابحث برقم الهاتف" class="form-control bg-white">
                 </div>
                 <div class="col-lg-3 col-md-3 mt-1">
-                    <select name="account_status" class="form-select bg-white">
+                    <select name="status" class="form-select bg-white">
                         <option value="">كل الحالات</option>
-                        <option value="active" {{ request()->get('account_status') === 'active' ? 'selected' : '' }}>نشط
+                        <option value="active" {{ request()->get('status') === 'active' ? 'selected' : '' }}>نشط
                         </option>
-                        <option value="inactive" {{ request()->get('account_status') === 'inactive' ? 'selected' : '' }}>غير
+                        <option value="inactive" {{ request()->get('status') === 'inactive' ? 'selected' : '' }}>غير
                             نشط
                         </option>
-                        <option value="deleted" {{ request()->get('account_status') === 'deleted' ? 'selected' : '' }}>محذوف
+                        <option value="deleted" {{ request()->get('status') === 'deleted' ? 'selected' : '' }}>محذوف
                         </option>
                     </select>
                 </div>
@@ -42,7 +41,7 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="only_trashed" value="1" id="onlyTrashed"
                             {{ request()->get('only_trashed') ? 'checked' : '' }}>
-                        <label class="form-check-label" for="onlyTrashed" style="color: #ffffff !important">
+                        <label class="form-check-label" for="onlyTrashed">
                             عرض المحذوفين فقط
                         </label>
                     </div>
@@ -52,29 +51,32 @@
 
         <div class="card mb-4">
             <div class="card-body p-0">
-                <x-dashboard.table :headers="['#', 'الاسم الكامل', 'رقم الهاتف', 'الحالة', 'خيارات']">
+                <x-dashboard.table :headers="['#', 'الاسم الكامل', 'رقم الهاتف', 'مدير الفرع', 'الحالة', 'خيارات']">
                     @forelse($branches as $user)
                         <tr id="row-{{ $user->id }}">
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $user->full_name }}</td>
                             <td>{{ $user->phone }}</td>
-                            <td>{!! accountStatusBadge($user->account_status) !!}</td>
+                            <td>{{ $user->branch->manager?->user->full_name }}</td>
+                            <td>{!! accountStatusBadge($user->status) !!}</td>
                             <td>
                                 <div class="">
                                     @if ($user->deleted_at === null)
                                         <a href="javascript:void(0)" class="btn btn-md rounded font-sm edit-data"
                                             data-id="{{ $user->id }}" data-full_name="{{ $user->full_name }}"
+                                            data-manager_id="{{ $user->branch->manager->user->id }}"
                                             data-phone="{{ $user->phone }}" title="تعديل المعلومات">
                                             <i class="material-icons md-edit"></i>
                                         </a>
 
                                         <form class="d-inline delete-form"
-                                            action="{{ route('dashboard.branches.destroy', $user->id) }}"
-                                            method="POST" data-id="{{ $user->id }}">
+                                            action="{{ route('dashboard.branches.destroy', $user->id) }}" method="POST"
+                                            data-id="{{ $user->id }}">
                                             @csrf
                                             @method('DELETE')
                                             <button type="button"
-                                                class="btn btn-md bg-danger rounded font-sm delete-button" title="حذف المستخدم">
+                                                class="btn btn-md bg-danger rounded font-sm delete-button"
+                                                title="حذف المستخدم">
                                                 <i class="material-icons md-delete"></i>
                                             </button>
                                         </form>
@@ -84,7 +86,7 @@
                                             title="تغيير كلمة المرور">
                                             <i class="material-icons md-lock"></i>
                                         </a>
-                                        @if ($user->account_status === 'active')
+                                        @if ($user->status === 'active')
                                             <a href="#"
                                                 class="btn btn-md bg-warning rounded font-sm my-1 toggle-status"
                                                 data-url="{{ route('dashboard.branches.deactivate', $user->id) }}"
@@ -103,11 +105,12 @@
 
                                     @if ($user->deleted_at)
                                         <form class="d-inline restore-form"
-                                            action="{{ route('dashboard.branches.restore', $user->id) }}"
-                                            method="POST" data-id="{{ $user->id }}">
+                                            action="{{ route('dashboard.branches.restore', $user->id) }}" method="POST"
+                                            data-id="{{ $user->id }}">
                                             @csrf
                                             <button type="button"
-                                                class="btn btn-md bg-success rounded font-sm restore-button" title="استرجاع">
+                                                class="btn btn-md bg-success rounded font-sm restore-button"
+                                                title="استرجاع">
                                                 <i class="material-icons md-restore"></i>
                                             </button>
                                         </form>
@@ -137,10 +140,9 @@
     @endsection
 
     @section('scripts')
-        <script src="{{ asset('admin/dashboard/pages/dataEntry.js') }}"></script>
+        <script src="{{ asset('admin/dashboard/pages/branch.js') }}"></script>
         <script src="{{ asset('admin/dashboard/pages/delete.js') }}"></script>
         <script src="{{ asset('admin/dashboard/pages/restore.js') }}"></script>
         <script src="{{ asset('admin/dashboard/pages/toggle.js') }}"></script>
         <script src="{{ asset('admin/dashboard/pages/changePassword.js') }}"></script>
-
     @endsection

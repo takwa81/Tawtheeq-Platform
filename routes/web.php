@@ -4,6 +4,7 @@ use App\Http\Controllers\Dashboard\{
     BranchController,
     BranchManagerController,
     CompanyController,
+    SubscriptionPackageController,
     UserAuthController,
     UserController,
 };
@@ -65,6 +66,7 @@ Route::middleware(['set_language'])->group(function () {
         Route::get('branches/activate/{id}', [BranchController::class, 'activate'])->name('branches.activate');
         Route::get('branches/deactivate/{id}', [BranchController::class, 'deactivate'])->name('branches.deactivate');
 
+        Route::resource('subscription_packages', SubscriptionPackageController::class);
 
         Route::post('logout', [UserAuthController::class, 'logout'])->name('logout');
 

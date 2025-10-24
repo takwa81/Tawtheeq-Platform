@@ -16,5 +16,7 @@ return [
     'unexpected_error' => 'Unexpected error',
     'edit' => 'Edit',
     'company_logo'=>'Logo',
-    'branch_managers'=> 'Branch Managers'
+    'branch_managers'=> 'Branch Managers',
+    'branches'=>'Branches',
+    'subscription_packages'=>'Subscription Packages',
 ];

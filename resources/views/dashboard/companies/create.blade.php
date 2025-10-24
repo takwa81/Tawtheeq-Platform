@@ -7,8 +7,8 @@
 
         <x-form.input id="name_en" name="name_en" :label="__('dashboard.name_en')" required="true" errorId="name_enError" />
 
-        <x-form.file id="logo" name="logo" :label="__('dashboard.company_logo')" errorId="logoError" />
-
+        <x-form.file id="logo" name="logo" :label="__('dashboard.company_logo')" errorId="logoError"
+            previewSrc="{{ asset('assets/images/upload.svg') }}" />
     </div>
 
 </x-modals.form>

@@ -14,16 +14,16 @@ $(document).ready(function () {
             <tr id="row-${user.id}">
                 <td>${user.id}</td>
                 <td>${user.full_name}</td>
-                <td>${user.phone_number}</td>
+                <td>${user.phone}</td>
                    <td>${user.account_status_badge}</td>
                 <td>
                     <a href="javascript:void(0)" class="btn btn-md rounded font-sm edit-data"
                         data-id="${
                             user.id
-                        }" data-full_name="${user.full_name}" data-phone_number="${user.phone_number}">
+                        }" data-full_name="${user.full_name}" data-phone="${user.phone}">
                         <i class="material-icons md-edit"></i>
                     </a>
-                    <form class="d-inline delete-form" action="/dashboard/data_entries/${
+                    <form class="d-inline delete-form" action="/dashboard/branch_managers/${
                         user.id
                     }" method="POST" data-id="${user.id}">
                         <input type="hidden" name="_token" value="${$(
@@ -34,7 +34,7 @@ $(document).ready(function () {
                             <i class="material-icons md-delete"></i>
                         </button>
                     </form>
-     
+
                 </td>
             </tr>
         `;
@@ -49,13 +49,13 @@ $(document).ready(function () {
         submitButton.text("تحديث");
 
         form.find("#full_name").val($(this).data("full_name"));
-        form.find("#phone_number").val($(this).data("phone_number"));
+        form.find("#phone").val($(this).data("phone"));
 
         // Hide password fields when editing
         $("#password").closest(".col-md-6").hide();
         $("#password_confirmation").closest(".col-md-6").hide();
 
-        form.attr("action", `/dashboard/data_entries/${editId}`);
+        form.attr("action", `/dashboard/branch_managers/${editId}`);
         form.append('<input type="hidden" name="_method" value="PUT">');
 
         modal.modal("show");
@@ -120,7 +120,7 @@ $(document).ready(function () {
 
         form[0].reset();
         form.find('input[name="_method"]').remove();
-        form.attr("action", "/dashboard/data_entries");
+        form.attr("action", "/dashboard/branch_managers");
 
         modalTitle.text("إضافة مسؤول إدخال بيانات جديد");
         submitButton.text("حفظ");
@@ -149,5 +149,5 @@ $(document).ready(function () {
         }
     }
 
-  
+
 });

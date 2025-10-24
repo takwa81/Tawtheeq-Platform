@@ -30,7 +30,7 @@
                                 'name_ar' => $company->name_ar,
                                 'name_en' => $company->name_en,
                                 'logo' => $company->logo_url,
-                            ]" :deleteRoute="route('dashboard.companies.destroy', $company->id)" :showRoute="route('dashboard.companies.show', $company->id)" />
+                            ]" :deleteRoute="route('dashboard.companies.destroy', $company->id)" />
                         </td>
                     </tr>
                 @empty

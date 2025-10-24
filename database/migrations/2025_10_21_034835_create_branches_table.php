@@ -15,6 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->foreignId('user_id')->unique()->constrained('users')->onDelete('cascade');
             $table->foreignId('manager_id')->constrained('branch_managers')->onDelete('cascade');
+            $table->foreignId('creator_user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

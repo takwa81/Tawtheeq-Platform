@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Dashboard;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CompanyRequest extends FormRequest
 {
@@ -13,9 +14,21 @@ class CompanyRequest extends FormRequest
 
     public function rules(): array
     {
+        $companyId = $this->route('company');
+
         return [
-            'name_en'     => 'required|string|max:100|unique:companies,name_en,' . $this->id,
-            'name_ar'     => 'required|string|max:100|unique:companies,name_ar,' . $this->id,
+            'name_ar' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('companies', 'name_ar')->ignore($companyId),
+            ],
+            'name_en' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('companies', 'name_en')->ignore($companyId),
+            ],
             'logo' => [$this->isMethod('post') ? 'required' : 'nullable', 'image', 'max:2048'],
 
         ];

@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Dashboard;
 use App\Enums\PaginationEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\UserRequest;
+use App\Models\BranchManager;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 
 class BranchController extends Controller
 {
-     protected $userService;
+    protected $userService;
     public function __construct(UserService $userService)
     {
         $this->userService = $userService;
@@ -21,7 +22,8 @@ class BranchController extends Controller
     {
         try {
             $branches = $this->userService->filterUsers($request, 'branch', PaginationEnum::DefaultCount->value);
-            return view('dashboard.branches.index', compact('branches'));
+            $managers = User::where('role', 'branch_manager')->where('status', 'active')->get();
+            return view('dashboard.branches.index', compact('branches', 'managers'));
         } catch (\Throwable $e) {
             toastr()->error(__('messages.fetch_failed') . ': ' . $e->getMessage());
             return redirect()->back();
@@ -45,8 +47,12 @@ class BranchController extends Controller
 
             $data = $request->validated();
             $user = $this->userService->createUser($data, 'branch');
+            $branchManager = BranchManager::where('user_id', $data['manager_id'])->firstOrFail();
+
             $user->branch()->create([
                 'user_id' => $user->id,
+                'creator_user_id' => auth()->user()->id,
+                'manager_id' => $branchManager->id,
             ]);
             return response()->json(['message' => __('messages.added_successfully'), 'data' => $user], 200);
         } catch (\Throwable $e) {

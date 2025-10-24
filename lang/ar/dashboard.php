@@ -18,5 +18,6 @@ return [
     'edit' => 'تعديل',
     'company_logo'=>'شعار الشركة',
     'branch_managers'=>'مدراء الأفرع',
-    
+    'branches'=>'الأفرع',
+    'subscription_packages'=>'خطط الاشتراك'
 ];

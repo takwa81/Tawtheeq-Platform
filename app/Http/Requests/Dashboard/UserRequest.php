@@ -17,14 +17,14 @@ class UserRequest extends FormRequest
     {
         Log::info('UserRequest detected service_owners route: ' . $this->route()->getName());
 
-        $id = $this->route('data_entry') ?? $this->route('service_owner');
+        $id = $this->route('branch_manager') ?? $this->route('branch');
         $rules = [
             'full_name' => ['required', 'string', 'max:255'],
-            'phone_number' => [
+            'phone' => [
                 'required',
                 'string',
                 'max:20',
-                Rule::unique('users', 'phone_number')->ignore($id),
+                Rule::unique('users', 'phone')->ignore($id),
             ],
             'password' => $this->isMethod('post')
                 ? ['required', 'string', 'min:6', 'confirmed']
@@ -34,16 +34,10 @@ class UserRequest extends FormRequest
                 : ['nullable'],
         ];
 
-        if ($this->routeIs('dashboard.service_owners.*')) {
+        if ($this->routeIs('dashboard.branches.*')) {
             Log::info('UserRequest matched service_owners route');
             $rules = array_merge($rules, [
-                'gender' => ['nullable', 'in:male,female'],
-                'academic_qualification_id' => ['nullable', 'exists:academic_qualifications,id'],
-                'age' => ['nullable', 'integer'],
-                'email' => ['nullable', 'email'],
-                'personal_image_path' => ['nullable', 'image', 'max:2048'],
-                'data_entry_note' => ['nullable', 'string'],
-                'creator_user_id' => ['nullable', 'exists:users,id'],
+                'manager_id' => ['required', 'exists:users,id'],
             ]);
         }
 
@@ -55,8 +49,8 @@ class UserRequest extends FormRequest
     {
         $messages = [
             'full_name.required' => 'الاسم الكامل مطلوب',
-            'phone_number.required' => 'رقم الهاتف مطلوب',
-            'phone_number.unique' => 'رقم الهاتف مستخدم مسبقاً',
+            'phone.required' => 'رقم الهاتف مطلوب',
+            'phone.unique' => 'رقم الهاتف مستخدم مسبقاً',
             'password.required' => 'كلمة المرور مطلوبة',
             'password.min' => 'كلمة المرور يجب أن تكون 6 أحرف على الأقل',
             'password.confirmed' => 'تأكيد كلمة المرور غير مطابق',

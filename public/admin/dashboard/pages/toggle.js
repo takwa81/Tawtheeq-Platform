@@ -9,7 +9,7 @@ $(document).on("click", ".toggle-status", function (e) {
         text: "هل أنت متأكد من هذه العملية؟",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#572972",
+        confirmButtonColor: "#ff5087",
         cancelButtonColor: "#d33",
         confirmButtonText: "نعم",
         cancelButtonText: "إلغاء",
@@ -20,15 +20,15 @@ $(document).on("click", ".toggle-status", function (e) {
                     toastr.success(response.message ?? "تمت العملية بنجاح");
 
                     let row = button.closest("tr");
-                    let badgeCell = row.find("td").eq(3); 
-                    let actionCell = row.find("td").eq(4); 
+                    let badgeCell = row.find("td").eq(3);
+                    let actionCell = row.find("td").eq(4);
 
                     if(currentStatus === "active") {
                         badgeCell.html('<span class="badge bg-danger">غير فعال</span>');
 
                         actionCell.find(".toggle-status").replaceWith(`
                             <a href="#" class="btn btn-md bg-success rounded font-sm my-1 toggle-status"
-                               data-url="/dashboard/data_entries/activate/${response.data.id}"
+                               data-url="/dashboard/branch_managers/activate/${response.data.id}"
                                data-status="inactive"
                                title="تفعيل">
                                 <i class="material-icons md-toggle_on"></i>
@@ -39,7 +39,7 @@ $(document).on("click", ".toggle-status", function (e) {
 
                         actionCell.find(".toggle-status").replaceWith(`
                             <a href="#" class="btn btn-md bg-warning rounded font-sm my-1 toggle-status"
-                               data-url="/dashboard/data_entries/deactivate/${response.data.id}"
+                               data-url="/dashboard/branch_managers/deactivate/${response.data.id}"
                                data-status="active"
                                title="إلغاء التفعيل">
                                 <i class="material-icons md-toggle_off"></i>

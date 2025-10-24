@@ -26,8 +26,8 @@ return [
     'restored_successfully' => 'تم استرجاع المعلومات بنجاح',
     'restore_failed'        => 'فشل في عملية الاسترجاع',
     'operation_failed' => 'فشلت العملية',
-    'user_activated_successfully' => 'تم تفعيل مسؤول إدخال البيانات بنجاح',
-    'user_deactivated_successfully' => 'تم إلغاء تفعيل مسؤول إدخال البيانات بنجاح',
+    'user_activated_successfully' => 'تم تفعيل المستخدم بنجاح',
+    'user_deactivated_successfully' => 'تم إلغاء تفعيل المستخدم بنجاح',
 
     'password_changed_successfully' => 'تم تغيير كلمة المرور بنجاح',
     'failed' => 'فشلت العملية',

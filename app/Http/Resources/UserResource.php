@@ -14,7 +14,7 @@ class UserResource extends JsonResource
             'full_name' => $this->full_name,
             'phone_number' => $this->phone_number,
             'user_type' => $this->user_type,
-            'account_status' => $this->account_status,
+            'status' => $this->status,
         ];
 
         if ($this->user_type === 'serviceOwner' && $this->relationLoaded('serviceOwner')) {
