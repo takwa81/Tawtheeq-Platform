@@ -1,0 +1,1726 @@
+{
+    "dashboard": {
+        "en": "Dashboard",
+        "ar": "لوحة التحكم"
+    },
+    "join_requests": {
+        "en": "Join Requests",
+        "ar": "طلبات الانضمام"
+    },
+    "trends_management": {
+        "en": "Trends management",
+        "ar": "إدارة التريندات"
+    },
+    "donated_amount": {
+        "en": "Donated Amount",
+        "ar": "المبلغ المتبرع به"
+    },
+    "required_amount": {
+        "en": "Required Amount",
+        "ar": "المبلغ المطلوب"
+    },
+    "is_shown": {
+        "en": "Shown ?",
+        "ar": "يظهر ؟"
+    },
+    "is_closed": {
+        "en": "Closed ?",
+        "ar": "مغلق ؟"
+    },
+    "basic_definitions": {
+        "en": "Basic Definitions",
+        "ar": "التعريفات الأساسية"
+    },
+    "select_pet_type": {
+        "en": "Select Pet Type",
+        "ar": " اختر نوع الحيوان "
+    },
+    "pet_type": {
+        "en": "Pet Type",
+        "ar": "نوع الحيوان"
+    },
+    "pet_types": {
+        "en": "Pet Types",
+        "ar": "أنواع الحيوانات"
+    },
+    "pet_species": {
+        "en": "Pet Species",
+        "ar": "فصائل الحيوانات"
+    },
+    "create_new_species": {
+        "en": "Add New Pet Species",
+        "ar": "إضافة فصيلة جديدة"
+    },
+    "moods_management": {
+        "en": "Moods Management",
+        "ar": "إدارة المزاج"
+    },
+    "healthy_statuses_management": {
+        "en": "Healthy Statuses Management",
+        "ar": "إدارة الحالات الصحية"
+    },
+    "request_types_management": {
+        "en": "Request Types Management",
+        "ar": "إدارة أنواع الطلبات"
+    },
+    "manage_areas_and_regions": {
+        "en": "Manage Provinces and Regions",
+        "ar": "إدارة المحافظات والمناطق"
+    },
+    "countries": {
+        "en": "Countries",
+        "ar": "الدول"
+    },
+    "cities": {
+        "en": "Cities",
+        "ar": "المحافظات"
+    },
+    "zones": {
+        "en": "Zones",
+        "ar": "المناطق"
+    },
+    "manage_users": {
+        "en": "Manage Users",
+        "ar": "إدارة المستخدمين"
+    },
+    "service_providers": {
+        "en": "Service Providers",
+        "ar": "مزودو الخدمات"
+    },
+    "vets": {
+        "en": "Vets",
+        "ar": "الأطباء"
+    },
+    "employees": {
+        "en": "Employees",
+        "ar": "الموظفين"
+    },
+    "pet_owners": {
+        "en": "Pet Owners",
+        "ar": "مالكو الحيوانات"
+    },
+    "delivery_captains": {
+        "en": "Delivery Captains",
+        "ar": "عمال التوصيل"
+    },
+    "general_settings": {
+        "en": "General Settings",
+        "ar": "الإعدادات العامة"
+    },
+    "languages": {
+        "en": "Languages",
+        "ar": "اللغات"
+    },
+    "configs": {
+        "en": "Settings",
+        "ar": "الإعدادات"
+    },
+    "balance_configs": {
+        "en": "Points Settings",
+        "ar": "إعدادات النقاط"
+    },
+    "edit_balance_configs": {
+        "en": "Edit Points Settings",
+        "ar": "تعديل إعدادات النقاط"
+    },
+    "point_rank_configs": {
+        "en": "Account Classification",
+        "ar": "تصنيف الحسابات"
+    },
+    "payment_methods": {
+        "en": "Payment Methods",
+        "ar": "طرق الدفع"
+    },
+    "price_balances": {
+        "en": "Points Price Settings",
+        "ar": "أسعار النقاط"
+    },
+    "currencies": {
+        "en": "Currencies",
+        "ar": "العملات"
+    },
+    "manage_events": {
+        "en": "Manage Events",
+        "ar": "إدارة الفعاليات"
+    },
+    "events": {
+        "en": "Events",
+        "ar": "الفعاليات"
+    },
+    "suggestion_events": {
+        "en": "Suggested Events",
+        "ar": "الفعاليات المقترحة"
+    },
+    "manage_addons": {
+        "en": "Manage Date Request Addons",
+        "ar": "إدارة الإضافات والميزات"
+    },
+    "addons_types": {
+        "en": "Addon Types",
+        "ar": "أنواع الإضافات"
+    },
+    "dating_requests": {
+        "en": "Dating Requests",
+        "ar": "طلبات المواعدة"
+    },
+    "play_dates": {
+        "en": "Play Dates",
+        "ar": "طلبات اللعب"
+    },
+    "breed_dates": {
+        "en": "Breed Dates",
+        "ar": "طلبات التزاوج"
+    },
+    "discount_codes_management": {
+        "en": "Discount Codes Management",
+        "ar": "إدارة أكواد الخصم"
+    },
+    "discount_types": {
+        "en": "Discount Types",
+        "ar": "أنواع أكواد الخصم"
+    },
+    "discount_codes": {
+        "en": "Discount Codes",
+        "ar": "أكواد الخصم"
+    },
+    "balance_requests_management": {
+        "en": "Balance Requests and Top-ups",
+        "ar": "عمليات شحن وطلبات الرصيد"
+    },
+    "balance_requests": {
+        "en": "Balance Requests",
+        "ar": "طلبات شحن الرصيد"
+    },
+    "balance_top_ups": {
+        "en": "Balance Top-ups",
+        "ar": "عمليات شحن الرصيد"
+    },
+    "referral_management": {
+        "en": "Referral Management",
+        "ar": "إدارة الإحالات"
+    },
+    "referral_reward_configs": {
+        "en": "Referral Reward Settings",
+        "ar": "إعدادات مكافات الإحالة"
+    },
+    "ads": {
+        "en": "Ads",
+        "ar": "الإعلانات"
+    },
+    "faqs": {
+        "en": "FAQs",
+        "ar": "الأسئلة الشائعة"
+    },
+    "hi": {
+        "en": "Hi",
+        "ar": "مرحبا"
+    },
+    "clear_cache": {
+        "en": "Clear Cache",
+        "ar": "مسح الكاش"
+    },
+    "account_info": {
+        "en": "Account Information",
+        "ar": "معلومات الحساب"
+    },
+    "logout": {
+        "en": "Logout",
+        "ar": "تسجيل خروج"
+    },
+    "footer": {
+        "en": "©, Expentech - Always Have A Solution - All rights reserved.",
+        "ar": "©، إكسبينتك - للحلول الهندسية - جميع الحقوق محفوظة."
+    },
+    "type_in_arabic": {
+        "en": "Type in Arabic",
+        "ar": "النوع بالعربية"
+    },
+    "type_in_english": {
+        "en": "Type in English",
+        "ar": "النوع بالإنكليزية"
+    },
+    "options": {
+        "en": "Options",
+        "ar": "خيارات"
+    },
+    "pagination": {
+        "en": "Total results: ",
+        "ar": "عدد النتائج الكلي : "
+    },
+    "total": {
+        "en": "Total",
+        "ar": "الكلي : "
+    },
+    "create_pet_type": {
+        "en": "Add New Pet Type",
+        "ar": "إضافة نوع جديد"
+    },
+    "name_ar_label": {
+        "en": "Name (Arabic)",
+        "ar": "الاسم بالعربية"
+    },
+    "name_en_label": {
+        "en": "Name (English)",
+        "ar": "الاسم بالإنجليزية"
+    },
+    "save": {
+        "en": "Save",
+        "ar": "حفظ"
+    },
+    "update": {
+        "en": "Update",
+        "ar": "تحديث"
+    },
+    "pet_type_details": {
+        "en": "Pet Type Details",
+        "ar": "تفاصيل نوع الحيوان"
+    },
+    "species_related_type": {
+        "en": "Species For This Pet Type",
+        "ar": "فصائل الحيوانات لهذا النوع"
+    },
+    "type": {
+        "en": "Type",
+        "ar": "النوع"
+    },
+    "all": {
+        "en": "All",
+        "ar": "الكل"
+    },
+    "search_by_name": {
+        "en": "Search by Name",
+        "ar": "ابحث بواسطة الاسم"
+    },
+    "search_by_user": {
+        "en": "Search by User",
+        "ar": "ابحث بواسطة المستخدم"
+    },
+    "latest": {
+        "en": "Latest",
+        "ar": "الأحدث"
+    },
+    "oldest": {
+        "en": "Oldest",
+        "ar": "الأقدم"
+    },
+    "edit_type": {
+        "en": "Edit Pet Type",
+        "ar": "تعديل نوع الحيوان"
+    },
+    "edit_species": {
+        "en": "Edit Species Type",
+        "ar": "تعديل فصيلة الحيوان"
+    },
+    "saving": {
+        "en": "Saving",
+        "ar": "جاري الحفظ..."
+    },
+    "updating": {
+        "en": "Updating",
+        "ar": "جاري التحديث..."
+    },
+    "created_successfully": {
+        "en": "Created Successfully",
+        "ar": "تمت الإضافة بنجاح"
+    },
+    "updated_successfully": {
+        "en": "Updated Successfully",
+        "ar": "تم تحديث المعلومات بنجاح"
+    },
+    "unexpected_error": {
+        "en": "UnExpected Error",
+        "ar": "حدث خطأ غير متوقع"
+    },
+    "mood_in_arabic": {
+        "en": "Mood in Arabic",
+        "ar": "المزاج بالعربية"
+    },
+    "mood_in_english": {
+        "en": "Mood in English",
+        "ar": "المزاج بالإنكليزية"
+    },
+    "create_new_mood": {
+        "en": "Add New Mood",
+        "ar": "إضافة اسم مزاج جديد"
+    },
+    "edit_mood": {
+        "en": "Edit Mood",
+        "ar": "تعديل معلومات المزاج"
+    },
+    "create_new_healthy_status": {
+        "en": "Create New Healthy Status ",
+        "ar": "إضافة حالة صحية جديدة"
+    },
+    "edit_healthy_status": {
+        "en": "Edit Healthy Status ",
+        "ar": "تعديل الحالة الصحية"
+    },
+    "create_new_country": {
+        "en": "Create New Country",
+        "ar": "اضافة بلد جديد"
+    },
+    "edit_country": {
+        "en": "Edit Country",
+        "ar": "تعديل معلومات البلد"
+    },
+    "country": {
+        "en": "Country",
+        "ar": "البلد"
+    },
+    "country_details": {
+        "en": "Country Details",
+        "ar": "تفاصيل البلد"
+    },
+    "city_related_country": {
+        "en": "Cities Related This Country",
+        "ar": " المحافظات المرتبطة بالدولة"
+    },
+    "city": {
+        "en": "City",
+        "ar": "المحافظة"
+    },
+    "create_new_city": {
+        "en": "Create New City",
+        "ar": "اضافة محافظة جديدة"
+    },
+    "edit_city": {
+        "en": "Edit City",
+        "ar": "تعديل معلومات المحافظة"
+    },
+    "city_details": {
+        "en": "City Details",
+        "ar": "تفاصيل المحافظة"
+    },
+    "city_related_city": {
+        "en": "Zones Related This City",
+        "ar": " المناطق المرتبطة بالمحافظة"
+    },
+    "create_new_zone": {
+        "en": "Create New Zone",
+        "ar": "اضافة منطقة جديدة"
+    },
+    "edit_zone": {
+        "en": "Edit Zone",
+        "ar": "تعديل معلومات المنطقة"
+    },
+    "language_code": {
+        "en": "Language Code",
+        "ar": "رمز اللغة"
+    },
+    "name": {
+        "en": "Name",
+        "ar": "الاسم"
+    },
+    "status": {
+        "en": "Status",
+        "ar": "الحالة"
+    },
+    "app_translation": {
+        "en": "App Translations",
+        "ar": "ترجمة التطبيق"
+    },
+    "dashboard_translation": {
+        "en": "Dashboard Translations",
+        "ar": "ترجمة لوحة التحكم"
+    },
+    "translations_for_language": {
+        "en": "Translations for Language",
+        "ar": "الترجمات للغة"
+    },
+    "search_by_key_or_value": {
+        "en": "Search by key or value",
+        "ar": "البحث حسب المفتاح أو القيمة"
+    },
+    "translations": {
+        "en": "Translations",
+        "ar": "الترجمات"
+    },
+    "save_translations": {
+        "en": "Save Translations",
+        "ar": "حفظ الترجمات"
+    },
+    "group": {
+        "en": "Group",
+        "ar": "المجموعة"
+    },
+    "key": {
+        "en": "Key",
+        "ar": "المفتاح"
+    },
+    "value": {
+        "en": "Value",
+        "ar": "القيمة"
+    },
+    "active": {
+        "en": "Active",
+        "ar": "فعال"
+    },
+    "not_active": {
+        "en": "Not Active",
+        "ar": "غير فعال"
+    },
+    "edit_config": {
+        "en": "Edit Config",
+        "ar": "تعديل الإعدادات"
+    },
+    "time_to_notify_before_the_play_date": {
+        "en": "Time To Notify Before The Play Date",
+        "ar": "عدد الدقائق للاشعار قبل موعد اللعب"
+    },
+    "time_to_notify_before_the_breed_date": {
+        "en": "Time To Notify Before The Breed Date",
+        "ar": "عدد الدقائق للاشعار قبل موعد التزاوج"
+    },
+    "time_to_notify_before_the_event": {
+        "en": "Time To Notify Before The Event",
+        "ar": "عدد الدقائق للاشعار قبل موعد الفعالية"
+    },
+    "count_request_play_date_per_day": {
+        "en": "Count Request Play Date Per Day",
+        "ar": "الحد الأقصى المسموح لعدد طلبات اللعب باليوم"
+    },
+    "count_request_breed_date_per_day": {
+        "en": "Time To Notify Before The Breed Date",
+        "ar": "الحد الأقصى المسموح لعدد طلبات التزاوج باليوم"
+    },
+    "count_invitation_for_request_play_date": {
+        "en": "Count Invitation For Requesst Play Date",
+        "ar": "عدد الدعوات المسموح لطلب اللعب "
+    },
+    "count_invitation_for_request_breed_date": {
+        "en": "Count Invitation For Requesst Breed Date",
+        "ar": "عدد الدعوات المسموح لطلب التزاوج"
+    },
+    "limit_attachment_vet": {
+        "en": "Limit Attachment Vet",
+        "ar": "تحديد الحد المسموح لمرفقات الطبيب البيطري"
+    },
+    "allow_vet_attachment_count": {
+        "en": "Allow Vet Attachment Count",
+        "ar": "عدد المرفقات المسموح بها"
+    },
+    "count_point_charged_automatically_on_register": {
+        "en": "Count Point Charged Automatically On Register",
+        "ar": "عدد النقاط  التي يتم شحنها تلقائيا عند الاشتراك"
+    },
+    "earned_point_rate_event": {
+        "en": "Earned Point Rate Event",
+        "ar": "عدد النقاط  المكتسبة عند تقييم للفعاليات"
+    },
+    "earned_point_rate_breed_date": {
+        "en": "Earned Point Rate Breed Date",
+        "ar": "عدد النقاط المكتسبة عند تقييم موعد تزاوج"
+    },
+    "earned_point_rate_play_date": {
+        "en": "Earned Point Rate Play Date",
+        "ar": "عدد النقاط المكتسبة عند تقييم موعد لعب "
+    },
+    "return_point_cancle_event": {
+        "en": "Return Point Cancle Event",
+        "ar": "النقاط المرجعة عند إلغاء المدعو حضور فعالية"
+    },
+    "return_point_cancle_event_by_admin": {
+        "en": "Return Point Cancle Event By Admin",
+        "ar": "النقاط المرجعة عند إلغاء المدير فعالية"
+    },
+    "return_point_cancle_breed_date_invitor": {
+        "en": "Return Point Cancle Breed Date By Invitor",
+        "ar": "النقاط المرجعة عند إلغاء المدعو طلب دعوة تزاوج"
+    },
+    "return_point_cancle_breed_date_requester": {
+        "en": "Return Point Cancle Breed Date By Requester",
+        "ar": "النقاط المرجعة عند الغاء صاحب الطلب موعد التزاوج "
+    },
+    "return_point_cancle_play_date_invitor": {
+        "en": "Return Point Cancle Play Date By Invitor",
+        "ar": "النقاط المرجعة عند إالغاء المدعو طلب دعوة اللعب"
+    },
+    "return_point_cancle_play_date_requester": {
+        "en": "Return Point Cancle Play Date By Requester",
+        "ar": "النقاط المرجعة عند الغاء صاحب الطلب موعد اللعب"
+    },
+    "expended_point_accept_vet_emergency_request": {
+        "en": "Expended Point Accept Vet Emergency Request",
+        "ar": "النقاط المقطوعة عند قبول الطبيب طلب طوارئ "
+    },
+    "expended_point_accept_event": {
+        "en": "Expended Point Accept Event",
+        "ar": "النقاط المقطوعة عند قبول فعالية"
+    },
+    "expended_point_accept_breed_date": {
+        "en": "Expended Point Accept Breed Date",
+        "ar": "النقاط المقطوعة عند قبول موعد تزاوج "
+    },
+    "expended_point_create_breed_date": {
+        "en": "Expended Point Create Breed Date",
+        "ar": "النقاط المقطوعة عند إنشاء موعد تزاوج"
+    },
+    "expended_point_accept_play_date": {
+        "en": "Expended Point Accept Play Date",
+        "ar": "النقاط المقطوعة عند قبول موعد لعب"
+    },
+    "expended_point_create_play_date": {
+        "en": "Expended Point Create Play Date",
+        "ar": "النقاط المقطوعة عند إنشاء موعد لعب"
+    },
+    "min_spent_points": {
+        "en": "Minimum Spent Points",
+        "ar": "الحد الأدنى من النقاط المصروفة"
+    },
+    "color_code": {
+        "en": "Color Code",
+        "ar": "رمز اللون"
+    },
+    "add_new_point_rank": {
+        "en": "Add New Point Rank",
+        "ar": "إضافة تصنيف جديد"
+    },
+    "edit_point_rank": {
+        "en": "Edit Point Rank",
+        "ar": "تعديل التصنيف "
+    },
+    "minimum_balance": {
+        "en": "Minimum Balance",
+        "ar": "الحد الأدنى للرصيد"
+    },
+    "maximum_balance": {
+        "en": "Maximum Balance",
+        "ar": "الحد الأقصى للرصيد"
+    },
+    "percentage": {
+        "en": "Percentage",
+        "ar": "النسبة"
+    },
+    "amount": {
+        "en": "Amount",
+        "ar": "مبلغ"
+    },
+    "add_new_price": {
+        "en": "Add New Price",
+        "ar": "إضافة سعر جديد"
+    },
+    "edit_price": {
+        "en": "Edit Price",
+        "ar": "تعديل السعر"
+    },
+    "event_title": {
+        "en": "Event Title",
+        "ar": "عنوان الفعالية"
+    },
+    "date": {
+        "en": "Date",
+        "ar": "التاريخ"
+    },
+    "time": {
+        "en": "Time",
+        "ar": "الوقت"
+    },
+    "location": {
+        "en": "Location",
+        "ar": "المكان"
+    },
+    "proposed_animals": {
+        "en": "Proposed Animals",
+        "ar": "الحيوانات المقترحة"
+    },
+    "event_details": {
+        "en": "Event Details",
+        "ar": "تفاصيل الفعالية"
+    },
+    "event_info": {
+        "en": "Event Information",
+        "ar": "معلومات الفعالية"
+    },
+    "add_new_event": {
+        "en": "Add New Event",
+        "ar": "إضافة فعالية جديدة"
+    },
+    "title": {
+        "en": "Title",
+        "ar": "العنوان"
+    },
+    "select_city": {
+        "en": "Select City",
+        "ar": "اختر المحافظة"
+    },
+    "place": {
+        "en": "Place",
+        "ar": "المكان"
+    },
+    "additions": {
+        "en": "Additions",
+        "ar": "الإضافات"
+    },
+    "animal_types": {
+        "en": "Animal Types",
+        "ar": "أنواع الحيوانات"
+    },
+    "description": {
+        "en": "Description",
+        "ar": "الوصف"
+    },
+    "join_type": {
+        "en": "Join Type",
+        "ar": "طريقة الانضمام"
+    },
+    "discounted_price_with_all_addons": {
+        "en": "Discounted price with all addons",
+        "ar": "السعر بعد الخصم مع كل الاضافات"
+    },
+    "requires_admin_approval": {
+        "en": "Requires admin approval",
+        "ar": "يتطلب موافقة المسؤول"
+    },
+    "edit_event": {
+        "en": "Edit Event",
+        "ar": "تعديل الفعالية"
+    },
+    "proposed_animals_for_event": {
+        "en": "Proposed Animals for Event",
+        "ar": "الحيوانات المقترحة لفعالية"
+    },
+    "join_requests_for_event": {
+        "en": "Join Requests for Event",
+        "ar": "طلبات الانضمام للغعالية"
+    },
+    "available": {
+        "en": "Available",
+        "ar": "متاح"
+    },
+    "unavailable": {
+        "en": "Unavailable",
+        "ar": "غير متاح"
+    },
+    "age": {
+        "en": "Age",
+        "ar": "العمر"
+    },
+    "gender": {
+        "en": "Gender",
+        "ar": "الجنس"
+    },
+    "invitation_status": {
+        "en": "Invitation Status",
+        "ar": "حالة الدعوة"
+    },
+    "invite_to_event": {
+        "en": "Invite to Event",
+        "ar": "دعوة لحضور الفعالية"
+    },
+    "accept": {
+        "en": "Accept",
+        "ar": "قبول"
+    },
+    "reject": {
+        "en": "Reject",
+        "ar": "رفض"
+    },
+    "no_matching_animals": {
+        "en": "No matching animals for the animal types in the event...",
+        "ar": "لا يوجد حيوانات مطابقة لأنواع الحيوانات الموجودة في الفعالية ...!!!!"
+    },
+    "no_join_requests": {
+        "en": "No join requests for this event",
+        "ar": "لا يوجد طلبات انضمام لهذه الفعالية"
+    },
+    "main_info": {
+        "en": "Main Information",
+        "ar": "المعلومات الرئيسية"
+    },
+    "invitations": {
+        "en": "Invitations",
+        "ar": "الدعوات"
+    },
+    "no_description": {
+        "en": "No description",
+        "ar": "لا يوجد وصف"
+    },
+    "no_data": {
+        "en": "No data",
+        "ar": "لا يوجد "
+    },
+    "price": {
+        "en": "Price",
+        "ar": "السعر"
+    },
+    "invited_animals": {
+        "en": "Invited Animals for this Event",
+        "ar": "الحيوانات المدعوة لهذه الفعالية"
+    },
+    "year": {
+        "en": "Year",
+        "ar": "سنة"
+    },
+    "month": {
+        "en": "Month",
+        "ar": "شهر"
+    },
+    "cancel_invite": {
+        "en": "Cancel Invitation",
+        "ar": "إلغاء الدعوة"
+    },
+    "are_you_sure_invite": {
+        "en": "Are you sure you want to invite this pet owner to attend?",
+        "ar": "هل أنت متأكد من دعوة هذا المالك للحضور؟"
+    },
+    "sure_invite_to_event": {
+        "en": "Are you sure you want to invite the owner to the event?",
+        "ar": "هل أنت متأكد من دعوة المالك إلى الفعالية؟"
+    },
+    "yes_invite": {
+        "en": "Yes, Invite",
+        "ar": "نعم, دعوة"
+    },
+    "cancel": {
+        "en": "Cancel",
+        "ar": "إلغاء"
+    },
+    "done": {
+        "en": "Done!",
+        "ar": "تم!"
+    },
+    "invite_sent_success": {
+        "en": "Invitation has been sent successfully.",
+        "ar": "تم إرسال الدعوة بنجاح."
+    },
+    "error": {
+        "en": "Error!",
+        "ar": "خطأ!"
+    },
+    "error_send_invite": {
+        "en": "An error occurred while sending the invitation.",
+        "ar": "حدث خطأ أثناء إرسال الدعوة."
+    },
+    "are_you_sure_cancel_invite": {
+        "en": "Are you sure you want to cancel the invitation?",
+        "ar": "هل أنت متأكد من إلغاء الدعوة؟"
+    },
+    "sure_cancel_invite": {
+        "en": "Are you sure you want to cancel the invitation?",
+        "ar": "هل أنت متأكد من إلغاء دعوة المالك؟"
+    },
+    "yes_cancel_invite": {
+        "en": "Yes, Cancel Invitation",
+        "ar": "نعم, إلغاء الدعوة"
+    },
+    "error_cancel_invite": {
+        "en": "An error occurred while cancelling the invitation.",
+        "ar": "حدث خطأ أثناء إلغاء الدعوة."
+    },
+    "accept_join": {
+        "en": "Accept Join",
+        "ar": "قبول الانضمام"
+    },
+    "sure_accept_join_event": {
+        "en": "Are you sure you want to accept joining the event?",
+        "ar": "هل أنت متأكد من قبول الانضمام للفعالية؟"
+    },
+    "yes_accept_join": {
+        "en": "Yes, Accept Join",
+        "ar": "نعم, قبول الانضمام"
+    },
+    "error_accept_join": {
+        "en": "An error occurred while accepting the join.",
+        "ar": "حدث خطأ أثناء قبول الانضمام."
+    },
+    "reject_join": {
+        "en": "Reject Join",
+        "ar": "رفض الانضمام"
+    },
+    "cancel_event_invitation": {
+        "en": "Cancel event invitation",
+        "ar": "الغاء دعوة الغعالية"
+    },
+    "sure_reject_join_event": {
+        "en": "Are you sure you want to reject joining the event?",
+        "ar": "هل أنت متأكد من رفض الانضمام للفعالية؟"
+    },
+    "sure_cancel_event_invitation": {
+        "en": "Are you sure you want to cancel invitation the event?",
+        "ar": "هل أنت متأكد من الغاء الدعوة للفعالية؟"
+    },
+    "yes_reject_join": {
+        "en": "Yes, Reject Join",
+        "ar": "نعم, رفض الانضمام"
+    },
+    "yes_cancel_event_invitation": {
+        "en": "Yes, Cancel event invitation",
+        "ar": "نعم, الغاء الدعوة للفعالية"
+    },
+    "error_reject_join": {
+        "en": "An error occurred while rejecting the join.",
+        "ar": "حدث خطأ أثناء رفض الانضمام."
+    },
+    "add_new_type": {
+        "en": "Add New Type",
+        "ar": "إضافة نوع جديد"
+    },
+    "type_details": {
+        "en": "Type Details",
+        "ar": "تفاصيل النوع"
+    },
+    "addons_related_type": {
+        "en": "Addons Related This Type",
+        "ar": "الإضافات التابعة للنوع"
+    },
+    "add_new_addons": {
+        "en": "Add New Addons",
+        "ar": "إضافة جديدة"
+    },
+    "user": {
+        "en": "User",
+        "ar": "المستخدم"
+    },
+    "mobile_number": {
+        "en": "Mobile Number",
+        "ar": "رقم الموبايل"
+    },
+    "rejection_reason": {
+        "en": "Rejection Reason",
+        "ar": "سبب الرفض"
+    },
+    "are_you_sure_accept_event": {
+        "en": "Are you sure you want to accept the event?",
+        "ar": "هل أنت متأكد من قبول الفعالية؟"
+    },
+    "yes_accept": {
+        "en": "Yes, Accept",
+        "ar": "نعم, قبول"
+    },
+    "admin_comment_required": {
+        "en": "Admin comment is required.",
+        "ar": "تعليق الإداري مطلوب."
+    },
+    "error_rejecting_event": {
+        "en": "An error occurred while rejecting the event.",
+        "ar": "حدث خطأ أثناء رفض الفعالية"
+    },
+    "admin_comment": {
+        "en": "Admin Comment",
+        "ar": "تعليق الإداري"
+    },
+    "close": {
+        "en": "Close",
+        "ar": "إغلاق"
+    },
+    "enter_admin_comment": {
+        "en": "Enter admin comment here...",
+        "ar": "أدخل تعليق الإداري هنا..."
+    },
+    "reject_event": {
+        "en": "Reject Event",
+        "ar": "رفض الفعالية"
+    },
+    "pet_name": {
+        "en": "Pet Name",
+        "ar": "اسم الحيوان"
+    },
+    "owner_name": {
+        "en": "Owner Name",
+        "ar": "اسم المالك"
+    },
+    "general_or_custom": {
+        "en": "General / Custom ?",
+        "ar": "عام / مخصص ؟"
+    },
+    "general": {
+        "en": "General",
+        "ar": "عام"
+    },
+    "custom": {
+        "en": "Custom",
+        "ar": "مخصص"
+    },
+    "select_discount_type": {
+        "en": "Select Discount Type",
+        "ar": "اختر نوع الخصم"
+    },
+    "code": {
+        "en": "Code",
+        "ar": "الكود"
+    },
+    "discount_applies_to": {
+        "en": "Discount applies to?",
+        "ar": "الخصم يطبق على ؟"
+    },
+    "discount_applies_on": {
+        "en": "Discount applies On",
+        "ar": "الخصم يطبق على "
+    },
+    "select": {
+        "en": "Select",
+        "ar": "اختر"
+    },
+    "discount": {
+        "en": "Discount",
+        "ar": "الخصم"
+    },
+    "number_of_uses": {
+        "en": "Number of uses",
+        "ar": "عدد مرات الاستخدام"
+    },
+    "add_new_discount_code": {
+        "en": "Add New Discount Code",
+        "ar": "إضافة كود خصم جديد"
+    },
+    "discount_code_info": {
+        "en": "Discount Code Information",
+        "ar": "معلومات كود الخصم"
+    },
+    "discount_code_details": {
+        "en": "Discount Code Details",
+        "ar": "تفاصيل كود الخصم"
+    },
+    "edit_discount_code": {
+        "en": "Edit Discount Code ",
+        "ar": "تعديل كود الخصم"
+    },
+    "not_uses": {
+        "en": "Not Uses",
+        "ar": "غير مستخدم"
+    },
+    "delete_discount_code": {
+        "en": "Delete Discount Code",
+        "ar": "حذف كود الخصم"
+    },
+    "users": {
+        "en": "Users",
+        "ar": "المستخدمين"
+    },
+    "discount_type": {
+        "en": "Discount Type",
+        "ar": "نوع كود الخصك"
+    },
+    "discount_nature": {
+        "en": "Discount Nature",
+        "ar": "طبيعة الخصم"
+    },
+    "discount_value": {
+        "en": "Discount Value",
+        "ar": "قيمة الخصم"
+    },
+    "max_uses": {
+        "en": "Max Uses",
+        "ar": "الحد الأقصى للاستخدامات"
+    },
+    "max_uses_for_user": {
+        "en": "Max Uses For User",
+        "ar": "الحد الأقصى للاستخدامات لكل مستخدم"
+    },
+    "start_at": {
+        "en": "Start At",
+        "ar": "تاريخ البدء"
+    },
+    "expired_at": {
+        "en": "Expired At",
+        "ar": "تاريخ الإنتهاء"
+    },
+    "initial_status_code": {
+        "en": "Initial Status For code",
+        "ar": "الحالة البدائية للكود"
+    },
+    "select_user_assign_discount_code": {
+        "en": "Select Users Assign this Discount Code",
+        "ar": "يرجى اختيار المستخدمين الذين تريد اعطاؤهم كود الخصم"
+    },
+    "uses_counts": {
+        "en": "Count Uses",
+        "ar": "عدد الاستخدامات"
+    },
+    "users_used_discount_code": {
+        "en": "Users who used the discount code",
+        "ar": "المستخدمين الذين استخدموا كود الخصم"
+    },
+    "username": {
+        "en": "Username",
+        "ar": "اسم المستخدم"
+    },
+    "used_discount": {
+        "en": "Used Discount",
+        "ar": "الخصم المستخدم"
+    },
+    "usage_date": {
+        "en": "Usage Date",
+        "ar": "تاريخ الاستخدام"
+    },
+    "deactivate_code": {
+        "en": "Deactivate Code",
+        "ar": "إلغاء تفعيل الكود"
+    },
+    "activate_code": {
+        "en": "Activate Code",
+        "ar": "تفعيل الكود"
+    },
+    "users_associated_with_discount_code": {
+        "en": "Users associated with the discount code",
+        "ar": "المستخدمين المرتبطين بكود الخصم"
+    },
+    "discount_code_applied_to": {
+        "en": "The discount code is applied to",
+        "ar": "كود الخصم مطبق على"
+    },
+    "add_discount_code_to_user": {
+        "en": "Add discount code to user",
+        "ar": "اضافة كود الخصم لمستخدم"
+    },
+    "email": {
+        "en": "Email",
+        "ar": "الإيميل"
+    },
+    "delete": {
+        "en": "Delete",
+        "ar": "إلغاء"
+    },
+    "choose_user": {
+        "en": "Choose user",
+        "ar": "اختر المستخدم"
+    },
+    "payment_method": {
+        "en": "Payment Method",
+        "ar": "طريقة الدفع"
+    },
+    "request_date": {
+        "en": "Request Date",
+        "ar": "تاريخ الطلب"
+    },
+    "pending": {
+        "en": "Pending",
+        "ar": "قيد الانتظار"
+    },
+    "approved": {
+        "en": "Approved",
+        "ar": "موافق عليه"
+    },
+    "rejected": {
+        "en": "Rejected",
+        "ar": "مرفوض"
+    },
+    "cancelled": {
+        "en": "Cancelled",
+        "ar": "ملغي"
+    },
+    "picked_up": {
+        "en": "Picked Up",
+        "ar": "مستلم من قبل السائق"
+    },
+    "unknown": {
+        "en": "Unknown",
+        "ar": "غير معروف"
+    },
+    "accept_request": {
+        "en": "Accept Request",
+        "ar": "قبول طلب"
+    },
+    "reject_request": {
+        "en": "Reject Request",
+        "ar": "رفض الطلب"
+    },
+    "paid": {
+        "en": "Paid",
+        "ar": "مدفوع"
+    },
+    "unpaid": {
+        "en": "Unpaid",
+        "ar": "غير مدفوع"
+    },
+    "completed": {
+        "en": "Completed",
+        "ar": "مكتمل"
+    },
+    "charge_balance": {
+        "en": "Charge Balance",
+        "ar": "شحن رصيد"
+    },
+    "select_payment_method": {
+        "en": "Select Payment Method",
+        "ar": "اختر طريقة الدفع"
+    },
+    "translation_notes": {
+        "en": "To edit the translation, you can search for the word or phrase you want to translate, then click the search button. You can modify it by editing the value in the field column, and then clicking the save translation button.",
+        "ar": "لتعديل الترجمة يمكنك البحث عن الكلمة أو المصطلح الذي تريد ترجمته، ومن ثم الضغط على زر البحث. ويمكن تعديله بواسطة تعديل القيمة في عمود الحقل، ومن ثم الضغط على زر حفظ الترجمة."
+    },
+    "link": {
+        "en": "Link",
+        "ar": "الرابط"
+    },
+    "image": {
+        "en": "Image",
+        "ar": "الصورة"
+    },
+    "start_date": {
+        "en": "Start Date",
+        "ar": "من تاريخ"
+    },
+    "end_date": {
+        "en": "End Date",
+        "ar": "إلى تاريخ"
+    },
+    "max_post_per_pet": {
+        "en": "Max post per Pet",
+        "ar": "أقصى حد من المنشورات للحيوان"
+    },
+    "post_details": {
+        "en": "Post details",
+        "ar": "تفاصيل المنشور"
+    },
+    "allowed_days": {
+        "en": "Allowed days",
+        "ar": "الايام المتاحة"
+    },
+    "no_days_set": {
+        "en": "No days set",
+        "ar": "لم يتم وضع ايام بعد"
+    },
+    "max_caption_chars": {
+        "en": "Max caption chars",
+        "ar": "أقصى عدد لمحارف الوصف"
+    },
+    "number_of_likes": {
+        "en": "Number of likes",
+        "ar": "عدد الاعجابات"
+    },
+    "image_caption": {
+        "en": "Image caption",
+        "ar": "وصف الصورة"
+    },
+    "no_image_caption": {
+        "en": "dosent have Image caption",
+        "ar": "لا يملك وصف الصورة"
+    },
+    "likes": {
+        "en": "likes",
+        "ar": "الاعجابات"
+    },
+    "no_posts_found": {
+        "en": "No posts found",
+        "ar": "لا يوجد منشورات"
+    },
+    "no_posts_in_trend_yet": {
+        "en": "No posts in trend yet",
+        "ar": "لا يوجد منشورات تابعة لهذا التريند بعد"
+    },
+    "trends": {
+        "en": "Trends",
+        "ar": "التريندات"
+    },
+    "view_details": {
+        "en": "View details",
+        "ar": "مشاهدة التفاصيل"
+    },
+    "view_image": {
+        "en": "View image",
+        "ar": "مشاهدة الصورة"
+    },
+    "add_new_ads": {
+        "en": "Add new Ads",
+        "ar": "إضافة إعلان جديد"
+    },
+    "edit_ads": {
+        "en": "Edit Ads",
+        "ar": "تعديل إعلان"
+    },
+    "edit_referral_config": {
+        "en": "Edit Referral Configs",
+        "ar": "تعديل مكافات الإحالة"
+    },
+    "user_payout_amount": {
+        "en": "User Payout Amount",
+        "ar": "النقاط التي يكتسبها المستخدم عند دعوة الأصدقاء "
+    },
+    "number_of_invited_users_required": {
+        "en": "Number Of Invited Users Required",
+        "ar": "عدد المستخدمين المدعوين المطلوبين للحصول على المكافأة"
+    },
+    "answer_ar": {
+        "en": "Answer (Arabic)",
+        "ar": "الجواب (بالعربية)"
+    },
+    "answer_en": {
+        "en": "Answer (English)",
+        "ar": "الجواب (بالإنجليزية)"
+    },
+    "question_en": {
+        "en": "Question (English)",
+        "ar": "السؤال (بالإنجليزية)"
+    },
+    "question_ar": {
+        "en": "Question (Arabic)",
+        "ar": "السؤال (بالعربية)"
+    },
+    "show_answer": {
+        "en": "Show Answer",
+        "ar": "عرض الجواب"
+    },
+    "question_details": {
+        "en": "Question Details",
+        "ar": "تفاصيل السؤال"
+    },
+    "edit_question": {
+        "en": "Edit Question",
+        "ar": "تعديل السؤال"
+    },
+    "delete_question": {
+        "en": "Delete Question",
+        "ar": "حذف السؤال"
+    },
+    "faq_details": {
+        "en": "FAQ Details",
+        "ar": "تفاصيل السؤال الشائع"
+    },
+    "edit_faq": {
+        "en": "Edit FAQ ",
+        "ar": "تعديل السؤال الشائع"
+    },
+    "add_new_faq": {
+        "en": "Add New FAQ",
+        "ar": "إضافة سؤال شائع"
+    },
+    "no_result": {
+        "en": "No Result",
+        "ar": "لا يوجد نتائج"
+    },
+    "search_by_phone_number": {
+        "en": "Search by Phone Number",
+        "ar": "ابحث بواسطة رقم الموبايل"
+    },
+    "owner_phone_number": {
+        "en": "Owner Phone Number",
+        "ar": "رقم موبايل المالك"
+    },
+    "planning": {
+        "en": "Planning",
+        "ar": "قيد التخطيط"
+    },
+    "confirmed": {
+        "en": "Confirmed",
+        "ar": "مؤكد"
+    },
+    "request_status": {
+        "en": "Request Status",
+        "ar": "حالة الطلب"
+    },
+    "required_date": {
+        "en": "Required Date",
+        "ar": "التاريخ المطلوب"
+    },
+    "required_time": {
+        "en": "Required Time",
+        "ar": "الوقت المطلوب"
+    },
+    "notes": {
+        "en": "Notes",
+        "ar": "ملاحظات"
+    },
+    "no_notes": {
+        "en": "No notes available",
+        "ar": "لا توجد ملاحظات"
+    },
+    "male": {
+        "en": "Male",
+        "ar": "ذكر"
+    },
+    "female": {
+        "en": "Female",
+        "ar": "أنثى"
+    },
+    "pet_invitations": {
+        "en": "Pet Invitations",
+        "ar": "الحيوانات المدعوة"
+    },
+    "date_request_for_pet": {
+        "en": "Date Request For Pet",
+        "ar": "طلب تحديد موعد للحيوان"
+    },
+    "date_request_type": {
+        "en": "Date Request",
+        "ar": "موعد"
+    },
+    "gifts": {
+        "en": "Point Transfers Between Users",
+        "ar": "تحويلات النقاط بين المستخدمين"
+    },
+    "sender": {
+        "en": "Sender",
+        "ar": "المرسل"
+    },
+    "receiver": {
+        "en": "Receiver",
+        "ar": "المستلم"
+    },
+    "sender_points_before": {
+        "en": "Sender Points Before",
+        "ar": "نقاط المرسل قبل"
+    },
+    "sender_points_after": {
+        "en": "Sender Points After",
+        "ar": "نقاط المرسل بعد"
+    },
+    "receiver_points_before": {
+        "en": "Receiver Points Before",
+        "ar": "نقاط المستلم قبل"
+    },
+    "receiver_points_after": {
+        "en": "Receiver Points After",
+        "ar": "نقاط المستلم بعد"
+    },
+    "created_at": {
+        "en": "Created At",
+        "ar": "تاريخ الإنشاء"
+    },
+    "gift_details": {
+        "en": "Gift Details",
+        "ar": "تفاصيل التحويل"
+    },
+    "back": {
+        "en": "Back",
+        "ar": "رجوع"
+    },
+    "started": {
+        "en": "Started",
+        "ar": "بدأت"
+    },
+    "finished": {
+        "en": "Finished",
+        "ar": "منتهية"
+    },
+    "color": {
+        "en": "Color",
+        "ar": "اللون"
+    },
+    "choose_color": {
+        "en": "choose Color",
+        "ar": "اختر اللون"
+    },
+    "permissions": {
+        "en": "Permissions",
+        "ar": "الصلاحيات"
+    },
+    "permission_employee": {
+        "en": "Employee Permissions",
+        "ar": "صلاحيات الموظف"
+    },
+    "filter_category": {
+        "en": "Filter Depends On Category",
+        "ar": "فلترة حسب الفئة"
+    },
+    "all_categories": {
+        "en": "All Categories",
+        "ar": "كل الفئات"
+    },
+    "discount_type_details": {
+        "en": "Discount Type Details",
+        "ar": "تفاصيل نوع كود الحسم"
+    },
+    "discount_codes_related": {
+        "en": "Discount Code Related",
+        "ar": "أكواد الخصم المرتبطة بالنوع"
+    },
+    "complaints_management": {
+        "en": "Complaints Management",
+        "ar": "إدارة الشكاوى"
+    },
+    "subject": {
+        "en": "Subject",
+        "ar": "الموضوع"
+    },
+    "priority": {
+        "en": "Priority",
+        "ar": "الأولوية"
+    },
+    "open": {
+        "en": "Open",
+        "ar": "مفتوحة"
+    },
+    "closed": {
+        "en": "Closed",
+        "ar": "مغلقة"
+    },
+    "spam": {
+        "en": "Spam",
+        "ar": "مزعجة"
+    },
+    "create_complaint": {
+        "en": "Create Complaint",
+        "ar": "إنشاء شكوى"
+    },
+    "enter_subject": {
+        "en": "Enter subject title",
+        "ar": "أدخل عنوان الموضوع"
+    },
+    "select_priority": {
+        "en": "Select priority",
+        "ar": "اختر الأهمية"
+    },
+    "high": {
+        "en": "High",
+        "ar": "عالية"
+    },
+    "medium": {
+        "en": "Medium",
+        "ar": "متوسطة"
+    },
+    "low": {
+        "en": "Low",
+        "ar": "ضعيفة"
+    },
+    "select_user": {
+        "en": "Select User",
+        "ar": "اختر المستخدم"
+    },
+    "complaint_details": {
+        "en": "Complaint Details",
+        "ar": "تفاصيل الشكوى"
+    },
+    "complaint": {
+        "en": "Complaint",
+        "ar": "الشكوى"
+    },
+    "last_update": {
+        "en": "Last Updated",
+        "ar": "آخر تحديث"
+    },
+    "messages": {
+        "en": "Messages",
+        "ar": "الرسائل"
+    },
+    "message": {
+        "en": "Message",
+        "ar": "الرسالة"
+    },
+    "message_by_user": {
+        "en": "Message by user",
+        "ar": "أضيفت بواسطة المستخدم"
+    },
+    "add_new_message": {
+        "en": "Add New Message",
+        "ar": "إضافة رسالة جديدة"
+    },
+    "no_messages": {
+        "en": "No messages found",
+        "ar": "لا توجد رسائل"
+    },
+    "attachments": {
+        "en": "Attachments",
+        "ar": "الملفات المرفقة"
+    },
+    "view_file": {
+        "en": "View File",
+        "ar": "عرض الملف"
+    },
+    "message_text": {
+        "en": "Message Text",
+        "ar": "نص الرسالة"
+    },
+    "add_attachments": {
+        "en": "Add Attachments",
+        "ar": "إضافة مرفقات"
+    },
+    "pet_owner_details": {
+        "en": "Pet Owner Details",
+        "ar": "تفاصيل المالك"
+    },
+    "phone_number": {
+        "en": "Phone Number",
+        "ar": "رقم الهاتف"
+    },
+    "pet_species_type": {
+        "en": "Pet Species",
+        "ar": "فصيلة الحيوان"
+    },
+    "yes": {
+        "en": "Yes",
+        "ar": "نعم"
+    },
+    "no": {
+        "en": "No",
+        "ar": "لا"
+    },
+    "zone": {
+        "en": "Zone",
+        "ar": "المنطقة"
+    },
+    "account_status": {
+        "en": "Account Status",
+        "ar": "حالة الحساب"
+    },
+    "pets": {
+        "en": "Pets",
+        "ar": "الحيوانات الأليفة"
+    },
+    "pet_owner": {
+        "en": "Pet Owner",
+        "ar": "المالك"
+    },
+    "cover_image": {
+        "en": "Cover Image",
+        "ar": "صورة الغلاف"
+    },
+    "years": {
+        "en": "Age (Years)",
+        "ar": "العمر (سنوات)"
+    },
+    "months": {
+        "en": "Age (Months)",
+        "ar": "العمر (أشهر)"
+    },
+    "deleted_user": {
+        "en": "Deleted user",
+        "ar": "مستخدم محذوف"
+    },
+    "pet_type_id": {
+        "en": "Pet Type",
+        "ar": "نوع الحيوان"
+    },
+    "healthy_status": {
+        "en": "Healthy Status",
+        "ar": "الحالة الصحية"
+    },
+    "add_new_pet": {
+        "en": "Add New Pet",
+        "ar": "إضافة حيوان جديد"
+    },
+    "choose": {
+        "en": "Choose",
+        "ar": "اختر"
+    },
+    "thumbnail": {
+        "en": "Thumbnail",
+        "ar": "الصورة المصغرة"
+    },
+    "view_thumbnail": {
+        "en": "View thumbnail",
+        "ar": "مشاهدة الصورة المصغرة"
+    },
+    "trend_details": {
+        "en": "Trend Details",
+        "ar": "تفاصيل التريند"
+    },
+    "trend_posts": {
+        "en": "Trend Posts",
+        "ar": "منشورات التريند"
+    },
+    "actions": {
+        "en": "Actions",
+        "ar": "الأفعال"
+    },
+    "posts": {
+        "en": "Posts",
+        "ar": "المنشورات"
+    },
+    "posted": {
+        "en": "Posted",
+        "ar": "الناشر"
+    },
+    "post": {
+        "en": "Post",
+        "ar": "المنشور"
+    },
+    "trend_info": {
+        "en": "Trend Information",
+        "ar": "معلومات التريند"
+    },
+    "pet_info": {
+        "en": "Pet Information",
+        "ar": "معلومات الحيوان"
+    },
+    "edit_pet": {
+        "en": "Edit Pet",
+        "ar": "تعديل الحيوان"
+    },
+    "moods": {
+        "en": "Moods",
+        "ar": "الحالة المزاجية"
+    },
+    "search_per_owner": {
+        "en": "Search By Pet Owner",
+        "ar": "بحث بواسطة المالك"
+    },
+    "search_pet_type": {
+        "en": "Search by Pet Type",
+        "ar": "بحث بواسطة نوع الحيوان"
+    },
+    "search_pet_species": {
+        "en": "Search by pet Species",
+        "ar": "بحث بواسطة فصيلة الحيوان"
+    },
+    "search_healthy_status": {
+        "en": "Search by Healthy Status",
+        "ar": "بحث بواسطة الحالة الصحية"
+    },
+    "pet_details": {
+        "en": "Pet Details",
+        "ar": "تفاصيل الحيوان"
+    },
+    "campaign_details": {
+        "en": "Campaign Details",
+        "ar": "تفاصيل الحملة"
+    },
+    "campaign_images": {
+        "en": "Campaign images",
+        "ar": "صور الحملة"
+    },
+    "donations": {
+        "en": "Donations",
+        "ar": "التبرعات"
+    },
+    "donation_campaigns": {
+        "en": "Donation campaigns",
+        "ar": "حملات التبرع"
+    },
+    "species": {
+        "en": "Species",
+        "ar": "الفصيلة"
+    },
+    "full_name": {
+        "en": "Full Name",
+        "ar": "الاسم الكامل"
+    },
+    "vaccines": {
+        "en": "Vaccines",
+        "ar": "اللقاحات"
+    },
+    "gallery": {
+        "en": "Gallery",
+        "ar": "معرض الصور"
+    },
+    "store": {
+        "en": "Store",
+        "ar": "التمجر"
+    },
+    "delivered": {
+        "en": "Delivered",
+        "ar": "تم التوصيل"
+    },
+    "change_order_status": {
+        "en": "Change Order Status",
+        "ar": "تغيير حالة الطلب"
+    },
+    "rating": {
+        "en": "Rating",
+        "ar": "التقييم"
+    },
+    "cancle_event": {
+        "en": "Cancle Event",
+        "ar": "إلغاء فعالية"
+    },
+    "event_cancelled_success": {
+        "en": "The event has been cancelled successfully.",
+        "ar": "تم إلغاء الفعالية بنجاح."
+    },
+    "error_cancel_event": {
+        "en": "An error occurred while cancelling the event.",
+        "ar": "حدث خطأ أثناء إلغاء الفعالية."
+    },
+    "are_you_sure_cancel_event": {
+        "en": "Are you sure you want to cancel this event?",
+        "ar": "هل أنت متأكد أنك تريد إلغاء هذه الفعالية؟"
+    },
+    "sure_cancel_event": {
+        "en": "Are you sure you want to cancel the event?",
+        "ar": "هل أنت متأكد من إلغاء الفعالية؟"
+    },
+    "yes_cancel": {
+        "en": "Yes, Cancel",
+        "ar": "نعم، إلغاء"
+    }
+}

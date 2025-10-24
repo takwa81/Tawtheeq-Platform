@@ -1,0 +1,22 @@
+[
+{"type":"header","version":"5.1.1deb5ubuntu1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"raee_2"},
+{"type":"table","name":"governorates","database":"raee_2","data":
+[
+{"id":"1","name_ar":"دمشق","name_en":"Damascus","created_at":"2025-03-16 10:13:28","updated_at":"2025-03-16 10:13:28","deleted_at":null},
+{"id":"2","name_ar":"اللاذقية","name_en":"Latakia","created_at":"2025-03-16 10:13:28","updated_at":"2025-03-16 10:13:28","deleted_at":null},
+{"id":"3","name_ar":"حمص","name_en":"Homs","created_at":"2025-03-16 10:13:28","updated_at":"2025-03-16 10:13:28","deleted_at":null},
+{"id":"4","name_ar":"حماة","name_en":"Hama","created_at":"2025-03-16 10:13:28","updated_at":"2025-03-16 10:13:28","deleted_at":null},
+{"id":"5","name_ar":"حلب","name_en":"Aleppo","created_at":"2025-03-16 10:13:28","updated_at":"2025-03-16 10:13:28","deleted_at":null},
+{"id":"6","name_ar":"درعا","name_en":"Daraa","created_at":"2025-03-16 10:13:28","updated_at":"2025-03-16 10:13:28","deleted_at":null},
+{"id":"7","name_ar":"طرطوس","name_en":"Tartous","created_at":"2025-03-16 10:13:28","updated_at":"2025-03-16 10:13:28","deleted_at":null},
+{"id":"8","name_ar":"ريف دمشق","name_en":"Damascus Countryside","created_at":"2025-03-16 10:13:28","updated_at":"2025-03-16 10:13:28","deleted_at":null},
+{"id":"9","name_ar":"القنيطرة","name_en":"Kenitra","created_at":"2025-03-16 10:13:28","updated_at":"2025-03-16 10:13:28","deleted_at":null},
+{"id":"10","name_ar":"السويداء","name_en":"As-Suwayda","created_at":"2025-03-16 10:13:28","updated_at":"2025-03-16 10:13:28","deleted_at":null},
+{"id":"11","name_ar":"إدلب","name_en":"Idlib","created_at":"2025-03-16 10:13:28","updated_at":"2025-03-16 10:13:28","deleted_at":null},
+{"id":"12","name_ar":"الرقة","name_en":"Raqqa","created_at":"2025-03-16 10:13:28","updated_at":"2025-03-16 10:13:28","deleted_at":null},
+{"id":"13","name_ar":"دير الزور","name_en":"Deir Ezzor","created_at":"2025-03-16 10:13:28","updated_at":"2025-03-16 10:13:28","deleted_at":null},
+{"id":"14","name_ar":"الحسكة","name_en":"Al-Hasakah","created_at":"2025-03-16 10:13:28","updated_at":"2025-03-16 10:13:28","deleted_at":null}
+]
+}
+]

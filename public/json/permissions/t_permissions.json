@@ -1,0 +1,2515 @@
+[
+    {
+        "name": "view_request_join",
+        "name_ar": "عرض طلبات الانضمام",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "add_employee",
+        "name_ar": "إضافة موظف",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "edit_employee",
+        "name_ar": "تعديل موظف",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "delete_employee",
+        "name_ar": "حذف موظف",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "view_employee",
+        "name_ar": "عرض الموظفين",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "show_employee",
+        "name_ar": "عرض تفاصيل الموظف",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "assign_permissions",
+        "name_ar": "إسناد صلاحيات للموظف",
+        "category_en": "Permissions",
+        "category_ar": "الصلاحيات"
+    },
+    {
+        "name": "add_vet",
+        "name_ar": "إضافة طبيب بيطري",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "edit_vet",
+        "name_ar": "تعديل طبيب بيطري",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "delete_vet",
+        "name_ar": "حذف طبيب بيطري",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "view_vet",
+        "name_ar": "عرض الأطباء",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "show_vet",
+        "name_ar": "عرض تفاصيل الطبيب",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "add_service_provider",
+        "name_ar": "إضافة مزود خدمة",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "edit_service_provider",
+        "name_ar": "تعديل مزود خدمة",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "delete_service_provider",
+        "name_ar": "حذف مزود خدمة",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "view_service_provider",
+        "name_ar": "عرض مزودو الخدمات",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "show_service_provider",
+        "name_ar": "عرض تفاصيل مزود الخدمة",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "add_delivery_captain",
+        "name_ar": "إضافة كابتن توصيل",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "edit_delivery_captain",
+        "name_ar": "تعديل كابتن توصيل",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "delete_delivery_captain",
+        "name_ar": "حذف كابتن توصيل",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "view_delivery_captain",
+        "name_ar": "عرض كابتن توصيل",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "show_delivery_captain",
+        "name_ar": "عرض تفاصيل كابتن توصيل",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "add_pet_owner",
+        "name_ar": "إضافة مالك حيوان",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "edit_pet_owner",
+        "name_ar": "تعديل مالك حيوان",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "delete_pet_owner",
+        "name_ar": "حذف مالك حيوان",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "view_pet_owner",
+        "name_ar": "عرض مالكو الحيوانات",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "show_pet_owner",
+        "name_ar": "عرض تفاصيل مالك الحيوانات",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "add_pet_type",
+        "name_ar": "إضافة نوع حيوان",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "edit_pet_type",
+        "name_ar": "تعديل نوع حيوان",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "delete_pet_type",
+        "name_ar": "حذف نوع حيوان",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "view_pet_type",
+        "name_ar": "عرض أنوع الحيوانات",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "add_pet_species",
+        "name_ar": "إضافة فصيلة حيوان",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "edit_pet_species",
+        "name_ar": "تعديل فصيلة حيوان",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "delete_pet_species",
+        "name_ar": "حذف فصيلة حيوان",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "view_pet_species",
+        "name_ar": "عرض فصائل الحيوانات",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "add_healthy_status",
+        "name_ar": "إضافة حالة صحية",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "edit_healthy_status",
+        "name_ar": "تعديل حالة صحية",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "delete_healthy_status",
+        "name_ar": "حذف حالة صحية",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "view_healthy_status",
+        "name_ar": "عرض الحالات الصحية",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "add_mood",
+        "name_ar": "إضافة مزاج",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "edit_mood",
+        "name_ar": "تعديل مزاج",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "delete_mood",
+        "name_ar": "حذف مزاج",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "view_mood",
+        "name_ar": "عرض أنواع المزاج",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "view_request_type",
+        "name_ar": "عرض انواع الطلبات",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "add_country",
+        "name_ar": "إضافة بلد",
+        "category_en": "Countries",
+        "category_ar": "البلدان"
+    },
+    {
+        "name": "edit_country",
+        "name_ar": "تعديل بلد",
+        "category_en": "Countries",
+        "category_ar": "البلدان"
+    },
+    {
+        "name": "delete_country",
+        "name_ar": "حذف بلد",
+        "category_en": "Countries",
+        "category_ar": "البلدان"
+    },
+    {
+        "name": "view_country",
+        "name_ar": "عرض البلدان",
+        "category_en": "Countries",
+        "category_ar": "البلدان"
+    },
+    {
+        "name": "show_country",
+        "name_ar": "عرض تفاصيل البلد",
+        "category_en": "Countries",
+        "category_ar": "البلدان"
+    },
+    {
+        "name": "add_city",
+        "name_ar": "إضافة محافظة",
+        "category_en": "Cities",
+        "category_ar": "المحافظات"
+    },
+    {
+        "name": "edit_city",
+        "name_ar": "تعديل محافظة",
+        "category_en": "Cities",
+        "category_ar": "المحافظات"
+    },
+    {
+        "name": "delete_city",
+        "name_ar": "حذف محافظة",
+        "category_en": "Cities",
+        "category_ar": "المحافظات"
+    },
+    {
+        "name": "view_city",
+        "name_ar": "عرض المحافظات",
+        "category_en": "Cities",
+        "category_ar": "المحافظات"
+    },
+    {
+        "name": "show_city",
+        "name_ar": "عرض تفاصيل المحافظة",
+        "category_en": "Cities",
+        "category_ar": "المحافظات"
+    },
+    {
+        "name": "add_zone",
+        "name_ar": "إضافة منطقة",
+        "category_en": "Zones",
+        "category_ar": "المناطق"
+    },
+    {
+        "name": "edit_zone",
+        "name_ar": "تعديل منطقة",
+        "category_en": "Zones",
+        "category_ar": "المناطق"
+    },
+    {
+        "name": "delete_zone",
+        "name_ar": "حذف منطقة",
+        "category_en": "Zones",
+        "category_ar": "المناطق"
+    },
+    {
+        "name": "view_zone",
+        "name_ar": "عرض المناطق",
+        "category_en": "Zones",
+        "category_ar": "المناطق"
+    },
+    {
+        "name": "view_languages",
+        "name_ar": "عرض اللغات",
+        "category_en": "Languages",
+        "category_ar": "اللغات"
+    },
+    {
+        "name": "view_translation_app",
+        "name_ar": "عرض مصطلحات التطبيق",
+        "category_en": "Languages",
+        "category_ar": "اللغات"
+    },
+    {
+        "name": "view_translation_dashboard",
+        "name_ar": "عرض مصطلحات لوحة التحكم",
+        "category_en": "Languages",
+        "category_ar": "اللغات"
+    },
+    {
+        "name": "edit_translation",
+        "name_ar": "تعديل المصطلحات ",
+        "category_en": "Languages",
+        "category_ar": "اللغات"
+    },
+    {
+        "name": "view_public_configs",
+        "name_ar": "عرض الإعدادات العامة",
+        "category_en": "Configs",
+        "category_ar": "الإعدادات العامة"
+    },
+    {
+        "name": "edit_public_configs",
+        "name_ar": "تعديل الإعدادات العامة",
+        "category_en": "Configs",
+        "category_ar": "الإعدادات العامة"
+    },
+    {
+        "name": "view_balance_configs",
+        "name_ar": "عرض إعدادات النقاط",
+        "category_en": "Balance Configs",
+        "category_ar": "إعدادات النقاط"
+    },
+    {
+        "name": "edit_balance_configs",
+        "name_ar": "تعديل إعدادات النقاط",
+        "category_en": "Balance Configs",
+        "category_ar": "إعدادات النقاط"
+    },
+    {
+        "name": "view_payment_methods",
+        "name_ar": "عرض طرق الدفع",
+        "category_en": "Payment Methods",
+        "category_ar": "طرق الدفع"
+    },
+    {
+        "name": "activate_payment_method",
+        "name_ar": "تفعيل طريقة الدفع",
+        "category_en": "Payment Methods",
+        "category_ar": "طرق الدفع"
+    },
+    {
+        "name": "deactivate_payment_method",
+        "name_ar": "إلغاء تفعيل طريقة الدفع",
+        "category_en": "Payment Methods",
+        "category_ar": "طرق الدفع"
+    },
+    {
+        "name": "add_classification_of_accounts",
+        "name_ar": "إضافة تصنيف حساب",
+        "category_en": "Classification Account",
+        "category_ar": "تصنيفات الحسابات"
+    },
+    {
+        "name": "edit_classification_of_accounts",
+        "name_ar": "تعديل تصنيف حساب",
+        "category_en": "Classification Account",
+        "category_ar": "تصنيفات الحسابات"
+    },
+    {
+        "name": "delete_classification_of_accounts",
+        "name_ar": "حذف تصنيف حساب",
+        "category_en": "Classification Account",
+        "category_ar": "تصنيفات الحسابات"
+    },
+    {
+        "name": "view_classification_of_accounts",
+        "name_ar": "عرض تصنيفات الحسابات",
+        "category_en": "Classification Account",
+        "category_ar": "تصنيفات الحسابات"
+    },
+    {
+        "name": "view_currencies",
+        "name_ar": "عرض العملات",
+        "category_en": "Currencies",
+        "category_ar": "العملات"
+    },
+    {
+        "name": "view_gifts",
+        "name_ar": "عرض تحويلات النقاط بين المستخدمين",
+        "category_en": "Gifts",
+        "category_ar": "تحويلات النقاط بين المستخدمين"
+    },
+    {
+        "name": "add_event",
+        "name_ar": "إضافة فعالية",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "edit_event",
+        "name_ar": "تعديل فعالية",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "delete_event",
+        "name_ar": "حذف فعالية",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "view_event",
+        "name_ar": "عرض الفعاليات",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "show_event",
+        "name_ar": "عرض تفاصيل الفعالية",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "view_event_suggestion",
+        "name_ar": "عرض الفعاليات المقترحة",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "invite_to_event",
+        "name_ar": "دعوة لحضور فعالية",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "cancel_invite",
+        "name_ar": "إلغاء دعوة لحضور فعالية",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "accept_join_event",
+        "name_ar": "قبول انضمام  لحضور فعالية",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "reject_join_event",
+        "name_ar": "رفض انضمام  لحضور فعالية",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "add_addons_type",
+        "name_ar": "إضافة نوع إضافة",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "edit_addons_type",
+        "name_ar": "تعديل نوع إضافة",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "delete_addons_type",
+        "name_ar": "حذف نوع إضافة",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "view_addons_type",
+        "name_ar": "عرض أنواع الإضافات",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "show_addons_type",
+        "name_ar": "عرض تفاصيل نوع الإضافة",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "add_addons",
+        "name_ar": "إضافة إضافة",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "edit_addons",
+        "name_ar": "تعديل إضافة",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "delete_addons",
+        "name_ar": "حذف إضافة",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "view_addons",
+        "name_ar": "عرض الإضافات",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "show_addons",
+        "name_ar": "عرض تفاصيل الإضافة",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "view_breed_dates",
+        "name_ar": "عرض طلبات التزاوج",
+        "category_en": "Date Requests",
+        "category_ar": "المواعيد"
+    },
+    {
+        "name": "show_breed_date",
+        "name_ar": "عرض تفاصيل طلب التزاوج",
+        "category_en": "Date Requests",
+        "category_ar": "المواعيد"
+    },
+    {
+        "name": "view_play_dates",
+        "name_ar": "عرض طلبات اللعب",
+        "category_en": "Date Requests",
+        "category_ar": "المواعيد"
+    },
+    {
+        "name": "show_play_dates",
+        "name_ar": "عرض تفاصيل طلب اللعب",
+        "category_en": "Date Requests",
+        "category_ar": "المواعيد"
+    },
+    {
+        "name": "view_discount_code_types",
+        "name_ar": "عرض أنواع أكواد الحسم",
+        "category_en": "Discount Codes",
+        "category_ar": "أكواد الحسم"
+    },
+    {
+        "name": "show_discount_code_types",
+        "name_ar": "عرض تفاصيل نوع كود الحسم",
+        "category_en": "Discount Codes",
+        "category_ar": "أكواد الحسم"
+    },
+    {
+        "name": "add_discount_code",
+        "name_ar": "إضافة كود حسم",
+        "category_en": "Discount Codes",
+        "category_ar": "أكواد الحسم"
+    },
+    {
+        "name": "edit_discount_code",
+        "name_ar": "تعديل كود حسم",
+        "category_en": "Discount Codes",
+        "category_ar": "أكواد الحسم"
+    },
+    {
+        "name": "delete_discount_code",
+        "name_ar": "حذف كود حسم",
+        "category_en": "Discount Codes",
+        "category_ar": "أكواد الحسم"
+    },
+    {
+        "name": "view_discount_code",
+        "name_ar": "عرض أكواد الحسم",
+        "category_en": "Discount Codes",
+        "category_ar": "أكواد الحسم"
+    },
+    {
+        "name": "show_discount_code",
+        "name_ar": "عرض تفاصيل كود الحسم",
+        "category_en": "Discount Codes",
+        "category_ar": "أكواد الحسم"
+    },
+    {
+        "name": "view_balance_requests",
+        "name_ar": "عرض طلبات شحن الرصيد",
+        "category_en": "Balance Requests",
+        "category_ar": "طلبات شحن الرصيد"
+    },
+    {
+        "name": "accept_balance_request",
+        "name_ar": "قبول طلب شحن رصيد",
+        "category_en": "Balance Requests",
+        "category_ar": "طلبات شحن الرصيد"
+    },
+    {
+        "name": "reject_balance_request",
+        "name_ar": "رفض طلب شحن رصيد",
+        "category_en": "Balance Requests",
+        "category_ar": "طلبات شحن الرصيد"
+    },
+    {
+        "name": "view_balance_top_ups",
+        "name_ar": "عرض عمليات شحن الرصيد",
+        "category_en": "Balance Top Ups",
+        "category_ar": "عمليات شحن الرصيد"
+    },
+    {
+        "name": "balance_top_ups",
+        "name_ar": "شحن الرصيد",
+        "category_en": "Balance Top Ups",
+        "category_ar": "عمليات شحن الرصيد"
+    },
+    {
+        "name": "view_referral_reward_configs",
+        "name_ar": "عرض إعدادات مكافآت الإحالة",
+        "category_en": "Settings",
+        "category_ar": "الإعدادات"
+    },
+    {
+        "name": "edit_referral_reward_config",
+        "name_ar": "تعديل إعداد مكافأة إحالة",
+        "category_en": "Settings",
+        "category_ar": "الإعدادات"
+    },
+    {
+        "name": "add_ad",
+        "name_ar": "إضافة إعلان",
+        "category_en": "Ads",
+        "category_ar": "الإعلانات"
+    },
+    {
+        "name": "edit_ad",
+        "name_ar": "تعديل إعلان",
+        "category_en": "Ads",
+        "category_ar": "الإعلانات"
+    },
+    {
+        "name": "delete_ad",
+        "name_ar": "حذف إعلان",
+        "category_en": "Ads",
+        "category_ar": "الإعلانات"
+    },
+    {
+        "name": "view_ad",
+        "name_ar": "عرض الإعلانات",
+        "category_en": "Ads",
+        "category_ar": "الإعلانات"
+    },
+    {
+        "name": "show_ad",
+        "name_ar": "عرض تفاصيل الإعلان",
+        "category_en": "Ads",
+        "category_ar": "الإعلانات"
+    },
+    {
+        "name": "add_faq",
+        "name_ar": "إضافة سؤال شائع",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "edit_faq",
+        "name_ar": "تعديل سؤال شائع",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "delete_faq",
+        "name_ar": "حذف سؤال شائع",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "view_faq",
+        "name_ar": "عرض الأسئلة الشائعة",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "show_faq",
+        "name_ar": "عرض تفاصيل السؤال الشائع",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "add_complaint",
+        "name_ar": "إضافة شكوى",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "edit_complaint",
+        "name_ar": "تعديل شكوى",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "view_complaint",
+        "name_ar": "عرض قائمة الشكاوى",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "show_complaint",
+        "name_ar": "عرض تفاصيل الشكوى",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "delete_complaint",
+        "name_ar": "حذف شكوى",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "add_pet",
+        "name_ar": "إضافة حيوان",
+        "category_en": "Pets",
+        "category_ar": "الحيوانات"
+    },
+    {
+        "name": "edit_pet",
+        "name_ar": "تعديل حيوان",
+        "category_en": "Pets",
+        "category_ar": "الحيوانات"
+    },
+    {
+        "name": "view_pet",
+        "name_ar": "عرض قائمة الحيوانات",
+        "category_en": "Pets",
+        "category_ar": "الحيوانات"
+    },
+    {
+        "name": "show_pet",
+        "name_ar": "عرض تفاصيل الحيوان",
+        "category_en": "Pets",
+        "category_ar": "الحيوانات"
+    },
+    {
+        "name": "delete_pet",
+        "name_ar": "حذف حيوان",
+        "category_en": "Pets",
+        "category_ar": "الحيوانات"
+    },
+    {
+        "name": "add_Store_owner",
+        "name_ar": "إضافة مالك متجر",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "edit_Store_owner",
+        "name_ar": "تعديل مالك متجر",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "delete_Store_owner",
+        "name_ar": "حذف مالك متجر",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "show_Store_owner",
+        "name_ar": "عرض تفاصيل مالك متجر",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "view_Store_owner",
+        "name_ar": "عرض مالكي متجر",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+  {
+    "name": "view_request_join",
+    "name_ar": "عرض طلبات الانضمام",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "add_employee",
+    "name_ar": "إضافة موظف",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "edit_employee",
+    "name_ar": "تعديل موظف",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "delete_employee",
+    "name_ar": "حذف موظف",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "view_employee",
+    "name_ar": "عرض الموظفين",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "show_employee",
+    "name_ar": "عرض تفاصيل الموظف",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "assign_permissions",
+    "name_ar": "إسناد صلاحيات للموظف",
+    "category_en": "Permissions",
+    "category_ar": "الصلاحيات"
+  },
+  {
+    "name": "add_vet",
+    "name_ar": "إضافة طبيب بيطري",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "edit_vet",
+    "name_ar": "تعديل طبيب بيطري",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "delete_vet",
+    "name_ar": "حذف طبيب بيطري",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "view_vet",
+    "name_ar": "عرض الأطباء",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "show_vet",
+    "name_ar": "عرض تفاصيل الطبيب",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "add_service_provider",
+    "name_ar": "إضافة مزود خدمة",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "edit_service_provider",
+    "name_ar": "تعديل مزود خدمة",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "delete_service_provider",
+    "name_ar": "حذف مزود خدمة",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "view_service_provider",
+    "name_ar": "عرض مزودو الخدمات",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "show_service_provider",
+    "name_ar": "عرض تفاصيل مزود الخدمة",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "add_delivery_captain",
+    "name_ar": "إضافة كابتن توصيل",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "edit_delivery_captain",
+    "name_ar": "تعديل كابتن توصيل",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "delete_delivery_captain",
+    "name_ar": "حذف كابتن توصيل",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "view_delivery_captain",
+    "name_ar": "عرض كابتن توصيل",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "show_delivery_captain",
+    "name_ar": "عرض تفاصيل كابتن توصيل",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "add_pet_owner",
+    "name_ar": "إضافة مالك حيوان",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "edit_pet_owner",
+    "name_ar": "تعديل مالك حيوان",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "delete_pet_owner",
+    "name_ar": "حذف مالك حيوان",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "view_pet_owner",
+    "name_ar": "عرض مالكو الحيوانات",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "show_pet_owner",
+    "name_ar": "عرض تفاصيل مالك الحيوانات",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+  {
+    "name": "add_pet_type",
+    "name_ar": "إضافة نوع حيوان",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "edit_pet_type",
+    "name_ar": "تعديل نوع حيوان",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "delete_pet_type",
+    "name_ar": "حذف نوع حيوان",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "view_pet_type",
+    "name_ar": "عرض أنوع الحيوانات",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "add_pet_species",
+    "name_ar": "إضافة فصيلة حيوان",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "edit_pet_species",
+    "name_ar": "تعديل فصيلة حيوان",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "delete_pet_species",
+    "name_ar": "حذف فصيلة حيوان",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "view_pet_species",
+    "name_ar": "عرض فصائل الحيوانات",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "add_healthy_status",
+    "name_ar": "إضافة حالة صحية",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "edit_healthy_status",
+    "name_ar": "تعديل حالة صحية",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "delete_healthy_status",
+    "name_ar": "حذف حالة صحية",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "view_healthy_status",
+    "name_ar": "عرض الحالات الصحية",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "add_mood",
+    "name_ar": "إضافة مزاج",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "edit_mood",
+    "name_ar": "تعديل مزاج",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "delete_mood",
+    "name_ar": "حذف مزاج",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "view_mood",
+    "name_ar": "عرض أنواع المزاج",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "view_request_type",
+    "name_ar": "عرض انواع الطلبات",
+    "category_en": "Definitions",
+    "category_ar": "التعريفات الأساسية"
+  },
+  {
+    "name": "add_country",
+    "name_ar": "إضافة بلد",
+    "category_en": "Countries",
+    "category_ar": "البلدان"
+  },
+  {
+    "name": "edit_country",
+    "name_ar": "تعديل بلد",
+    "category_en": "Countries",
+    "category_ar": "البلدان"
+  },
+  {
+    "name": "delete_country",
+    "name_ar": "حذف بلد",
+    "category_en": "Countries",
+    "category_ar": "البلدان"
+  },
+  {
+    "name": "view_country",
+    "name_ar": "عرض البلدان",
+    "category_en": "Countries",
+    "category_ar": "البلدان"
+  },
+  {
+    "name": "show_country",
+    "name_ar": "عرض تفاصيل البلد",
+    "category_en": "Countries",
+    "category_ar": "البلدان"
+  },
+  {
+    "name": "add_city",
+    "name_ar": "إضافة محافظة",
+    "category_en": "Cities",
+    "category_ar": "المحافظات"
+  },
+  {
+    "name": "edit_city",
+    "name_ar": "تعديل محافظة",
+    "category_en": "Cities",
+    "category_ar": "المحافظات"
+  },
+  {
+    "name": "delete_city",
+    "name_ar": "حذف محافظة",
+    "category_en": "Cities",
+    "category_ar": "المحافظات"
+  },
+  {
+    "name": "view_city",
+    "name_ar": "عرض المحافظات",
+    "category_en": "Cities",
+    "category_ar": "المحافظات"
+  },
+  {
+    "name": "show_city",
+    "name_ar": "عرض تفاصيل المحافظة",
+    "category_en": "Cities",
+    "category_ar": "المحافظات"
+  },
+  {
+    "name": "add_zone",
+    "name_ar": "إضافة منطقة",
+    "category_en": "Zones",
+    "category_ar": "المناطق"
+  },
+  {
+    "name": "edit_zone",
+    "name_ar": "تعديل منطقة",
+    "category_en": "Zones",
+    "category_ar": "المناطق"
+  },
+  {
+    "name": "delete_zone",
+    "name_ar": "حذف منطقة",
+    "category_en": "Zones",
+    "category_ar": "المناطق"
+  },
+  {
+    "name": "view_zone",
+    "name_ar": "عرض المناطق",
+    "category_en": "Zones",
+    "category_ar": "المناطق"
+  },
+  {
+    "name": "view_languages",
+    "name_ar": "عرض اللغات",
+    "category_en": "Languages",
+    "category_ar": "اللغات"
+  },
+  {
+    "name": "view_translation_app",
+    "name_ar": "عرض مصطلحات التطبيق",
+    "category_en": "Languages",
+    "category_ar": "اللغات"
+  },
+  {
+    "name": "view_translation_dashboard",
+    "name_ar": "عرض مصطلحات لوحة التحكم",
+    "category_en": "Languages",
+    "category_ar": "اللغات"
+  },
+  {
+    "name": "edit_translation",
+    "name_ar": "تعديل المصطلحات ",
+    "category_en": "Languages",
+    "category_ar": "اللغات"
+  },
+  {
+    "name": "view_public_configs",
+    "name_ar": "عرض الإعدادات العامة",
+    "category_en": "Configs",
+    "category_ar": "الإعدادات العامة"
+  },
+  {
+    "name": "edit_public_configs",
+    "name_ar": "تعديل الإعدادات العامة",
+    "category_en": "Configs",
+    "category_ar": "الإعدادات العامة"
+  },
+  {
+    "name": "view_balance_configs",
+    "name_ar": "عرض إعدادات النقاط",
+    "category_en": "Balance Configs",
+    "category_ar": "إعدادات النقاط"
+  },
+  {
+    "name": "edit_balance_configs",
+    "name_ar": "تعديل إعدادات النقاط",
+    "category_en": "Balance Configs",
+    "category_ar": "إعدادات النقاط"
+  },
+  {
+    "name": "view_payment_methods",
+    "name_ar": "عرض طرق الدفع",
+    "category_en": "Payment Methods",
+    "category_ar": "طرق الدفع"
+  },
+  {
+    "name": "activate_payment_method",
+    "name_ar": "تفعيل طريقة الدفع",
+    "category_en": "Payment Methods",
+    "category_ar": "طرق الدفع"
+  },
+  {
+    "name": "deactivate_payment_method",
+    "name_ar": "إلغاء تفعيل طريقة الدفع",
+    "category_en": "Payment Methods",
+    "category_ar": "طرق الدفع"
+  },
+  {
+    "name": "add_classification_of_accounts",
+    "name_ar": "إضافة تصنيف حساب",
+    "category_en": "Classification Account",
+    "category_ar": "تصنيفات الحسابات"
+  },
+  {
+    "name": "edit_classification_of_accounts",
+    "name_ar": "تعديل تصنيف حساب",
+    "category_en": "Classification Account",
+    "category_ar": "تصنيفات الحسابات"
+  },
+  {
+    "name": "delete_classification_of_accounts",
+    "name_ar": "حذف تصنيف حساب",
+    "category_en": "Classification Account",
+    "category_ar": "تصنيفات الحسابات"
+  },
+  {
+    "name": "view_classification_of_accounts",
+    "name_ar": "عرض تصنيفات الحسابات",
+    "category_en": "Classification Account",
+    "category_ar": "تصنيفات الحسابات"
+  },
+  {
+    "name": "view_currencies",
+    "name_ar": "عرض العملات",
+    "category_en": "Currencies",
+    "category_ar": "العملات"
+  },
+  {
+    "name": "view_gifts",
+    "name_ar": "عرض تحويلات النقاط بين المستخدمين",
+    "category_en": "Gifts",
+    "category_ar": "تحويلات النقاط بين المستخدمين"
+  },
+  {
+    "name": "add_event",
+    "name_ar": "إضافة فعالية",
+    "category_en": "Events",
+    "category_ar": "الفعاليات"
+  },
+  {
+    "name": "edit_event",
+    "name_ar": "تعديل فعالية",
+    "category_en": "Events",
+    "category_ar": "الفعاليات"
+  },
+  {
+    "name": "delete_event",
+    "name_ar": "حذف فعالية",
+    "category_en": "Events",
+    "category_ar": "الفعاليات"
+  },
+  {
+    "name": "view_event",
+    "name_ar": "عرض الفعاليات",
+    "category_en": "Events",
+    "category_ar": "الفعاليات"
+  },
+  {
+    "name": "show_event",
+    "name_ar": "عرض تفاصيل الفعالية",
+    "category_en": "Events",
+    "category_ar": "الفعاليات"
+  },
+  {
+    "name": "view_event_suggestion",
+    "name_ar": "عرض الفعاليات المقترحة",
+    "category_en": "Events",
+    "category_ar": "الفعاليات"
+  },
+  {
+    "name": "invite_to_event",
+    "name_ar": "دعوة لحضور فعالية",
+    "category_en": "Events",
+    "category_ar": "الفعاليات"
+  },
+  {
+    "name": "cancel_invite",
+    "name_ar": "إلغاء دعوة لحضور فعالية",
+    "category_en": "Events",
+    "category_ar": "الفعاليات"
+  },
+  {
+    "name": "accept_join_event",
+    "name_ar": "قبول انضمام  لحضور فعالية",
+    "category_en": "Events",
+    "category_ar": "الفعاليات"
+  },
+  {
+    "name": "reject_join_event",
+    "name_ar": "رفض انضمام  لحضور فعالية",
+    "category_en": "Events",
+    "category_ar": "الفعاليات"
+  },
+  {
+    "name": "add_addons_type",
+    "name_ar": "إضافة نوع إضافة",
+    "category_en": "Addons",
+    "category_ar": "الإضافات"
+  },
+  {
+    "name": "edit_addons_type",
+    "name_ar": "تعديل نوع إضافة",
+    "category_en": "Addons",
+    "category_ar": "الإضافات"
+  },
+  {
+    "name": "delete_addons_type",
+    "name_ar": "حذف نوع إضافة",
+    "category_en": "Addons",
+    "category_ar": "الإضافات"
+  },
+  {
+    "name": "view_addons_type",
+    "name_ar": "عرض أنواع الإضافات",
+    "category_en": "Addons",
+    "category_ar": "الإضافات"
+  },
+  {
+    "name": "show_addons_type",
+    "name_ar": "عرض تفاصيل نوع الإضافة",
+    "category_en": "Addons",
+    "category_ar": "الإضافات"
+  },
+  {
+    "name": "add_addons",
+    "name_ar": "إضافة إضافة",
+    "category_en": "Addons",
+    "category_ar": "الإضافات"
+  },
+  {
+    "name": "edit_addons",
+    "name_ar": "تعديل إضافة",
+    "category_en": "Addons",
+    "category_ar": "الإضافات"
+  },
+  {
+    "name": "delete_addons",
+    "name_ar": "حذف إضافة",
+    "category_en": "Addons",
+    "category_ar": "الإضافات"
+  },
+  {
+    "name": "view_addons",
+    "name_ar": "عرض الإضافات",
+    "category_en": "Addons",
+    "category_ar": "الإضافات"
+  },
+  {
+    "name": "show_addons",
+    "name_ar": "عرض تفاصيل الإضافة",
+    "category_en": "Addons",
+    "category_ar": "الإضافات"
+  },
+  {
+    "name": "view_breed_dates",
+    "name_ar": "عرض طلبات التزاوج",
+    "category_en": "Date Requests",
+    "category_ar": "المواعيد"
+  },
+  {
+    "name": "show_breed_date",
+    "name_ar": "عرض تفاصيل طلب التزاوج",
+    "category_en": "Date Requests",
+    "category_ar": "المواعيد"
+  },
+  {
+    "name": "view_play_dates",
+    "name_ar": "عرض طلبات اللعب",
+    "category_en": "Date Requests",
+    "category_ar": "المواعيد"
+  },
+  {
+    "name": "show_play_dates",
+    "name_ar": "عرض تفاصيل طلب اللعب",
+    "category_en": "Date Requests",
+    "category_ar": "المواعيد"
+  },
+  {
+    "name": "view_discount_code_types",
+    "name_ar": "عرض أنواع أكواد الحسم",
+    "category_en": "Discount Codes",
+    "category_ar": "أكواد الحسم"
+  },
+  {
+    "name": "show_discount_code_types",
+    "name_ar": "عرض تفاصيل نوع كود الحسم",
+    "category_en": "Discount Codes",
+    "category_ar": "أكواد الحسم"
+  },
+  {
+    "name": "add_discount_code",
+    "name_ar": "إضافة كود حسم",
+    "category_en": "Discount Codes",
+    "category_ar": "أكواد الحسم"
+  },
+  {
+    "name": "edit_discount_code",
+    "name_ar": "تعديل كود حسم",
+    "category_en": "Discount Codes",
+    "category_ar": "أكواد الحسم"
+  },
+  {
+    "name": "delete_discount_code",
+    "name_ar": "حذف كود حسم",
+    "category_en": "Discount Codes",
+    "category_ar": "أكواد الحسم"
+  },
+  {
+    "name": "view_discount_code",
+    "name_ar": "عرض أكواد الحسم",
+    "category_en": "Discount Codes",
+    "category_ar": "أكواد الحسم"
+  },
+  {
+    "name": "show_discount_code",
+    "name_ar": "عرض تفاصيل كود الحسم",
+    "category_en": "Discount Codes",
+    "category_ar": "أكواد الحسم"
+  },
+  {
+    "name": "view_balance_requests",
+    "name_ar": "عرض طلبات شحن الرصيد",
+    "category_en": "Balance Requests",
+    "category_ar": "طلبات شحن الرصيد"
+  },
+  {
+    "name": "accept_balance_request",
+    "name_ar": "قبول طلب شحن رصيد",
+    "category_en": "Balance Requests",
+    "category_ar": "طلبات شحن الرصيد"
+  },
+  {
+    "name": "reject_balance_request",
+    "name_ar": "رفض طلب شحن رصيد",
+    "category_en": "Balance Requests",
+    "category_ar": "طلبات شحن الرصيد"
+  },
+  {
+    "name": "view_balance_top_ups",
+    "name_ar": "عرض عمليات شحن الرصيد",
+    "category_en": "Balance Top Ups",
+    "category_ar": "عمليات شحن الرصيد"
+  },
+  {
+    "name": "balance_top_ups",
+    "name_ar": "شحن الرصيد",
+    "category_en": "Balance Top Ups",
+    "category_ar": "عمليات شحن الرصيد"
+  },
+  {
+    "name": "view_referral_reward_configs",
+    "name_ar": "عرض إعدادات مكافآت الإحالة",
+    "category_en": "Settings",
+    "category_ar": "الإعدادات"
+  },
+  {
+    "name": "edit_referral_reward_config",
+    "name_ar": "تعديل إعداد مكافأة إحالة",
+    "category_en": "Settings",
+    "category_ar": "الإعدادات"
+  },
+  {
+    "name": "add_ad",
+    "name_ar": "إضافة إعلان",
+    "category_en": "Ads",
+    "category_ar": "الإعلانات"
+  },
+  {
+    "name": "edit_ad",
+    "name_ar": "تعديل إعلان",
+    "category_en": "Ads",
+    "category_ar": "الإعلانات"
+  },
+  {
+    "name": "delete_ad",
+    "name_ar": "حذف إعلان",
+    "category_en": "Ads",
+    "category_ar": "الإعلانات"
+  },
+  {
+    "name": "view_ad",
+    "name_ar": "عرض الإعلانات",
+    "category_en": "Ads",
+    "category_ar": "الإعلانات"
+  },
+  {
+    "name": "show_ad",
+    "name_ar": "عرض تفاصيل الإعلان",
+    "category_en": "Ads",
+    "category_ar": "الإعلانات"
+  },
+  {
+    "name": "add_faq",
+    "name_ar": "إضافة سؤال شائع",
+    "category_en": "Support",
+    "category_ar": "الدعم"
+  },
+  {
+    "name": "edit_faq",
+    "name_ar": "تعديل سؤال شائع",
+    "category_en": "Support",
+    "category_ar": "الدعم"
+  },
+  {
+    "name": "delete_faq",
+    "name_ar": "حذف سؤال شائع",
+    "category_en": "Support",
+    "category_ar": "الدعم"
+  },
+  {
+    "name": "view_faq",
+    "name_ar": "عرض الأسئلة الشائعة",
+    "category_en": "Support",
+    "category_ar": "الدعم"
+  },
+  {
+    "name": "show_faq",
+    "name_ar": "عرض تفاصيل السؤال الشائع",
+    "category_en": "Support",
+    "category_ar": "الدعم"
+  },
+  {
+    "name": "add_complaint",
+    "name_ar": "إضافة شكوى",
+    "category_en": "Support",
+    "category_ar": "الدعم"
+  },
+  {
+    "name": "edit_complaint",
+    "name_ar": "تعديل شكوى",
+    "category_en": "Support",
+    "category_ar": "الدعم"
+  },
+  {
+    "name": "view_complaint",
+    "name_ar": "عرض قائمة الشكاوى",
+    "category_en": "Support",
+    "category_ar": "الدعم"
+  },
+  {
+    "name": "show_complaint",
+    "name_ar": "عرض تفاصيل الشكوى",
+    "category_en": "Support",
+    "category_ar": "الدعم"
+  },
+  {
+    "name": "delete_complaint",
+    "name_ar": "حذف شكوى",
+    "category_en": "Support",
+    "category_ar": "الدعم"
+  },
+  {
+    "name": "add_pet",
+    "name_ar": "إضافة حيوان",
+    "category_en": "Pets",
+    "category_ar": "الحيوانات"
+  },
+  {
+    "name": "edit_pet",
+    "name_ar": "تعديل حيوان",
+    "category_en": "Pets",
+    "category_ar": "الحيوانات"
+  },
+  {
+    "name": "view_pet",
+    "name_ar": "عرض قائمة الحيوانات",
+    "category_en": "Pets",
+    "category_ar": "الحيوانات"
+  },
+  {
+    "name": "show_pet",
+    "name_ar": "عرض تفاصيل الحيوان",
+    "category_en": "Pets",
+    "category_ar": "الحيوانات"
+  },
+  {
+    "name": "delete_pet",
+    "name_ar": "حذف حيوان",
+    "category_en": "Pets",
+    "category_ar": "الحيوانات"
+  },
+
+  {
+    "name": "add_Store_owner",
+    "name_ar": "إضافة مالك متجر",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+
+  {
+    "name": "edit_Store_owner",
+    "name_ar": "تعديل مالك متجر",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+
+  {
+    "name": "delete_Store_owner",
+    "name_ar": "حذف مالك متجر",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+
+  {
+    "name": "show_Store_owner",
+    "name_ar": "عرض تفاصيل مالك متجر",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+
+  {
+    "name": "view_Store_owner",
+    "name_ar": "عرض مالكي متجر",
+    "category_en": "Users",
+    "category_ar": "المستخدمين"
+  },
+    {
+        "name": "view_request_join",
+        "name_ar": "عرض طلبات الانضمام",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "add_employee",
+        "name_ar": "إضافة موظف",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "edit_employee",
+        "name_ar": "تعديل موظف",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "delete_employee",
+        "name_ar": "حذف موظف",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "view_employee",
+        "name_ar": "عرض الموظفين",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "show_employee",
+        "name_ar": "عرض تفاصيل الموظف",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "assign_permissions",
+        "name_ar": "إسناد صلاحيات للموظف",
+        "category_en": "Permissions",
+        "category_ar": "الصلاحيات"
+    },
+    {
+        "name": "add_vet",
+        "name_ar": "إضافة طبيب بيطري",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "edit_vet",
+        "name_ar": "تعديل طبيب بيطري",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "delete_vet",
+        "name_ar": "حذف طبيب بيطري",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "view_vet",
+        "name_ar": "عرض الأطباء",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "show_vet",
+        "name_ar": "عرض تفاصيل الطبيب",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "add_service_provider",
+        "name_ar": "إضافة مزود خدمة",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "edit_service_provider",
+        "name_ar": "تعديل مزود خدمة",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "delete_service_provider",
+        "name_ar": "حذف مزود خدمة",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "view_service_provider",
+        "name_ar": "عرض مزودو الخدمات",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "show_service_provider",
+        "name_ar": "عرض تفاصيل مزود الخدمة",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "add_delivery_captain",
+        "name_ar": "إضافة كابتن توصيل",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "edit_delivery_captain",
+        "name_ar": "تعديل كابتن توصيل",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "delete_delivery_captain",
+        "name_ar": "حذف كابتن توصيل",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "view_delivery_captain",
+        "name_ar": "عرض كابتن توصيل",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "show_delivery_captain",
+        "name_ar": "عرض تفاصيل كابتن توصيل",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "add_pet_owner",
+        "name_ar": "إضافة مالك ",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "edit_pet_owner",
+        "name_ar": "تعديل المالك ",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "delete_pet_owner",
+        "name_ar": "حذف المالك  ",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "view_pet_owner",
+        "name_ar": "عرض مالكو الحيوانات",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "show_pet_owner",
+        "name_ar": "عرض تفاصيل المالك",
+        "category_en": "Users",
+        "category_ar": "المستخدمين"
+    },
+    {
+        "name": "add_pet_type",
+        "name_ar": "إضافة نوع حيوان",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "edit_pet_type",
+        "name_ar": "تعديل نوع حيوان",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "delete_pet_type",
+        "name_ar": "حذف نوع حيوان",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "view_pet_type",
+        "name_ar": "عرض أنوع الحيوانات",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "show_trend_post",
+        "name_ar": "عرض منشور التريند",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "add_donation_campaign",
+        "name_ar": "اضافة حملة تبرع جديدة",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "edit_donation_campaign",
+        "name_ar": "تعديل حملة تبرع",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "delete_donation_campaign",
+        "name_ar": "حذف حملة تبرع",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "show_donation_campaign",
+        "name_ar": "مشاهدة حملة تبرع",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "add_trend",
+        "name_ar": "اضافة تريند",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "show_trend",
+        "name_ar": "مشاهدة تريند",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "edit_trend",
+        "name_ar": "تعديل تريند",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "delete_trend",
+        "name_ar": "حذف تريند",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "add_pet_species",
+        "name_ar": "إضافة فصيلة حيوان",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "edit_pet_species",
+        "name_ar": "تعديل فصيلة حيوان",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "delete_pet_species",
+        "name_ar": "حذف فصيلة حيوان",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "view_pet_species",
+        "name_ar": "عرض فصائل الحيوانات",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "add_healthy_status",
+        "name_ar": "إضافة حالة صحية",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "edit_healthy_status",
+        "name_ar": "تعديل حالة صحية",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "delete_healthy_status",
+        "name_ar": "حذف حالة صحية",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "view_healthy_status",
+        "name_ar": "عرض الحالات الصحية",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "add_mood",
+        "name_ar": "إضافة مزاج",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "edit_mood",
+        "name_ar": "تعديل مزاج",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "delete_mood",
+        "name_ar": "حذف مزاج",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "view_mood",
+        "name_ar": "عرض أنواع المزاج",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "view_request_type",
+        "name_ar": "عرض انواع الطلبات",
+        "category_en": "Definitions",
+        "category_ar": "التعريفات الأساسية"
+    },
+    {
+        "name": "add_country",
+        "name_ar": "إضافة بلد",
+        "category_en": "Countries",
+        "category_ar": "البلدان"
+    },
+    {
+        "name": "edit_country",
+        "name_ar": "تعديل بلد",
+        "category_en": "Countries",
+        "category_ar": "البلدان"
+    },
+    {
+        "name": "delete_country",
+        "name_ar": "حذف بلد",
+        "category_en": "Countries",
+        "category_ar": "البلدان"
+    },
+    {
+        "name": "view_country",
+        "name_ar": "عرض البلدان",
+        "category_en": "Countries",
+        "category_ar": "البلدان"
+    },
+    {
+        "name": "show_country",
+        "name_ar": "عرض تفاصيل البلد",
+        "category_en": "Countries",
+        "category_ar": "البلدان"
+    },
+    {
+        "name": "add_city",
+        "name_ar": "إضافة محافظة",
+        "category_en": "Cities",
+        "category_ar": "المحافظات"
+    },
+    {
+        "name": "edit_city",
+        "name_ar": "تعديل محافظة",
+        "category_en": "Cities",
+        "category_ar": "المحافظات"
+    },
+    {
+        "name": "delete_city",
+        "name_ar": "حذف محافظة",
+        "category_en": "Cities",
+        "category_ar": "المحافظات"
+    },
+    {
+        "name": "view_city",
+        "name_ar": "عرض المحافظات",
+        "category_en": "Cities",
+        "category_ar": "المحافظات"
+    },
+    {
+        "name": "show_city",
+        "name_ar": "عرض تفاصيل المحافظة",
+        "category_en": "Cities",
+        "category_ar": "المحافظات"
+    },
+    {
+        "name": "add_zone",
+        "name_ar": "إضافة منطقة",
+        "category_en": "Zones",
+        "category_ar": "المناطق"
+    },
+    {
+        "name": "edit_zone",
+        "name_ar": "تعديل منطقة",
+        "category_en": "Zones",
+        "category_ar": "المناطق"
+    },
+    {
+        "name": "delete_zone",
+        "name_ar": "حذف منطقة",
+        "category_en": "Zones",
+        "category_ar": "المناطق"
+    },
+    {
+        "name": "view_zone",
+        "name_ar": "عرض المناطق",
+        "category_en": "Zones",
+        "category_ar": "المناطق"
+    },
+    {
+        "name": "view_languages",
+        "name_ar": "عرض اللغات",
+        "category_en": "Languages",
+        "category_ar": "اللغات"
+    },
+    {
+        "name": "view_translation_app",
+        "name_ar": "عرض مصطلحات التطبيق",
+        "category_en": "Languages",
+        "category_ar": "اللغات"
+    },
+    {
+        "name": "view_translation_dashboard",
+        "name_ar": "عرض مصطلحات لوحة التحكم",
+        "category_en": "Languages",
+        "category_ar": "اللغات"
+    },
+    {
+        "name": "edit_translation",
+        "name_ar": "تعديل المصطلحات ",
+        "category_en": "Languages",
+        "category_ar": "اللغات"
+    },
+    {
+        "name": "view_public_configs",
+        "name_ar": "عرض الإعدادات العامة",
+        "category_en": "Configs",
+        "category_ar": "الإعدادات العامة"
+    },
+    {
+        "name": "edit_public_configs",
+        "name_ar": "تعديل الإعدادات العامة",
+        "category_en": "Configs",
+        "category_ar": "الإعدادات العامة"
+    },
+    {
+        "name": "view_balance_configs",
+        "name_ar": "عرض إعدادات النقاط",
+        "category_en": "Balance Configs",
+        "category_ar": "إعدادات النقاط"
+    },
+    {
+        "name": "edit_balance_configs",
+        "name_ar": "تعديل إعدادات النقاط",
+        "category_en": "Balance Configs",
+        "category_ar": "إعدادات النقاط"
+    },
+    {
+        "name": "view_payment_methods",
+        "name_ar": "عرض طرق الدفع",
+        "category_en": "Payment Methods",
+        "category_ar": "طرق الدفع"
+    },
+    {
+        "name": "activate_payment_method",
+        "name_ar": "تفعيل طريقة الدفع",
+        "category_en": "Payment Methods",
+        "category_ar": "طرق الدفع"
+    },
+    {
+        "name": "deactivate_payment_method",
+        "name_ar": "إلغاء تفعيل طريقة الدفع",
+        "category_en": "Payment Methods",
+        "category_ar": "طرق الدفع"
+    },
+    {
+        "name": "add_classification_of_accounts",
+        "name_ar": "إضافة تصنيف حساب",
+        "category_en": "Classification Account",
+        "category_ar": "تصنيفات الحسابات"
+    },
+    {
+        "name": "edit_classification_of_accounts",
+        "name_ar": "تعديل تصنيف حساب",
+        "category_en": "Classification Account",
+        "category_ar": "تصنيفات الحسابات"
+    },
+    {
+        "name": "delete_classification_of_accounts",
+        "name_ar": "حذف تصنيف حساب",
+        "category_en": "Classification Account",
+        "category_ar": "تصنيفات الحسابات"
+    },
+    {
+        "name": "view_classification_of_accounts",
+        "name_ar": "عرض تصنيفات الحسابات",
+        "category_en": "Classification Account",
+        "category_ar": "تصنيفات الحسابات"
+    },
+    {
+        "name": "view_currencies",
+        "name_ar": "عرض العملات",
+        "category_en": "Currencies",
+        "category_ar": "العملات"
+    },
+    {
+        "name": "view_gifts",
+        "name_ar": "عرض تحويلات النقاط بين المستخدمين",
+        "category_en": "Gifts",
+        "category_ar": "تحويلات النقاط بين المستخدمين"
+    },
+    {
+        "name": "add_event",
+        "name_ar": "إضافة فعالية",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "edit_event",
+        "name_ar": "تعديل فعالية",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "delete_event",
+        "name_ar": "حذف فعالية",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "view_event",
+        "name_ar": "عرض الفعاليات",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "show_event",
+        "name_ar": "عرض تفاصيل الفعالية",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "view_event_suggestion",
+        "name_ar": "عرض الفعاليات المقترحة",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "invite_to_event",
+        "name_ar": "دعوة لحضور فعالية",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "cancel_invite",
+        "name_ar": "إلغاء دعوة لحضور فعالية",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "accept_join_event",
+        "name_ar": "قبول انضمام  لحضور فعالية",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "reject_join_event",
+        "name_ar": "رفض انضمام  لحضور فعالية",
+        "category_en": "Events",
+        "category_ar": "الفعاليات"
+    },
+    {
+        "name": "add_addons_type",
+        "name_ar": "إضافة نوع إضافة",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "edit_addons_type",
+        "name_ar": "تعديل نوع إضافة",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "delete_addons_type",
+        "name_ar": "حذف نوع إضافة",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "view_addons_type",
+        "name_ar": "عرض أنواع الإضافات",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "show_addons_type",
+        "name_ar": "عرض تفاصيل نوع الإضافة",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "add_addons",
+        "name_ar": "إضافة إضافة",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "edit_addons",
+        "name_ar": "تعديل إضافة",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "delete_addons",
+        "name_ar": "حذف إضافة",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "view_addons",
+        "name_ar": "عرض الإضافات",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "show_addons",
+        "name_ar": "عرض تفاصيل الإضافة",
+        "category_en": "Addons",
+        "category_ar": "الإضافات"
+    },
+    {
+        "name": "view_breed_dates",
+        "name_ar": "عرض طلبات التزاوج",
+        "category_en": "Date Requests",
+        "category_ar": "المواعيد"
+    },
+    {
+        "name": "show_breed_date",
+        "name_ar": "عرض تفاصيل طلب التزاوج",
+        "category_en": "Date Requests",
+        "category_ar": "المواعيد"
+    },
+    {
+        "name": "view_play_dates",
+        "name_ar": "عرض طلبات اللعب",
+        "category_en": "Date Requests",
+        "category_ar": "المواعيد"
+    },
+    {
+        "name": "show_play_dates",
+        "name_ar": "عرض تفاصيل طلب اللعب",
+        "category_en": "Date Requests",
+        "category_ar": "المواعيد"
+    },
+    {
+        "name": "view_discount_code_types",
+        "name_ar": "عرض أنواع أكواد الحسم",
+        "category_en": "Discount Codes",
+        "category_ar": "أكواد الحسم"
+    },
+    {
+        "name": "show_discount_code_types",
+        "name_ar": "عرض تفاصيل نوع كود الحسم",
+        "category_en": "Discount Codes",
+        "category_ar": "أكواد الحسم"
+    },
+    {
+        "name": "add_discount_code",
+        "name_ar": "إضافة كود حسم",
+        "category_en": "Discount Codes",
+        "category_ar": "أكواد الحسم"
+    },
+    {
+        "name": "edit_discount_code",
+        "name_ar": "تعديل كود حسم",
+        "category_en": "Discount Codes",
+        "category_ar": "أكواد الحسم"
+    },
+    {
+        "name": "delete_discount_code",
+        "name_ar": "حذف كود حسم",
+        "category_en": "Discount Codes",
+        "category_ar": "أكواد الحسم"
+    },
+    {
+        "name": "view_discount_code",
+        "name_ar": "عرض أكواد الحسم",
+        "category_en": "Discount Codes",
+        "category_ar": "أكواد الحسم"
+    },
+    {
+        "name": "show_discount_code",
+        "name_ar": "عرض تفاصيل كود الحسم",
+        "category_en": "Discount Codes",
+        "category_ar": "أكواد الحسم"
+    },
+    {
+        "name": "view_balance_requests",
+        "name_ar": "عرض طلبات شحن الرصيد",
+        "category_en": "Balance Requests",
+        "category_ar": "طلبات شحن الرصيد"
+    },
+    {
+        "name": "accept_balance_request",
+        "name_ar": "قبول طلب شحن رصيد",
+        "category_en": "Balance Requests",
+        "category_ar": "طلبات شحن الرصيد"
+    },
+    {
+        "name": "reject_balance_request",
+        "name_ar": "رفض طلب شحن رصيد",
+        "category_en": "Balance Requests",
+        "category_ar": "طلبات شحن الرصيد"
+    },
+    {
+        "name": "view_balance_top_ups",
+        "name_ar": "عرض عمليات شحن الرصيد",
+        "category_en": "Balance Top Ups",
+        "category_ar": "عمليات شحن الرصيد"
+    },
+    {
+        "name": "balance_top_ups",
+        "name_ar": "شحن الرصيد",
+        "category_en": "Balance Top Ups",
+        "category_ar": "عمليات شحن الرصيد"
+    },
+    {
+        "name": "view_referral_reward_configs",
+        "name_ar": "عرض إعدادات مكافآت الإحالة",
+        "category_en": "Settings",
+        "category_ar": "الإعدادات"
+    },
+    {
+        "name": "edit_referral_reward_config",
+        "name_ar": "تعديل إعداد مكافأة إحالة",
+        "category_en": "Settings",
+        "category_ar": "الإعدادات"
+    },
+    {
+        "name": "add_ad",
+        "name_ar": "إضافة إعلان",
+        "category_en": "Ads",
+        "category_ar": "الإعلانات"
+    },
+    {
+        "name": "edit_ad",
+        "name_ar": "تعديل إعلان",
+        "category_en": "Ads",
+        "category_ar": "الإعلانات"
+    },
+    {
+        "name": "delete_ad",
+        "name_ar": "حذف إعلان",
+        "category_en": "Ads",
+        "category_ar": "الإعلانات"
+    },
+    {
+        "name": "view_ad",
+        "name_ar": "عرض الإعلانات",
+        "category_en": "Ads",
+        "category_ar": "الإعلانات"
+    },
+    {
+        "name": "show_ad",
+        "name_ar": "عرض تفاصيل الإعلان",
+        "category_en": "Ads",
+        "category_ar": "الإعلانات"
+    },
+    {
+        "name": "add_faq",
+        "name_ar": "إضافة سؤال شائع",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "edit_faq",
+        "name_ar": "تعديل سؤال شائع",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "delete_faq",
+        "name_ar": "حذف سؤال شائع",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "view_faq",
+        "name_ar": "عرض الأسئلة الشائعة",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "show_faq",
+        "name_ar": "عرض تفاصيل السؤال الشائع",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "add_complaint",
+        "name_ar": "إضافة شكوى",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "edit_complaint",
+        "name_ar": "تعديل شكوى",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "view_complaint",
+        "name_ar": "عرض قائمة الشكاوى",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "show_complaint",
+        "name_ar": "عرض تفاصيل الشكوى",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "delete_complaint",
+        "name_ar": "حذف شكوى",
+        "category_en": "Support",
+        "category_ar": "الدعم"
+    },
+    {
+        "name": "add_pet",
+        "name_ar": "إضافة حيوان",
+        "category_en": "Pets",
+        "category_ar": "الحيوانات"
+    },
+    {
+        "name": "edit_pet",
+        "name_ar": "تعديل حيوان",
+        "category_en": "Pets",
+        "category_ar": "الحيوانات"
+    },
+    {
+        "name": "view_pet",
+        "name_ar": "عرض قائمة الحيوانات",
+        "category_en": "Pets",
+        "category_ar": "الحيوانات"
+    },
+    {
+        "name": "show_pet",
+        "name_ar": "عرض تفاصيل الحيوان",
+        "category_en": "Pets",
+        "category_ar": "الحيوانات"
+    },
+    {
+        "name": "delete_pet",
+        "name_ar": "حذف حيوان",
+        "category_en": "Pets",
+        "category_ar": "الحيوانات"
+    }
+]

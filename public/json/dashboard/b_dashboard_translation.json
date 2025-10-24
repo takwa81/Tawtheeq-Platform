@@ -1,0 +1,1033 @@
+{
+    "store_management": {
+        "en": "Store Management",
+        "ar": "إدارة المتجر"
+    },
+    "stores": {
+        "en": "Stores",
+        "ar": "المتاجر"
+    },
+    "categories": {
+        "en": "Categories",
+        "ar": "التصنيفات"
+    },
+    "products": {
+        "en": "Products",
+        "ar": "المنتجات"
+    },
+    "discounts": {
+        "en": "Discounts",
+        "ar": "الحسومات"
+    },
+    "add_store": {
+        "en": "Add Store",
+        "ar": "إضافة متجر"
+    },
+    "store_name_ar": {
+        "en": "Name(Arabic)",
+        "ar": "اسم المتجر بالعربية"
+    },
+    "store_name_en": {
+        "en": "Name(English)",
+        "ar": "اسم المتجر بالإنجليزية"
+    },
+    "store_owner": {
+        "en": "Store Owner",
+        "ar": "مالك المتجر"
+    },
+    "store_status": {
+        "en": "Store Status",
+        "ar": "حالة المتجر"
+    },
+    "add_new_store_owner": {
+        "en": "Add New Store Owner",
+        "ar": "مالك متجر إضافة"
+    },
+    "options": {
+        "en": "Options",
+        "ar": "خيارات"
+    },
+    "activate": {
+        "en": "Active",
+        "ar": "مفعل"
+    },
+    "not_activate": {
+        "en": "Inactive",
+        "ar": "غير مفعل"
+    },
+    "deactivate_store": {
+        "en": "Deactivate Store",
+        "ar": "إلغاء تفعيل المتجر"
+    },
+    "activate_store": {
+        "en": "Activate Store",
+        "ar": "تفعيل المتجر"
+    },
+    "store_details": {
+        "en": "Store Details",
+        "ar": "تفاصيل المتجر"
+    },
+    "country": {
+        "en": "Country",
+        "ar": "الدولة"
+    },
+    "city": {
+        "en": "City",
+        "ar": "المدينة"
+    },
+    "zone": {
+        "en": "Zone",
+        "ar": "المنطقة"
+    },
+    "phone": {
+        "en": "Phone",
+        "ar": "الهاتف"
+    },
+    "email": {
+        "en": "Email",
+        "ar": "البريد الإلكتروني"
+    },
+    "address": {
+        "en": "Address",
+        "ar": "العنوان"
+    },
+    "default_currency": {
+        "en": "Default Pricing Currency",
+        "ar": "عملة التسعير الافتراضية"
+    },
+    "working_hours": {
+        "en": "Working Hours",
+        "ar": "ساعات العمل"
+    },
+    "view_details": {
+        "en": "View Details",
+        "ar": "عرض التفاصيل"
+    },
+    "status": {
+        "en": "Status",
+        "ar": "الحالة"
+    },
+    "open": {
+        "en": "Open",
+        "ar": "مفتوح"
+    },
+    "closed": {
+        "en": "Closed",
+        "ar": "مغلق"
+    },
+    "active": {
+        "en": "Active",
+        "ar": "مفعل"
+    },
+    "yes": {
+        "en": "Yes",
+        "ar": "نعم"
+    },
+    "no": {
+        "en": "No",
+        "ar": "لا"
+    },
+    "store_description": {
+        "en": "Store Description",
+        "ar": "وصف المتجر"
+    },
+    "related_products": {
+        "en": "Related Products",
+        "ar": "المنتجات التابعة"
+    },
+    "add_product": {
+        "en": "Add Product",
+        "ar": "إضافة منتج"
+    },
+    "product_name": {
+        "en": "Product Name",
+        "ar": "اسم المنتج"
+    },
+    "description": {
+        "en": "Description",
+        "ar": "الوصف"
+    },
+    "stock": {
+        "en": "Stock",
+        "ar": "المخزون"
+    },
+    "price": {
+        "en": "Price",
+        "ar": "السعر"
+    },
+    "close": {
+        "en": "Close",
+        "ar": "إغلاق"
+    },
+    "holiday": {
+        "en": "Holiday",
+        "ar": "إجازة"
+    },
+    "not_defined": {
+        "en": "Not Defined",
+        "ar": "غير محدد"
+    },
+    "no_data_available": {
+        "en": "No data available",
+        "ar": "لا توجد بيانات متاحة"
+    },
+    "add_new_store": {
+        "en": "Add New Store",
+        "ar": "إضافة متجر جديد"
+    },
+    "select_store_owner": {
+        "en": "Select Store Owner",
+        "ar": "اختر صاحب المتجر"
+    },
+    "select_country": {
+        "en": "Select Country",
+        "ar": "اختر البلد"
+    },
+    "select_city": {
+        "en": "Select City",
+        "ar": "اختر المدينة"
+    },
+    "select_zone": {
+        "en": "Select Zone",
+        "ar": "اختر المنطقة"
+    },
+    "add_time": {
+        "en": "Add Time",
+        "ar": "إضافة وقت"
+    },
+    "store_image": {
+        "en": "Store Image",
+        "ar": "صورة المتجر"
+    },
+    "select_currency": {
+        "en": "Select Currency",
+        "ar": "اختر العملة"
+    },
+    "phone_number": {
+        "en": "Phone Number",
+        "ar": "رقم الهاتف"
+    },
+
+    "edit_store": {
+        "en": "Edit Store",
+        "ar": "تعديل متجر"
+    },
+    "back": {
+        "en": "Back",
+        "ar": "رجوع"
+    },
+    "name_ar": {
+        "en": "Name (Arabic)",
+        "ar": "الاسم بالعربية"
+    },
+    "name_en": {
+        "en": "Name (English)",
+        "ar": "الاسم بالإنجليزية"
+    },
+    "day": {
+        "en": "Day",
+        "ar": "اليوم"
+    },
+    "from": {
+        "en": "From",
+        "ar": "من"
+    },
+    "to": {
+        "en": "To",
+        "ar": "إلى"
+    },
+    "store_activation": {
+        "en": "Store Activation",
+        "ar": "تفعيل المتجر"
+    },
+
+    "add_new_currency": {
+        "en": "Add New Currency",
+        "ar": "إضافة عملة جديدة"
+    },
+    "name": {
+        "en": "Name",
+        "ar": "الاسم"
+    },
+    "code": {
+        "en": "Code",
+        "ar": "الرمز"
+    },
+    "iso_code": {
+        "en": "ISO Code",
+        "ar": "رمز ISO"
+    },
+    "exchange_rate": {
+        "en": "Exchange Rate",
+        "ar": "سعر الصرف"
+    },
+    "currencies": {
+        "en": "Currencies",
+        "ar": "العملات"
+    },
+    "add_new_category": {
+        "en": "Add New Category",
+        "ar": "إضافة تصنيف جديد"
+    },
+    "select_category": {
+        "en": "Select Category",
+        "ar": "اختر التصنيف"
+    },
+    "all_category": {
+        "en": "All Categories",
+        "ar": "كل التصنيفات"
+    },
+    "category_image": {
+        "en": "Category Image",
+        "ar": "صورة التصنيف"
+    },
+    "all_categories": {
+        "en": "All Categories",
+        "ar": "كل التصنيفات"
+    },
+    "category_name_ar": {
+        "en": "Category Name (Arabic)",
+        "ar": "اسم التصنيف بالعربية"
+    },
+    "category_name_en": {
+        "en": "Category Name (English)",
+        "ar": "اسم التصنيف بالإنكليزية"
+    },
+    "category_type": {
+        "en": "Parent Category",
+        "ar": "التصنيف الأب"
+    },
+    "category_details": {
+        "en": "Category Details",
+        "ar": "تفاصيل التصنيف"
+    },
+    "subtypes_for_category": {
+        "en": "Subtypes for category",
+        "ar": "الأنواع التابعة لهذا التصنيف"
+    },
+    "add_new_type": {
+        "en": "Add New Type",
+        "ar": "إضافة نوع جديد"
+    },
+    "parent_category": {
+        "en": "Parent Category",
+        "ar": "التصنيف الأب"
+    },
+    "edit_category": {
+        "en": "Edit Category",
+        "ar": "تعديل التصنيف"
+    },
+
+    "category_update_success": {
+        "en": "Category updated successfully",
+        "ar": "تم تحديث التصنيف بنجاح"
+    },
+    "category_add_success": {
+        "en": "Category added successfully",
+        "ar": "تمت إضافة التصنيف بنجاح"
+    },
+    "name_in_arabic": {
+        "en": "Name in Arabic",
+        "ar": "الاسم بالعربية"
+    },
+    "name_in_english": {
+        "en": "Name in English",
+        "ar": "الاسم بالإنكليزية"
+    },
+    "update_currency": {
+        "en": "Update Currency",
+        "ar": "تحديث العملة"
+    },
+    "created_successfully": {
+        "en": "Created successfully",
+        "ar": "تم الإنشاء بنجاح"
+    },
+    "the information update success": {
+        "en": "The information updated successfully",
+        "ar": "تم تحديث المعلومات بنجاح"
+    },
+    "add_new_delivery_captain": {
+        "en": "Add New Delivery Captain",
+        "ar": "إضافة كابتن توصيل جديد"
+    },
+    "password": {
+        "en": "Password",
+        "ar": "كلمة المرور"
+    },
+    "delivery_captains": {
+        "en": "Delivery Captains",
+        "ar": "كابتنات التوصيل"
+    },
+    "delivery_captain_details": {
+        "en": "Delivery Captain Details",
+        "ar": "تفاصيل كابتن التوصيل"
+    },
+    "vehicle_description": {
+        "en": "Vehicle Description",
+        "ar": "وصف المركبة"
+    },
+    "vehicle_number": {
+        "en": "Vehicle Number",
+        "ar": "رقم المركبة"
+    },
+    "vehicle_type": {
+        "en": "Vehicle Type",
+        "ar": "نوع المركبة"
+    },
+    "join_requests": {
+        "en": "Join Requests",
+        "ar": "طلبات الانضمام"
+    },
+    "user_name": {
+        "en": "User Name",
+        "ar": "اسم المستخدم"
+    },
+    "account_type": {
+        "en": "Account Type",
+        "ar": "نوع الحساب"
+    },
+    "accept": {
+        "en": "Accept",
+        "ar": "قبول"
+    },
+    "reject": {
+        "en": "Reject",
+        "ar": "رفض"
+    },
+    "user_details": {
+        "en": "User Details",
+        "ar": "تفاصيل المستخدم"
+    },
+    "service_provider": {
+        "en": "Service Provider",
+        "ar": "مقدم الخدمة"
+    },
+    "add_new_employee": {
+        "en": "Add New Employee",
+        "ar": "إضافة موظف جديد"
+    },
+    "employee_name": {
+        "en": "Employee Name",
+        "ar": "اسم الموظف"
+    },
+    "employees": {
+        "en": "Employees",
+        "ar": "الموظفين"
+    },
+    "add_employee": {
+        "en": "Add Employee",
+        "ar": "إضافة موظف"
+    },
+    "employee_status": {
+        "en": "Employee Status",
+        "ar": "حالة الموظف"
+    },
+    "details_employee": {
+        "en": "Employee Details",
+        "ar": "تفاصيل الموظف"
+    },
+    "add_new_pet_owner": {
+        "en": "Add New Pet Owner",
+        "ar": "إضافة مالك  جديد"
+    },
+    "pet_owners": {
+        "en": "Pet Owners",
+        "ar": "مالكو "
+    },
+    "add_pet_owner": {
+        "en": "Add Pet Owner",
+        "ar": "إضافة مالك "
+    },
+    "#": {
+        "en": "#",
+        "ar": "#"
+    },
+    "pet_owner_name": {
+        "en": "Pet Owner Name",
+        "ar": "اسم المالك"
+    },
+    "pet_owner_status": {
+        "en": "Pet Owner Status",
+        "ar": "حالة المالك"
+    },
+    "actions": {
+        "en": "Actions",
+        "ar": "خيارات"
+    },
+    "pet_owner_details": {
+        "en": "Pet Owner Details",
+        "ar": "تفاصيل المالك"
+    },
+    "user_type": {
+        "en": "User Type",
+        "ar": "نوع المستخدم"
+    },
+    "account_status": {
+        "en": "Account Status",
+        "ar": "حالة الحساب"
+    },
+    "is_available?": {
+        "en": "Is Available?",
+        "ar": "متاح؟"
+    },
+    "add_new_vet": {
+        "en": "Add New Veterinarian",
+        "ar": "إضافة طبيب بيطري جديد"
+    },
+    "add_vet": {
+        "en": "Add Veterinarian",
+        "ar": "إضافة طبيب بيطري"
+    },
+    "vet_name": {
+        "en": "Veterinarian Name",
+        "ar": "اسم الطبيب البيطري"
+    },
+    "vet_details": {
+        "en": "Vet Details",
+        "ar": "تفاصيل الطبيب البيطري"
+    },
+    "specialization": {
+        "en": "Specialization",
+        "ar": "التخصص"
+    },
+    "years_of_experience": {
+        "en": "Years of Experience",
+        "ar": "سنوات الخبرة"
+    },
+    "cv": {
+        "en": "CV",
+        "ar": "السيرة الذاتية"
+    },
+    "animals_treated": {
+        "en": "Animals Treated",
+        "ar": "الحيوانات التي يعالجها"
+    },
+    "store_requests": {
+        "en": "Requests",
+        "ar": "الطلبات"
+    },
+    "order_details": {
+        "en": "Order Details",
+        "ar": "تفاصيل الطلب"
+    },
+    "order_info": {
+        "en": "Order Information",
+        "ar": "معلومات الطلب"
+    },
+    "total_price": {
+        "en": "Total Price",
+        "ar": "السعر الإجمالي"
+    },
+    "order_status": {
+        "en": "Order Status",
+        "ar": "حالة الطلب"
+    },
+    "rejection_reason": {
+        "en": "Rejection Reason",
+        "ar": "سبب الرفض"
+    },
+    "store_name": {
+        "en": "Store Name",
+        "ar": "اسم المتجر"
+    },
+    "combined_order_id": {
+        "en": "Combined Order ID",
+        "ar": "معرّف الطلب المجمع"
+    },
+    "created_at": {
+        "en": "Created At",
+        "ar": "تاريخ الإنشاء"
+    },
+    "order_items": {
+        "en": "Order Items",
+        "ar": "عناصر الطلب"
+    },
+    "quantity": {
+        "en": "Quantity",
+        "ar": "الكمية"
+    },
+    "unit_price": {
+        "en": "Unit Price",
+        "ar": "سعر الوحدة"
+    },
+    "has_discount": {
+        "en": "Has Discount",
+        "ar": "يوجد خصم"
+    },
+    "discount_description": {
+        "en": "Discount Description",
+        "ar": "وصف الخصم"
+    },
+    "total_item_price": {
+        "en": "Total Item Price",
+        "ar": "السعر الإجمالي للعنصر"
+    },
+    "no_order_items_found": {
+        "en": "No order items found",
+        "ar": "لم يتم العثور على عناصر الطلب"
+    },
+    "product_details": {
+        "en": "Product details",
+        "ar": "تفاصيل المنتج"
+    },
+    "stock_quantity": {
+        "en": "Stock quantity",
+        "ar": "الكمية في المخزون"
+    },
+    "store": {
+        "en": "Store",
+        "ar": "المتجر"
+    },
+    "product_categories": {
+        "en": "Product categories",
+        "ar": "تصنيفات المنتج"
+    },
+    "pet_types": {
+        "en": "Pet types",
+        "ar": "أنواع الحيوانات"
+    },
+    "active_discounts_count": {
+        "en": "Active discounts count",
+        "ar": "عدد الخصومات المفعّلة"
+    },
+    "applied_discount": {
+        "en": "Applied discount",
+        "ar": "الخصم المطبق"
+    },
+    "price_after_discount": {
+        "en": "Price after discount",
+        "ar": "السعر بعد الخصم"
+    },
+    "choose_discount_method": {
+        "en": "Choose discount method",
+        "ar": "اختر طريقة الخصم"
+    },
+    "disable_max_discount": {
+        "en": "Disable max discount",
+        "ar": "تعطيل أقصى خصم"
+    },
+    "apply_lowest_discount": {
+        "en": "Apply lowest discount",
+        "ar": "تطبيق أقل خصم"
+    },
+    "enable_max_discount": {
+        "en": "Enable max discount",
+        "ar": "تفعيل أقصى خصم"
+    },
+    "apply_best_discount": {
+        "en": "Apply best discount",
+        "ar": "تطبيق أفضل خصم"
+    },
+    "product_description": {
+        "en": "Product description",
+        "ar": "وصف المنتج"
+    },
+    "product_discounts": {
+        "en": "Product discounts",
+        "ar": "خصومات المنتج"
+    },
+    "add_discount": {
+        "en": "Add discount",
+        "ar": "إضافة خصم"
+    },
+    "discount_source": {
+        "en": "Discount source",
+        "ar": "مصدر الخصم"
+    },
+    "discount_type": {
+        "en": "Discount type",
+        "ar": "نوع الخصم"
+    },
+    "discount_duration": {
+        "en": "Discount duration",
+        "ar": "مدة الخصم"
+    },
+    "discount_value": {
+        "en": "Discount value",
+        "ar": "قيمة الخصم"
+    },
+    "discount_status": {
+        "en": "Discount status",
+        "ar": "حالة الخصم"
+    },
+    "not_active": {
+        "en": "Not active",
+        "ar": "غير فعال"
+    },
+    "disable": {
+        "en": "Disable",
+        "ar": "تعطيل"
+    },
+    "enable": {
+        "en": "Enable",
+        "ar": "تفعيل"
+    },
+    "main_image_note": {
+        "en": "Blue border means this is the main image",
+        "ar": "الإطار الأزرق يعني أن هذه هي الصورة الرئيسية"
+    },
+    "undefined": {
+        "en": "Undefined",
+        "ar": "غير محدد"
+    },
+    "choose_product_categories": {
+        "en": "Choose product categories",
+        "ar": "اختر تصنيفات المنتج"
+    },
+
+    "choose_product_pets": {
+        "en": "Choose pet types",
+        "ar": "اختر أنواع الحيوانات"
+    },
+    "edit_product": {
+        "en": "Edit product",
+        "ar": "تعديل المنتج"
+    },
+
+    "no_uploaded_images": {
+        "en": "No uploaded images",
+        "ar": "لا توجد صور مرفوعة"
+    },
+    "main_image": {
+        "en": "Main image",
+        "ar": "الصورة الرئيسية"
+    },
+    "updating": {
+        "en": "Updating...",
+        "ar": "جاري التحديث..."
+    },
+
+    "info_updated_successfully": {
+        "en": "Information updated successfully",
+        "ar": "تم تحديث المعلومات بنجاح"
+    },
+
+    "add_new_product": {
+        "en": "Add new product",
+        "ar": "إضافة منتج جديد"
+    },
+    "the_request_accepted_success": {
+        "en": "The request has been accepted successfully",
+        "ar": "تم قبول الطلب بنجاح"
+    },
+    "the_request_rejected_success": {
+        "en": "The request has been rejected successfully",
+        "ar": "تم رفض الطلب بنجاح"
+    },
+    "choose_store_products": {
+        "en": "Choose store products",
+        "ar": "اختر منتجات المتجر"
+    },
+    "no_results": {
+        "en": "No results found",
+        "ar": "لا توجد نتائج"
+    },
+    "search_products": {
+        "en": "Search products",
+        "ar": "ابحث عن المنتجات"
+    },
+    "loading": {
+        "en": "Loading...",
+        "ar": "جارٍ التحميل..."
+    },
+    "click_to_select": {
+        "en": "Click to select",
+        "ar": "انقر للاختيار"
+    },
+    "choose_store_categories": {
+        "en": "Choose store categories",
+        "ar": "اختر فئات المتجر"
+    },
+    "search_categories": {
+        "en": "Search categories",
+        "ar": "ابحث عن الفئات"
+    },
+    "choose_pet_types": {
+        "en": "Choose pet types",
+        "ar": "اختر أنواع الحيوانات"
+    },
+    "search_pet_types": {
+        "en": "Search pet types",
+        "ar": "ابحث عن أنواع الحيوانات"
+    },
+    "saving": {
+        "en": "Saving...",
+        "ar": "جارٍ الحفظ..."
+    },
+    "added_successfully": {
+        "en": "Added successfully",
+        "ar": "تمت الإضافة بنجاح"
+    },
+    "discount_added_successfully": {
+        "en": "Discount added successfully",
+        "ar": "تمت إضافة الخصم بنجاح"
+    },
+    "save": {
+        "en": "Save",
+        "ar": "حفظ"
+    },
+    "unexpected_error": {
+        "en": "Unexpected error occurred",
+        "ar": "حدث خطأ غير متوقع"
+    },
+    "choose_products": {
+        "en": "Choose products",
+        "ar": "اختر المنتجات"
+    },
+    "choose_categories": {
+        "en": "Choose categories",
+        "ar": "اختر الفئات"
+    },
+    "loading_products": {
+        "en": "Loading products...",
+        "ar": "جارٍ تحميل المنتجات..."
+    },
+    "failed_to_load_products": {
+        "en": "Failed to load products",
+        "ar": "فشل تحميل المنتجات"
+    },
+    "loading_categories": {
+        "en": "Loading categories...",
+        "ar": "جارٍ تحميل الفئات..."
+    },
+    "failed_to_load_categories": {
+        "en": "Failed to load categories",
+        "ar": "فشل تحميل الفئات"
+    },
+    "loading_pet_types": {
+        "en": "Loading pet types...",
+        "ar": "جارٍ تحميل أنواع الحيوانات..."
+    },
+    "failed_to_load_pet_types": {
+        "en": "Failed to load pet types",
+        "ar": "فشل تحميل أنواع الحيوانات"
+    },
+    "fixed_amount": {
+        "en": "Fixed amount",
+        "ar": "مبلغ ثابت"
+    },
+    "percentage": {
+        "en": "Percentage",
+        "ar": "نسبة مئوية"
+    },
+    "edit_discount": {
+        "en": "Edit discount",
+        "ar": "تعديل الخصم"
+    },
+    "update": {
+        "en": "Update",
+        "ar": "تحديث"
+    },
+    "edit_employee": {
+        "en": "Edit Employee",
+        "ar": "تعديل الموظف"
+    },
+
+    "حدث خطأ غير متوقع": {
+        "en": "Unexpected error occurred",
+        "ar": "حدث خطأ غير متوقع"
+    },
+    "add_new_discount": {
+        "en": "Add New Discount",
+        "ar": "إضافة خصم جديد"
+    },
+
+    "apply_discount_to": {
+        "en": "Apply Discount To",
+        "ar": "تطبيق الخصم على"
+    },
+    "store_category": {
+        "en": "Store Category",
+        "ar": "فئة المتجر"
+    },
+    "pet_type": {
+        "en": "Pet Type",
+        "ar": "نوع الحيوان الأليف"
+    },
+    "store_products": {
+        "en": "Store Products",
+        "ar": "منتجات المتجر"
+    },
+    "choose_store": {
+        "en": "Choose Store",
+        "ar": "اختر المتجر"
+    },
+    "choose_category": {
+        "en": "Choose Category",
+        "ar": "اختر الفئة"
+    },
+
+    "start_date": {
+        "en": "Start Date",
+        "ar": "تاريخ البدء"
+    },
+    "end_date": {
+        "en": "End Date",
+        "ar": "تاريخ الانتهاء"
+    },
+
+    "min_products_count": {
+        "en": "Minimum Products Count",
+        "ar": "الحد الأدنى لعدد المنتجات"
+    },
+
+    "notes": {
+        "en": "Notes",
+        "ar": "ملاحظات"
+    },
+
+    "select_day": {
+        "en": "Select Day",
+        "ar": "اختر اليوم"
+    },
+
+    "product_images_multiple": {
+        "en": "Product Images (You can select multiple)",
+        "ar": "صور المنتج (يمكن تحديد أكثر من صورة)"
+    },
+    "select_store": {
+        "en": "Select Store",
+        "ar": "اختر المتجر"
+    },
+    "all_stores": {
+        "en": "All Stores",
+        "ar": "كل المتاجر"
+    },
+
+    "product_pet_types": {
+        "en": "Product Pet Types",
+        "ar": "الحيوانات التابعة المنتج"
+    },
+    "product_price": {
+        "en": "Product Price",
+        "ar": "سعر المنتج"
+    },
+
+    "default_pricing_currency": {
+        "en": "Default Pricing Currency",
+        "ar": "عملة التسعير الافتراضية"
+    },
+    "choose_currency": {
+        "en": "Choose Currency",
+        "ar": "اختر العملة"
+    },
+    "default_currency_note": {
+        "en": "If not selected, the store's default currency will be used.",
+        "ar": "في حال عدم الاختيار، سيتم اعتماد العملة الافتراضية للمتجر."
+    },
+    "category_discounts": {
+        "en": "Category Discounts",
+        "ar": "الحسومات على الفئات"
+    },
+
+    "pet_type_discounts": {
+        "en": "Pet Type Discounts",
+        "ar": "الحسومات على أنواع الحيوانات"
+    },
+    "assign_captain": {
+        "en": "Assign Captain",
+        "ar": "إسناد سائق"
+    },
+     "assigned_to_captain": {
+        "en": "Assigned To Captain",
+        "ar": "مسند سائق"
+    },
+    "driver_name": {
+        "en": "Driver Name",
+        "ar": "اسم السائق"
+    },
+
+    "duration_in_months": {
+        "en": "Duration (Months)",
+        "ar": "المدة (بالأشهر)"
+    },
+    "number_of_play_dates": {
+        "en": "Number of Play Dates",
+        "ar": "عدد مواعيد اللعب"
+    },
+    "number_of_mate_dates": {
+        "en": "Number of Mate Dates",
+        "ar": "عدد مواعيد التزاوج"
+    },
+    "number_of_vet_visits": {
+        "en": "Number of Vet Visits",
+        "ar": "عدد زيارات الطبيب البيطري"
+    },
+    "is_active": {
+        "en": "Active",
+        "ar": "مفعل"
+    },
+    "subscriptions": {
+        "en": "Subscriptions",
+        "ar": "الاشتراكات"
+    },
+
+    "add_new_subscription": {
+        "en": "Add New Subscription",
+        "ar": "إضافة اشتراك جديد"
+    },
+    "deactivate_subscription": {
+        "en": "Deactivate Subscription",
+        "ar": "إلغاء تفعيل الاشتراك"
+    },
+    "activate_subscription": {
+        "en": "Activate Subscription",
+        "ar": "تفعيل الاشتراك"
+    },
+    "subscription_name": {
+        "en": "Subscription Name",
+        "ar": "اسم الاشتراك"
+    },
+    "subscription_details": {
+        "en": "Subscription Details",
+        "ar": "تفاصيل الاشتراك"
+    },
+    "user_subscription": {
+        "en": "User Subscription",
+        "ar": "اشتركات المستخدمين"
+    },
+    "search_by_owner": {
+        "en": "Search By Owner",
+        "ar": "بحث حسب مالك المتجر"
+    } ,
+    "store_owner_name": {
+        "en": "Store Owner Name",
+        "ar": "اسم مالك المتجر"
+    } ,
+
+    "store_owners": {
+        "en": "Store Owners",
+        "ar": "مالكي المتجر"
+    } ,
+     "from_currency": {
+        "en": "From Currency",
+        "ar": "من العملة"
+    } ,
+     "to_currency": {
+        "en": "To Currency",
+        "ar": "إلى العملة"
+    } ,
+    "main_currency": {
+        "en": "Main Currency",
+        "ar": "العملة الرئيسية"
+    },
+    "circulation_currencies": {
+        "en": "Circulation Currencies",
+        "ar": "العملات المتداولة"
+    },
+    "choose_currencies": {
+        "en": "Choose Circulation Currencies",
+        "ar": "اختر العملات المتداولة"
+    },
+    "add_currency_exchange" : {
+        "en": "Add Currency Exchange",
+        "ar": "أضف سعر صرف"
+    },
+    "edit_currency_exchange" : {
+        "en": "Edit Currency Exchange",
+        "ar": "تعديل سعر الصرف"
+    },"move_to_store_owners" : {
+        "en": "In case you did not add store owner go to store owners from here",
+        "ar": "في حال عدم إضافة المستخدم المسؤول عن المتجر يمكن الانتقال للصفة مالكي المتاجر من هنا."
+    }
+}

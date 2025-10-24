@@ -1,0 +1,11 @@
+.color-red {
+    color: red;
+}
+
+.edit-permission:hover {
+    cursor: pointer;
+}
+
+#auth_permission {
+    text-align: left;
+}

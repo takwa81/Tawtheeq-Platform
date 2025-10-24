@@ -1,0 +1,202 @@
+[
+    {
+        "name": "add_store",
+        "name_ar": "إضافة متجر",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "edit_store",
+        "name_ar": "تعديل متجر",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "delete_store",
+        "name_ar": "حذف متجر",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "view_store",
+        "name_ar": "عرض متجر",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "show_store",
+        "name_ar": "عرض تفاصيل متجر",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "active_deactive_store",
+        "name_ar": " تفعيل /إلغاء تفعيل المتجر",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "add_product",
+        "name_ar": "إضافة منتج",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "edit_product",
+        "name_ar": "تعديل منتج",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "show_product",
+        "name_ar": "عرض تفاصيل منتج",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "delete_product",
+        "name_ar": "حذف منتج",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "view_product",
+        "name_ar": "عرض منتج",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "add_categories",
+        "name_ar": "إضافة تصنيف",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "edit_categories",
+        "name_ar": "تعديل تصنيف",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "delete_categories",
+        "name_ar": "حذف تصنيف",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "view_categories",
+        "name_ar": "عرض تصنيف",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "show_categories",
+        "name_ar": "عرض تفاصيل تصنيف",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "view_requests",
+        "name_ar": "عرض الطلبات",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "show_requests",
+        "name_ar": "عرض تفاصيل طلب",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "assigned_request_to_driver",
+        "name_ar": "إسناد طلب لسائق",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "view_discount",
+        "name_ar": "عرض الحسومات",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "show_discount",
+        "name_ar": "عرض تفاصيل الحسم",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "add_discount",
+        "name_ar": "إضافة حسم",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "edit_discount",
+        "name_ar": "تعديل حسم",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "delete_discount",
+        "name_ar": "حذف حسم",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+
+    {
+        "name": "active_deactive_discount",
+        "name_ar": "تفعيل / إلغاء  حسم",
+        "category_en": "Store",
+        "category_ar": "المتجر"
+    },
+    {
+        "name": "add_subscription",
+        "name_ar": "إضافة اشتراك",
+        "category_en": " Subscription",
+        "category_ar": "الاشتراكات"
+    },
+    {
+        "name": "edit_subscription",
+        "name_ar": "تعديل اشتراك",
+        "category_en": " Subscription",
+        "category_ar": "الاشتراكات"
+    },
+    {
+        "name": "delete_subscription",
+        "name_ar": "حذف اشتراك",
+        "category_en": " Subscription",
+        "category_ar": "الاشتراكات"
+    },
+    {
+        "name": "view_subscription",
+        "name_ar": "عرض الاشتراكات",
+        "category_en": " Subscription",
+        "category_ar": "الاشتراكات"
+    },
+    {
+        "name": "show_subscription",
+        "name_ar": "عرض تفاصيل الاشتراك",
+        "category_en": " Subscription",
+        "category_ar": "الاشتراكات"
+    },
+    {
+        "name": "view_currency_exchange",
+        "name_ar": "عرض  صرف العملات",
+        "category_en": "Currency Exchange",
+        "category_ar": "صرف العملات"
+    },
+    {
+        "name": "show_currency_exchange",
+        "name_ar": "عرض تفاصيل صرف العملات",
+        "category_en": "Currency Exchange",
+        "category_ar": "صرف العملات"
+    },
+    {
+        "name": "add_currency_exchange",
+        "name_ar": "تعديل سعر صرف العملات",
+        "category_en": "Currency Exchange",
+        "category_ar": "صرف العملات"
+    }
+
+]
