@@ -1,5 +1,21 @@
     @extends('dashboard.layouts.app')
 
+    @section('styles')
+        <style>
+            .form-check-input.form-check-input:checked {
+                background-color: #ff5087 !important;
+            }
+
+            .form-check-input {
+                width: 1.3em;
+                height: 1.3em;
+            }
+
+            .form-check {
+                width: 60%;
+            }
+        </style>
+    @endsection
     @section('content')
         <x-dashboard.page-header :title="__('dashboard.branches')" addModalId="dataEntryModal" />
 
@@ -26,6 +42,17 @@
                         placeholder="ابحث برقم الهاتف" class="form-control bg-white">
                 </div>
                 <div class="col-lg-3 col-md-3 mt-1">
+                    <select id="manager_id" name="manager_id" class="form-select bg-white">
+                        <option value="">اختر مدير الفرع</option>
+                        @foreach ($branchManagers as $manager)
+                            <option value="{{ $manager->id }}"
+                                {{ request()->get('manager_id') === $manager->id ? 'selected' : '' }}>
+                                {{ $manager->user->full_name }}</option>
+                        @endforeach
+                    </select>
+                    <div class="text-danger" id="manager_idError"></div>
+                </div>
+                <div class="col-lg-3 col-md-3 mt-1">
                     <select name="status" class="form-select bg-white">
                         <option value="">كل الحالات</option>
                         <option value="active" {{ request()->get('status') === 'active' ? 'selected' : '' }}>نشط
@@ -37,7 +64,7 @@
                         </option>
                     </select>
                 </div>
-                <div class="col-lg-2 col-md-2 mt-1 d-flex align-items-center">
+                <div class="col-lg-3 col-md-3 mt-1 d-flex align-items-center">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="only_trashed" value="1" id="onlyTrashed"
                             {{ request()->get('only_trashed') ? 'checked' : '' }}>
@@ -124,7 +151,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="text-center">
+                            <td colspan="10" class="text-center">
                                 <x-no-data-found />
                             </td>
                         </tr>

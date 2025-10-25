@@ -15,7 +15,8 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('name_en');
             $table->string('name_ar');
-            $table->text('description')->nullable();
+            $table->text('description_ar')->nullable();
+            $table->text('description_en')->nullable();
             $table->integer('branches_limit')->default(1);
             $table->decimal('price', 10, 2)->default(0);
             $table->integer('duration_days')->default(30);

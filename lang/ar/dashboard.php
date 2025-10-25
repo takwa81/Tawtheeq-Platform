@@ -5,6 +5,8 @@ return [
     'companies' => 'شركات التوصيل',
     'name_ar' => 'الاسم بالعربي',
     'name_en' => 'الاسم بالانكليزي',
+    'description_ar' => 'الوصف بالعربي',
+    'description_en' => 'الوصف بالانكليزي',
     'options' => 'خيارات',
     'add_new_company' => 'إضافة بلد جديد',
     'save' => 'حفظ',
@@ -19,5 +21,8 @@ return [
     'company_logo'=>'شعار الشركة',
     'branch_managers'=>'مدراء الأفرع',
     'branches'=>'الأفرع',
-    'subscription_packages'=>'خطط الاشتراك'
+    'subscription_packages'=>'خطط الاشتراك',
+    'branches_limit'=>'عدد الأفرع',
+    'price'=>'سعر الباقة',
+    'features'=>'الميزات'
 ];

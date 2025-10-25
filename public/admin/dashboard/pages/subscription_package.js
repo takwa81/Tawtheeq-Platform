@@ -3,23 +3,48 @@ $(document).ready(function () {
     const modal = $("#subscriptionModal");
     const submitButton = form.find("#submitButton");
     const modalTitle = $("#subscriptionModalLabel");
-    const cardsContainer = $("#cardsContainer"); 
+    const cardsContainer = $("#cardsContainer");
 
     let isEdit = false;
     let editId = null;
 
+    $(document).on("click", "#addFeature", function () {
+        $("#featuresContainer").append(`
+            <div class="input-group mb-2 feature-item">
+                <input type="text" name="features[]" class="form-control" placeholder="أدخل ميزة">
+                <button type="button" class="btn btn-md bg-danger rounded font-sm remove-feature">
+                    <i class="material-icons md-delete"></i>
+                </button>
+            </div>
+        `);
+    });
+
+    $(document).on("click", ".remove-feature", function () {
+        $(this).closest(".feature-item").remove();
+    });
+
     function renderCard(packageData) {
-        const features = packageData.features ? packageData.features.join(", ") : "";
+        const features = packageData.features
+            ? packageData.features.join(", ")
+            : "";
         return `
             <div class="col-md-4 mb-4" id="card-${packageData.id}">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">${packageData.name_ar} / ${packageData.name_en}</h5>
+                        <h5 class="card-title">${
+                            packageData.name_ar
+                        } / ${packageData.name_en}</h5>
                         <p class="card-text">${packageData.description}</p>
                         <ul class="list-group list-group-flush mb-2">
-                            <li class="list-group-item"><strong>Price:</strong> ${packageData.price}</li>
-                            <li class="list-group-item"><strong>Branches Limit:</strong> ${packageData.branches_limit}</li>
-                            <li class="list-group-item"><strong>Duration (days):</strong> ${packageData.duration_days}</li>
+                            <li class="list-group-item"><strong>Price:</strong> ${
+                                packageData.price
+                            }</li>
+                            <li class="list-group-item"><strong>Branches Limit:</strong> ${
+                                packageData.branches_limit
+                            }</li>
+                            <li class="list-group-item"><strong>Duration (days):</strong> ${
+                                packageData.duration_days
+                            }</li>
                             <li class="list-group-item"><strong>Features:</strong> ${features}</li>
                         </ul>
                         <div class="d-flex justify-content-between">
@@ -29,13 +54,21 @@ $(document).ready(function () {
                                data-name_ar="${packageData.name_ar}"
                                data-description="${packageData.description}"
                                data-price="${packageData.price}"
-                               data-branches_limit="${packageData.branches_limit}"
+                               data-branches_limit="${
+                                   packageData.branches_limit
+                               }"
                                data-duration_days="${packageData.duration_days}"
-                               data-features='${JSON.stringify(packageData.features)}'>
+                               data-features='${JSON.stringify(
+                                   packageData.features
+                               )}'>
                                 <i class="material-icons md-edit"></i> Edit
                             </a>
-                            <form class="d-inline delete-form" action="/dashboard/subscription_packages/${packageData.id}" method="POST" data-id="${packageData.id}">
-                                <input type="hidden" name="_token" value="${$('meta[name="csrf-token"]').attr('content')}">
+                            <form class="d-inline delete-form" action="/dashboard/subscription_packages/${
+                                packageData.id
+                            }" method="POST" data-id="${packageData.id}">
+                                <input type="hidden" name="_token" value="${$(
+                                    'meta[name="csrf-token"]'
+                                ).attr("content")}">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button type="button" class="btn btn-sm btn-danger delete-button">
                                     <i class="material-icons md-delete"></i> Delete
@@ -55,14 +88,39 @@ $(document).ready(function () {
 
         modalTitle.text("Edit Subscription Package");
         submitButton.text("Edit");
-
         form.find("#name_ar").val($(this).data("name_ar"));
         form.find("#name_en").val($(this).data("name_en"));
-        form.find("#description").val($(this).data("description"));
         form.find("#price").val($(this).data("price"));
         form.find("#branches_limit").val($(this).data("branches_limit"));
+        form.find("#description_ar").val($(this).data("description_ar"));
+        form.find("#description_en").val($(this).data("description_en"));
         form.find("#duration_days").val($(this).data("duration_days"));
-        form.find("#features").val($(this).data("features").join(", "));
+
+        // clear existing feature inputs
+        $("#featuresContainer").empty();
+
+        const features = $(this).data("features") || [];
+        if (features.length > 0) {
+            features.forEach((feature) => {
+                $("#featuresContainer").append(`
+                    <div class="input-group mb-2 feature-item">
+                        <input type="text" name="features[]" class="form-control" value="${feature}">
+                        <button type="button" class="btn btn-md bg-danger rounded font-sm remove-feature">
+                            <i class="material-icons md-delete"></i>
+                        </button>
+                    </div>
+                `);
+            });
+        } else {
+            $("#featuresContainer").append(`
+                <div class="input-group mb-2 feature-item">
+                    <input type="text" name="features[]" class="form-control" placeholder="أدخل ميزة">
+                    <button type="button" class="btn btn-md bg-danger rounded font-sm remove-feature">
+                        <i class="material-icons md-delete"></i>
+                    </button>
+                </div>
+            `);
+        }
 
         form.attr("action", `/dashboard/subscription_packages/${editId}`);
         if (!form.find('input[name="_method"]').length) {
@@ -102,16 +160,20 @@ $(document).ready(function () {
                     toastr.success(res.message ?? "Created successfully");
                 }
 
-                submitButton.prop("disabled", false).text(isEdit ? "Edit" : "Save");
+                submitButton
+                    .prop("disabled", false)
+                    .text(isEdit ? "Edit" : "Save");
                 form[0].reset();
                 modal.modal("hide");
                 isEdit = false;
                 editId = null;
             },
             error: function (xhr) {
-                submitButton.prop("disabled", false).text(isEdit ? "Edit" : "Save");
+                submitButton
+                    .prop("disabled", false)
+                    .text(isEdit ? "Edit" : "Save");
                 toastr.error(xhr.responseJSON?.message ?? "Unexpected error");
-            }
+            },
         });
     });
 

@@ -23,7 +23,8 @@ class BranchController extends Controller
         try {
             $branches = $this->userService->filterUsers($request, 'branch', PaginationEnum::DefaultCount->value);
             $managers = User::where('role', 'branch_manager')->where('status', 'active')->get();
-            return view('dashboard.branches.index', compact('branches', 'managers'));
+            $branchManagers = BranchManager::with('user')->get();
+            return view('dashboard.branches.index', compact('branches', 'managers','branchManagers'));
         } catch (\Throwable $e) {
             toastr()->error(__('messages.fetch_failed') . ': ' . $e->getMessage());
             return redirect()->back();

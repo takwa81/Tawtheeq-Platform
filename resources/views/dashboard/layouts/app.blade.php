@@ -180,7 +180,6 @@
                     <a class="menu-link" href="{{ route('dashboard.home') }}">
                         <i class="icon material-icons md-home"></i>
                         <span class="text">لوحة التحكم</span>
-
                     </a>
                 </li>
 
@@ -223,14 +222,6 @@
                     </a>
                 </li>
 
-                {{--
-                <li class="menu-item {{ request()->route()->getName() === 'dashboard.configs.edit' ? 'active' : '' }}">
-                    <a class="menu-link" href="{{ route('dashboard.configs.edit') }}">
-                        <i class="icon material-icons md-settings"></i>
-                        <span class="text">الإعدادات</span>
-
-                    </a>
-                </li> --}}
             </ul>
 
         </nav>

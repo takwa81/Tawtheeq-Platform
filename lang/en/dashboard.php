@@ -3,6 +3,8 @@
 return [
     'companies' => 'Delivery Company',
     'name_ar' => 'Name (AR)',
+    'description_en' => 'Description (EN)',
+    'description_ar' => 'Description (AR)',
     'name_en' => 'Name (EN)',
     'options' => 'Options',
     'add_new_company' => 'Add New Company',
@@ -19,4 +21,7 @@ return [
     'branch_managers'=> 'Branch Managers',
     'branches'=>'Branches',
     'subscription_packages'=>'Subscription Packages',
+    'branches_limit'=>'Branches Limit',
+    'price'=>'Price',
+    'features'=>'Features'
 ];

@@ -14,7 +14,8 @@ class SubscriptionPackageSeeder extends Seeder
             [
                 'name_en' => 'Basic',
                 'name_ar' => 'الأساسية',
-                'description' => 'خطة مناسبة للشركات الصغيرة.',
+                'description_ar' => 'خطة مناسبة للشركات الصغيرة.',
+                'description_en' => 'خطة مناسبة للشركات الصغيرة.',
                 'branches_limit' => 1,
                 'price' => 29.99,
                 'duration_days' => 30,
@@ -25,7 +26,8 @@ class SubscriptionPackageSeeder extends Seeder
             [
                 'name_en' => 'Pro',
                 'name_ar' => 'المتقدمة',
-                'description' => 'خطة مناسبة للشركات المتوسطة.',
+                'description_ar' => 'خطة مناسبة للشركات المتوسطة.',
+                'description_en' => 'خطة مناسبة للشركات المتوسطة.',
                 'branches_limit' => 5,
                 'price' => 99.99,
                 'duration_days' => 90,
@@ -36,7 +38,8 @@ class SubscriptionPackageSeeder extends Seeder
             [
                 'name_en' => 'Enterprise',
                 'name_ar' => 'الشركات',
-                'description' => 'خطة مخصصة للشركات الكبيرة.',
+                'description_ar' => 'خطة مخصصة للشركات الكبيرة.',
+                'description_en' => 'خطة مخصصة للشركات الكبيرة.',
                 'branches_limit' => 20,
                 'price' => 299.99,
                 'duration_days' => 365,

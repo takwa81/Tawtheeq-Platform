@@ -9,7 +9,8 @@ class SubscriptionPackage extends Model
     protected $fillable = [
         'name_en',
         'name_ar',
-        'description',
+        'description_ar',
+        'description_en',
         'branches_limit',
         'price',
         'duration_days',

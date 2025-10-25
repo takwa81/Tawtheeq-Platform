@@ -1,5 +1,21 @@
     @extends('dashboard.layouts.app')
 
+    @section('styles')
+        <style>
+            .form-check-input.form-check-input:checked {
+                background-color: #ff5087 !important;
+            }
+
+            .form-check-input {
+                width: 1.3em;
+                height: 1.3em;
+            }
+
+            .form-check {
+                width: 60%;
+            }
+        </style>
+    @endsection
     @section('content')
         <x-dashboard.page-header :title="__('dashboard.branch_managers')" addModalId="dataEntryModal" />
 
@@ -36,7 +52,7 @@
                         </option>
                     </select>
                 </div>
-                <div class="col-lg-2 col-md-2 mt-1 d-flex align-items-center">
+                <div class="col-lg-3 col-md-3 mt-1 d-flex align-items-center">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="only_trashed" value="1" id="onlyTrashed"
                             {{ request()->get('only_trashed') ? 'checked' : '' }}>
