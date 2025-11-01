@@ -177,7 +177,7 @@
         <nav>
             @if (auth()->check())
                 @switch(auth()->user()->role)
-                    @case('admin')
+                    @case('super_admin')
                         @include('dashboard.layouts.sidebars.admin')
                     @break
 

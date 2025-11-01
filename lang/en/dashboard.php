@@ -24,5 +24,19 @@ return [
     'branches_limit'=>'Branches Limit',
     'price'=>'Price',
     'features'=>'Features',
-    'duration_days'=> 'Duration (Days)'
+    'duration_days'=> 'Duration (Days)',
+    'orders' => 'Orders',
+    'notes'=>'Notes',
+    'total_order' => 'Total Order',
+    'customer_phone'=>'Customer Phone ',
+    'customer_name'=>'Customer Name',
+    'order_number'=>'Order Number',
+    'order_image'=>'Order Image',
+    'date'=>'Date',
+    'time'=>'Time',
+    'optional'=> 'Optional',
+    'pending' => 'Pending',
+    'completed' => 'Completed',
+    'issue_reported' => 'Issue Reported',
+    'order_details' => 'Order Details '
 ];

@@ -5525,3 +5525,9 @@ main,
 .alert-secondary{
     background : #00c1ca !important;
 }
+
+
+#login-card,
+.navbar-aside {
+   border-left: 1px solid rgb(0, 193, 202) !important;
+}

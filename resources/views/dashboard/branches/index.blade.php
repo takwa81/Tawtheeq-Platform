@@ -41,7 +41,7 @@
                     <input type="text" name="phone" value="{{ request()->get('phone') }}"
                         placeholder="ابحث برقم الهاتف" class="form-control bg-white">
                 </div>
-                @if (auth()->user()->role === 'admin')
+                @if (auth()->user()->role === 'super_admin')
                     <div class="col-lg-3 col-md-3 mt-1">
                         <select id="manager_id" name="manager_id" class="form-select bg-white">
                             <option value="">اختر مدير الفرع</option>

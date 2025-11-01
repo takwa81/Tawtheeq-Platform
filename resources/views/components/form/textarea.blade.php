@@ -6,14 +6,14 @@
             {{ $label }}
             @if ($required)
                 <b class="text-danger">*</b>
+            @else
+                <span class="text-muted">({{ __('dashboard.optional') }})</span>
             @endif
         </label>
     @endif
 
-    <textarea id="{{ $id }}" name="{{ $name }}" class="form-control">
-    {{ old($name, $value ?: $slot) }}
-</textarea>
-
+    <textarea id="{{ $id }}" name="{{ $name }}" class="form-control" {{ $required ? 'required' : '' }}
+        {{-- enforce HTML5 required --}}>{{ old($name, $value ?: $slot) }}</textarea>
 
     @if ($errorId)
         <div class="text-danger" id="{{ $errorId }}"></div>
