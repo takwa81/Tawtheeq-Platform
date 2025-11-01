@@ -24,5 +24,6 @@ return [
     'subscription_packages'=>'خطط الاشتراك',
     'branches_limit'=>'عدد الأفرع',
     'price'=>'سعر الباقة',
-    'features'=>'الميزات'
+    'features'=>'الميزات',
+    'duration_days'=>'المدة (بالأيام)'
 ];

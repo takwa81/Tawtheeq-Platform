@@ -23,5 +23,6 @@ return [
     'subscription_packages'=>'Subscription Packages',
     'branches_limit'=>'Branches Limit',
     'price'=>'Price',
-    'features'=>'Features'
+    'features'=>'Features',
+    'duration_days'=> 'Duration (Days)'
 ];

@@ -175,56 +175,30 @@
 
         </div>
         <nav>
-            <ul class="menu-aside">
-                <li class="menu-item {{ request()->route()->getName() === 'dashboard.home' ? 'active' : '' }}">
-                    <a class="menu-link" href="{{ route('dashboard.home') }}">
-                        <i class="icon material-icons md-home"></i>
-                        <span class="text">لوحة التحكم</span>
-                    </a>
-                </li>
+            @if (auth()->check())
+                @switch(auth()->user()->role)
+                    @case('admin')
+                        @include('dashboard.layouts.sidebars.admin')
+                    @break
 
-                <li
-                    class="menu-item {{ request()->route()->getName() === 'dashboard.companies.index' ? 'active' : '' }}">
-                    <a class="menu-link" href="{{ route('dashboard.companies.index') }}">
-                        <i class="icon material-icons md-shopping_cart"></i>
-                        <span class="text"> شركات التوصيل</span>
-                    </a>
-                </li>
+                    @case('branch_manager')
+                        @include('dashboard.layouts.sidebars.branch_manager')
+                    @break
 
-                <li
-                    class="menu-item {{ request()->route()->getName() === 'dashboard.branch_managers.index' ? 'active' : '' }}">
-                    <a class="menu-link" href="{{ route('dashboard.branch_managers.index') }}">
-                        <i class="icon material-icons md-supervised_user_circle"></i>
-                        <span class="text">مدراء الأفرع</span>
-                    </a>
-                </li>
-                <li
-                    class="menu-item {{ request()->route()->getName() === 'dashboard.branches.index' ? 'active' : '' }}">
-                    <a class="menu-link" href="{{ route('dashboard.branches.index') }}">
-                        <i class="icon material-icons md-supervised_user_circle"></i>
-                        <span class="text">الأفرع</span>
-                    </a>
-                </li>
+                    @case('branch')
+                        @include('dashboard.layouts.sidebars.branch')
+                    @break
 
-                <li
-                    class="menu-item {{ request()->route()->getName() === 'dashboard.orders.index' ? 'active' : '' }}">
-                    <a class="menu-link" href="{{ route('dashboard.home') }}">
-                        <i class="icon material-icons md-receipt_long"></i>
-                        <span class="text"> الطلبات</span>
-                    </a>
-                </li>
-
-                <li
-                    class="menu-item {{ request()->route()->getName() === 'dashboard.subscription_packages.index' ? 'active' : '' }}">
-                    <a class="menu-link" href="{{ route('dashboard.subscription_packages.index') }}">
-                        <i class="icon material-icons md-reorder"></i>
-                        <span class="text"> خطط الاشتراك</span>
-                    </a>
-                </li>
-
-            </ul>
-
+                    @default
+                        <ul class="menu-aside">
+                            <li class="menu-item">
+                                <span class="text text-muted">لا يوجد صلاحيات لعرض القائمة</span>
+                            </li>
+                        </ul>
+                @endswitch
+            @endif
         </nav>
+
     </aside>
     <main class="main-wrap">
         <header class="main-header navbar">

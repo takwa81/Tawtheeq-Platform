@@ -41,17 +41,20 @@
                     <input type="text" name="phone" value="{{ request()->get('phone') }}"
                         placeholder="ابحث برقم الهاتف" class="form-control bg-white">
                 </div>
-                <div class="col-lg-3 col-md-3 mt-1">
-                    <select id="manager_id" name="manager_id" class="form-select bg-white">
-                        <option value="">اختر مدير الفرع</option>
-                        @foreach ($branchManagers as $manager)
-                            <option value="{{ $manager->id }}"
-                                {{ request()->get('manager_id') === $manager->id ? 'selected' : '' }}>
-                                {{ $manager->user->full_name }}</option>
-                        @endforeach
-                    </select>
-                    <div class="text-danger" id="manager_idError"></div>
-                </div>
+                @if (auth()->user()->role === 'admin')
+                    <div class="col-lg-3 col-md-3 mt-1">
+                        <select id="manager_id" name="manager_id" class="form-select bg-white">
+                            <option value="">اختر مدير الفرع</option>
+                            @foreach ($branchManagers as $manager)
+                                <option value="{{ $manager->id }}"
+                                    {{ request()->get('manager_id') === $manager->id ? 'selected' : '' }}>
+                                    {{ $manager->user->full_name }}</option>
+                            @endforeach
+                        </select>
+                        <div class="text-danger" id="manager_idError"></div>
+                    </div>
+                @endif
+
                 <div class="col-lg-3 col-md-3 mt-1">
                     <select name="status" class="form-select bg-white">
                         <option value="">كل الحالات</option>
@@ -150,7 +153,7 @@
                             </td>
                         </tr>
                     @empty
-                        <tr>
+                        <tr id="noDataRow">
                             <td colspan="10" class="text-center">
                                 <x-no-data-found />
                             </td>

@@ -17,6 +17,18 @@ class UserService
             $query->where('role', $userType);
         }
 
+        if (auth()->check() && auth()->user()->role === 'branch_manager' && $userType === 'branch') {
+            $branchManager = auth()->user()->branchManager;
+
+            if ($branchManager) {
+                $query->whereHas('branch', function ($q) use ($branchManager) {
+                    $q->where('manager_id', $branchManager->id);
+                });
+            } else {
+                $query->whereRaw('1=0');
+            }
+        }
+
         if ($userType === 'branch' && $request->filled('creator_user_id')) {
             $query->whereHas('branch', function ($q) use ($request) {
                 $q->where('creator_user_id', $request->creator_user_id);

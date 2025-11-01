@@ -8,6 +8,7 @@ $(document).ready(function () {
     let isEdit = false;
     let editId = null;
 
+    // 🧩 Add new feature field
     $(document).on("click", "#addFeature", function () {
         $("#featuresContainer").append(`
             <div class="input-group mb-2 feature-item">
@@ -19,59 +20,62 @@ $(document).ready(function () {
         `);
     });
 
+    // 🧩 Remove feature input
     $(document).on("click", ".remove-feature", function () {
         $(this).closest(".feature-item").remove();
     });
 
-    function renderCard(packageData) {
-        const features = packageData.features
-            ? packageData.features.join(", ")
-            : "";
+    // 🧱 Render card exactly like Blade view
+    function renderCard(pkg) {
+        let featuresList = "";
+        if (pkg.features && pkg.features.length > 0) {
+            featuresList = `
+                <h6 class="text-secondary">المميزات:</h6>
+                <ul class="small ps-3">
+                    ${pkg.features.map(f => `<li>${f}</li>`).join("")}
+                </ul>
+            `;
+        }
+
         return `
-            <div class="col-md-4 mb-4" id="card-${packageData.id}">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">${
-                            packageData.name_ar
-                        } / ${packageData.name_en}</h5>
-                        <p class="card-text">${packageData.description}</p>
-                        <ul class="list-group list-group-flush mb-2">
-                            <li class="list-group-item"><strong>Price:</strong> ${
-                                packageData.price
-                            }</li>
-                            <li class="list-group-item"><strong>Branches Limit:</strong> ${
-                                packageData.branches_limit
-                            }</li>
-                            <li class="list-group-item"><strong>Duration (days):</strong> ${
-                                packageData.duration_days
-                            }</li>
-                            <li class="list-group-item"><strong>Features:</strong> ${features}</li>
-                        </ul>
-                        <div class="d-flex justify-content-between">
-                            <a href="javascript:void(0)" class="btn btn-sm btn-primary edit-data"
-                               data-id="${packageData.id}"
-                               data-name_en="${packageData.name_en}"
-                               data-name_ar="${packageData.name_ar}"
-                               data-description="${packageData.description}"
-                               data-price="${packageData.price}"
-                               data-branches_limit="${
-                                   packageData.branches_limit
-                               }"
-                               data-duration_days="${packageData.duration_days}"
-                               data-features='${JSON.stringify(
-                                   packageData.features
-                               )}'>
-                                <i class="material-icons md-edit"></i> Edit
+            <div class="col-lg-4 col-md-6" id="card-${pkg.id}">
+                <div class="card shadow-sm border-0 rounded-3 h-100">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="fw-bold text-primary mb-2">
+                                ${pkg.name_ar} / ${pkg.name_en}
+                            </h5>
+
+                            ${pkg.description ? `<p class="text-muted small mb-3">${pkg.description}</p>` : ""}
+
+                            <ul class="list-unstyled mb-3">
+                                <li><strong>عدد الفروع:</strong> ${pkg.branches_limit}</li>
+                                <li><strong>المدة:</strong> ${pkg.duration_days ?? 0} يوم</li>
+                                <li><strong>السعر:</strong> ${Number(pkg.price).toFixed(2)} ر.س</li>
+                            </ul>
+
+                            ${featuresList}
+                        </div>
+
+                        <div class="mt-3 text-end">
+                            <a href="javascript:void(0)" class="btn btn-md rounded font-sm edit-data"
+                                data-id="${pkg.id}"
+                                data-name_ar="${pkg.name_ar}"
+                                data-name_en="${pkg.name_en}"
+                                data-description="${pkg.description ?? ""}"
+                                data-price="${pkg.price}"
+                                data-branches_limit="${pkg.branches_limit}"
+                                data-duration_days="${pkg.duration_days ?? ""}"
+                                data-features='${JSON.stringify(pkg.features ?? [])}'
+                                title="تعديل المعلومات">
+                                <i class="material-icons md-edit"></i>
                             </a>
-                            <form class="d-inline delete-form" action="/dashboard/subscription_packages/${
-                                packageData.id
-                            }" method="POST" data-id="${packageData.id}">
-                                <input type="hidden" name="_token" value="${$(
-                                    'meta[name="csrf-token"]'
-                                ).attr("content")}">
+
+                            <form class="d-inline delete-form" action="/dashboard/subscription_packages/${pkg.id}" method="POST" data-id="${pkg.id}">
+                                <input type="hidden" name="_token" value="${$('meta[name="csrf-token"]').attr("content")}">
                                 <input type="hidden" name="_method" value="DELETE">
-                                <button type="button" class="btn btn-sm btn-danger delete-button">
-                                    <i class="material-icons md-delete"></i> Delete
+                                <button type="button" class="btn btn-md bg-danger rounded font-sm delete-button" title="حذف خطة الاشتراك">
+                                    <i class="material-icons md-delete"></i>
                                 </button>
                             </form>
                         </div>
@@ -81,24 +85,23 @@ $(document).ready(function () {
         `;
     }
 
-    // Handle edit button
+    // 🧩 Handle edit button
     $(document).on("click", ".edit-data", function () {
         isEdit = true;
         editId = $(this).data("id");
 
-        modalTitle.text("Edit Subscription Package");
-        submitButton.text("Edit");
+        modalTitle.text("تعديل خطة الاشتراك");
+        submitButton.text("تعديل");
+
         form.find("#name_ar").val($(this).data("name_ar"));
         form.find("#name_en").val($(this).data("name_en"));
         form.find("#price").val($(this).data("price"));
         form.find("#branches_limit").val($(this).data("branches_limit"));
-        form.find("#description_ar").val($(this).data("description_ar"));
-        form.find("#description_en").val($(this).data("description_en"));
+        form.find("#description").val($(this).data("description"));
         form.find("#duration_days").val($(this).data("duration_days"));
 
-        // clear existing feature inputs
+        // 🧹 Clear and re-add features
         $("#featuresContainer").empty();
-
         const features = $(this).data("features") || [];
         if (features.length > 0) {
             features.forEach((feature) => {
@@ -130,13 +133,14 @@ $(document).ready(function () {
         modal.modal("show");
     });
 
-    // Handle form submission
+    // 🧩 Handle form submission
     form.on("submit", function (e) {
         e.preventDefault();
 
+
         submitButton.prop("disabled", true).html(`
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            ${isEdit ? "Updating..." : "Saving..."}
+            ${isEdit ? "جاري التحديث..." : "جاري الحفظ..."}
         `);
 
         const formData = new FormData(this);
@@ -148,43 +152,71 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
             success: function (res) {
-                const packageData = res.data;
-                const newCard = renderCard(packageData);
+                const pkg = res.data;
+                const newCard = renderCard(pkg);
 
                 if (isEdit) {
-                    $(`#card-${packageData.id}`).replaceWith(newCard);
-                    toastr.success("Updated successfully");
+                    $(`#card-${pkg.id}`).replaceWith(newCard);
+                    toastr.success("تم التحديث بنجاح");
                 } else {
-                    $("#noDataCard").remove(); // remove "no data" card if exists
+                    $("#noDataCard").remove();
                     cardsContainer.prepend(newCard);
-                    toastr.success(res.message ?? "Created successfully");
+                    toastr.success(res.message ?? "تم الإنشاء بنجاح");
                 }
 
-                submitButton
-                    .prop("disabled", false)
-                    .text(isEdit ? "Edit" : "Save");
+                submitButton.prop("disabled", false).text(isEdit ? "تعديل" : "حفظ");
                 form[0].reset();
+                form.find('input[name="_method"]').remove();
                 modal.modal("hide");
                 isEdit = false;
                 editId = null;
             },
             error: function (xhr) {
-                submitButton
-                    .prop("disabled", false)
-                    .text(isEdit ? "Edit" : "Save");
-                toastr.error(xhr.responseJSON?.message ?? "Unexpected error");
+                submitButton.prop("disabled", false).text(isEdit ? "تعديل" : "حفظ");
+
+                if (xhr.status === 422) {
+                    displayErrors(xhr.responseJSON.errors);
+                } else {
+                    toastr.error(xhr.responseJSON?.message ?? "حدث خطأ غير متوقع");
+                }
             },
         });
     });
 
-    // Reset modal on close
+    // 🧩 Reset modal on close
     modal.on("hidden.bs.modal", function () {
         form[0].reset();
         form.find('input[name="_method"]').remove();
         form.attr("action", "/dashboard/subscription_packages");
-        modalTitle.text("Add New Subscription Package");
-        submitButton.text("Save");
+        modalTitle.text("إضافة خطة اشتراك جديدة");
+        submitButton.text("حفظ");
+        $(".text-danger").remove();
         isEdit = false;
         editId = null;
     });
+
+    // 🧩 Clear validation errors on input/select/textarea
+    $(document).on("input change", "input, select, textarea", function () {
+        const field = $(this).attr("name");
+        $(`#${field}Error`).empty();
+    });
+
+    // 🧩 Display validation errors (like companyForm)
+    function displayErrors(errors) {
+        for (const key in errors) {
+            const field = $(`[name='${key}']`);
+            if (field.length) {
+                field.after(`
+                    <div id="${key}Error" class="mt-1">
+                        <small class="text-danger py-1 opacity-75" style="font-size: 12px;">
+                            <i class="icon material-icons md-error_outline"></i>
+                            ${errors[key][0]}
+                        </small>
+                    </div>
+                `);
+            } else {
+                toastr.error(errors[key][0]);
+            }
+        }
+    }
 });
