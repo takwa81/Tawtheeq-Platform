@@ -1,61 +1,57 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
-    <div class="content-header d-flex justify-content-between align-items-center mb-3">
-        <div>
-            <h2 class="content-title card-title">تفاصيل مسؤول إدخال بيانات {{ $user->full_name }}</h2>
-
-            <p class="card-title"> الحالة: <strong>{!! accountStatusBadge($user->account_status) !!}</strong></p>
-        </div>
-        <div>
-            <a href="javascript:void(0)" onclick="history.back()" class="btn btn-md rounded font-sm">
-                <i class="material-icons md-arrow_back"></i>
-            </a>
-        </div>
-
-    </div>
-
-
-    {{-- Basic Information Section --}}
     <div class="card mb-4">
-        <div class="card-header bg-main">
-            <h5 class="card-title mb-0"><i class="material-icons md-info_outline"></i> البيانات الأساسية</h5>
+        <div class="card-header bg-main text-light d-flex justify-content-between align-items-center">
+            <h5 class="mb-0 text-light">تفاصيل مدير الفرع</h5>
         </div>
         <div class="card-body">
-            <div class="row">
-
-                <div class="col-md-6 mb-3">
-                    <i class="material-icons md-person"></i>
-                    <span>الاسم الكامل:</span>
-                    <strong>{{ $user->full_name }}</strong>
+            <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                    <strong>الاسم الكامل:</strong> {{ $user->full_name }}
                 </div>
-
-                <div class="col-md-6 mb-3">
-                    <i class="material-icons md-phone"></i>
-                    <span>رقم الهاتف:</span>
-                    <strong>{{ $user->phone_number }}</strong>
+                <div class="col-md-6">
+                    <strong>الهاتف:</strong> {{ $user->phone }}
                 </div>
-
-                <div class="col-md-6 mb-3">
-                    <i class="material-icons md-calendar_today"></i>
-                    <span>تاريخ الإنشاء:</span>
-                    <strong>{{ $user->created_at->format('Y-m-d H:i') }}</strong>
+                <div class="col-md-6">
+                    <strong>البريد الإلكتروني:</strong> {{ $user->email ?? '-' }}
                 </div>
-
-                <div class="col-md-6 mb-3">
-                    <i class="material-icons md-update"></i>
-                    <span>آخر تعديل:</span>
-                    <strong>{{ $user->updated_at->format('Y-m-d H:i') }}</strong>
+                <div class="col-md-6">
+                    <strong>الحالة:</strong>
+                    <span class="badge bg-{{ $user->status === 'active' ? 'success' : 'danger' }}">
+                       {!! accountStatusBadge($user->status) !!}
+                    </span>
                 </div>
+            </div>
 
-                @if ($user->deleted_at)
-                    <div class="col-md-6 mb-3">
-                        <i class="material-icons md-delete_forever"></i>
-                        <span>تم الحذف:</span>
-                        <strong>{{ $user->deleted_at->format('Y-m-d H:i') }}</strong>
+            {{-- الفروع المرتبطة --}}
+            <div class="col-12">
+                <h6>الفروع المرتبطة:</h6>
+                @if ($user->branchManager && $user->branchManager->branches->count())
+                    <div class="row g-3">
+                        @foreach ($user->branchManager->branches as $branch)
+                            <div class="col-md-4 col-sm-6">
+                                <div class="card shadow-sm rounded-3 h-100">
+                                    <div class="card-body d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>{{ $branch->user->full_name ?? '-' }}</strong><br>
+                                            <small class="text-muted">{{ $branch->user->phone ?? '-' }}</small>
+                                        </div>
+                                        <div>
+                                            <a href="{{ route('dashboard.branches.show', $branch->user) }}"
+                                                class="btn btn-md rounded font-sm bg-secondary text-white"
+                                                title="عرض الفرع">
+                                                <i class="material-icons md-remove_red_eye"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
+                @else
+                    <p>لا توجد فروع مرتبطة.</p>
                 @endif
-
             </div>
         </div>
     </div>

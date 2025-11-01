@@ -24,7 +24,7 @@ class BranchController extends Controller
             $branches = $this->userService->filterUsers($request, 'branch', PaginationEnum::DefaultCount->value);
             $managers = User::where('role', 'branch_manager')->where('status', 'active')->get();
             $branchManagers = BranchManager::with('user')->get();
-            return view('dashboard.branches.index', compact('branches', 'managers','branchManagers'));
+            return view('dashboard.branches.index', compact('branches', 'managers', 'branchManagers'));
         } catch (\Throwable $e) {
             toastr()->error(__('messages.fetch_failed') . ': ' . $e->getMessage());
             return redirect()->back();
@@ -34,13 +34,18 @@ class BranchController extends Controller
     public function show($id)
     {
         try {
-            $user = User::where('role', 'branch')->with('branch')->withTrashed()->findOrFail($id);
-            return view('dashboard.branches.show', compact('user'));
+            $branch = User::where('role', 'branch')
+                ->with(['branch.manager.user', 'branch.orders.company', 'branch.orders.creator'])
+                ->withTrashed()
+                ->findOrFail($id);
+
+            return view('dashboard.branches.show', compact('branch'));
         } catch (\Throwable $e) {
             toastr()->error(__('messages.fetch_failed') . ': ' . $e->getMessage());
             return redirect()->back();
         }
     }
+
 
     public function store(UserRequest $request)
     {
@@ -48,12 +53,17 @@ class BranchController extends Controller
 
             $data = $request->validated();
             $user = $this->userService->createUser($data, 'branch');
-            $branchManager = BranchManager::where('user_id', $data['manager_id'])->firstOrFail();
+            // $branchManager = BranchManager::where('user_id', $data['manager_id'])->firstOrFail();
+            if (auth()->user()->role === 'branch_manager') {
+                $managerId = BranchManager::where('user_id', auth()->user()->id)->firstOrFail()->id;
+            } else {
+                $managerId = BranchManager::where('user_id', $data['manager_id'])->firstOrFail()->id;
+            }
 
             $user->branch()->create([
                 'user_id' => $user->id,
                 'creator_user_id' => auth()->user()->id,
-                'manager_id' => $branchManager->id,
+                'manager_id' => $managerId,
             ]);
             return response()->json(['message' => __('messages.added_successfully'), 'data' => $user], 200);
         } catch (\Throwable $e) {

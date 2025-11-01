@@ -4,6 +4,7 @@ use App\Http\Controllers\Dashboard\{
     BranchController,
     BranchManagerController,
     CompanyController,
+    HomeController,
     OrderController,
     SubscriptionPackageController,
     UserAuthController,
@@ -50,9 +51,8 @@ Route::middleware(['set_language'])->group(function () {
 
     Route::prefix('dashboard')->name('dashboard.')->middleware(['custom.auth'])->group(function () {
 
-        Route::get('/home', function () {
-            return view('home');
-        })->name('home');
+      Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 
         Route::resource('companies', CompanyController::class);
 

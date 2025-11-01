@@ -1,6 +1,6 @@
 <div class="table-responsive">
     <table class="table table-hover">
-        <thead class="bg-main">
+        <thead class="bg-main text-light">
             <tr>
                 @if (!empty($checkColumn) && $checkColumn)
                     {{-- <th>اختيار</th> --}}

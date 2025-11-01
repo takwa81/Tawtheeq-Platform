@@ -26,8 +26,9 @@ class OrderController extends Controller
                     $query->where('created_by', $user->id)
                         ->where('branch_id', $user->branch->id);
                 })
-                ->when($user->role === 'branch_manager' && $user->branch, function ($query) use ($user) {
-                    $query->where('branch_id', $user->branch->id);
+                ->when($user->role === 'branch_manager', function ($query) use ($user) {
+                    $branchIds = $user->branchManager?->branches()->pluck('id')->toArray() ?? [];
+                    $query->whereIn('branch_id', $branchIds);
                 })
                 ->filter($request->only(['order_number', 'customer_name', 'date', 'branch_id', 'customer_phone', 'company_id', 'sort']))
                 ->paginate(PaginationEnum::DefaultCount->value)

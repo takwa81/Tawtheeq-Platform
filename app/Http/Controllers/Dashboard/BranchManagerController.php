@@ -31,13 +31,18 @@ class BranchManagerController extends Controller
     public function show($id)
     {
         try {
-            $user = User::where('role', 'branch_manager')->with('branchManager')->withTrashed()->findOrFail($id);
+            $user = User::where('role', 'branch_manager')
+                ->with(['branchManager.branches.user']) 
+                ->withTrashed()
+                ->findOrFail($id);
+
             return view('dashboard.branch_managers.show', compact('user'));
         } catch (\Throwable $e) {
             toastr()->error(__('messages.fetch_failed') . ': ' . $e->getMessage());
             return redirect()->back();
         }
     }
+
 
     public function store(UserRequest $request)
     {

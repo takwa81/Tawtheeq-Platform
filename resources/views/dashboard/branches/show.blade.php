@@ -1,62 +1,72 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
-    <div class="content-header d-flex justify-content-between align-items-center mb-3">
-        <div>
-            <h2 class="content-title card-title">تفاصيل مسؤول إدخال بيانات {{ $user->full_name }}</h2>
-
-            <p class="card-title"> الحالة: <strong>{!! accountStatusBadge($user->account_status) !!}</strong></p>
-        </div>
-        <div>
-            <a href="javascript:void(0)" onclick="history.back()" class="btn btn-md rounded font-sm">
-                <i class="material-icons md-arrow_back"></i>
-            </a>
-        </div>
-
+<div class="card mb-4">
+    <div class="card-header bg-main ">
+        <h5 class="text-light">تفاصيل الفرع</h5>
     </div>
+    <div class="card-body">
+        <div class="row g-3">
 
-
-    {{-- Basic Information Section --}}
-    <div class="card mb-4">
-        <div class="card-header bg-main">
-            <h5 class="card-title mb-0"><i class="material-icons md-info_outline"></i> البيانات الأساسية</h5>
-        </div>
-        <div class="card-body">
-            <div class="row">
-
-                <div class="col-md-6 mb-3">
-                    <i class="material-icons md-person"></i>
-                    <span>الاسم الكامل:</span>
-                    <strong>{{ $user->full_name }}</strong>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <i class="material-icons md-phone"></i>
-                    <span>رقم الهاتف:</span>
-                    <strong>{{ $user->phone_number }}</strong>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <i class="material-icons md-calendar_today"></i>
-                    <span>تاريخ الإنشاء:</span>
-                    <strong>{{ $user->created_at->format('Y-m-d H:i') }}</strong>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <i class="material-icons md-update"></i>
-                    <span>آخر تعديل:</span>
-                    <strong>{{ $user->updated_at->format('Y-m-d H:i') }}</strong>
-                </div>
-
-                @if ($user->deleted_at)
-                    <div class="col-md-6 mb-3">
-                        <i class="material-icons md-delete_forever"></i>
-                        <span>تم الحذف:</span>
-                        <strong>{{ $user->deleted_at->format('Y-m-d H:i') }}</strong>
-                    </div>
-                @endif
-
+            <div class="col-md-6">
+                <strong>اسم الفرع:</strong> {{ $branch->full_name }}
             </div>
+            <div class="col-md-6">
+                <strong>الهاتف:</strong> {{ $branch->phone }}
+            </div>
+            <div class="col-md-6">
+                <strong>البريد الإلكتروني:</strong> {{ $branch->email ?? '-' }}
+            </div>
+            <div class="col-md-6">
+                <strong>الحالة:</strong>
+                <span class="badge bg-{{ $branch->status === 'active' ? 'success' : 'danger' }}">
+                    {!! accountStatusBadge($branch->status) !!}
+                </span>
+            </div>
+            <div class="col-md-6">
+                <strong>مدير الفرع:</strong> {{ $branch->branch->manager->user->full_name ?? '-' }}
+            </div>
+
+            {{-- الطلبات المرتبطة --}}
+            <div class="col-12 mt-3">
+                <h6>الطلبات المرتبطة:</h6>
+                @if($branch->branch && $branch->branch->orders->count())
+                    <div style="max-height: 300px; overflow-y: auto;">
+                        <table class="table table-striped table-hover mb-0">
+                            <thead class="bg-secondary text-light">
+                                <tr>
+                                    <th>رقم الطلب</th>
+                                    <th>الشركة</th>
+                                    <th>المبلغ</th>
+                                    <th>التاريخ</th>
+                                    <th>الوقت</th>
+                                    <th>الحالة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($branch->branch->orders as $order)
+                                <tr>
+                                    <td>{{ $order->order_number }}</td>
+                                    <td>{{ $order->company->name_ar ?? '-' }}</td>
+                                    <td>{{ number_format($order->total_order, 2) }} ر.س</td>
+                                    <td>{{ $order->date }}</td>
+                                    <td>{{ $order->time }}</td>
+                                    <td>
+                                        <span class="badge bg-{{ $order->status === 'completed' ? 'success' : ($order->status === 'pending' ? 'secondary' : 'danger') }}">
+                                            {{ __('dashboard.' . $order->status) }}
+                                        </span>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                @else
+                    <p>لا توجد طلبات مرتبطة.</p>
+                @endif
+            </div>
+
         </div>
     </div>
+</div>
 @endsection

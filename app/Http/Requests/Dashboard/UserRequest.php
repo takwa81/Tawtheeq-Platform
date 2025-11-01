@@ -36,9 +36,11 @@ class UserRequest extends FormRequest
 
         if ($this->routeIs('dashboard.branches.*')) {
             Log::info('UserRequest matched service_owners route');
-            $rules = array_merge($rules, [
-                'manager_id' => ['required', 'exists:users,id'],
-            ]);
+            if (auth()->user()->role !== 'branch_manager') {
+                $rules['manager_id'] = ['required', 'exists:users,id'];
+            } else {
+                $rules['manager_id'] = ['nullable', 'exists:users,id'];
+            }
         }
 
 
