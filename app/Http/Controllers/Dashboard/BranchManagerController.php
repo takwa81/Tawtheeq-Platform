@@ -32,7 +32,7 @@ class BranchManagerController extends Controller
     {
         try {
             $user = User::where('role', 'branch_manager')
-                ->with(['branchManager.branches.user']) 
+                ->with(['branchManager.branches.user'])
                 ->withTrashed()
                 ->findOrFail($id);
 
@@ -53,7 +53,15 @@ class BranchManagerController extends Controller
             $user->branchManager()->create([
                 'user_id' => $user->id,
             ]);
-            return response()->json(['message' => __('messages.added_successfully'), 'data' => $user], 200);
+
+            $user->load(['branchManager' => function ($q) {
+                $q->withCount('branches');
+            }]);
+            return response()->json([
+                'message' => __('messages.added_successfully'),
+                'data' => $user,
+                'branches_count' => $user->branchManager?->branches_count ?? 0,
+            ], 200);
         } catch (\Throwable $e) {
             toastr()->error(__('messages.add_failed') . ': ' . $e->getMessage());
             return redirect()->back();
@@ -68,7 +76,15 @@ class BranchManagerController extends Controller
 
             $this->userService->updateUser($user, $data);
 
-            return response()->json(['message' => __('messages.updated_successfully'), 'data' => $user], 200);
+            $user->load(['branchManager' => function ($q) {
+                $q->withCount('branches');
+            }]);
+
+            return response()->json([
+                'message' => __('messages.updated_successfully'),
+                'data' => $user,
+                'branches_count' => $user->branchManager?->branches_count ?? 0,
+            ], 200);
         } catch (\Throwable $e) {
             toastr()->error(__('messages.update_failed') . ': ' . $e->getMessage());
             return redirect()->back();

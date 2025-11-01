@@ -32,7 +32,7 @@
                 <div class="card text-center shadow-sm">
                     <div class="card-body">
                         <i class="material-icons md-36 text-success md-supervisor_account"></i>
-                        <h5 class="mt-2">عدد المشتركين</h5>
+                        <h5 class="mt-2">عدد المشتركين (مدراء الأفرع)</h5>
                         <h3>{{ $totalManagersCount }}</h3>
                     </div>
                 </div>
@@ -126,4 +126,43 @@
             </div>
         </div>
     </div>
+
+    @if ($isSuperAdmin)
+        <div class="card mt-4 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-center mb-3">إحصائية الطلبات حسب الأشهر ({{ $year ?? date('Y') }})</h5>
+                <canvas id="ordersByMonthChart" height="120"></canvas>
+            </div>
+        </div>
+    @endif
+@endsection
+@section('scripts')
+    @if ($isSuperAdmin)
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const ctx = document.getElementById('ordersByMonthChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: @json(array_values($arabicMonths)),
+                    datasets: [{
+                        label: 'عدد الطلبات',
+                        data: @json($ordersByMonth),
+                        backgroundColor: 'rgba(0, 193, 202, 0.6)',
+                        borderColor: 'rgba(0, 193, 202, 1)',
+                        borderWidth: 1,
+                        borderRadius: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+    @endif
 @endsection

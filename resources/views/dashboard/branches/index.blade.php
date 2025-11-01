@@ -81,13 +81,15 @@
 
         <div class="card mb-4">
             <div class="card-body p-0">
-                <x-dashboard.table :headers="['#', 'الاسم الكامل', 'رقم الهاتف', 'مدير الفرع', 'الحالة', 'خيارات']">
+                <x-dashboard.table :headers="['#', 'الاسم الكامل', 'رقم الهاتف', 'مدير الفرع', 'عدد الطلبات', 'الحالة', 'خيارات']">
                     @forelse($branches as $user)
                         <tr id="row-{{ $user->id }}">
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $user->full_name }}</td>
                             <td>{{ $user->phone }}</td>
                             <td>{{ $user->branch->manager?->user->full_name }}</td>
+                            <td>{{ $user->orders_count ?? 0 }}</td>
+
                             <td>{!! accountStatusBadge($user->status) !!}</td>
                             <td>
                                 <div class="">

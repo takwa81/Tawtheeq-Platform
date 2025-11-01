@@ -13,9 +13,29 @@ class UserService
     {
         $query = User::query();
 
+
+
         if ($userType) {
             $query->where('role', $userType);
         }
+
+        if ($userType == "branch_manager") {
+            $query->with(['branchManager' => function ($q) {
+                $q->withCount('branches');
+            }]);
+        }
+
+        if ($userType == "branch") {
+            $query->with(['branch' => function ($q) {
+                $q->withCount('orders');
+            }]);
+
+            $query->withCount(['branch as orders_count' => function ($q) {
+                $q->join('orders', 'orders.branch_id', '=', 'branches.id');
+            }]);
+        }
+
+
 
         if (auth()->check() && auth()->user()->role === 'branch_manager' && $userType === 'branch') {
             $branchManager = auth()->user()->branchManager;

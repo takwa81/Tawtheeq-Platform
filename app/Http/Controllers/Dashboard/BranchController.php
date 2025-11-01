@@ -60,11 +60,15 @@ class BranchController extends Controller
                 $managerId = BranchManager::where('user_id', $data['manager_id'])->firstOrFail()->id;
             }
 
-            $user->branch()->create([
+            $branch = $user->branch()->create([
                 'user_id' => $user->id,
                 'creator_user_id' => auth()->user()->id,
                 'manager_id' => $managerId,
             ]);
+
+            $user->count_orders = $branch->orders()->count();
+            $user->manager_name = $branch->manager?->user?->full_name ?? '-';
+
             return response()->json(['message' => __('messages.added_successfully'), 'data' => $user], 200);
         } catch (\Throwable $e) {
             toastr()->error(__('messages.add_failed') . ': ' . $e->getMessage());
@@ -79,6 +83,8 @@ class BranchController extends Controller
             $data = $request->validated();
 
             $this->userService->updateUser($user, $data);
+            $user->count_orders = $user->branch ? $user->branch->orders()->count() : 0;
+            $user->manager_name = $branch->manager?->user?->full_name ?? '-';
 
             return response()->json(['message' => __('messages.updated_successfully'), 'data' => $user], 200);
         } catch (\Throwable $e) {

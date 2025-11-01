@@ -9,13 +9,14 @@ $(document).ready(function () {
     let editId = null;
 
     // Render table row
-    function renderRow(user) {
+    function renderRow(user, branches_count) {
         return `
             <tr id="row-${user.id}">
                 <td>${user.id}</td>
                 <td>${user.full_name}</td>
                 <td>${user.phone}</td>
-                   <td>${user.account_status_badge}</td>
+                <td>${branches_count}</td>
+                <td>${user.account_status_badge}</td>
                 <td>
                     <a href="javascript:void(0)" class="btn btn-md rounded font-sm edit-data"
                         data-id="${
@@ -80,7 +81,7 @@ $(document).ready(function () {
             contentType: false,
             success: function (res) {
                 const user = res.data;
-                const newRow = renderRow(user);
+                const newRow = renderRow(user, res.branches_count);
 
                 if (isEdit) {
                     $(`#row-${user.id}`).replaceWith(newRow);
@@ -148,6 +149,4 @@ $(document).ready(function () {
             `);
         }
     }
-
-
 });

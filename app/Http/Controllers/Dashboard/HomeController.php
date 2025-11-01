@@ -22,19 +22,36 @@ class HomeController extends Controller
             $totalManagersCount = BranchManager::count();
             $totalOrdersCount   = Order::count();
             $totalOrdersAmount  = Order::sum('total_order');
+
+            // Chart: Orders count by month
+            $monthlyOrders = Order::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+                ->whereYear('created_at', $year ?? Carbon::now()->year)
+                ->groupBy('month')
+                ->orderBy('month')
+                ->pluck('count', 'month')
+                ->toArray();
+
+            $months = range(1, 12);
+            $ordersByMonth = [];
+            foreach ($months as $m) {
+                $ordersByMonth[] = $monthlyOrders[$m] ?? 0;
+            }
         } elseif ($user->role === 'branch_manager') {
             $branchIds = $user->branchManager->branches->pluck('id')->toArray();
             $totalBranchesCount = count($branchIds);
             $totalManagersCount = 1;
             $totalOrdersCount   = Order::whereIn('branch_id', $branchIds)->count();
             $totalOrdersAmount  = Order::whereIn('branch_id', $branchIds)->sum('total_order');
+            $ordersByMonth = [];
         } else {
             $branchId = $user->branch->id;
             $totalBranchesCount = 1;
             $totalManagersCount = 1;
             $totalOrdersCount   = Order::where('branch_id', $branchId)->count();
             $totalOrdersAmount  = Order::where('branch_id', $branchId)->sum('total_order');
+            $ordersByMonth = [];
         }
+
 
         $ordersQuery = Order::query();
 
@@ -51,7 +68,7 @@ class HomeController extends Controller
         $ordersTotal = $ordersQuery->sum('total_order');
 
         if ($user->role === 'super_admin') {
-            $branches = Branch::withCount(['orders' => function($q) use($month, $year) {
+            $branches = Branch::withCount(['orders' => function ($q) use ($month, $year) {
                 if ($month) $q->whereMonth('created_at', $month);
                 if ($year) $q->whereYear('created_at', $year);
             }])->get();
@@ -64,8 +81,17 @@ class HomeController extends Controller
         }
 
         return view('dashboard.home.index', compact(
-            'totalBranchesCount', 'totalManagersCount', 'totalOrdersCount', 'totalOrdersAmount',
-            'ordersCount', 'ordersTotal', 'month', 'year', 'chartLabels', 'chartData'
+            'totalBranchesCount',
+            'totalManagersCount',
+            'totalOrdersCount',
+            'totalOrdersAmount',
+            'ordersCount',
+            'ordersTotal',
+            'month',
+            'year',
+            'chartLabels',
+            'chartData',
+            'ordersByMonth'
         ));
     }
 }
