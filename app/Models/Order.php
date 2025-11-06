@@ -12,6 +12,7 @@ class Order extends Model
         'created_by',
         'order_number',
         'customer_name',
+        'driver_name',
         'customer_phone',
         'order_image',
         'total_order',

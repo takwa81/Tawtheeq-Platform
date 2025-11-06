@@ -8,6 +8,8 @@ class BranchManager extends Model
 {
     protected $fillable = [
         'user_id',
+        'subscription_expires_at',
+
     ];
 
 

@@ -21,7 +21,10 @@ $(document).ready(function () {
                     <a href="javascript:void(0)" class="btn btn-md rounded font-sm edit-data"
                         data-id="${
                             user.id
-                        }" data-full_name="${user.full_name}" data-phone="${user.phone}">
+                        }"
+                         data-email="${user.email}"
+                         data-full_name="${user.full_name}"
+                         data-phone="${user.phone}">
                         <i class="material-icons md-edit"></i>
                     </a>
                     <form class="d-inline delete-form" action="/dashboard/branch_managers/${
@@ -49,6 +52,7 @@ $(document).ready(function () {
         modalTitle.text("تعديل مسؤول إدخال بيانات");
         submitButton.text("تحديث");
 
+        form.find("#email").val($(this).data("email"));
         form.find("#full_name").val($(this).data("full_name"));
         form.find("#phone").val($(this).data("phone"));
 

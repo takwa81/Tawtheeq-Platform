@@ -79,7 +79,9 @@
                                 <div class="">
                                     @if ($user->deleted_at === null)
                                         <a href="javascript:void(0)" class="btn btn-md rounded font-sm edit-data"
-                                            data-id="{{ $user->id }}" data-full_name="{{ $user->full_name }}"
+                                            data-id="{{ $user->id }}"
+                                            data-full_name="{{ $user->full_name }}"
+                                            data-email="{{ $user->email }}"
                                             data-phone="{{ $user->phone }}" title="تعديل المعلومات">
                                             <i class="material-icons md-edit"></i>
                                         </a>
@@ -97,7 +99,8 @@
                                         </form>
                                         <a href="javascript:void(0)"
                                             class="btn btn-md bg-info rounded font-sm change-password-btn"
-                                            data-id="{{ $user->id }}" data-full_name="{{ $user->full_name }}"
+                                            data-id="{{ $user->id }}"
+                                            data-full_name="{{ $user->full_name }}"
                                             title="تغيير كلمة المرور">
                                             <i class="material-icons md-lock"></i>
                                         </a>

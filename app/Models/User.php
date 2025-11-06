@@ -29,7 +29,6 @@ class User extends Authenticatable
         'email',
         'role',
         'status',
-        'subscription_expires_at',
     ];
 
 

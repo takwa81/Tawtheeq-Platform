@@ -39,6 +39,7 @@
                         </div>
 
                         <div class="col-12">
+                            <p class="mb-1"><strong>اسم المندوب (السائق):</strong> {{ $order->driver_name ?? '-' }}</p>
                             <p class="mb-1"><strong>العميل:</strong> {{ $order->customer_name ?? '-' }}</p>
                             <p class="mb-1"><strong>هاتف العميل:</strong> {{ $order->customer_phone ?? '-' }}</p>
                         </div>

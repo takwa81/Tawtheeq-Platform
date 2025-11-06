@@ -64,6 +64,8 @@
 
                         <x-form.input id="time" name="time" :label="__('dashboard.time')" type="time" required="true"
                             errorId="timeError" />
+                        <x-form.input id="driver_name" name="driver_name" :label="__('dashboard.driver_name')" type="driver_name"
+                            errorId="driver_nameError"  placeholder="اسم المندوب (السائق)"/>
                         <x-form.input id="customer_name" name="customer_name" :label="__('dashboard.customer_name')" type="customer_name"
                             errorId="customer_nameError"  placeholder="الاسم"/>
 

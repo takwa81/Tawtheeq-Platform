@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('company_id')->constrained('companies')->onDelete('cascade');
             $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
             $table->string('order_number')->index()->nullable();
+            $table->string('driver_name')->nullable();
             $table->string('customer_name')->nullable();
             $table->string('customer_phone')->nullable();
             $table->string('order_image')->nullable();
