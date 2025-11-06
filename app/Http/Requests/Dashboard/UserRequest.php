@@ -32,6 +32,12 @@ class UserRequest extends FormRequest
             'password_confirmation' => $this->isMethod('post')
                 ? ['required']
                 : ['nullable'],
+            'email' => [
+                'nullable',
+                'email',
+                'max:255',
+                Rule::unique('users', 'email')->ignore($id),
+            ],
         ];
 
         if ($this->routeIs('dashboard.branches.*')) {

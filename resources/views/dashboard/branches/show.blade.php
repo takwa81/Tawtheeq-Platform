@@ -14,9 +14,9 @@
             <div class="col-md-6">
                 <strong>الهاتف:</strong> {{ $branch->phone }}
             </div>
-            <div class="col-md-6">
+            {{-- <div class="col-md-6">
                 <strong>البريد الإلكتروني:</strong> {{ $branch->email ?? '-' }}
-            </div>
+            </div> --}}
             <div class="col-md-6">
                 <strong>الحالة:</strong>
                 <span class="badge bg-{{ $branch->status === 'active' ? 'success' : 'danger' }}">
