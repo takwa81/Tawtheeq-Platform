@@ -9,7 +9,8 @@ class Branch extends Model
     protected $fillable = [
         'user_id',
         'manager_id',
-        'creator_user_id'
+        'creator_user_id',
+        'branch_number'
     ];
 
 

@@ -64,10 +64,13 @@ class BranchController extends Controller
                 'user_id' => $user->id,
                 'creator_user_id' => auth()->user()->id,
                 'manager_id' => $managerId,
+                'branch_number' => $request->branch_number
             ]);
 
             $user->count_orders = $branch->orders()->count();
-            $user->manager_name = $branch->manager?->user?->full_name ?? '-';
+            $user->manager_name = $user->branch->manager?->user?->full_name ?? '-';
+            $user->branch_number = $user->branch->branch_number ?? '-';
+
 
             return response()->json(['message' => __('messages.added_successfully'), 'data' => $user], 200);
         } catch (\Throwable $e) {
@@ -83,8 +86,14 @@ class BranchController extends Controller
             $data = $request->validated();
 
             $this->userService->updateUser($user, $data);
+            if ($user->branch) {
+                $user->branch->update([
+                    'branch_number' => $request->branch_number ?? $user->branch->branch_number,
+                ]);
+            }
             $user->count_orders = $user->branch ? $user->branch->orders()->count() : 0;
-            $user->manager_name = $branch->manager?->user?->full_name ?? '-';
+            $user->manager_name = $user->branch->manager?->user?->full_name ?? '-';
+            $user->branch_number = $user->branch->branch_number ?? '-';
 
             return response()->json(['message' => __('messages.updated_successfully'), 'data' => $user], 200);
         } catch (\Throwable $e) {

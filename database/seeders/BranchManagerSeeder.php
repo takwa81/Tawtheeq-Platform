@@ -39,6 +39,7 @@ class BranchManagerSeeder extends Seeder
                 'user_id' => $branchUser->id,
                 'manager_id' => $branchManager->id,
                 'creator_user_id' => $managerUser->id,
+                'branch_number' => $i,
             ]);
         }
 

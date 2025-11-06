@@ -3,8 +3,9 @@
     <input type="hidden" id="record_id" name="id" />
 
     <div class="row">
-        <x-form.input id="full_name" name="full_name" label="الاسم الكامل" required="true" errorId="full_nameError" />
+        <x-form.input id="full_name" name="full_name" label="الاسم الكامل" :col="12" required="true" errorId="full_nameError" />
 
+        <x-form.input id="branch_number" name="branch_number" label="رقم الفرع" required="true" errorId="branch_numberError" />
         <x-form.input id="phone" name="phone" label="رقم الهاتف" required="true" errorId="phoneError" />
 
         <x-form.input id="password" name="password" label="كلمة المرور" type="password" required="true"

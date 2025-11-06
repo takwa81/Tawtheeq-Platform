@@ -81,12 +81,13 @@
 
         <div class="card mb-4">
             <div class="card-body p-0">
-                <x-dashboard.table :headers="['#', 'الاسم الكامل', 'رقم الهاتف', 'مدير الفرع', 'عدد الطلبات', 'الحالة', 'خيارات']">
+                <x-dashboard.table :headers="['#', 'الاسم الكامل', 'رقم الهاتف','رقم الفرع', 'مدير الفرع', 'عدد الطلبات', 'الحالة', 'خيارات']">
                     @forelse($branches as $user)
                         <tr id="row-{{ $user->id }}">
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $user->full_name }}</td>
                             <td>{{ $user->phone }}</td>
+                            <td>{{ $user->branch->branch_number }}</td>
                             <td>{{ $user->branch->manager?->user->full_name }}</td>
                             <td>{{ $user->orders_count ?? 0 }}</td>
 
@@ -97,6 +98,7 @@
                                         <a href="javascript:void(0)" class="btn btn-md rounded font-sm edit-data"
                                             data-id="{{ $user->id }}" data-full_name="{{ $user->full_name }}"
                                             data-manager_id="{{ $user->branch->manager->user->id }}"
+                                            data-branch_number="{{ $user->branch->branch_number }}"
                                             data-phone="{{ $user->phone }}" title="تعديل المعلومات">
                                             <i class="material-icons md-edit"></i>
                                         </a>

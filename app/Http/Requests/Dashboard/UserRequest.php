@@ -47,6 +47,7 @@ class UserRequest extends FormRequest
             } else {
                 $rules['manager_id'] = ['nullable', 'exists:users,id'];
             }
+            $rules['branch_number'] = ['required'];
         }
 
 
@@ -57,6 +58,7 @@ class UserRequest extends FormRequest
     {
         $messages = [
             'full_name.required' => 'الاسم الكامل مطلوب',
+            'branch_number.required' => 'رقم الفرع مطلوب',
             'phone.required' => 'رقم الهاتف مطلوب',
             'phone.unique' => 'رقم الهاتف مستخدم مسبقاً',
             'password.required' => 'كلمة المرور مطلوبة',

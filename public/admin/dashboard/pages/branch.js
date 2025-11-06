@@ -15,15 +15,17 @@ $(document).ready(function () {
                 <td>${user.id}</td>
                 <td>${user.full_name}</td>
                 <td>${user.phone}</td>
-                  <td>${user.manager_name ?? "-"}</td>
+                <td>${user.branch_number}</td>
+                <td>${user.manager_name ?? "-"}</td>
                 <td>${user.count_orders}</td>
-                   <td>${user.account_status_badge}</td>
+                <td>${user.account_status_badge}</td>
 
                 <td>
                     <a href="javascript:void(0)" class="btn btn-md rounded font-sm edit-data"
-                        data-id="${
-                            user.id
-                        }" data-full_name="${user.full_name}" data-phone="${user.phone}">
+                        data-id="${user.id}"
+                        data-branch_number="${user.branch_number}"
+                        data-full_name="${user.full_name}"
+                        data-phone="${user.phone}">
                         <i class="material-icons md-edit"></i>
                     </a>
                     <form class="d-inline delete-form" action="/dashboard/branches/${
@@ -53,6 +55,7 @@ $(document).ready(function () {
 
         form.find("#full_name").val($(this).data("full_name"));
         form.find("#phone").val($(this).data("phone"));
+        form.find("#branch_number").val($(this).data("branch_number"));
         form.find("#manager_id").val($(this).data("manager_id"));
 
         // Hide password fields when editing
