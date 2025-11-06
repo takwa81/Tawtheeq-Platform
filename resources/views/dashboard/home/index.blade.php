@@ -20,7 +20,15 @@
 
     @php
         $isSuperAdmin = auth()->user()->role === 'super_admin';
-        $colClass = $isSuperAdmin ? 'col-md-3' : 'col-md-4';
+        $isBranchManager = auth()->user()->role === 'branch_manager';
+        $isBranch = auth()->user()->role === 'branch';
+        if ($isSuperAdmin) {
+            $colClass = 'col-md-3';
+        } elseif ($isBranchManager) {
+            $colClass = 'col-md-4';
+        } else {
+            $colClass = 'col-md-6';
+        }
     @endphp
     <div class="content-header mb-4">
         <h2 class="content-title card-title">لوحة التحكم</h2>
@@ -38,15 +46,17 @@
                 </div>
             </div>
         @endif
-        <div class="{{ $colClass }}">
-            <div class="card text-center shadow-sm">
-                <div class="card-body">
-                    <i class="material-icons md-36 text-primary md-store"></i>
-                    <h5 class="mt-2">عدد الفروع</h5>
-                    <h3>{{ $totalBranchesCount }}</h3>
+        @if (auth()->user()->role === 'super_admin' || auth()->user()->role === 'branch_manager')
+            <div class="{{ $colClass }}">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <i class="material-icons md-36 text-primary md-store"></i>
+                        <h5 class="mt-2">عدد الفروع</h5>
+                        <h3>{{ $totalBranchesCount }}</h3>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
         <div class="{{ $colClass }}">
             <div class="card text-center shadow-sm">
                 <div class="card-body">
@@ -84,6 +94,29 @@
                 @endforeach
             </select>
         </div>
+        @if ($isSuperAdmin || $isBranchManager)
+            <div class="col-md-3">
+                <select name="branch_id" class="form-select bg-white">
+                    <option value="">اختر الفرع</option>
+                    @foreach ($branches as $branch)
+                        <option value="{{ $branch->id }}" {{ $branchId == $branch->id ? 'selected' : '' }}>
+                            {{ $branch->user?->full_name ?? '---' }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select name="company_id" class="form-select bg-white">
+                    <option value="">اختر الشركة</option>
+                    @foreach ($companies as $company)
+                        <option value="{{ $company->id }}" {{ request('company_id') == $company->id ? 'selected' : '' }}>
+                            {{ $company->name_ar }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+        @endif
+
         <div class="col-md-2">
             <button class="btn btn-primary w-100">تحديث</button>
         </div>
@@ -94,7 +127,7 @@
         </div>
     </form>
 
-    @if ($month || $year)
+    @if ($month || $year || $companyId || $branchId)
         <div class="alert alert-info">
             <strong>نتائج الطلبات :</strong>
             @if ($month)
@@ -103,8 +136,26 @@
             @if ($year)
                 سنة: {{ $year }}
             @endif
+            @if ($companyId)
+                @php
+                    $selectedCompany = $companies->firstWhere('id', $companyId);
+                @endphp
+                @if ($selectedCompany)
+                    — الشركة: {{ $selectedCompany->name_ar }}
+                @endif
+            @endif
+            @if ($branchId)
+                @php
+                    $selectedBranch = $branches->firstWhere('id', $branchId);
+                @endphp
+                @if ($selectedBranch)
+                    — الفرع: {{ $selectedBranch->user?->full_name ?? '---' }}
+                @endif
+            @endif
         </div>
     @endif
+
+
 
     <div class="row g-3">
         <div class="col-md-6">

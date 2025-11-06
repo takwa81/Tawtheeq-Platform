@@ -44,8 +44,9 @@
                         </div>
 
                         @if($order->order_image)
+                        <p>صورة الطلب :</p>
                             <div class="col-12 text-center">
-                                <img src="{{ $order_image_url}}" class="img-fluid rounded" style="max-height: 250px;" alt="Order Image">
+                                <img src="{{ $order->order_image_url}}" class="img-fluid rounded" style="max-height: 250px;" alt="Order Image">
                             </div>
                         @endif
 

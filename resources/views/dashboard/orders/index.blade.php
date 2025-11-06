@@ -1,7 +1,11 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
-    <x-dashboard.page-header :title="__('dashboard.orders')" addRoute="{{ route('dashboard.orders.create') }}" />
+    @if (auth()->user()->role === 'branch')
+        <x-dashboard.page-header :title="__('dashboard.orders')" addRoute="{{ route('dashboard.orders.create') }}" />
+    @else
+        <x-dashboard.page-header :title="__('dashboard.orders')" />
+    @endif
 
     {{-- <div class="row g-3">
         @forelse ($orders as $order)
@@ -53,6 +57,7 @@
             </div>
         @endforelse
     </div> --}}
+
     <div class="my-3">
         <form method="GET" action="{{ route('dashboard.orders.index') }}" class="row g-2 mb-3">
             <div class="col-md-3">
@@ -81,7 +86,7 @@
                 </select>
             </div>
 
-            @if (auth()->user()->role === 'super_admin' || auth()->user()->role === 'branch_manager' )
+            @if (auth()->user()->role === 'super_admin' || auth()->user()->role === 'branch_manager')
                 <div class="col-md-3">
                     <select name="branch_id" class="form-select bg-white">
                         <option value="">كل الفروع</option>

@@ -21,6 +21,7 @@ class Order extends Model
         'status',
     ];
 
+    protected $appends  = ['order_image_url'];
     public function getOrderImageUrlAttribute()
     {
         return $this->order_image

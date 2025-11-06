@@ -16,7 +16,7 @@
     <li class="menu-item {{ request()->routeIs('dashboard.branch_managers.index') ? 'active' : '' }}">
         <a class="menu-link" href="{{ route('dashboard.branch_managers.index') }}">
             <i class="icon material-icons md-supervised_user_circle"></i>
-            <span class="text">مدراء الأفرع</span>
+            <span class="text">مدراء الأفرع (البراندات)</span>
         </a>
     </li>
 

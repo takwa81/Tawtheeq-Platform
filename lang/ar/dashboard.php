@@ -19,7 +19,7 @@ return [
     'unexpected_error' => 'حدث خطأ غير متوقع',
     'edit' => 'تعديل',
     'company_logo' => 'شعار الشركة',
-    'branch_managers' => 'مدراء الأفرع',
+    'branch_managers' => 'مدراء الأفرع (البراندات)',
     'branches' => 'الأفرع',
     'subscription_packages' => 'خطط الاشتراك',
     'branches_limit' => 'عدد الأفرع',

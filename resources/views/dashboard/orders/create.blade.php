@@ -53,7 +53,7 @@
                         <x-form.select id="company_id" name="company_id" label="شركة التوصيل" :options="$companies->pluck('name_ar', 'id')->toArray()"
                             col="6" />
 
-                        <x-form.input id="order_number" name="order_number" :label="__('dashboard.order_number')" errorId="order_numberError"  placeholder="#1234"/>
+                        <x-form.input id="order_number" name="order_number" :label="__('dashboard.order_number')" errorId="order_numberError"  placeholder="#1234"  required="true"/>
 
                         <x-form.input id="total_order" name="total_order" :label="__('dashboard.total_order')" required="true"
                             errorId="total_orderError" :col="12" type="number" step="0.01" min="0" placeholder="0.00"/>
@@ -70,7 +70,7 @@
                         <x-form.input id="customer_phone" name="customer_phone" :label="__('dashboard.customer_phone')" type="customer_phone"
                             errorId="customer_phoneError" placeholder="الرقم " />
 
-                        <x-form.file id="order_image" name="order_image" :label="__('dashboard.order_image')" errorId="order_imageError"
+                        <x-form.file id="order_image" name="order_image" :label="__('dashboard.order_image')" errorId="order_imageError"  required="true"
                             previewSrc="{{ asset('assets/images/upload.svg') }}" />
 
                         <x-form.textarea id="notes" name="notes" :label="__('dashboard.notes')" :col="12" />
