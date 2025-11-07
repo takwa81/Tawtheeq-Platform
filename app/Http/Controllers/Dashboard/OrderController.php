@@ -108,12 +108,9 @@ class OrderController extends Controller
                 $imagePath = $this->storeImage($request->file('order_image'), 'orders');
             }
             $data['order_image'] = $imagePath;
+            $data['status'] = "completed";
 
-            if (empty($data['order_number'])) {
-                $lastOrder = Order::latest('id')->first();
-                $lastNumber = $lastOrder ? (int) str_replace('#', '', $lastOrder->order_number) : 0;
-                $data['order_number'] = '#' . ($lastNumber + 1);
-            }
+
             Order::create($data);
 
             toastr()->success(__('messages.added_successfully'));

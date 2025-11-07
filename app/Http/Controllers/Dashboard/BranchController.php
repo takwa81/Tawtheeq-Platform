@@ -39,7 +39,9 @@ class BranchController extends Controller
                 ->withTrashed()
                 ->findOrFail($id);
 
-            return view('dashboard.branches.show', compact('branch'));
+            $ordersCount = $branch->branch->orders->count();
+            $ordersTotal = $branch->branch->orders->sum('total_order');
+            return view('dashboard.branches.show', compact('branch', 'ordersCount', 'ordersTotal'));
         } catch (\Throwable $e) {
             toastr()->error(__('messages.fetch_failed') . ': ' . $e->getMessage());
             return redirect()->back();

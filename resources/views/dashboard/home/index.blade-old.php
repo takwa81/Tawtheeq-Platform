@@ -188,80 +188,99 @@
         </div>
     </div>
 
-    <div class="row g-3 mt-3">
 
-        <div class="col-md-6">
-            <div class="card card-body">
-                <h5>عدد الطلبات لكل شهر ({{ $year }})</h5>
-                <div id="monthlyOrdersCountChart" style="height: 400px;"></div>
-            </div>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4 class="card-title mb-3">💰 إجمالي المبيعات لكل فرع</h4>
+            <div id="branchTotalOrderChart" style="height: 400px;"></div>
         </div>
-
-        <div class="col-md-6">
-            <div class="card card-body">
-                <h5>إجمالي الطلبات لكل شهر (ر.س) ({{ $year }})</h5>
-                <div id="monthlyOrdersTotalChart" style="height: 400px;"></div>
-            </div>
-        </div>
-
     </div>
 
 
-    {{-- Charts --}}
-    <div class="row g-3">
-        <div class="col-md-12">
-            <div class="card card-body">
-                <h5>إجمالي المبيعات لكل فرع ({{ $year }})</h5>
-                <div id="branchTotalOrderChart" style="height: 400px;"></div>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4 class="card-title mb-3">💰 إجمالي المبيعات لكل شركة</h4>
+            <div id="revenueByCompanyChart"></div>
+        </div>
+    </div>
+
+    <div class="card mt-4 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title text-center mb-3">📦 عدد الطلبات لكل شركة</h5>
+            <div id="companyOrdersBarChart" style="height: 400px;"></div>
+        </div>
+    </div>
+
+    @if ($isSuperAdmin)
+        <div class="card mt-4 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-center mb-3">إحصائية الطلبات حسب الأشهر ({{ $year ?? date('Y') }})</h5>
+                <canvas id="ordersByMonthChart" height="120"></canvas>
             </div>
         </div>
+    @endif
 
-        <div class="col-md-12">
-            <div class="card card-body">
-                <h5>عدد الطلبات لكل فرع ({{ $year }})</h5>
-                <div id="ordersSplineChart" style="height: 400px;"></div>
-            </div>
-        </div>
-
-
-        <div class="col-md-12 mt-3">
-            <div class="card card-body">
-                <h5>عدد الطلبات لكل شركة ({{ $year }})</h5>
-                <div id="companyOrdersBarChart" style="height: 400px;"></div>
-            </div>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4 class="card-title mb-3">📈 إحصائية الطلبات لكل فرع</h4>
+            <div id="ordersSplineChart" style="height: 400px;"></div>
         </div>
     </div>
 
 @endsection
-
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
 
-            new ApexCharts(document.querySelector("#ordersSplineChart"), {
-                chart: {
-                    type: 'bar', // تم التغيير من area/spline إلى bar
-                    height: 400,
-                    toolbar: {
-                        show: true, // لإظهار أدوات التحميل
-                        tools: {
-                            download: true, // زر تحميل الصورة
-                            selection: false,
-                            zoom: false,
-                            zoomin: false,
-                            zoomout: false,
-                            pan: false,
-                            reset: false
+    @if ($isSuperAdmin)
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const ctx = document.getElementById('ordersByMonthChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: @json(array_values($arabicMonths)),
+                    datasets: [{
+                        label: 'عدد الطلبات',
+                        data: @json($ordersByMonth),
+                        backgroundColor: 'rgba(0, 193, 202, 0.6)',
+                        borderColor: 'rgba(0, 193, 202, 1)',
+                        borderWidth: 1,
+                        borderRadius: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
                         }
                     }
+                }
+            });
+        </script>
+    @endif
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var options = {
+                chart: {
+                    type: 'area',
+                    height: 400,
+                    toolbar: {
+                        show: false
+                    }
+                },
+                stroke: {
+                    curve: 'smooth'
+                },
+                dataLabels: {
+                    enabled: true
                 },
                 series: [{
                     name: 'عدد الطلبات',
-                    data: @json($branchData) // بيانات عدد الطلبات لكل فرع
+                    data: @json($chartData)
                 }],
                 xaxis: {
-                    categories: @json($branchLabels), // أسماء الفروع
+                    categories: @json($chartLabels),
                     title: {
                         text: 'الفروع'
                     }
@@ -271,17 +290,16 @@
                         text: 'عدد الطلبات'
                     }
                 },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: '55%',
-                        borderRadius: 6
+                colors: ['#1E90FF'],
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                        shadeIntensity: 1,
+                        opacityFrom: 0.5,
+                        opacityTo: 0.1,
+                        stops: [0, 90, 100]
                     }
                 },
-                dataLabels: {
-                    enabled: true
-                },
-                colors: ['#1E90FF'],
                 tooltip: {
                     y: {
                         formatter: function(val) {
@@ -289,23 +307,34 @@
                         }
                     }
                 }
-            }).render();
+            };
 
-            new ApexCharts(document.querySelector("#branchTotalOrderChart"), {
+            var chart = new ApexCharts(document.querySelector("#ordersSplineChart"), options);
+            chart.render();
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var totalBranchOptions = {
                 chart: {
-                    type: 'area', // spline chart
+                    type: 'bar',
                     height: 400,
                     toolbar: {
-                        show: true, // تظهر الأدوات
-                        tools: {
-                            download: true, // زر تحميل المخطط كصورة
-                            selection: false,
-                            zoom: false,
-                            zoomin: false,
-                            zoomout: false,
-                            pan: false,
-                            reset: false
-                        }
+                        show: false
+                    }
+                },
+                plotOptions: {
+                    bar: {
+                        borderRadius: 6,
+                        horizontal: false,
+                        columnWidth: '55%',
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    formatter: function(val) {
+                        return val.toLocaleString() + ' ر.س';
                     }
                 },
                 series: [{
@@ -321,28 +350,14 @@
                 yaxis: {
                     title: {
                         text: 'إجمالي المبيعات (ر.س)'
-                    }
-                },
-                stroke: {
-                    curve: 'smooth',
-                    width: 3
-                },
-                dataLabels: {
-                    enabled: true,
-                    formatter: function(val) {
-                        return val.toLocaleString() + ' ر.س';
+                    },
+                    labels: {
+                        formatter: function(val) {
+                            return val.toLocaleString();
+                        }
                     }
                 },
                 colors: ['#FF9800'],
-                fill: {
-                    type: 'gradient',
-                    gradient: {
-                        shadeIntensity: 1,
-                        opacityFrom: 0.6,
-                        opacityTo: 0.1,
-                        stops: [0, 90, 100]
-                    }
-                },
                 tooltip: {
                     y: {
                         formatter: function(val) {
@@ -350,33 +365,77 @@
                         }
                     }
                 }
-            }).render();
+            };
 
+            new ApexCharts(document.querySelector("#branchTotalOrderChart"), totalBranchOptions).render();
+        });
+    </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-            new ApexCharts(document.querySelector("#companyOrdersBarChart"), {
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Donut Chart for Total Sales
+            var donutOptions = {
                 chart: {
-                    type: 'bar',
-                    height: 400,
-                    toolbar: {
-                        show: true,
-                        tools: {
-                            download: true, // زر تحميل PNG
-                            selection: false,
-                            zoom: false,
-                            zoomin: false,
-                            zoomout: false,
-                            pan: false,
-                            reset: false
+                    type: 'donut',
+                    height: 400
+                },
+                labels: @json($companyNames),
+                series: @json($companySales),
+                colors: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'],
+                legend: {
+                    position: 'bottom'
+                },
+                dataLabels: {
+                    enabled: true,
+                    formatter: function(val) {
+                        return val.toFixed(1) + "%";
+                    }
+                },
+                tooltip: {
+                    y: {
+                        formatter: function(val) {
+                            return val.toLocaleString() + " ر.س";
                         }
                     }
                 },
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            size: '70%',
+                            labels: {
+                                show: true,
+                                total: {
+                                    show: true,
+                                    label: 'الإجمالي',
+                                    formatter: function(w) {
+                                        const total = w.globals.seriesTotals.reduce((a, b) => a + b, 0);
+                                        return total.toLocaleString() + ' ر.س';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            new ApexCharts(document.querySelector("#companySalesDonutChart"), donutOptions).render();
+
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var options = {
+                chart: {
+                    type: 'bar',
+                    height: 400
+                },
                 series: [{
                     name: 'عدد الطلبات',
-                    data: @json($companyOrders) // عدد الطلبات لكل شركة
+                    data: @json($companyOrders)
                 }],
                 xaxis: {
-                    categories: @json($companyNames), // أسماء الشركات
+                    categories: @json($companyNames),
                     title: {
                         text: 'الشركات'
                     }
@@ -386,143 +445,36 @@
                         text: 'عدد الطلبات'
                     }
                 },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: '55%',
-                        borderRadius: 6
-                    }
-                },
+                colors: ['#00BFFF'],
                 dataLabels: {
                     enabled: true
-                },
-                colors: ['#00BFFF'],
-                tooltip: {
-                    y: {
-                        formatter: function(val) {
-                            return val + " طلب";
-                        }
-                    }
                 }
-            }).render();
-
+            };
+            new ApexCharts(document.querySelector("#companyOrdersBarChart"), options).render();
         });
     </script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-
-            const arabicMonths = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر',
-                'أكتوبر', 'نوفمبر', 'ديسمبر'
-            ];
-
-            // Monthly Orders Count (Bar chart)
-            new ApexCharts(document.querySelector("#monthlyOrdersCountChart"), {
-                chart: {
-                    type: 'bar',
-                    height: 400,
-                    toolbar: {
-                        show: true,
-                        tools: {
-                            download: true,
-                            selection: false,
-                            zoom: false,
-                            zoomin: false,
-                            zoomout: false,
-                            pan: false,
-                            reset: false
-                        }
-                    }
-                },
-                series: [{
-                    name: 'عدد الطلبات',
-                    data: @json($ordersByMonthCount)
-                }],
-                xaxis: {
-                    categories: arabicMonths,
-                    title: {
-                        text: 'الشهور'
-                    }
-                },
-                yaxis: {
-                    title: {
-                        text: 'عدد الطلبات'
-                    }
-                },
-                plotOptions: {
-                    bar: {
-                        columnWidth: '55%',
-                        borderRadius: 6
-                    }
-                },
-                dataLabels: {
-                    enabled: true
-                },
-                colors: ['#1E90FF'],
-                tooltip: {
-                    y: {
-                        formatter: val => val + ' طلب'
-                    }
-                }
-            }).render();
-
-            // Monthly Orders Total (Area/Spline chart)
-            new ApexCharts(document.querySelector("#monthlyOrdersTotalChart"), {
-                chart: {
-                    type: 'area',
-                    height: 400,
-                    toolbar: {
-                        show: true,
-                        tools: {
-                            download: true,
-                            selection: false,
-                            zoom: false,
-                            zoomin: false,
-                            zoomout: false,
-                            pan: false,
-                            reset: false
-                        }
-                    }
-                },
-                series: [{
-                    name: 'إجمالي الطلبات (ر.س)',
-                    data: @json($ordersByMonthTotal)
-                }],
-                xaxis: {
-                    categories: arabicMonths,
-                    title: {
-                        text: 'الشهور'
-                    }
-                },
-                yaxis: {
-                    title: {
-                        text: 'إجمالي الطلبات (ر.س)'
-                    }
-                },
-                stroke: {
-                    curve: 'smooth',
-                    width: 3
-                },
-                dataLabels: {
-                    enabled: true,
-                    formatter: val => val.toLocaleString() + ' ر.س'
-                },
-                fill: {
-                    type: 'gradient',
-                    gradient: {
-                        shadeIntensity: 1,
-                        opacityFrom: 0.6,
-                        opacityTo: 0.1,
-                        stops: [0, 90, 100]
-                    }
-                },
-                colors: ['#FF9800'],
-                tooltip: {
-                    y: {
-                        formatter: val => val.toLocaleString() + ' ر.س'
-                    }
-                }
-            }).render();
-
-        });
-    </script>
+document.addEventListener("DOMContentLoaded", function() {
+    var options = {
+        chart: { type: 'bar', height: 400 },
+        plotOptions: {
+            bar: { horizontal: false, columnWidth: '55%', borderRadius: 8 }
+        },
+        dataLabels: { enabled: true },
+        series: [{
+            name: 'إجمالي المبيعات',
+            data: @json($revenueData)
+        }],
+        xaxis: {
+            categories: @json($revenueLabels),
+            title: { text: 'الشركات' }
+        },
+        yaxis: {
+            title: { text: 'المبيعات (ر.س)' }
+        },
+        colors: ['#FF8C00'],
+    };
+    new ApexCharts(document.querySelector("#revenueByCompanyChart"), options).render();
+});
+</script>
 @endsection
