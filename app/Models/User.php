@@ -60,12 +60,31 @@ class User extends Authenticatable
     {
         return $this->hasMany(Subscription::class);
     }
-    public function activeSubscription()
-    {
-        return $this->hasOne(Subscription::class)->where('status', 'active')->latestOfMany();
-    }
+    // public function activeSubscription()
+    // {
+    //     return $this->hasOne(Subscription::class)->where('status', 'active')->latestOfMany();
+    // }
     public function createdOrders()
     {
         return $this->hasMany(Order::class, 'created_by');
+    }
+
+
+    public function activeSubscription()
+    {
+        return $this->hasOne(Subscription::class)
+            ->where('status', 'active')
+            ->whereDate('start_date', '<=', now())
+            ->whereDate('end_date', '>=', now());
+    }
+
+    public function expiredSubscriptions()
+    {
+        return $this->hasMany(Subscription::class)
+            ->where('status', 'expired')
+            ->orWhere(function ($query) {
+                $query->where('status', 'active')
+                    ->whereDate('end_date', '<', now());
+            });
     }
 }
