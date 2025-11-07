@@ -126,10 +126,11 @@
     </div>
     <div class="card mb-4">
         <div class="card-body p-0">
-            <div class="" style="max-height: 400px; overflow-y: auto;">
-                <table class="table table-striped table-hover mb-0">
+            <div class="" style=" overflow-y: auto; overflow-x:hidden;">
+                <table class="table table-hover mb-0">
                     <thead class="bg-main text-light">
                         <tr>
+                            <th>#</th>
                             <th>رقم الطلب</th>
                             <th>الفرع</th>
                             <th>الشركة</th>
@@ -144,7 +145,8 @@
                     <tbody>
                         @forelse($orders as $order)
                             <tr>
-                                <td>{{ $order->order_number ?? '_' }}</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td># {{ $order->order_number ?? '_' }}</td>
                                 <td>{{ $order->branch->user->full_name ?? '-' }}</td>
                                 <td>{{ $order->company->name_ar ?? '-' }}</td>
                                 <td>{{ number_format($order->total_order, 2) }} ر.س</td>

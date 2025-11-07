@@ -244,16 +244,28 @@ class HomeController extends Controller
         $totalBranchLabels = $totalByBranch->pluck('branch_name')->toArray();
         $totalBranchData = $totalByBranch->pluck('total_order')->toArray();
 
-        // Companies stats
-        $companyStats = Order::selectRaw('company_id, COUNT(*) as total_orders, SUM(total_order) as total_sales')
-            ->whereYear('created_at', $year)
-            ->groupBy('company_id')
+
+        $companyStatsQuery = Order::selectRaw('company_id, COUNT(*) as total_orders, SUM(total_order) as total_sales')
+            ->whereYear('created_at', $year);
+
+        // Apply role-based filtering
+        if (auth()->user()->role === 'branch_manager') {
+            // Get IDs of branches managed by this branch manager
+            $branchIds = auth()->user()->branchManager->branches->pluck('id')->toArray();
+            $companyStatsQuery->whereIn('branch_id', $branchIds);
+        } elseif (auth()->user()->role === 'branch') {
+            // Only the branch's own orders
+            $companyStatsQuery->where('branch_id', auth()->user()->branch->id);
+        }
+
+        $companyStats = $companyStatsQuery->groupBy('company_id')
             ->with('company:id,name_ar')
             ->get();
 
         $companyNames = $companyStats->pluck('company.name_ar')->toArray();
         $companySales = $companyStats->pluck('total_sales')->toArray();
         $companyOrders = $companyStats->pluck('total_orders')->toArray();
+
 
         // Dashboard stats
         $totalBranchesCount = $branches->count();
@@ -266,11 +278,15 @@ class HomeController extends Controller
         $totalOrdersCount = $ordersCount;
         $totalOrdersAmount = $ordersTotal;
 
-        // Monthly Orders Stats (for chart)
+
         $monthlyOrders = Order::selectRaw('MONTH(created_at) as month, COUNT(*) as count, SUM(total_order) as total')
             ->when($companyId, fn($q) => $q->where('company_id', $companyId))
             ->when(isset($branchIds), fn($q) => $q->whereIn('branch_id', $branchIds))
             ->when($branchId, fn($q) => $q->where('branch_id', $branchId))
+            ->when(auth()->user()->role === 'branch', function ($q) {
+                // Limit to the authenticated branch user's branch
+                $q->where('branch_id', auth()->user()->branch->id);
+            })
             ->whereYear('created_at', $year)
             ->groupBy('month')
             ->orderBy('month')

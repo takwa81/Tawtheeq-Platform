@@ -16,13 +16,13 @@
         <div class="col-12">
             <div class="card shadow-sm rounded-3 mb-3">
                 <div class="card-header bg-main text-light">
-                    <h5 class="mb-0">Order #{{ $order->order_number ?? '-' }}</h5>
+                    <h5 class="mb-0 text-light">Order #{{ $order->order_number ?? '-' }}</h5>
                 </div>
                 <div class="card-body">
                     <div class="row g-3">
 
                         <div class="col-12 col-md-6">
-                            <p class="mb-1"><strong>الفرع:</strong> {{ $order->branch->user->full_name ?? '-' }}</p>
+                            <p class="mb-1"><strong>الفرع:</strong> <a href="{{ route('dashboard.branches.show',$order->branch->user->id) }}">{{ $order->branch->user->full_name ?? '-' }}</a></p>
                             <p class="mb-1"><strong>الشركة:</strong> {{ $order->company->name_ar ?? '-' }}</p>
                             <p class="mb-1"><strong>المبلغ:</strong> {{ number_format($order->total_order, 2) }} ر.س</p>
                         </div>

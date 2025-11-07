@@ -31,7 +31,8 @@ class BranchController extends Controller
         }
     }
 
-    public function show($id)
+
+    public function show(Request $request, $id)
     {
         try {
             $branch = User::where('role', 'branch')
@@ -39,9 +40,41 @@ class BranchController extends Controller
                 ->withTrashed()
                 ->findOrFail($id);
 
-            $ordersCount = $branch->branch->orders->count();
-            $ordersTotal = $branch->branch->orders->sum('total_order');
-            return view('dashboard.branches.show', compact('branch', 'ordersCount', 'ordersTotal'));
+            $orders = $branch->branch->orders()->with('company')
+                ->orderBy('created_at', 'desc')
+                ->paginate(PaginationEnum::DefaultCount->value);
+
+            $ordersCount = $branch->branch->orders()->count();
+            $ordersTotal = $branch->branch->orders()->sum('total_order');
+
+            $year = $request->year ?? now()->year;
+
+            $months = range(1, 12);
+            $ordersByMonthCount = [];
+            $ordersByMonthTotal = [];
+
+            foreach ($months as $month) {
+                $monthlyOrders = $branch->branch->orders()
+                    ->whereYear('created_at', $year)
+                    ->whereMonth('created_at', $month);
+
+                $ordersByMonthCount[] = $monthlyOrders->count();
+                $ordersByMonthTotal[] = $monthlyOrders->sum('total_order');
+            }
+
+            $activeTab = $request->tab ?? 'info';
+
+            return view('dashboard.branches.show', compact(
+                'branch',
+                'orders',
+                'ordersCount',
+                'ordersTotal',
+                'year',
+                'ordersByMonthCount',
+                'ordersByMonthTotal',
+                'activeTab'
+
+            ));
         } catch (\Throwable $e) {
             toastr()->error(__('messages.fetch_failed') . ': ' . $e->getMessage());
             return redirect()->back();

@@ -223,13 +223,16 @@
             </div>
         </div>
 
-
-        <div class="col-md-12 mt-3">
-            <div class="card card-body">
-                <h5>عدد الطلبات لكل شركة ({{ $year }})</h5>
-                <div id="companyOrdersBarChart" style="height: 400px;"></div>
+        {{-- @if ($isSuperAdmin) --}}
+            <div class="col-md-12 mt-3">
+                <div class="card card-body">
+                    <h5>عدد الطلبات لكل شركة ({{ $year }})</h5>
+                    <div id="companyOrdersBarChart" style="height: 400px;"></div>
+                </div>
             </div>
-        </div>
+        {{-- @endif --}}
+
+
     </div>
 
 @endsection

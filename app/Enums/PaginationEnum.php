@@ -4,5 +4,5 @@ namespace App\Enums;
 
 enum PaginationEnum: int
 {
-    case DefaultCount = 15;
+    case DefaultCount = 10;
 }
