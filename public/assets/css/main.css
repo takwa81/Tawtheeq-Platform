@@ -5488,14 +5488,14 @@ tbody {
 .ps__thumb-y {
     right: auto !important;
     left: 0 !important;
-    background-color: #365ba9 !important;  /* blue thumb */
+    background-color: var(--primary-color) !important;
     border-radius: 6px;
     width: 6px !important;
 }
 
 /* Optional: add hover effect */
 .ps__thumb-y:hover {
-    background-color: #365ba9 !important;
+    background-color: var(--primary-color) !important;
 }
 
 
@@ -5509,6 +5509,7 @@ tbody {
 /* background  */
 
 main,
+body,
 .main-header.navbar,
 .navbar-aside,
 .main-wrap ,

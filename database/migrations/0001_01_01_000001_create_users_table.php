@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('email')->nullable()->unique();
             $table->enum('role', ['super_admin', 'branch_manager', 'branch'])->default('branch');
             $table->enum('status', ['active', 'inactive','deleted'])->default('active');
+            $table->enum('preffered_lang',['en','ar'])->default('en');
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

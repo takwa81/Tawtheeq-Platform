@@ -17,25 +17,10 @@
     </style>
 @endsection
 @section('content')
-    @php
-        $arabicMonths = [
-            1 => 'يناير',
-            2 => 'فبراير',
-            3 => 'مارس',
-            4 => 'أبريل',
-            5 => 'مايو',
-            6 => 'يونيو',
-            7 => 'يوليو',
-            8 => 'أغسطس',
-            9 => 'سبتمبر',
-            10 => 'أكتوبر',
-            11 => 'نوفمبر',
-            12 => 'ديسمبر',
-        ];
-    @endphp
+
     <div class="content-header d-flex justify-content-between align-items-center mb-3">
         <div>
-            <h2 class="content-title card-title">تفاصيل الفرع ({{ $branch->full_name }})</h2>
+            <h2 class="content-title card-title">{{ __('dashboard.branch_details') }} ({{ $branch->full_name }})</h2>
         </div>
         <div>
             <a href="javascript:void(0)" onclick="history.back()" class="btn btn-md rounded font-sm">
@@ -46,7 +31,7 @@
 
     <div class="card mb-4">
         <div class="card-header bg-main">
-            <h5 class="text-light">تفاصيل الفرع</h5>
+            <h5 class="text-light">{{ __('dashboard.branch_details') }}</h5>
         </div>
         <div class="card-body">
 
@@ -54,16 +39,21 @@
             <ul class="nav nav-tabs" id="branchTab" role="tablist">
                 <li class="nav-item mx-1.5 p-1" role="presentation">
                     <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info"
-                        type="button" role="tab"> <i class="material-icons md-18 me-1 md-info"></i> معلومات الفرع
+                        type="button" role="tab">
+                        <i class="material-icons md-18 me-1 md-info"></i> {{ __('dashboard.branch_info') }}
                     </button>
                 </li>
                 <li class="nav-item mx-1.5 p-1" role="presentation">
                     <button class="nav-link" id="orders-tab" data-bs-toggle="tab" data-bs-target="#orders" type="button"
-                        role="tab"> <i class="material-icons md-18 me-1 md-shopping_cart"></i> الطلبات</button>
+                        role="tab">
+                        <i class="material-icons md-18 me-1 md-shopping_cart"></i> {{ __('dashboard.orders') }}
+                    </button>
                 </li>
                 <li class="nav-item mx-1.5 p-1" role="presentation">
                     <button class="nav-link" id="stats-tab" data-bs-toggle="tab" data-bs-target="#stats" type="button"
-                        role="tab"> <i class="material-icons md-18 me-1 md-bar_chart"></i> احصائيات</button>
+                        role="tab">
+                        <i class="material-icons md-18 me-1 md-bar_chart"></i> {{ __('dashboard.statistics') }}
+                    </button>
                 </li>
             </ul>
 
@@ -72,23 +62,28 @@
                 {{-- معلومات الفرع --}}
                 <div class="tab-pane fade show active" id="info" role="tabpanel">
                     <div class="row g-3">
-                        <div class="col-md-6"><strong>اسم الفرع:</strong> {{ $branch->full_name }}</div>
-                        <div class="col-md-6"><strong>رقم الفرع:</strong> {{ $branch->branch->branch_number }}</div>
-                        <div class="col-md-6"><strong>الهاتف:</strong> {{ $branch->phone }}</div>
+                        <div class="col-md-6"><strong>{{ __('dashboard.branch_name') }}:</strong> {{ $branch->full_name }}
+                        </div>
+                        <div class="col-md-6"><strong>{{ __('dashboard.branch_number') }}:</strong>
+                            {{ $branch->branch->branch_number }}</div>
+                        <div class="col-md-6"><strong>{{ __('dashboard.phone_number') }}:</strong> {{ $branch->phone }}
+                        </div>
                         <div class="col-md-6">
-                            <strong>الحالة:</strong>
+                            <strong>{{ __('dashboard.status') }}:</strong>
                             <span class="badge bg-{{ $branch->status === 'active' ? 'success' : 'danger' }}">
                                 {!! accountStatusBadge($branch->status) !!}
                             </span>
                         </div>
-                        <div class="col-md-6"><strong>مدير الفرع:</strong>
+                        <div class="col-md-6"><strong>{{ __('dashboard.branch_manager') }}:</strong>
                             {{ $branch->branch->manager->user->full_name ?? '-' }}</div>
                         <div class="col-md-6">
-                            <strong>عدد الطلبات:</strong> {{ $ordersCount }} |
-                            <strong>إجمالي الطلبات:</strong> {{ number_format($ordersTotal, 2) }} ر.س
+                            <strong>{{ __('dashboard.orders_count') }}:</strong> {{ $ordersCount }} |
+                            <strong>{{ __('dashboard.orders_total') }}:</strong> {{ number_format($ordersTotal, 2) }}
+                            {{ __('dashboard.currency') }}
                         </div>
                     </div>
                 </div>
+
 
                 {{-- الطلبات --}}
                 <div class="tab-pane fade" id="orders" role="tabpanel">
@@ -97,20 +92,21 @@
                             <table class="table table-striped table-hover mb-0">
                                 <thead class="bg-secondary text-light">
                                     <tr>
-                                        <th>رقم الطلب</th>
-                                        <th>الشركة</th>
-                                        <th>المبلغ</th>
-                                        <th>التاريخ</th>
-                                        <th>الوقت</th>
-                                        <th>الحالة</th>
+                                        <th>{{ __('dashboard.order_number') }}</th>
+                                        <th>{{ __('dashboard.company') }}</th>
+                                        <th>{{ __('dashboard.amount') }}</th>
+                                        <th>{{ __('dashboard.date') }}</th>
+                                        <th>{{ __('dashboard.time') }}</th>
+                                        <th>{{ __('dashboard.status') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($orders as $order)
                                         <tr>
                                             <td>{{ $order->order_number }}</td>
-                                            <td>{{ $order->company->name_ar ?? '-' }}</td>
-                                            <td>{{ number_format($order->total_order, 2) }} ر.س</td>
+                                            <td>{{ $order->company->name ?? '-' }}</td>
+                                            <td>{{ number_format($order->total_order, 2) }} {{ __('dashboard.currency') }}
+                                            </td>
                                             <td>{{ $order->date }}</td>
                                             <td>{{ $order->time }}</td>
                                             <td>
@@ -126,17 +122,17 @@
                         </div>
                         <div class="mt-3">
                             <div class="pagination-area mt-15 mb-50 d-flex justify-content-center">
-                                <b class="my-2 mx-3">{{ __('dashboard.total_count') }} : {{ $orders->total() }} </b>
-
+                                <b class="my-2 mx-3">{{ __('dashboard.total_count') }}: {{ $orders->total() }}</b>
                                 <nav aria-label="Page navigation example">
-                                    {{ $orders->appends(['tab' => 'orders'])->links() }} </nav>
+                                    {{ $orders->appends(['tab' => 'orders'])->links() }}
+                                </nav>
                             </div>
-
                         </div>
                     @else
-                        <p>لا توجد طلبات مرتبطة.</p>
+                        <p>{{ __('dashboard.no_orders') }}</p>
                     @endif
                 </div>
+
 
                 {{-- احصائيات --}}
                 <div class="tab-pane fade" id="stats" role="tabpanel">
@@ -146,28 +142,29 @@
                             <select name="year" class="form-select bg-white" onchange="this.form.submit()">
                                 @foreach (range(now()->year, now()->year - 5) as $y)
                                     <option value="{{ $y }}" {{ $year == $y ? 'selected' : '' }}>
-                                        {{ $y }}</option>
+                                        {{ $y }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
                     </form>
 
-
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="card card-body">
-                                <h5>عدد الطلبات لكل شهر ({{ $year }})</h5>
+                                <h5>{{ __('dashboard.monthly_orders_count', ['year' => $year]) }}</h5>
                                 <div id="monthlyOrdersCountChart" style="height: 400px;"></div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="card card-body">
-                                <h5>إجمالي الطلبات لكل شهر (ر.س) ({{ $year }})</h5>
+                                <h5>{{ __('dashboard.monthly_orders_total', ['year' => $year]) }}</h5>
                                 <div id="monthlyOrdersTotalChart" style="height: 400px;"></div>
                             </div>
                         </div>
                     </div>
                 </div>
+
 
             </div>
         </div>
@@ -191,9 +188,8 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const arabicMonths = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر',
-                'أكتوبر', 'نوفمبر', 'ديسمبر'
-            ];
+            const months = @json(array_values(__('dashboard.months')));
+
 
             // Monthly Orders Count
             new ApexCharts(document.querySelector("#monthlyOrdersCountChart"), {
@@ -202,15 +198,15 @@
                     height: 400
                 },
                 series: [{
-                    name: 'عدد الطلبات',
+                    name: '{{ __('dashboard.orders_count') }}',
                     data: @json($ordersByMonthCount)
                 }],
                 xaxis: {
-                    categories: arabicMonths
+                    categories: months
                 },
                 yaxis: {
                     title: {
-                        text: 'عدد الطلبات'
+                        text: '{{ __('dashboard.orders_count') }}'
                     }
                 },
                 dataLabels: {
@@ -226,15 +222,15 @@
                     height: 400
                 },
                 series: [{
-                    name: 'إجمالي الطلبات (ر.س)',
+                    name: '{{ __('dashboard.total_orders') }} ({{ __('dashboard.currency') }})',
                     data: @json($ordersByMonthTotal)
                 }],
                 xaxis: {
-                    categories: arabicMonths
+                    categories: months
                 },
                 yaxis: {
                     title: {
-                        text: 'إجمالي الطلبات (ر.س)'
+                        text: '{{ __('dashboard.total_orders') }} ({{ __('dashboard.currency') }})'
                     }
                 },
                 stroke: {
@@ -243,7 +239,7 @@
                 },
                 dataLabels: {
                     enabled: true,
-                    formatter: val => val.toLocaleString() + ' ر.س'
+                    formatter: val => val.toLocaleString() + '{{ __('dashboard.currency') }}'
                 },
                 colors: ['#FF9800'],
                 fill: {

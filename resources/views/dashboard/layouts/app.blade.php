@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>منصة توثيق</title>
+<title>{{ __('dashboard.site_title') }}</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -210,24 +210,48 @@
                         class="material-icons md-apps"></i> </button>
                 <ul class="nav">
 
+                    @php
+                        $currentLang = session('app_locale', app()->getLocale());
+                        $availableLangs = [
+                            'en' => 'English',
+                            'ar' => 'عربي',
+                        ];
+                    @endphp
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                            title="{{ __('dashboard.language') }}">
+                            <i class="material-icons md-flag"></i> {{ strtoupper($currentLang) }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            @foreach ($availableLangs as $code => $label)
+                                @if ($code !== $currentLang)
+                                    <a class="dropdown-item" href="{{ route('dashboard.switch.lang', $code) }}">
+                                        {{ $label }}
+                                    </a>
+                                @endif
+                            @endforeach
+                        </div>
+                    </li>
+
                     <li class="nav-item">
-                        <a href="{{ route('dashboard.clear.cache') }}" class="" title="مسح الكاش">
+                        <a href="{{ route('dashboard.clear.cache') }}" class="" title="{{ __('dashboard.clear_cache') }}">
                             <i class="material-icons md-cached"></i>
                         </a>
                     </li>
                     <li class="dropdown nav-item">
                         <a class="dropdown-toggle align-middle" data-bs-toggle="dropdown" href="#"
-                            id="dropdownAccount" aria-expanded="false">مرحبا,
+                            id="dropdownAccount" aria-expanded="false">{{ __('dashboard.welcome') }},
                             {{ auth()->user()->full_name }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
                             <a class="dropdown-item" href=""><i class="material-icons md-perm_identity"></i>
-                                معلومات الحساب</a>
+                                {{ __('dashboard.account_info') }}</a>
                             <form action="{{ route('dashboard.logout') }}" class="dropdown-item text-danger"
                                 method="POST">
                                 @csrf
                                 <button class="btn btn-sm text-danger p-0" type="submit"><i
-                                        class="material-icons md-exit_to_app"></i>تسجيل الخروج</button>
+                                        class="material-icons md-exit_to_app"></i>{{ __('dashboard.logout') }}</button>
                             </form>
                         </div>
                     </li>
@@ -241,16 +265,11 @@
         <footer class="main-footer font-xs" style="">
             <div class="row">
                 <div class="col-sm-6">
-                    {{-- <script>
-                        document.write(new Date().getFullYear())
-                    </script> ©, Expentech - Always Have A Solution - All rights reserved. --}}
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>
-                    جميع الحقوق محفوظة لدى منصة توثيق
+                    {{ __('dashboard.footer_rights_year', ['year' => date('Y')]) }}
                 </div>
             </div>
         </footer>
+
     </main>
     {{-- <script src="{{ asset('assets/js/toastr.min.js') }}" type="text/javascript"></script> --}}
 

@@ -10,7 +10,14 @@ INCLUDE STYLES AND COMPONENTS
 @import url(vendors/select2.min.css);
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600;700&display=swap");
+
+:root {
+    /* --primary-color: var(--primary-color); */
+        --primary-color: #ff5087;
+
+}
 /*RESET*/
+
 html,
 body,
 div,
@@ -103,9 +110,7 @@ video {
 thead {
     font-weight: 600;
 }
-:root {
-    --primary-color: #d1abe7;
-}
+
 article,
 aside,
 details,
@@ -329,7 +334,7 @@ table .form-check {
 }
 
 .bg-primary {
-    background-color: #365ba9;
+    background-color: #c6d9cf;
 }
 
 .text-primary {
@@ -337,7 +342,7 @@ table .form-check {
 }
 
 .bg-primary-light {
-    background-color: #365ba9 !important;
+    background-color: var(--primary-color) !important;
 }
 
 .screen-overlay {
@@ -629,7 +634,7 @@ b {
 }
 
 .menu-aside .menu-item.active .menu-link {
-    background-color: #365ba9;
+    background-color: var(--primary-color);
     color: #ffffff;
 }
 
@@ -775,7 +780,7 @@ b {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
     color: var(--primary-color);
-    background-color: #365ba9;
+    background-color: var(--primary-color);
 }
 
 .btn.btn-primary {
@@ -2333,7 +2338,7 @@ a.itemside:hover .title {
 .card-user .card-header {
     position: relative;
     height: 100px;
-    background-color: #365ba9 !important;
+    background-color: var(--primary-color) !important;
     text-align: center;
 }
 
@@ -4099,7 +4104,7 @@ body.offcanvas-active {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     display: inline-block;
-    width: 60px !important;
+    /* width: 60px !important; */
     height: 40px !important;
 }
 .navbar-aside .aside-top .logo {
@@ -4741,22 +4746,70 @@ body.dark .dropdown-menu .dropdown-item.text-danger {
 }
 /*# sourceMappingURL=main.css.map */
 
-
-
 /* Customize Ar */
 
-.icon-action{
+.icon-action {
     text-align: right !important;
 }
-.md-arrow_back{
+.md-arrow_back {
     transform: rotate(180deg) !important;
 }
 
-.translation-input{
+.translation-input {
     background-color: #c7cad5;
 }
 
-
-.action-show{
+.action-show {
     text-align: right;
+}
+
+/* Move PerfectScrollbar vertical bar to the left */
+.ps__rail-y {
+    right: auto !important;
+    left: 0 !important;
+    background-color: #f1f1f1; /* background track color */
+    width: 6px !important;
+}
+
+/* Style the thumb (scroll handle) */
+.ps__thumb-y {
+    right: auto !important;
+    left: 0 !important;
+    background-color: var(--primary-color) !important; /* blue thumb */
+    border-radius: 6px;
+    width: 6px !important;
+}
+
+/* Optional: add hover effect */
+.ps__thumb-y:hover {
+    background-color: var(--primary-color) !important;
+}
+
+.action-show {
+    text-align: left;
+}
+
+/* background  */
+
+main,
+body,
+.main-header.navbar,
+.navbar-aside,
+.main-wrap,
+.content-main,
+.main-footer {
+    background: #c9e3e4;
+}
+
+.bg-secondary {
+    background: #00c1ca !important;
+}
+
+.alert-secondary {
+    background: #00c1ca !important;
+}
+
+#login-card,
+.navbar-aside {
+    border-left: 1px solid rgb(0, 193, 202) !important;
 }

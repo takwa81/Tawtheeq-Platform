@@ -6,23 +6,23 @@ if (!function_exists('accountStatusBadge')) {
     {
         switch ($status) {
             case 'pending':
-                $label = 'بانتظار الموافقة';
+                $label = __('dashboard.pending');
                 $class = 'bg-info';
                 break;
             case 'active':
-                $label = 'فعال';
+                $label = __('dashboard.active');
                 $class = 'bg-success';
                 break;
             case 'inactive':
-                $label = 'غير فعال';
+                $label = __('dashboard.inactive');
                 $class = 'bg-warning';
                 break;
             case 'deleted':
-                $label = 'محذوف';
+                $label = __('dashboard.deleted');
                 $class = 'bg-danger';
                 break;
             default:
-                $label = 'غير معروف';
+                $label = __('dashboard.unknown');
                 $class = 'bg-secondary';
         }
 

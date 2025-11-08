@@ -2,20 +2,7 @@
 
 @section('content')
     @php
-        $arabicMonths = [
-            1 => 'يناير',
-            2 => 'فبراير',
-            3 => 'مارس',
-            4 => 'أبريل',
-            5 => 'مايو',
-            6 => 'يونيو',
-            7 => 'يوليو',
-            8 => 'أغسطس',
-            9 => 'سبتمبر',
-            10 => 'أكتوبر',
-            11 => 'نوفمبر',
-            12 => 'ديسمبر',
-        ];
+        $months = __('dashboard.months');
     @endphp
 
     @php
@@ -31,7 +18,7 @@
         }
     @endphp
     <div class="content-header mb-4">
-        <h2 class="content-title card-title">لوحة التحكم</h2>
+        <h2 class="content-title card-title">{{ __('dashboard.home') }}</h2>
     </div>
 
     <div class="row g-3 mb-3">
@@ -41,7 +28,7 @@
                     <div class="card text-center shadow-sm">
                         <div class="card-body">
                             <i class="material-icons md-36 text-success md-supervisor_account"></i>
-                            <h5 class="mt-2">عدد المشتركين (البراندات)</h5>
+                            <h5 class="mt-2">{{ __('dashboard.total_branch_managers') }}</h5>
                             <h3>{{ $totalManagersCount }}</h3>
                         </div>
                     </div>
@@ -54,7 +41,7 @@
                     <div class="card text-center shadow-sm">
                         <div class="card-body">
                             <i class="material-icons md-36 text-primary md-store"></i>
-                            <h5 class="mt-2">عدد الفروع</h5>
+                            <h5 class="mt-2">{{ __('dashboard.total_branches') }}</h5>
                             <h3>{{ $totalBranchesCount }}</h3>
                         </div>
                     </div>
@@ -66,7 +53,7 @@
                 <div class="card text-center shadow-sm">
                     <div class="card-body">
                         <i class="material-icons md-36 text-warning md-shopping_cart"></i>
-                        <h5 class="mt-2">عدد الطلبات الكلي</h5>
+                        <h5 class="mt-2">{{ __('dashboard.total_orders_count') }}</h5>
                         <h3>{{ $totalOrdersCount }}</h3>
                     </div>
                 </div>
@@ -77,7 +64,7 @@
                 <div class="card text-center shadow-sm">
                     <div class="card-body">
                         <i class="material-icons md-36 text-danger md-attach_money"></i>
-                        <h5 class="mt-2">إجمالي الطلبات</h5>
+                        <h5 class="mt-2">{{ __('dashboard.total_orders_amount') }}</h5>
                         <h3>{{ number_format($totalOrdersAmount, 2) }}</h3>
                     </div>
                 </div>
@@ -89,8 +76,8 @@
     <form method="GET" class="row g-2 mb-4">
         <div class="col-md-3">
             <select name="month" class="form-select  bg-white">
-                <option value="">اختر الشهر</option>
-                @foreach ($arabicMonths as $num => $name)
+                <option value="">{{ __('dashboard.select_month') }}</option>
+                @foreach ($months as $num => $name)
                     <option value="{{ $num }}" {{ $month == $num ? 'selected' : '' }}>{{ $name }}
                     </option>
                 @endforeach
@@ -98,16 +85,16 @@
         </div>
         <div class="col-md-3">
             <select name="year" class="form-select  bg-white">
-                <option value="">اختر السنة</option>
-                @foreach (range(date('Y'), date('Y') - 5) as $y)
-                    <option value="{{ $y }}" {{ $year == $y ? 'selected' : '' }}>{{ $y }}</option>
+                <option value="">{{ __('dashboard.select_year') }}<< /option>
+                        @foreach (range(date('Y'), date('Y') - 5) as $y)
+                <option value="{{ $y }}" {{ $year == $y ? 'selected' : '' }}>{{ $y }}</option>
                 @endforeach
             </select>
         </div>
         @if ($isSuperAdmin || $isBranchManager)
             <div class="col-md-3">
                 <select name="branch_id" class="form-select bg-white">
-                    <option value="">اختر الفرع</option>
+                    <option value="">{{ __('dashboard.select_branch') }}</option>
                     @foreach ($branches as $branch)
                         <option value="{{ $branch->id }}" {{ $branchId == $branch->id ? 'selected' : '' }}>
                             {{ $branch->user?->full_name ?? '---' }}
@@ -117,10 +104,10 @@
             </div>
             <div class="col-md-3">
                 <select name="company_id" class="form-select bg-white">
-                    <option value="">اختر الشركة</option>
+                    <option value="">{{ __('dashboard.select_company') }}</option>
                     @foreach ($companies as $company)
                         <option value="{{ $company->id }}" {{ request('company_id') == $company->id ? 'selected' : '' }}>
-                            {{ $company->name_ar }}
+                            {{ $company->name }}
                         </option>
                     @endforeach
                 </select>
@@ -128,10 +115,11 @@
         @endif
 
         <div class="col-md-2">
-            <button class="btn btn-primary w-100">تحديث</button>
+            <button class="btn btn-primary w-100">{{ __('dashboard.update') }}</button>
         </div>
         <div class="col-md-1 mt-2">
-            <a href="{{ route('dashboard.home') }}" class="btn text-light w-100 bg-secondary">
+            <a href="{{ route('dashboard.home') }}" class="btn text-light w-100 bg-secondary"
+                title="{{ __('dashboard.reset') }}">
                 <i class="material-icons md-refresh"></i>
             </a>
         </div>
@@ -139,30 +127,35 @@
 
     @if ($month || $year || $companyId || $branchId)
         <div class="alert alert-info">
-            <strong>نتائج الطلبات :</strong>
+            <strong>{{ __('dashboard.order_results') }} :</strong>
+
             @if ($month)
-                لشهر: {{ $arabicMonths[$month] }}
+                {{ __('dashboard.for_month') }}: {{ $months[$month] }}
             @endif
+
             @if ($year)
-                سنة: {{ $year }}
+                {{ __('dashboard.for_year') }}: {{ $year }}
             @endif
+
             @if ($companyId)
                 @php
                     $selectedCompany = $companies->firstWhere('id', $companyId);
                 @endphp
                 @if ($selectedCompany)
-                    — الشركة: {{ $selectedCompany->name_ar }}
+                    — {{ __('dashboard.company') }}: {{ $selectedCompany->name }}
                 @endif
             @endif
+
             @if ($branchId)
                 @php
                     $selectedBranch = $branches->firstWhere('id', $branchId);
                 @endphp
                 @if ($selectedBranch)
-                    — الفرع: {{ $selectedBranch->user?->full_name ?? '---' }}
+                    — {{ __('dashboard.branch') }}: {{ $selectedBranch->user?->full_name ?? '---' }}
                 @endif
             @endif
         </div>
+
     @endif
 
 
@@ -172,34 +165,37 @@
             <div class="card text-center shadow-sm">
                 <div class="card-body">
                     <i class="material-icons md-36 text-warning md-shopping_cart"></i>
-                    <h5 class="mt-2">عدد الطلبات</h5>
+                    <h5 class="mt-2">{{ __('dashboard.orders_count') }}</h5>
                     <h3>{{ $ordersCount }}</h3>
                 </div>
             </div>
         </div>
+
         <div class="col-md-6">
             <div class="card text-center shadow-sm">
                 <div class="card-body">
                     <i class="material-icons md-36 text-danger md-attach_money"></i>
-                    <h5 class="mt-2">إجمالي الطلبات (ر.س)</h5>
+                    <h5 class="mt-2">{{ __('dashboard.orders_total') }} ({{ __('dashboard.currency') }})</h5>
                     <h3>{{ number_format($ordersTotal, 2) }}</h3>
                 </div>
             </div>
         </div>
     </div>
 
+
     <div class="row g-3 mt-3">
 
         <div class="col-md-6">
             <div class="card card-body">
-                <h5>عدد الطلبات لكل شهر ({{ $year }})</h5>
+                <h5>{{ __('dashboard.monthly_orders_count', ['year' => $year]) }}</h5>
                 <div id="monthlyOrdersCountChart" style="height: 400px;"></div>
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="card card-body">
-                <h5>إجمالي الطلبات لكل شهر (ر.س) ({{ $year }})</h5>
+                <h5>{{ __('dashboard.monthly_orders_total', ['year' => $year, 'currency' => __('dashboard.currency')]) }}
+                </h5>
                 <div id="monthlyOrdersTotalChart" style="height: 400px;"></div>
             </div>
         </div>
@@ -209,31 +205,33 @@
 
     {{-- Charts --}}
     <div class="row g-3">
+
         <div class="col-md-12">
             <div class="card card-body">
-                <h5>إجمالي المبيعات لكل فرع ({{ $year }})</h5>
+                <h5>{{ __('dashboard.branch_total_sales', ['year' => $year, 'currency' => __('dashboard.currency')]) }}
+                </h5>
                 <div id="branchTotalOrderChart" style="height: 400px;"></div>
             </div>
         </div>
 
         <div class="col-md-12">
             <div class="card card-body">
-                <h5>عدد الطلبات لكل فرع ({{ $year }})</h5>
+                <h5>{{ __('dashboard.branch_orders_count', ['year' => $year]) }}</h5>
                 <div id="ordersSplineChart" style="height: 400px;"></div>
             </div>
         </div>
 
         {{-- @if ($isSuperAdmin) --}}
-            <div class="col-md-12 mt-3">
-                <div class="card card-body">
-                    <h5>عدد الطلبات لكل شركة ({{ $year }})</h5>
-                    <div id="companyOrdersBarChart" style="height: 400px;"></div>
-                </div>
+        <div class="col-md-12 mt-3">
+            <div class="card card-body">
+                <h5>{{ __('dashboard.company_orders_count', ['year' => $year]) }}</h5>
+                <div id="companyOrdersBarChart" style="height: 400px;"></div>
             </div>
+        </div>
         {{-- @endif --}}
 
-
     </div>
+
 
 @endsection
 
@@ -244,12 +242,12 @@
 
             new ApexCharts(document.querySelector("#ordersSplineChart"), {
                 chart: {
-                    type: 'bar', // تم التغيير من area/spline إلى bar
+                    type: 'bar',
                     height: 400,
                     toolbar: {
-                        show: true, // لإظهار أدوات التحميل
+                        show: true,
                         tools: {
-                            download: true, // زر تحميل الصورة
+                            download: true,
                             selection: false,
                             zoom: false,
                             zoomin: false,
@@ -260,18 +258,18 @@
                     }
                 },
                 series: [{
-                    name: 'عدد الطلبات',
-                    data: @json($branchData) // بيانات عدد الطلبات لكل فرع
+                    name: '{{ __('dashboard.orders_count') }}',
+                    data: @json($branchData)
                 }],
                 xaxis: {
-                    categories: @json($branchLabels), // أسماء الفروع
+                    categories: @json($branchLabels),
                     title: {
-                        text: 'الفروع'
+                        text: '{{ __('dashboard.branches') }}'
                     }
                 },
                 yaxis: {
                     title: {
-                        text: 'عدد الطلبات'
+                        text: '{{ __('dashboard.orders_count') }}'
                     }
                 },
                 plotOptions: {
@@ -288,7 +286,7 @@
                 tooltip: {
                     y: {
                         formatter: function(val) {
-                            return val + " طلب";
+                            return val + " {{ __('dashboard.order') }}";
                         }
                     }
                 }
@@ -312,18 +310,18 @@
                     }
                 },
                 series: [{
-                    name: 'إجمالي المبيعات (ر.س)',
+                    name: '{{ __('dashboard.total_sales') }} ({{ __('dashboard.currency') }})',
                     data: @json($totalBranchData)
                 }],
                 xaxis: {
                     categories: @json($totalBranchLabels),
                     title: {
-                        text: 'الفروع'
+                        text: '{{ __('dashboard.branches') }}'
                     }
                 },
                 yaxis: {
                     title: {
-                        text: 'إجمالي المبيعات (ر.س)'
+                        text: '{{ __('dashboard.total_sales') }} ({{ __('dashboard.currency') }})'
                     }
                 },
                 stroke: {
@@ -333,7 +331,7 @@
                 dataLabels: {
                     enabled: true,
                     formatter: function(val) {
-                        return val.toLocaleString() + ' ر.س';
+                        return val.toLocaleString() + ' {{ __('dashboard.currency') }}';
                     }
                 },
                 colors: ['#FF9800'],
@@ -349,7 +347,7 @@
                 tooltip: {
                     y: {
                         formatter: function(val) {
-                            return val.toLocaleString() + ' ر.س';
+                            return val.toLocaleString() + ' {{ __('dashboard.currency') }}';
                         }
                     }
                 }
@@ -375,18 +373,18 @@
                     }
                 },
                 series: [{
-                    name: 'عدد الطلبات',
+                    name: '{{ __('dashboard.orders_count') }}',
                     data: @json($companyOrders) // عدد الطلبات لكل شركة
                 }],
                 xaxis: {
                     categories: @json($companyNames), // أسماء الشركات
                     title: {
-                        text: 'الشركات'
+                        text: '{{ __('dashboard.companies') }}'
                     }
                 },
                 yaxis: {
                     title: {
-                        text: 'عدد الطلبات'
+                        text: '{{ __('dashboard.orders_count') }}'
                     }
                 },
                 plotOptions: {
@@ -403,7 +401,7 @@
                 tooltip: {
                     y: {
                         formatter: function(val) {
-                            return val + " طلب";
+                            return val + " {{ __('dashboard.order') }}";
                         }
                     }
                 }
@@ -413,10 +411,7 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-
-            const arabicMonths = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر',
-                'أكتوبر', 'نوفمبر', 'ديسمبر'
-            ];
+            const months = @json(array_values(__('dashboard.months')));
 
             // Monthly Orders Count (Bar chart)
             new ApexCharts(document.querySelector("#monthlyOrdersCountChart"), {
@@ -437,18 +432,18 @@
                     }
                 },
                 series: [{
-                    name: 'عدد الطلبات',
+                    name: '{{ __('dashboard.orders_count') }}',
                     data: @json($ordersByMonthCount)
                 }],
                 xaxis: {
-                    categories: arabicMonths,
+                    categories: months,
                     title: {
-                        text: 'الشهور'
+                        text: '{{ __('dashboard.months_title') }}'
                     }
                 },
                 yaxis: {
                     title: {
-                        text: 'عدد الطلبات'
+                        text: '{{ __('dashboard.orders_count') }}'
                     }
                 },
                 plotOptions: {
@@ -463,7 +458,7 @@
                 colors: ['#1E90FF'],
                 tooltip: {
                     y: {
-                        formatter: val => val + ' طلب'
+                        formatter: val => val + ' {{ __('dashboard.order') }}'
                     }
                 }
             }).render();
@@ -487,18 +482,18 @@
                     }
                 },
                 series: [{
-                    name: 'إجمالي الطلبات (ر.س)',
+                    name: '{{ __('dashboard.total_orders') }} ({{ __('dashboard.currency') }})',
                     data: @json($ordersByMonthTotal)
                 }],
                 xaxis: {
-                    categories: arabicMonths,
+                    categories: months,
                     title: {
-                        text: 'الشهور'
+                        text: '{{ __('dashboard.months_title') }}'
                     }
                 },
                 yaxis: {
                     title: {
-                        text: 'إجمالي الطلبات (ر.س)'
+                        text: '{{ __('dashboard.total_orders') }} ({{ __('dashboard.currency') }})'
                     }
                 },
                 stroke: {
@@ -507,7 +502,7 @@
                 },
                 dataLabels: {
                     enabled: true,
-                    formatter: val => val.toLocaleString() + ' ر.س'
+                    formatter: val => val.toLocaleString() + ' {{ __('dashboard.currency') }}'
                 },
                 fill: {
                     type: 'gradient',
@@ -521,7 +516,7 @@
                 colors: ['#FF9800'],
                 tooltip: {
                     y: {
-                        formatter: val => val.toLocaleString() + ' ر.س'
+                        formatter: val => val.toLocaleString() + ' {{ __('dashboard.currency') }}'
                     }
                 }
             }).render();

@@ -96,10 +96,9 @@ class HomeController extends Controller
         }
 
         $companyStats = $companyStatsQuery->groupBy('company_id')
-            ->with('company:id,name_ar')
-            ->get();
+            ->with('company')->get();
 
-        $companyNames = $companyStats->pluck('company.name_ar')->toArray();
+        $companyNames = $companyStats->pluck('company.name')->toArray();
         $companySales = $companyStats->pluck('total_sales')->toArray();
         $companyOrders = $companyStats->pluck('total_orders')->toArray();
 

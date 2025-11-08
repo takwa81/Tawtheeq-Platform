@@ -51,7 +51,7 @@ Route::middleware(['set_language'])->group(function () {
 
     Route::prefix('dashboard')->name('dashboard.')->middleware(['custom.auth'])->group(function () {
 
-      Route::get('/home', [HomeController::class, 'index'])->name('home');
+        Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
         Route::resource('companies', CompanyController::class);
@@ -80,6 +80,13 @@ Route::middleware(['set_language'])->group(function () {
             return redirect()->back();
         })->name('clear.cache');
 
+
+        Route::get('lang/{code}', function ($code) {
+            session()?->put('app_locale', $code);
+            app()->setLocale($code);
+
+            return redirect()->back();
+        })->name('switch.lang');
 
         // Route::get('configs', [ConfigController::class, 'edit'])->name('configs.edit');
         // Route::post('configs', [ConfigController::class, 'update'])->name('configs.update');

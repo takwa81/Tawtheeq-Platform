@@ -12,6 +12,7 @@ class Company extends Model
         'logo',
     ];
 
+    protected $appends = ['name'];
 
     public function getLogoUrlAttribute()
     {
@@ -19,6 +20,12 @@ class Company extends Model
             ? route('files', ['folder' => 'companies', 'filename' => $this->logo])
             : null;
     }
+
+      public function getNameAttribute()
+    {
+        return app()->getLocale() === 'ar' ? $this->name_ar : $this->name_en;
+    }
+
 
     public function orders()
     {
