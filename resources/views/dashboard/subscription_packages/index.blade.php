@@ -24,13 +24,17 @@
                             @endif
 
                             <ul class="list-unstyled mb-3">
-                                <li><strong>عدد الفروع:</strong> {{ $package->branches_limit }}</li>
-                                <li><strong>المدة:</strong> {{ $package->duration_days }} يوم</li>
-                                <li><strong>السعر:</strong> {{ number_format($package->price, 2) }} ر.س</li>
+                                <li><strong>{{ __('dashboard.branches_limit') }}:</strong> {{ $package->branches_limit }}
+                                </li>
+                                <li><strong>{{ __('dashboard.duration') }}:</strong> {{ $package->duration_days }}
+                                    {{ __('dashboard.days') }}</li>
+                                <li><strong>{{ __('dashboard.price') }}:</strong> {{ number_format($package->price, 2) }}
+                                    {{ __('dashboard.currency') }}</li>
                             </ul>
 
+
                             @if (!empty($package->features))
-                                <h6 class="text-secondary">المميزات:</h6>
+                                <h6 class="text-secondary">{{ __('dashboard.features') }}:</h6>
                                 <ul class="small ps-3">
                                     @foreach ($package->features as $feature)
                                         <li>{{ $feature }}</li>
@@ -45,7 +49,7 @@
                                 data-name_ar="{{ $package->name_ar }}" data-description="{{ $package->description }}"
                                 data-price="{{ $package->price }}" data-branches_limit="{{ $package->branches_limit }}"
                                 data-duration_days="{{ $package->duration_days }}"
-                                data-features='@json($package->features)' title="تعديل المعلومات">
+                                data-features='@json($package->features)' title="{{ __('dashboard.edit_info') }}">
                                 <i class="material-icons md-edit"></i>
                             </a>
 
@@ -56,7 +60,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="button" class="btn btn-md bg-danger rounded font-sm delete-button"
-                                    title="حذف خطة الاشتراك">
+                                    title="{{ __('dashboard.delete_plan') }}">
                                     <i class="material-icons md-delete"></i>
                                 </button>
                             </form>

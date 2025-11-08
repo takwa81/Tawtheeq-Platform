@@ -177,6 +177,13 @@ return [
     'all_branches'     => 'All Branches',
     'latest_first'     => 'Latest First',
     'oldest_first'     => 'Oldest First',
-
+    'branches_limit' => 'Branches Limit',
+    'duration'       => 'Duration',
+    'days'           => 'Days',
+    'price'          => 'Price',
+    'delete_plan' => 'Delete Subscription Plan',
+    'add_new_package' => 'Add New Package',
+    'enter_feature'  => 'Enter a feature',
+    'add_feature'    => 'Add Feature',
 
 ];

@@ -177,5 +177,14 @@ return [
     'all_branches'     => 'كل الفروع',
     'latest_first'     => 'الأحدث أولاً',
     'oldest_first'     => 'الأقدم أولاً',
+    'branches_limit' => 'عدد الفروع',
+    'duration'       => 'المدة',
+    'days'           => 'يوم',
+    'price'          => 'السعر',
+    'delete_plan' => 'حذف خطة الاشتراك',
+    'add_new_package' => 'إضافة باقة جديدة',
+ 'enter_feature'  => 'أدخل ميزة',
+    'add_feature'    => 'إضافة ميزة',
+
 
 ];
