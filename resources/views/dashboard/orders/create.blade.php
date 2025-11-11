@@ -1,12 +1,10 @@
 @extends('dashboard.layouts.app')
+
 @section('styles')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
     <link href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css"
         rel="stylesheet" />
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
-
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
         .form-check-input.form-check-input:checked {
@@ -28,13 +26,15 @@
         }
     </style>
 @endsection
+
 @section('content')
     <div class="content-header d-flex justify-content-between align-items-center mb-3">
         <div>
-            <h2 class="content-title card-title">إضافة طلب جديد</h2>
+            <h2 class="content-title card-title">{{ __('dashboard.create_order') }}</h2>
         </div>
         <div>
-            <a href="javascript:void(0)" onclick="history.back()" class="btn btn-md rounded font-sm">
+            <a href="javascript:void(0)" onclick="history.back()" class="btn btn-md rounded font-sm"
+                title="{{ __('dashboard.back') }}">
                 <i class="material-icons md-arrow_back"></i>
             </a>
         </div>
@@ -42,7 +42,7 @@
 
     <div class="card">
         <div class="card-header bg-main">
-            <h5 class="text-light">معلومات الطلب</h5>
+            <h5 class="text-light">{{ __('dashboard.order_info') }}</h5>
         </div>
         <div class="card-body">
             <form id="orderForm" action="{{ route('dashboard.orders.store') }}" method="POST">
@@ -50,44 +50,56 @@
                 <div class="modal-body">
                     <div class="row g-3">
 
-                        <x-form.select id="company_id" name="company_id" label="شركة التوصيل" :options="$companies->pluck('name_ar', 'id')->toArray()"
-                            col="6" />
+                        <x-form.select id="company_id" name="company_id" label="{{ __('dashboard.company') }}"
+                            :options="$companies->pluck('name', 'id')->toArray()" col="6" />
 
-                        <x-form.input id="order_number" name="order_number" :label="__('dashboard.order_number')" errorId="order_numberError"  placeholder="#1234"  required="true"/>
+                        <x-form.input id="order_number" name="order_number" :label="__('dashboard.order_number')" errorId="order_numberError"
+                            placeholder="#1234" required="true" />
 
                         <x-form.input id="total_order" name="total_order" :label="__('dashboard.total_order')" required="true"
-                            errorId="total_orderError" :col="12" type="number" step="0.01" min="0" placeholder="0.00"/>
-
+                            errorId="total_orderError" :col="12" type="number" step="0.01" min="0"
+                            placeholder="0.00" />
 
                         <x-form.input id="date" name="date" :label="__('dashboard.date')" type="date" required="true"
                             errorId="dateError" />
 
                         <x-form.input id="time" name="time" :label="__('dashboard.time')" type="time" required="true"
                             errorId="timeError" />
-                        <x-form.input id="driver_name" name="driver_name" :label="__('dashboard.driver_name')" type="driver_name"
-                            errorId="driver_nameError"  placeholder="اسم المندوب (السائق)"/>
-                        <x-form.input id="customer_name" name="customer_name" :label="__('dashboard.customer_name')" type="customer_name"
-                            errorId="customer_nameError"  placeholder="الاسم"/>
 
-                        <x-form.input id="customer_phone" name="customer_phone" :label="__('dashboard.customer_phone')" type="customer_phone"
-                            errorId="customer_phoneError" placeholder="الرقم " />
+                        <x-form.input id="driver_name" name="driver_name" :label="__('dashboard.driver_name')" type="text"
+                            errorId="driver_nameError" placeholder="{{ __('dashboard.driver_name') }}" />
 
-                        <x-form.file id="order_image" name="order_image" :label="__('dashboard.order_image')" errorId="order_imageError"  required="true"
-                            previewSrc="{{ asset('assets/images/upload.svg') }}" />
+                        <x-form.input id="customer_name" name="customer_name" :label="__('dashboard.customer_name')" type="text"
+                            errorId="customer_nameError" placeholder="{{ __('dashboard.customer_name') }}" />
+
+                        <x-form.input id="customer_phone" name="customer_phone" :label="__('dashboard.customer_phone')" type="text"
+                            errorId="customer_phoneError" placeholder="{{ __('dashboard.customer_phone') }}" />
+
+                        <x-form.file id="order_image" name="order_image" :label="__('dashboard.order_image')" errorId="order_imageError"
+                            required="true" previewSrc="{{ asset('assets/images/upload.svg') }}" />
 
                         <x-form.textarea id="notes" name="notes" :label="__('dashboard.notes')" :col="12" />
 
                     </div>
                 </div>
+
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">حفظ</button>
+                    <button type="submit" class="btn btn-primary">{{ __('dashboard.save') }}</button>
                 </div>
             </form>
         </div>
     </div>
 @endsection
 
-
 @section('scripts')
+<script>
+    window.translations = {
+        saving: "{{ __('dashboard.saving') }}",
+        save: "{{ __('dashboard.save') }}",
+        success: "{{ __('dashboard.success_create') }}",
+        validation_error: "{{ __('dashboard.validation_error') }}",
+        unexpected_error: "{{ __('dashboard.error_unexpected') }}"
+    };
+</script>
     <script src="{{ asset('admin/dashboard/pages/orders.js') }}"></script>
 @endsection

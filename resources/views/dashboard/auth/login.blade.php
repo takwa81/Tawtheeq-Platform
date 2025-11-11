@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
-<html lang="ar">
+<html lang="{{ app()->getLocale() }}">
 
 <head>
     <meta charset="utf-8">
-    <title>منصة توثيق</title>
+    <title>{{ __('dashboard.platform_name') }}</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/logo-tawtheeq.png') }}">
@@ -21,13 +21,13 @@
                         style="width:30%; height:50%">
                 </div>
                 <div class="card-body">
-                    <h2 class="card-title mb-4 text-center " id="card-title">تسجيل الدخول لمنصة توثيق</h2>
+                    <h2 class="card-title mb-4 text-center" id="card-title">{{ __('dashboard.login_title') }}</h2>
 
-                    <form method="POST" action="{{ route('dashboard.login') }}">
+                    <form method="POST" action="{{ route('dashboard.login') }}" style="direction: ltr">
                         @csrf
                         <div class="mb-3">
-                            <label>رقم الموبايل<b class="text-danger">*</b></label>
-                            <input class="form-control mt-1" name="phone" placeholder="أدخل رقم الموبايل"
+                            <label>{{ __('dashboard.phone') }}<b class="text-danger">*</b></label>
+                            <input class="form-control mt-1" name="phone" placeholder="{{ __('dashboard.enter_phone') }}"
                                 type="text" value="{{ old('phone') }}">
                             @error('phone')
                                 <x-validation-message :message="$message" />
@@ -35,8 +35,8 @@
                         </div>
 
                         <div class="mb-4">
-                            <label>كلمة المرور <b class="text-danger">*</b></label>
-                            <input class="form-control mt-1" name="password" placeholder="أدخل كلمة المرور"
+                            <label>{{ __('dashboard.password') }} <b class="text-danger">*</b></label>
+                            <input class="form-control mt-1" name="password" placeholder="{{ __('dashboard.enter_password') }}"
                                 type="password">
                             @error('password')
                                 <x-validation-message :message="$message" />
@@ -44,7 +44,9 @@
                         </div>
 
                         <div class="my-4">
-                            <button type="submit" class="btn bg-main w-100 text-light" style="">تسجيل الدخول</button>
+                            <button type="submit" class="btn bg-main w-100 text-light">
+                                {{ __('dashboard.login') }}
+                            </button>
                         </div>
                     </form>
 
@@ -56,7 +58,7 @@
             <p class="font-xs">
                 <script>
                     document.write(new Date().getFullYear())
-                </script> ©Tawtheeq Platform- All rights reserved.
+                </script> © {{ __('dashboard.platform_name') }} - {{ __('dashboard.all_rights_reserved') }}
             </p>
         </footer>
     </main>

@@ -12,7 +12,16 @@ $(document).ready(function () {
     $("#date").val(`${yyyy}-${mm}-${dd}`);
     $("#time").val(`${hh}:${min}`);
 
-    // --- Handle Ctrl + S to submit the form ---
+    // --- Translation messages from Blade window object ---
+    const trans = window.translations || {
+        saving: "جارٍ الحفظ...",
+        save: "حفظ",
+        success: "تم حفظ الطلب بنجاح ✅",
+        validation_error: "الرجاء تصحيح الأخطاء في النموذج ⚠️",
+        unexpected_error: "حدث خطأ غير متوقع ❌",
+    };
+
+    // --- Ctrl + S submits the form ---
     $(document).on("keydown", function (e) {
         if (e.ctrlKey && e.key === "s") {
             e.preventDefault();
@@ -27,10 +36,8 @@ $(document).ready(function () {
         const formData = new FormData(this);
         const actionUrl = orderForm.attr("action");
 
-        // Disable button & show loading text
-        submitBtn.prop("disabled", true).text("جارٍ الحفظ...");
+        submitBtn.prop("disabled", true).text(trans.saving);
 
-        // Clear old error messages
         $(".invalid-feedback").remove();
         $(".is-invalid").removeClass("is-invalid");
 
@@ -41,14 +48,14 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
             success: function (response) {
-                toastr.success("تم حفظ الطلب بنجاح ✅");
+                toastr.success(trans.success);
                 setTimeout(() => {
                     window.location.href =
                         response.redirect_url ?? "/dashboard/orders";
                 }, 1000);
             },
             error: function (xhr) {
-                submitBtn.prop("disabled", false).text("حفظ");
+                submitBtn.prop("disabled", false).text(trans.save);
 
                 if (xhr.status === 422) {
                     const errors = xhr.responseJSON.errors;
@@ -63,14 +70,14 @@ $(document).ready(function () {
                             .append(errorMsg);
                     });
 
-                    toastr.error("الرجاء تصحيح الأخطاء في النموذج ⚠️");
+                    toastr.error(trans.validation_error);
                 } else {
-                    toastr.error("حدث خطأ غير متوقع ❌");
+                    toastr.error(trans.unexpected_error);
                     console.error(xhr.responseText);
                 }
             },
             complete: function () {
-                submitBtn.prop("disabled", false).text("حفظ");
+                submitBtn.prop("disabled", false).text(trans.save);
             },
         });
     });
@@ -79,5 +86,19 @@ $(document).ready(function () {
     $(document).on("input change", "input, select, textarea", function () {
         $(this).removeClass("is-invalid");
         $(this).siblings(".invalid-feedback").remove();
+    });
+
+    // --- Handle order image preview ---
+    document.querySelectorAll('input[type="file"]').forEach(function (input) {
+        input.addEventListener("change", function () {
+            const preview = document.getElementById("preview-" + this.id);
+            if (this.files && this.files[0] && preview) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result; // set preview image
+                };
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
     });
 });

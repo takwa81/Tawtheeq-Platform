@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserAuthController extends Controller
 {
-     public function showLoginForm()
+    public function showLoginForm()
     {
         return view('dashboard.auth.login');
     }
@@ -31,14 +31,15 @@ class UserAuthController extends Controller
                 //     return redirect()->route('dashboard.login-form');
                 // }
 
-                toastr()->success('تم تسجيل الدخول بنجاح');
+                toastr()->success(__('dashboard.login_success'));
                 return redirect()->route('dashboard.home');
             }
 
-            toastr()->error('رقم الهاتف أو كلمة المرور غير صحيحة');
-            return redirect()->back()->withErrors(['phone' => 'بيانات الدخول غير صحيحة'])->withInput();
+            toastr()->error(__('dashboard.invalid_credentials'));
+            return redirect()->back()->withErrors(['phone' => __('dashboard.invalid_credentials')])
+                ->withInput();
         } catch (\Exception $e) {
-            toastr()->error('حدث خطأ أثناء محاولة تسجيل الدخول: ' . $e->getMessage());
+            toastr()->error(__('dashboard.login_error', ['message' => $e->getMessage()]));
             return redirect()->back()->withInput();
         }
     }
@@ -51,10 +52,10 @@ class UserAuthController extends Controller
             $request->session()->invalidate();
             $request->session()->regenerateToken();
 
-            toastr()->success('تم تسجيل الخروج بنجاح');
+            toastr()->success(__('dashboard.logout_success'));
             return redirect()->route('dashboard.login-form');
         } catch (\Exception $e) {
-            toastr()->error('حدث خطأ أثناء تسجيل الخروج: ' . $e->getMessage());
+            toastr()->error(__('dashboard.logout_error', ['message' => $e->getMessage()]));
             return redirect()->route('dashboard.home');
         }
     }
