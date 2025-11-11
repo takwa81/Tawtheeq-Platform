@@ -49,7 +49,7 @@ class UserAuthController extends Controller
     {
         try {
             Auth::logout();
-            $request->session()->invalidate();
+            // $request->session()->invalidate();
             $request->session()->regenerateToken();
 
             toastr()->success(__('dashboard.logout_success'));

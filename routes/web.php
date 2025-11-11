@@ -84,6 +84,9 @@ Route::middleware(['set_language'])->group(function () {
         Route::get('lang/{code}', function ($code) {
             session()?->put('app_locale', $code);
             app()->setLocale($code);
+            $user = auth()->user();
+            $user->preffered_lang = $code;
+            $user->save();
 
             return redirect()->back();
         })->name('switch.lang');
