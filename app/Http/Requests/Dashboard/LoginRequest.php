@@ -24,12 +24,12 @@ class LoginRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'phone.required' => 'رقم الهاتف مطلوب.',
-            'phone.numeric' => 'يجب أن يكون رقم الهاتف رقمًا صحيحًا.',
-            'phone.digits' => 'يجب أن يكون رقم الهاتف مكونًا من 10 أرقام.',
-            'phone.exists' => 'رقم الهاتف غير مسجل لدينا.',
-            'password.required' => 'كلمة المرور مطلوبة.',
-            'password.min' => 'يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.',
+            'phone.required' => __('dashboard.login_phone_required'),
+            'phone.numeric'  => __('dashboard.login_phone_numeric'),
+            'phone.exists'   => __('dashboard.login_phone_exists'),
+
+            'password.required' => __('dashboard.login_password_required'),
+            'password.min'      => __('dashboard.login_password_min'),
         ];
     }
 }

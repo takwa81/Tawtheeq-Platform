@@ -19,7 +19,6 @@ $(document).ready(function () {
                 <td>${user.manager_name ?? "-"}</td>
                 <td>${user.count_orders}</td>
                 <td>${user.account_status_badge}</td>
-
                 <td>
                     <a href="javascript:void(0)" class="btn btn-md rounded font-sm edit-data"
                         data-id="${user.id}"
@@ -28,18 +27,16 @@ $(document).ready(function () {
                         data-phone="${user.phone}">
                         <i class="material-icons md-edit"></i>
                     </a>
-                    <form class="d-inline delete-form" action="/dashboard/branches/${
-                        user.id
-                    }" method="POST" data-id="${user.id}">
-                        <input type="hidden" name="_token" value="${$(
-                            'meta[name="csrf-token"]'
-                        ).attr("content")}">
+                    <form class="d-inline delete-form"
+                        action="/dashboard/branches/${user.id}"
+                        method="POST"
+                        data-id="${user.id}">
+                        <input type="hidden" name="_token" value="${$('meta[name="csrf-token"]').attr("content")}">
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="button" class="btn btn-md bg-danger rounded font-sm delete-button">
                             <i class="material-icons md-delete"></i>
                         </button>
                     </form>
-
                 </td>
             </tr>
         `;
@@ -50,15 +47,14 @@ $(document).ready(function () {
         isEdit = true;
         editId = $(this).data("id");
 
-        modalTitle.text("تعديل مسؤول إدخال بيانات");
-        submitButton.text("تحديث");
+        modalTitle.text(translations.edit_branch);
+        submitButton.text(translations.update);
 
         form.find("#full_name").val($(this).data("full_name"));
         form.find("#phone").val($(this).data("phone"));
         form.find("#branch_number").val($(this).data("branch_number"));
         form.find("#manager_id").val($(this).data("manager_id"));
 
-        // Hide password fields when editing
         $("#password").closest(".col-md-6").hide();
         $("#password_confirmation").closest(".col-md-6").hide();
 
@@ -74,7 +70,7 @@ $(document).ready(function () {
 
         submitButton.prop("disabled", true).html(`
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            ${isEdit ? "جار التحديث" : "جار الحفظ"}
+            ${isEdit ? translations.updating : translations.saving}
         `);
 
         const formData = new FormData(this);
@@ -91,30 +87,25 @@ $(document).ready(function () {
 
                 if (isEdit) {
                     $(`#row-${user.id}`).replaceWith(newRow);
-                    toastr.success("تم التحديث بنجاح");
+                    toastr.success(translations.success_update);
                 } else {
                     $("#noDataRow").remove();
                     tableBody.prepend(newRow);
-                    toastr.success(res.message ?? "تم الإنشاء بنجاح");
+                    toastr.success(res.message ?? translations.success_create);
                 }
 
-                submitButton
-                    .prop("disabled", false)
-                    .text(isEdit ? "تحديث" : "حفظ");
-
+                submitButton.prop("disabled", false).text(isEdit ? translations.update : translations.save);
                 form[0].reset();
-                $("#passwordField").show(); // Show password fields for next creation
+                $("#passwordField").show();
                 modal.modal("hide");
             },
             error: function (xhr) {
-                submitButton
-                    .prop("disabled", false)
-                    .text(isEdit ? "تحديث" : "حفظ");
+                submitButton.prop("disabled", false).text(isEdit ? translations.update : translations.save);
 
                 if (xhr.status === 422) {
                     displayErrors(xhr.responseJSON.errors);
                 } else {
-                    toastr.error(xhr.responseJSON.message ?? "خطأ غير متوقع");
+                    toastr.error(xhr.responseJSON?.message ?? translations.error_unexpected);
                 }
             },
         });
@@ -129,10 +120,9 @@ $(document).ready(function () {
         form.find('input[name="_method"]').remove();
         form.attr("action", "/dashboard/branches");
 
-        modalTitle.text("إضافة مسؤول إدخال بيانات جديد");
-        submitButton.text("حفظ");
+        modalTitle.text(translations.add_branch);
+        submitButton.text(translations.save);
 
-        // Show password fields
         $("#passwordField").show();
     });
 

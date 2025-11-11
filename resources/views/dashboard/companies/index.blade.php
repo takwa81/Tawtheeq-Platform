@@ -18,7 +18,7 @@
             ]">
                 @forelse($companies as $company)
                     <tr id="row-{{ $company->id }}">
-                        <td>{{ $loop->iteration }}</td>
+                        <td>#{{ $loop->iteration }}</td>
                         <td>
                             <img src="{{ $company->logo_url }}" alt="{{ $company->name_ar }}" class="rounded-circle"
                                 width="40" height="40">

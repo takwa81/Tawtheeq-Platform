@@ -41,7 +41,7 @@ class UserRequest extends FormRequest
         ];
 
         if ($this->routeIs('dashboard.branches.*')) {
-            Log::info('UserRequest matched service_owners route');
+            Log::info('UserRequest matched branch route');
             if (auth()->user()->role !== 'branch_manager') {
                 $rules['manager_id'] = ['required', 'exists:users,id'];
             } else {
@@ -56,34 +56,18 @@ class UserRequest extends FormRequest
 
     public function messages(): array
     {
-        $messages = [
-            'full_name.required' => 'الاسم الكامل مطلوب',
-            'branch_number.required' => 'رقم الفرع مطلوب',
-            'phone.required' => 'رقم الهاتف مطلوب',
-            'phone.unique' => 'رقم الهاتف مستخدم مسبقاً',
-            'password.required' => 'كلمة المرور مطلوبة',
-            'password.min' => 'كلمة المرور يجب أن تكون 6 أحرف على الأقل',
-            'password.confirmed' => 'تأكيد كلمة المرور غير مطابق',
+        return [
+            'full_name.required'             => __('dashboard.full_name_required'),
+            'branch_number.required'         => __('dashboard.branch_number_required'),
+            'phone.required'                 => __('dashboard.phone_required'),
+            'phone.unique'                   => __('dashboard.phone_unique'),
+            'password.required'              => __('dashboard.password_required'),
+            'password.min'                   => __('dashboard.password_min'),
+            'password.confirmed'             => __('dashboard.password_confirmed'),
+            'email.email'                     => __('dashboard.email_invalid'),
+            'email.unique'                    => __('dashboard.email_unique'),
+            'manager_id.required'             => __('dashboard.manager_required'),
+            'manager_id.exists'               => __('dashboard.manager_exists'),
         ];
-
-        if ($this->routeIs('service_owners.*')) {
-            $messages = array_merge($messages, [
-                'gender.required' => 'الجنس مطلوب',
-                'gender.in' => 'الجنس يجب أن يكون ذكر أو أنثى',
-                'academic_qualification_id.required' => 'المؤهل الأكاديمي مطلوب',
-                'academic_qualification_id.exists' => 'المؤهل الأكاديمي غير صالح',
-                'age.required' => 'العمر مطلوب',
-                'age.integer' => 'العمر يجب أن يكون رقم',
-                'age.min' => 'العمر يجب أن يكون 18 على الأقل',
-                'email.required' => 'البريد الإلكتروني مطلوب',
-                'email.email' => 'البريد الإلكتروني غير صالح',
-                'personal_image_path.required' => 'الصورة الشخصية مطلوبة',
-                'personal_image_path.image' => 'الصورة الشخصية يجب أن تكون ملف صورة',
-                'personal_image_path.max' => 'حجم الصورة يجب ألا يتجاوز 2MB',
-                'data_entry_note.required' => 'ملاحظة إدخال البيانات مطلوبة',
-            ]);
-        }
-
-        return $messages;
     }
 }

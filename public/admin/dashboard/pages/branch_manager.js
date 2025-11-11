@@ -19,17 +19,15 @@ $(document).ready(function () {
                 <td>${user.account_status_badge}</td>
                 <td>
                     <a href="javascript:void(0)" class="btn btn-md rounded font-sm edit-data"
-                        data-id="${
-                            user.id
-                        }"
-                         data-email="${user.email}"
-                         data-full_name="${user.full_name}"
-                         data-phone="${user.phone}">
+                        data-id="${user.id}"
+                        data-email="${user.email}"
+                        data-full_name="${user.full_name}"
+                        data-phone="${user.phone}">
                         <i class="material-icons md-edit"></i>
                     </a>
-                    <form class="d-inline delete-form" action="/dashboard/branch_managers/${
-                        user.id
-                    }" method="POST" data-id="${user.id}">
+                    <form class="d-inline delete-form"
+                          action="/dashboard/branch_managers/${user.id}"
+                          method="POST" data-id="${user.id}">
                         <input type="hidden" name="_token" value="${$(
                             'meta[name="csrf-token"]'
                         ).attr("content")}">
@@ -38,25 +36,24 @@ $(document).ready(function () {
                             <i class="material-icons md-delete"></i>
                         </button>
                     </form>
-
                 </td>
             </tr>
         `;
     }
 
-    // Edit button handler
+    // 🧩 Edit button handler
     $(document).on("click", ".edit-data", function () {
         isEdit = true;
         editId = $(this).data("id");
 
-        modalTitle.text("تعديل مسؤول إدخال بيانات");
-        submitButton.text("تحديث");
+        modalTitle.text(window.trans.edit_branch_manager);
+        submitButton.text(window.trans.update);
 
         form.find("#email").val($(this).data("email"));
         form.find("#full_name").val($(this).data("full_name"));
         form.find("#phone").val($(this).data("phone"));
 
-        // Hide password fields when editing
+        // Hide password fields
         $("#password").closest(".col-md-6").hide();
         $("#password_confirmation").closest(".col-md-6").hide();
 
@@ -66,13 +63,13 @@ $(document).ready(function () {
         modal.modal("show");
     });
 
-    // Form submission
+    // 🧩 Form submission
     form.on("submit", function (e) {
         e.preventDefault();
 
         submitButton.prop("disabled", true).html(`
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            ${isEdit ? "جار التحديث" : "جار الحفظ"}
+            ${isEdit ? window.trans.updating : window.trans.saving}
         `);
 
         const formData = new FormData(this);
@@ -89,36 +86,39 @@ $(document).ready(function () {
 
                 if (isEdit) {
                     $(`#row-${user.id}`).replaceWith(newRow);
-                    toastr.success("تم التحديث بنجاح");
+                    toastr.success(window.trans.success_update);
                 } else {
                     $("#noDataRow").remove();
                     tableBody.prepend(newRow);
-                    toastr.success(res.message ?? "تم الإنشاء بنجاح");
+                    toastr.success(res.message ?? window.trans.success_create);
                 }
 
                 submitButton
                     .prop("disabled", false)
-                    .text(isEdit ? "تحديث" : "حفظ");
+                    .text(isEdit ? window.trans.update : window.trans.save);
 
                 form[0].reset();
-                $("#passwordField").show(); // Show password fields for next creation
+                $("#passwordField").show();
                 modal.modal("hide");
             },
             error: function (xhr) {
                 submitButton
                     .prop("disabled", false)
-                    .text(isEdit ? "تحديث" : "حفظ");
+                    .text(isEdit ? window.trans.update : window.trans.save);
 
                 if (xhr.status === 422) {
                     displayErrors(xhr.responseJSON.errors);
                 } else {
-                    toastr.error(xhr.responseJSON.message ?? "خطأ غير متوقع");
+                    toastr.error(
+                        xhr.responseJSON?.message ??
+                            window.trans.error_unexpected
+                    );
                 }
             },
         });
     });
 
-    // Restore modal state on close
+    // 🧩 Restore modal state on close
     modal.on("hidden.bs.modal", function () {
         isEdit = false;
         editId = null;
@@ -127,20 +127,19 @@ $(document).ready(function () {
         form.find('input[name="_method"]').remove();
         form.attr("action", "/dashboard/branch_managers");
 
-        modalTitle.text("إضافة مسؤول إدخال بيانات جديد");
-        submitButton.text("حفظ");
+        modalTitle.text(window.trans.add_branch_manager);
+        submitButton.text(window.trans.save);
 
-        // Show password fields
         $("#passwordField").show();
     });
 
-    // Clear error messages
+    // 🧩 Clear error messages
     $("input, select, textarea").on("input", function () {
         const field = $(this).attr("name");
         $(`#${field}Error`).empty();
     });
 
-    // Display validation errors
+    // 🧩 Display validation errors
     function displayErrors(errors) {
         for (const key in errors) {
             $(`#${key}Error`).html(`

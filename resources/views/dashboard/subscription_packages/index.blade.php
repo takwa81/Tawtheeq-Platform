@@ -83,6 +83,30 @@
 @endsection
 
 @section('scripts')
+    <script>
+        window.translations = {
+            enterFeature: "{{ __('dashboard.enter_feature') }}",
+            addFeature: "{{ __('dashboard.add_feature') }}",
+            editPackage: "{{ __('dashboard.edit_package') }}",
+            createPackage: "{{ __('dashboard.create_package') }}",
+            saving: "{{ __('dashboard.saving') }}",
+            updating: "{{ __('dashboard.updating') }}",
+            save: "{{ __('dashboard.save') }}",
+            update: "{{ __('dashboard.update') }}",
+            successCreate: "{{ __('dashboard.success_create') }}",
+            successUpdate: "{{ __('dashboard.success_update') }}",
+            deletePackage: "{{ __('dashboard.delete_package') }}",
+            errorUnexpected: "{{ __('dashboard.error_unexpected') }}",
+            featuresLabel: "{{ __('dashboard.features') }}",
+            branches_count: "{{ __('dashboard.branches_count') }}",
+            duration: "{{ __('dashboard.duration') }}",
+            price: "{{ __('dashboard.price') }}",
+            edit_package: "{{ __('dashboard.edit_package') }}",
+            delete_package: "{{ __('dashboard.delete_package') }}",
+            day: "{{ __('dashboard.day') }}"
+        };
+    </script>
+
     <script src="{{ asset('admin/dashboard/pages/delete.js') }}"></script>
     <script src="{{ asset('admin/dashboard/pages/subscription_package.js') }}"></script>
 @endsection

@@ -89,7 +89,7 @@
                 ]">
                     @forelse($managers as $user)
                         <tr id="row-{{ $user->id }}">
-                            <td>{{ $loop->iteration }}</td>
+                            <td>#{{ $loop->iteration }}</td>
                             <td>{{ $user->full_name }}</td>
                             <td>{{ $user->phone }}</td>
                             <td>{{ $user->branchManager?->branches_count ?? 0 }}</td>
@@ -177,6 +177,20 @@
     @endsection
 
     @section('scripts')
+        <script>
+            window.trans = {
+                add_branch_manager: @json(__('dashboard.add_branch_manager')),
+                edit_branch_manager: @json(__('dashboard.edit_branch_manager')),
+                saving: @json(__('dashboard.saving')),
+                updating: @json(__('dashboard.updating')),
+                save: @json(__('dashboard.save')),
+                update: @json(__('dashboard.update')),
+                success_create: @json(__('dashboard.success_create')),
+                success_update: @json(__('dashboard.success_update')),
+                error_unexpected: @json(__('dashboard.error_unexpected')),
+            };
+        </script>
+
         <script src="{{ asset('admin/dashboard/pages/branch_manager.js') }}"></script>
         <script src="{{ asset('admin/dashboard/pages/delete.js') }}"></script>
         <script src="{{ asset('admin/dashboard/pages/restore.js') }}"></script>

@@ -37,15 +37,19 @@ class CompanyRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name_ar.required' => 'الاسم بالعربي مطلوب',
-            'name_ar.string' => 'الاسم بالعربي يجب أن يكون نص',
-            'name_ar.max' => 'الاسم بالعربي يجب ألا يتجاوز 255 حرفًا',
-            'name_ar.unique' => 'هذا الاسم بالعربي مستخدم بالفعل',
+            'name_ar.required' => __('dashboard.company_name_ar_required'),
+            'name_ar.string'   => __('dashboard.company_name_ar_string'),
+            'name_ar.max'      => __('dashboard.company_name_ar_max'),
+            'name_ar.unique'   => __('dashboard.company_name_ar_unique'),
 
-            'name_en.required' => 'الاسم بالانكليزي مطلوب',
-            'name_en.string' => 'الاسم بالانكليزي يجب أن يكون نص',
-            'name_en.max' => 'الاسم بالانكليزي يجب ألا يتجاوز 255 حرفًا',
-            'name_en.unique' => 'هذا الاسم بالانكليزي مستخدم بالفعل',
+            'name_en.required' => __('dashboard.company_name_en_required'),
+            'name_en.string'   => __('dashboard.company_name_en_string'),
+            'name_en.max'      => __('dashboard.company_name_en_max'),
+            'name_en.unique'   => __('dashboard.company_name_en_unique'),
+
+            'logo.required'    => __('dashboard.company_logo_required'),
+            'logo.image'       => __('dashboard.company_logo_image'),
+            'logo.max'         => __('dashboard.company_logo_max'),
         ];
     }
 }

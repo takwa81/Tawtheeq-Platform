@@ -105,7 +105,7 @@
 
                     @forelse($branches as $user)
                         <tr id="row-{{ $user->id }}">
-                            <td>{{ $loop->iteration }}</td>
+                            <td>#{{ $loop->iteration }}</td>
                             <td>{{ $user->full_name }}</td>
                             <td>{{ $user->phone }}</td>
                             <td>{{ $user->branch->branch_number }}</td>
@@ -200,6 +200,20 @@
     @endsection
 
     @section('scripts')
+        <script>
+            const translations = {
+                add_branch: "{{ __('dashboard.add_branch') }}",
+                edit_branch: "{{ __('dashboard.edit_branch') }}",
+                update: "{{ __('dashboard.update') }}",
+                save: "{{ __('dashboard.save') }}",
+                saving: "{{ __('dashboard.saving') }}",
+                updating: "{{ __('dashboard.updating') }}",
+                success_create: "{{ __('dashboard.success_create') }}",
+                success_update: "{{ __('dashboard.success_update') }}",
+                error_unexpected: "{{ __('dashboard.error_unexpected') }}"
+            };
+        </script>
+
         <script src="{{ asset('admin/dashboard/pages/branch.js') }}"></script>
         <script src="{{ asset('admin/dashboard/pages/delete.js') }}"></script>
         <script src="{{ asset('admin/dashboard/pages/restore.js') }}"></script>

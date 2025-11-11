@@ -45,16 +45,20 @@ class SubscriptionPackageRequest extends FormRequest
         ];
     }
 
-    public function messages(): array
+      public function messages(): array
     {
         return [
-            'name_ar.required' => 'الاسم بالعربية مطلوب',
-            'name_en.required' => 'الاسم بالإنجليزية مطلوب',
-            'name_ar.unique' => 'الاسم بالعربية مستخدم من قبل',
-            'name_en.unique' => 'الاسم بالإنجليزية مستخدم من قبل',
-            'branches_limit.unique' => 'حد الفروع مستخدم من قبل',
-            'branches_limit.required' => 'عدد الفروع مطلوب',
-            'price.required' => 'السعر مطلوب',
+            'name_ar.required'         => __('dashboard.package_name_ar_required'),
+            'name_en.required'         => __('dashboard.package_name_en_required'),
+            'name_ar.unique'           => __('dashboard.package_name_ar_unique'),
+            'name_en.unique'           => __('dashboard.package_name_en_unique'),
+            'branches_limit.unique'    => __('dashboard.package_branches_limit_unique'),
+            'branches_limit.required'  => __('dashboard.package_branches_limit_required'),
+            'price.required'           => __('dashboard.package_price_required'),
+            'price.numeric'            => __('dashboard.package_price_numeric'),
+            'price.min'                => __('dashboard.package_price_min'),
+            'duration_days.integer'    => __('dashboard.package_duration_integer'),
+            'duration_days.min'        => __('dashboard.package_duration_min'),
         ];
     }
 }

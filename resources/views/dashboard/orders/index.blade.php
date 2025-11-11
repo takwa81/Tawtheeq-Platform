@@ -153,8 +153,8 @@
                     <tbody>
                         @forelse($orders as $order)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td># {{ $order->order_number ?? '_' }}</td>
+                                <td>#{{ $loop->iteration }}</td>
+                                <td>#{{ $order->order_number ?? '_' }}</td>
                                 <td>{{ $order->branch->user->full_name ?? '-' }}</td>
                                 <td>{{ $order->company->name ?? '-' }}</td>
                                 <td>{{ number_format($order->total_order, 2) }} {{ __('dashboard.currency') }}</td>
@@ -177,14 +177,14 @@
                                         <i class="material-icons md-remove_red_eye"></i>
                                     </a>
 
-                                    <form action="{{ route('dashboard.orders.destroy', $order) }}" method="POST"
+                                    {{-- <form action="{{ route('dashboard.orders.destroy', $order) }}" method="POST"
                                         class="delete-form">
                                         @csrf
                                         @method('DELETE')
                                         <button type="button" class="btn btn-md bg-danger rounded font-sm  delete-button">
                                             <i class="material-icons md-delete"></i>
                                         </button>
-                                    </form>
+                                    </form> --}}
                                 </td>
                             </tr>
                         @empty
