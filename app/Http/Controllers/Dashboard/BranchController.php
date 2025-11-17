@@ -170,7 +170,15 @@ class BranchController extends Controller
             $user = User::where('role', 'branch')->findOrFail($id);
             $this->userService->changeStatus($user, 'active');
 
-            return response()->json(['status' => true, 'message' => __('messages.user_activated_successfully'), 'data' => $user]);
+            // return response()->json(['status' => true, 'message' => __('messages.user_activated_successfully'), 'data' => $user]);
+            return response()->json([
+                'status' => true,
+                'message' => __('messages.user_activated_successfully'),
+                'data' => [
+                    'id' => $user->id,
+                    'toggle_url' => route('dashboard.branches.deactivate', $user->id),
+                ],
+            ]);
         } catch (\Throwable $e) {
             toastr()->error(__('messages.update_failed') . ': ' . $e->getMessage());
             return redirect()->back();
@@ -183,7 +191,15 @@ class BranchController extends Controller
             $user = User::where('role', 'branch')->findOrFail($id);
             $this->userService->changeStatus($user, 'inactive');
 
-            return response()->json(['status' => true, 'message' => __('messages.user_deactivated_successfully'), 'data' => $user]);
+            // return response()->json(['status' => true, 'message' => __('messages.user_deactivated_successfully'), 'data' => $user]);
+            return response()->json([
+                'status' => true,
+                'message' => __('messages.user_deactivated_successfully'),
+                'data' => [
+                    'id' => $user->id,
+                    'toggle_url' => route('dashboard.branches.activate', $user->id),
+                ],
+            ]);
         } catch (\Throwable $e) {
             toastr()->error(__('messages.update_failed') . ': ' . $e->getMessage());
             return redirect()->back();

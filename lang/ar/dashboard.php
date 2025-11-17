@@ -286,7 +286,7 @@ return [
     'notes'             => 'ملاحظات',
     'save'              => 'حفظ',
     'validation_error' => 'الرجاء تصحيح الأخطاء في النموذج ⚠️',
-     'platform_name' => 'منصة توثيق',
+    'platform_name' => 'منصة توثيق',
     'login_title' => 'تسجيل الدخول لمنصة توثيق',
     'phone' => 'رقم الموبايل',
     'enter_phone' => 'أدخل رقم الموبايل',
@@ -294,11 +294,17 @@ return [
     'enter_password' => 'أدخل كلمة المرور',
     'login' => 'تسجيل الدخول',
     'all_rights_reserved' => 'جميع الحقوق محفوظة',
-       'account_inactive' => 'حسابك غير مفعل. يرجى التواصل مع الإدارة',
+    'account_inactive' => 'حسابك غير مفعل. يرجى التواصل مع الإدارة',
     'login_success' => 'تم تسجيل الدخول بنجاح',
     'invalid_credentials' => 'رقم الهاتف أو كلمة المرور غير صحيحة',
     'login_error' => 'حدث خطأ أثناء محاولة تسجيل الدخول: :message',
     'logout_success' => 'تم تسجيل الخروج بنجاح',
     'logout_error' => 'حدث خطأ أثناء تسجيل الخروج: :message',
+    'created_at' => 'تاريخ الإنشاء',
+    'subscribed_at' => 'تاريخ الاشتراك',
+    'not_subscribed_yet' => 'لم يشترك بعد',
+    'add_subscription' => 'إضافة اشتراك',
+    'generate_strong_password' => 'توليد كلمة مرور قوية',
+
 
 ];

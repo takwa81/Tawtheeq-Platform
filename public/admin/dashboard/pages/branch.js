@@ -15,10 +15,10 @@ $(document).ready(function () {
                 <td>${user.id}</td>
                 <td>${user.full_name}</td>
                 <td>${user.phone}</td>
+                <td>${user.account_status_badge}</td>
                 <td>${user.branch_number}</td>
                 <td>${user.manager_name ?? "-"}</td>
                 <td>${user.count_orders}</td>
-                <td>${user.account_status_badge}</td>
                 <td>
                     <a href="javascript:void(0)" class="btn btn-md rounded font-sm edit-data"
                         data-id="${user.id}"
@@ -31,7 +31,9 @@ $(document).ready(function () {
                         action="/dashboard/branches/${user.id}"
                         method="POST"
                         data-id="${user.id}">
-                        <input type="hidden" name="_token" value="${$('meta[name="csrf-token"]').attr("content")}">
+                        <input type="hidden" name="_token" value="${$(
+                            'meta[name="csrf-token"]'
+                        ).attr("content")}">
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="button" class="btn btn-md bg-danger rounded font-sm delete-button">
                             <i class="material-icons md-delete"></i>
@@ -94,18 +96,25 @@ $(document).ready(function () {
                     toastr.success(res.message ?? translations.success_create);
                 }
 
-                submitButton.prop("disabled", false).text(isEdit ? translations.update : translations.save);
+                submitButton
+                    .prop("disabled", false)
+                    .text(isEdit ? translations.update : translations.save);
                 form[0].reset();
                 $("#passwordField").show();
                 modal.modal("hide");
             },
             error: function (xhr) {
-                submitButton.prop("disabled", false).text(isEdit ? translations.update : translations.save);
+                submitButton
+                    .prop("disabled", false)
+                    .text(isEdit ? translations.update : translations.save);
 
                 if (xhr.status === 422) {
                     displayErrors(xhr.responseJSON.errors);
                 } else {
-                    toastr.error(xhr.responseJSON?.message ?? translations.error_unexpected);
+                    toastr.error(
+                        xhr.responseJSON?.message ??
+                            translations.error_unexpected
+                    );
                 }
             },
         });

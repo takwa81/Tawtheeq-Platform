@@ -96,10 +96,10 @@
                     __('dashboard.hash'),
                     __('dashboard.full_name'),
                     __('dashboard.phone_number'),
+                    __('dashboard.status'),
                     __('dashboard.branch_number'),
                     __('dashboard.branch_manager'),
                     __('dashboard.orders_count'),
-                    __('dashboard.status'),
                     __('dashboard.options'),
                 ]">
 
@@ -108,11 +108,11 @@
                             <td>#{{ $loop->iteration }}</td>
                             <td>{{ $user->full_name }}</td>
                             <td>{{ $user->phone }}</td>
+                            <td>{!! accountStatusBadge($user->status) !!}</td>
                             <td>{{ $user->branch->branch_number }}</td>
                             <td>{{ $user->branch->manager?->user->full_name }}</td>
                             <td>{{ $user->orders_count ?? 0 }}</td>
 
-                            <td>{!! accountStatusBadge($user->status) !!}</td>
                             <td>
                                 <div class="">
                                     @if ($user->deleted_at === null)
@@ -142,6 +142,7 @@
                                             title="{{ __('dashboard.change_password') }}">
                                             <i class="material-icons md-lock"></i>
                                         </a>
+
 
                                         @if ($user->status === 'active')
                                             <a href="#"

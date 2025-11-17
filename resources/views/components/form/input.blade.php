@@ -8,7 +8,7 @@
     'errorId' => null,
     'col' => 6,
     'readonly' => false,
-    'placeholder' => null,
+     'class' => '',
 ])
 
 <div class="mb-3 col-md-{{ $col ?? 6 }}">
@@ -17,15 +17,14 @@
             {{ $label }}
             @if ($required)
                 <b class="text-danger">*</b>
-            @else
-                <span class="text-muted">({{ __('dashboard.optional') }})</span>
             @endif
         </label>
     @endif
 
-    <input type="{{ $type }}" class="form-control" id="{{ $id }}" name="{{ $name }}"
-        value="{{ old($name, $value) }}" autocomplete="{{ $type === 'password' ? 'new-password' : 'off' }}"
-        {{ $readonly ? 'readonly' : '' }} {{ $placeholder ? "placeholder=$placeholder" : '' }}>
+    <input type="{{ $type }}"   class="form-control {{ $class }}" id="{{ $id }}" name="{{ $name }}"
+        value="{{ old($name, $value) }}"
+        autocomplete="{{ $type === 'password' ? 'new-password' : 'off' }}"
+        {{ $readonly ? 'readonly' : '' }}>
 
     @if ($errorId)
         <div class="text-danger" id="{{ $errorId }}"></div>

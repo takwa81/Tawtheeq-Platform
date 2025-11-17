@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\{
     CompanyController,
     HomeController,
     OrderController,
+    SubscriptionController,
     SubscriptionPackageController,
     UserAuthController,
     UserController,
@@ -67,9 +68,28 @@ Route::middleware(['set_language'])->group(function () {
         Route::get('branches/activate/{id}', [BranchController::class, 'activate'])->name('branches.activate');
         Route::get('branches/deactivate/{id}', [BranchController::class, 'deactivate'])->name('branches.deactivate');
 
+        Route::resource('orders', OrderController::class);
+
         Route::resource('subscription_packages', SubscriptionPackageController::class);
 
-        Route::resource('orders', OrderController::class);
+        Route::prefix('subscriptions')->name('subscriptions.')->group(function () {
+            Route::get('/', [SubscriptionController::class, 'index'])->name('index');
+
+            Route::get('/create/{manager_id?}', [SubscriptionController::class, 'create'])->name('create');
+
+            Route::post('/', [SubscriptionController::class, 'store'])->name('store');
+
+            Route::get('/{id}/edit', [SubscriptionController::class, 'edit'])->name('edit');
+
+            Route::put('/{id}', [SubscriptionController::class, 'update'])->name('update');
+
+            Route::delete('/{id}', [SubscriptionController::class, 'destroy'])->name('destroy');
+
+            Route::post('/{id}/renew', [SubscriptionController::class, 'renew'])->name('renew');
+
+            Route::post('/{id}/deactivate', [SubscriptionController::class, 'deactivate'])->name('deactivate');
+        });
+
 
 
         Route::post('logout', [UserAuthController::class, 'logout'])->name('logout');

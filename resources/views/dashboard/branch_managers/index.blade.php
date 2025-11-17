@@ -40,7 +40,6 @@
 
         <!-- Search & Filters -->
         <div class="my-2">
-
             <x-dashboard.search-sort :route="route('dashboard.branch_managers.index')" :showName="true">
 
                 <div class="col-lg-3 col-md-3 mt-1">
@@ -72,9 +71,7 @@
                         </label>
                     </div>
                 </div>
-
             </x-dashboard.search-sort>
-
         </div>
 
         <div class="card mb-4">
@@ -83,8 +80,10 @@
                     '#',
                     __('dashboard.full_name'),
                     __('dashboard.phone_number'),
-                    __('dashboard.branches_count'),
                     __('dashboard.status'),
+                    __('dashboard.branches_count'),
+                    __('dashboard.created_at'),
+                    __('dashboard.subscribed_at'),
                     __('dashboard.options'),
                 ]">
                     @forelse($managers as $user)
@@ -92,9 +91,24 @@
                             <td>#{{ $loop->iteration }}</td>
                             <td>{{ $user->full_name }}</td>
                             <td>{{ $user->phone }}</td>
-                            <td>{{ $user->branchManager?->branches_count ?? 0 }}</td>
-
                             <td>{!! accountStatusBadge($user->status) !!}</td>
+                            <td>{{ $user->branchManager?->branches_count ?? 0 }}</td>
+                            <td>{{ $user->created_at?->format('Y-m-d H:i') ?? '-' }}</td>
+                            <td>
+                                @php
+                                    $activeSub = $user->activeSubscription;
+                                @endphp
+                                @if ($activeSub)
+                                    <span class="badge bg-success">
+                                        {{ $activeSub->start_date->format('Y-m-d') }}
+                                    </span>
+                                @else
+                                    <span class="badge bg-danger">
+                                        {{ __('dashboard.not_subscribed_yet') }}
+                                    </span>
+                                @endif
+                            </td>
+
                             <td>
                                 <div class="">
                                     @if ($user->deleted_at === null)
@@ -122,6 +136,7 @@
                                             title="{{ __('dashboard.change_password') }}">
                                             <i class="material-icons md-lock"></i>
                                         </a>
+
                                         @if ($user->status === 'active')
                                             <a href="#"
                                                 class="btn btn-md bg-warning rounded font-sm my-1 toggle-status"
@@ -137,6 +152,11 @@
                                                 <i class="material-icons md-toggle_on"></i>
                                             </a>
                                         @endif
+                                        <a href="{{ route('dashboard.subscriptions.create', ['manager_id' => $user->id]) }}"
+                                            class="btn btn-md bg-purple rounded font-sm my-1"
+                                            title="{{ __('dashboard.add_subscription') }}">
+                                            <i class="material-icons md-card_membership"></i>
+                                        </a>
                                     @endif
 
                                     @if ($user->deleted_at)
@@ -196,4 +216,5 @@
         <script src="{{ asset('admin/dashboard/pages/restore.js') }}"></script>
         <script src="{{ asset('admin/dashboard/pages/toggle.js') }}"></script>
         <script src="{{ asset('admin/dashboard/pages/changePassword.js') }}"></script>
+        <script src="{{ asset('admin/dashboard/pages/passwordCheck.js') }}"></script>
     @endsection

@@ -295,10 +295,17 @@ return [
     'login' => 'Login',
     'all_rights_reserved' => 'All rights reserved',
 
-     'account_inactive' => 'Your account is inactive. Please contact the administration.',
+    'account_inactive' => 'Your account is inactive. Please contact the administration.',
     'login_success' => 'Login successful',
     'invalid_credentials' => 'Phone number or password is incorrect',
     'login_error' => 'An error occurred while attempting to login: :message',
     'logout_success' => 'Logout successful',
     'logout_error' => 'An error occurred while logging out: :message',
+    'created_at' => 'Created At',
+    'subscribed_at' => 'Subscribed At',
+    'not_subscribed_yet' => 'Not subscribed yet',
+    'add_subscription' => 'Add Subscription',
+    'generate_strong_password' => 'Generate a strong password',
+
+
 ];

@@ -5095,6 +5095,9 @@ form {
     .table-responsive table td {
         border: 1px solid #f9f9f9 !important;
     }
+    .table-responsive table tr {
+        border: 1px solid #00c1ca  !important;
+    }
 }
 
 .badge1 {

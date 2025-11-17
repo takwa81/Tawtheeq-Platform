@@ -23,6 +23,46 @@
             <h2 class="content-title card-title">{{ __('dashboard.branch_details') }} ({{ $branch->full_name }})</h2>
         </div>
         <div>
+            <div class="dropdown">
+                <button class="btn btn-md bg-secondary text-white dropdown-toggle px-4" type="button"
+                    id="dropdownMenuButton-{{ $branch->id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                    خيارات
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton-{{ $branch->id }}">
+
+                    {{-- Edit --}}
+                    @if ($branch->deleted_at === null)
+                        {{-- Change Password --}}
+                        <li>
+                            <a class="dropdown-item change-password-btn" href="javascript:void(0)"
+                                data-id="{{ $branch->id }}" data-full_name="{{ $branch->full_name }}">
+                                <i class="material-icons md-lock me-1"></i> {{ __('dashboard.change_password') }}
+                            </a>
+                        </li>
+
+                        {{-- Activate / Deactivate --}}
+                        @if ($branch->status === 'active')
+                            <li id="actionState">
+                                <a class="dropdown-item toggle-status"
+                                    data-url="{{ route('dashboard.branches.deactivate', $branch->id) }}"
+                                    data-status="active" title="{{ __('dashboard.deactivate') }}">
+                                    <i class="material-icons md-toggle_off me-1"></i> {{ __('dashboard.deactivate') }}
+                                </a>
+                            </li>
+                        @else
+                            <li id="actionState">
+                                <a class="dropdown-item toggle-status" href="#"
+                                    data-url="{{ route('dashboard.branches.activate', $branch->id) }}"
+                                    data-status="inactive" title="{{ __('dashboard.activate') }}">
+                                    <i class="material-icons md-toggle_on me-1"></i> {{ __('dashboard.activate') }}
+                                </a>
+                            </li>
+                        @endif
+                    @endif
+
+
+                </ul>
+            </div>
             <a href="javascript:void(0)" onclick="history.back()" class="btn btn-md rounded font-sm">
                 <i class="material-icons md-arrow_back"></i>
             </a>
@@ -70,7 +110,7 @@
                         </div>
                         <div class="col-md-6">
                             <strong>{{ __('dashboard.status') }}:</strong>
-                            <span class="badge bg-{{ $branch->status === 'active' ? 'success' : 'danger' }}">
+                            <span id="statusBadge">
                                 {!! accountStatusBadge($branch->status) !!}
                             </span>
                         </div>
@@ -169,10 +209,16 @@
             </div>
         </div>
     </div>
+    @include('dashboard.users.changePassword')
+
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('admin/dashboard/pages/changePassword.js') }}"></script>
+    <script src="{{ asset('admin/dashboard/pages/passwordCheck.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="{{ asset('admin/dashboard/pages/toggle.js') }}"></script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const activeTab = "{{ $activeTab }}"; // from controller
