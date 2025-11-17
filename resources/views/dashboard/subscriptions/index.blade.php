@@ -6,17 +6,19 @@
 <!-- 🔍 Search & Filters -->
 <x-dashboard.search-sort :route="route('dashboard.subscriptions.index')">
     <div class="col-md-3 mb-2">
-        <input type="text" name="user_id" value="{{ $filters['user_id'] ?? '' }}"
+        <input type="text" name="user_id" value="{{ request('user_id') }}"
             placeholder="{{ __('dashboard.search_by_user_id') }}" class="form-control bg-white">
     </div>
 
     <div class="col-md-3 mb-2">
         <select name="status" class="form-select bg-white">
             <option value="">{{ __('dashboard.all_statuses') }}</option>
-            <option value="active" {{ ($filters['status'] ?? '') === 'active' ? 'selected' : '' }}>
-                {{ __('dashboard.active') }}</option>
-            <option value="expired" {{ ($filters['status'] ?? '') === 'expired' ? 'selected' : '' }}>
-                {{ __('dashboard.expired') }}</option>
+            <option value="active" {{ request('status') === 'active' ? 'selected' : '' }}>
+                {{ __('dashboard.active') }}
+            </option>
+            <option value="expired" {{ request('status') === 'expired' ? 'selected' : '' }}>
+                {{ __('dashboard.expired') }}
+            </option>
         </select>
     </div>
 
@@ -24,7 +26,7 @@
         <select name="package_id" class="form-select bg-white">
             <option value="">{{ __('dashboard.all_packages') }}</option>
             @foreach ($packages as $package)
-                <option value="{{ $package->id }}" {{ ($filters['package_id'] ?? '') == $package->id ? 'selected' : '' }}>
+                <option value="{{ $package->id }}" {{ request('package_id') == $package->id ? 'selected' : '' }}>
                     {{ $package->name }} - {{ $package->price }} {{ __('dashboard.currency') }}
                 </option>
             @endforeach
@@ -32,7 +34,7 @@
     </div>
 </x-dashboard.search-sort>
 
-<!-- 📦 Subscription Cards -->
+
 <div class="row g-3 mt-2 justify-content-center">
     @forelse($subscriptions as $sub)
         <div class="col-md-4">

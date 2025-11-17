@@ -40,7 +40,9 @@
                 </div>
                 <div class="card-body">
                     <p><strong>{{ __('dashboard.subscription_package') }}:</strong>
-                        {{ $subscription->package->name ?? '-' }}</p>
+                        <a href="{{ route('dashboard.subscription_packages.show', $subscription->package->id ?? '#') }}">
+                            {{ $subscription->package->name ?? '-' }}
+                    </p></a>
                     <p><strong>{{ __('dashboard.branch_limit') }}:</strong>
                         {{ $subscription->package->branches_limit ?? '-' }}</p>
                     <p><strong>{{ __('dashboard.price') }}:</strong> {{ $subscription->package->price ?? '-' }}

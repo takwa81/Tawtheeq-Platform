@@ -23,8 +23,8 @@
 
                 <p>
                     <strong>{{ __('dashboard.total_subscriptions') }}:</strong>
-                    <a href="{{ route('dashboard.subscriptions.index', ['package_id' => $package->id]) }}" class="btn btn-sm btn-primary">
-                        {{ $package->subscriptions_count }} {{ __('dashboard.view') }}
+                    <a href="{{ route('dashboard.subscriptions.index', ['package_id' => $package->id]) }}" class="btn btn-md rounded font-sm">
+                        {{ $package->subscriptions_count }} {{ __('dashboard.view') }}  <i class="material-icons md-remove_red_eye"></i>
                     </a>
                 </p>
             </div>
