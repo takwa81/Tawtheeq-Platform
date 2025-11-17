@@ -22,4 +22,9 @@ class BranchManager extends Model
     {
         return $this->hasMany(Branch::class, 'manager_id');
     }
+
+    public function getBranchesCountAttribute()
+    {
+        return $this->branches()->count();
+    }
 }

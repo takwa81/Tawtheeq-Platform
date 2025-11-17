@@ -30,6 +30,20 @@ class SubscriptionPackageController extends Controller
         }
     }
 
+    public function show($id)
+    {
+        try {
+            $package = SubscriptionPackage::withCount('subscriptions')->findOrFail($id);
+
+            return view('dashboard.subscription_packages.show', compact('package'));
+        } catch (\Throwable $e) {
+            toastr()->error(__('messages.fetch_failed') . ': ' . $e->getMessage());
+            return redirect()->back();
+        }
+    }
+
+
+
     public function store(SubscriptionPackageRequest $request)
     {
         try {

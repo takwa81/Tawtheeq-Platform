@@ -152,4 +152,117 @@ $(document).ready(function () {
             `);
         }
     }
+
+    $(document).on("click", ".open-subscription-modal", function () {
+        let managerId = $(this).data("id");
+        let managerName = $(this).data("name");
+
+        $("#managerId").val(managerId);
+        $("#managerName").text(managerName);
+
+        let modal = new bootstrap.Modal(
+            document.getElementById("subscriptionModal")
+        );
+        modal.show();
+    });
+
+    // subscription submit
+    const subscriptionForm = $("#subscriptionForm");
+    const subscriptionModal = $("#subscriptionModal");
+
+    subscriptionForm.on("submit", function (e) {
+        e.preventDefault();
+        const selectedPackage = $("#selectedPackage").val();
+
+        if (!selectedPackage) {
+            toastr.error(window.trans.select_package);
+            return; // Stop submission
+        }
+
+        const submitBtn = $(this).find("button[type='submit']");
+        submitBtn.prop("disabled", true).text(window.trans.saving);
+
+        $.ajax({
+            type: "POST",
+            url: $(this).attr("action"),
+            data: $(this).serialize(),
+            success: function (res) {
+                toastr.success(
+                    res.message ??
+                        window.trans.subscription_created_successfully
+                );
+
+                submitBtn.prop("disabled", false).text(window.trans.save);
+                subscriptionForm[0].reset();
+                subscriptionModal.modal("hide");
+
+                // Update subscription cell in the table
+                const managerId = $("#managerId").val();
+                const row = $(`#row-${managerId}`);
+
+                if (row.length) {
+                    const startDate = res.data.start_date; // from backend
+                    const endDate = res.data.end_date; // optional
+                    const badgeHtml = `<span class="badge bg-success">${startDate}</span>`;
+
+                    row.find("td").eq(6).html(badgeHtml); // 7th td = subscribed_at
+                }
+            },
+            error: function (xhr) {
+                submitBtn.prop("disabled", false).text(window.trans.save);
+                if (xhr.status === 422) {
+                    console.log(xhr.responseJSON.errors);
+                } else {
+                    toastr.error(
+                        xhr.responseJSON?.message ?? window.trans.error_occurred
+                    );
+                }
+            },
+        });
+    });
+
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".selectable-package");
+
+    cards.forEach((card) => {
+        card.addEventListener("click", function () {
+            // Remove active styles
+            cards.forEach((c) =>
+                c.classList.remove("border-primary", "shadow")
+            );
+            this.classList.add("border-primary", "shadow");
+
+            // Show Date + Info sections
+            document.getElementById("dateSection").classList.remove("d-none");
+            document.getElementById("packageInfo").classList.remove("d-none");
+
+            // Assign hidden package ID
+            document.getElementById("selectedPackage").value = this.dataset.id;
+
+            // Package Info
+            const price = this.dataset.price;
+            const duration = this.dataset.duration;
+            const limit = this.dataset.limit;
+            const name = this.dataset.name;
+
+            document.getElementById("pName").innerText = name;
+            document.getElementById("pPrice").innerText = price;
+            document.getElementById("pDuration").innerText = duration;
+            document.getElementById("pLimit").innerText = limit;
+
+            // Auto Dates
+            const start = new Date();
+            const end = new Date();
+            end.setDate(end.getDate() + parseInt(duration));
+
+            const format = (d) => d.toISOString().split("T")[0];
+
+            document.getElementById("start_date_display").value = format(start);
+            document.getElementById("end_date_display").value = format(end);
+            document.getElementById("start_date").value = format(start);
+            document.getElementById("end_date").value = format(end);
+        });
+    });
 });

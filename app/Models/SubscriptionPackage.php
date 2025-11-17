@@ -21,7 +21,12 @@ class SubscriptionPackage extends Model
         'features' => 'array',
     ];
 
-       public function subscriptions()
+    public function getNameAttribute()
+    {
+        return app()->getLocale() === 'ar' ? $this->name_ar : $this->name_en;
+    }
+
+    public function subscriptions()
     {
         return $this->hasMany(Subscription::class, 'package_id');
     }

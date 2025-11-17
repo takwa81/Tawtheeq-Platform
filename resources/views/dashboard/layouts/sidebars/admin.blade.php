@@ -40,4 +40,10 @@
             <span class="text">{{ __('dashboard.subscription_packages') }}</span>
         </a>
     </li>
+    <li class="menu-item {{ request()->routeIs('dashboard.subscriptions.*') ? 'active' : '' }}">
+        <a class="menu-link" href="{{ route('dashboard.subscriptions.index') }}">
+            <i class="icon material-icons md-card_membership"></i>
+            <span class="text">{{ __('dashboard.subscriptions') }}</span>
+        </a>
+    </li>
 </ul>

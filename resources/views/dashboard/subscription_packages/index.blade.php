@@ -52,8 +52,10 @@
                                 data-features='@json($package->features)' title="{{ __('dashboard.edit_info') }}">
                                 <i class="material-icons md-edit"></i>
                             </a>
-
-
+                            <a href="{{ route('dashboard.subscription_packages.show', $package->id) }}"
+                                class="btn btn-md bg-secondary rounded font-sm">
+                                <i class="material-icons md-remove_red_eye"></i>
+                            </a>
                             <form class="d-inline delete-form"
                                 action="{{ route('dashboard.subscription_packages.destroy', $package->id) }}"
                                 method="POST" data-id="{{ $package->id }}">

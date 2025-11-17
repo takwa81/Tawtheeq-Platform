@@ -9,7 +9,7 @@
                 <form id="{{ $formId }}" action="{{ $action }}" method="POST">
                     @csrf
                     {{ $slot }}
-                    <button type="submit" class="btn btn-primary" id="submitButton"> {{ __('dashboard.save') }}</button>
+                    <button type="submit" class="btn btn-primary my-3" id="submitButton"> {{ __('dashboard.save') }}</button>
                 </form>
             </div>
         </div>

@@ -21,7 +21,7 @@ class Company extends Model
             : null;
     }
 
-      public function getNameAttribute()
+    public function getNameAttribute()
     {
         return app()->getLocale() === 'ar' ? $this->name_ar : $this->name_en;
     }

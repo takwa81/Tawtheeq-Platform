@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Enums\PaginationEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\UserRequest;
+use App\Models\SubscriptionPackage;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
@@ -21,7 +22,8 @@ class BranchManagerController extends Controller
     {
         try {
             $managers = $this->userService->filterUsers($request, 'branch_manager', PaginationEnum::DefaultCount->value);
-            return view('dashboard.branch_managers.index', compact('managers'));
+            $packages = SubscriptionPackage::all();
+            return view('dashboard.branch_managers.index', compact('managers','packages'));
         } catch (\Throwable $e) {
             toastr()->error(__('messages.fetch_failed') . ': ' . $e->getMessage());
             return redirect()->back();

@@ -167,6 +167,14 @@ return [
     'name_en_string'   => 'The English name must be a valid string.',
     'name_en_max'      => 'The English name may not be greater than 255 characters.',
     'name_en_unique'   => 'The English name has already been taken.',
-    'tag_created_success'=>' Tag Created Successfully '
+    'tag_created_success' => ' Tag Created Successfully ',
 
+    'manager_has_active_subscription' => 'The manager already has an active subscription.',
+    'subscription_created_successfully' => 'Subscription has been created successfully ✅',
+    'error_occurred' => 'An error occurred while processing your request',
+    'choose_package' => 'Choose a subscription package',
+    'start_date' => 'Start Date',
+    'end_date' => 'End Date',
+    'save' => 'Save',
+    'close' => 'Close',
 ];

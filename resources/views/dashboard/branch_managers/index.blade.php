@@ -100,7 +100,7 @@
                                 @endphp
                                 @if ($activeSub)
                                     <span class="badge bg-success">
-                                        {{ $activeSub->start_date->format('Y-m-d') }}
+                                        {{ \Carbon\Carbon::parse($activeSub->start_date)->format('Y-m-d') }}
                                     </span>
                                 @else
                                     <span class="badge bg-danger">
@@ -152,8 +152,9 @@
                                                 <i class="material-icons md-toggle_on"></i>
                                             </a>
                                         @endif
-                                        <a href="{{ route('dashboard.subscriptions.create', ['manager_id' => $user->id]) }}"
-                                            class="btn btn-md bg-purple rounded font-sm my-1"
+                                        <a href="javascript:void(0)"
+                                            class="btn btn-md bg-purple rounded font-sm my-1 open-subscription-modal"
+                                            data-id="{{ $user->id }}" data-name="{{ $user->full_name }}"
                                             title="{{ __('dashboard.add_subscription') }}">
                                             <i class="material-icons md-card_membership"></i>
                                         </a>
@@ -192,6 +193,7 @@
 
         <x-dashboard.pagination :paginator="$managers" />
 
+        @include('dashboard.branch_managers.subscription')
         @include('dashboard.branch_managers.create')
         @include('dashboard.users.changePassword')
     @endsection
@@ -208,6 +210,7 @@
                 success_create: @json(__('dashboard.success_create')),
                 success_update: @json(__('dashboard.success_update')),
                 error_unexpected: @json(__('dashboard.error_unexpected')),
+                select_package: @json(__('dashboard.please_select_package')),
             };
         </script>
 

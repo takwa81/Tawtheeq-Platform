@@ -174,5 +174,14 @@ return [
     'name_en_max'      => 'يجب ألا يتجاوز الاسم بالإنجليزية 255 حرفًا.',
     'name_en_unique'   => 'الاسم بالإنجليزية مستخدم بالفعل.',
 
-    'tag_created_success'=>'تم انشاء الوسم بنجاح'
+    'tag_created_success' => 'تم انشاء الوسم بنجاح',
+
+    'manager_has_active_subscription' => 'البراند لديه اشتراك نشط بالفعل.',
+    'subscription_created_successfully' => 'تم إنشاء الاشتراك بنجاح ✅',
+    'error_occurred' => 'حدث خطأ أثناء تنفيذ العملية',
+    'choose_package' => 'اختر باقة الاشتراك',
+    'start_date' => 'تاريخ البداية',
+    'end_date' => 'تاريخ الانتهاء',
+    'save' => 'حفظ',
+    'close' => 'إغلاق',
 ];

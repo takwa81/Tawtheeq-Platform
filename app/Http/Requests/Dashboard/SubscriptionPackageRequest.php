@@ -45,7 +45,7 @@ class SubscriptionPackageRequest extends FormRequest
         ];
     }
 
-      public function messages(): array
+    public function messages(): array
     {
         return [
             'name_ar.required'         => __('dashboard.package_name_ar_required'),

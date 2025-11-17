@@ -72,24 +72,7 @@ Route::middleware(['set_language'])->group(function () {
 
         Route::resource('subscription_packages', SubscriptionPackageController::class);
 
-        Route::prefix('subscriptions')->name('subscriptions.')->group(function () {
-            Route::get('/', [SubscriptionController::class, 'index'])->name('index');
-
-            Route::get('/create/{manager_id?}', [SubscriptionController::class, 'create'])->name('create');
-
-            Route::post('/', [SubscriptionController::class, 'store'])->name('store');
-
-            Route::get('/{id}/edit', [SubscriptionController::class, 'edit'])->name('edit');
-
-            Route::put('/{id}', [SubscriptionController::class, 'update'])->name('update');
-
-            Route::delete('/{id}', [SubscriptionController::class, 'destroy'])->name('destroy');
-
-            Route::post('/{id}/renew', [SubscriptionController::class, 'renew'])->name('renew');
-
-            Route::post('/{id}/deactivate', [SubscriptionController::class, 'deactivate'])->name('deactivate');
-        });
-
+        Route::resource('subscriptions',SubscriptionController::class);
 
 
         Route::post('logout', [UserAuthController::class, 'logout'])->name('logout');
