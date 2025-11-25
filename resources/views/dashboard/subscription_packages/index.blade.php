@@ -2,11 +2,51 @@
 
 @section('content')
     <x-dashboard.page-header :title="__('dashboard.subscription_packages')" addModalId="subscriptionModal" />
+
+    <div class="row text-center mb-4">
+        <div class="col-md-4">
+            <div class="card p-3 shadow-sm">
+                <h6 class="text-muted">{{ __('dashboard.total_subscriptions') }}</h6>
+                <h3 class="fw-bold">{{ $stats['total_subscriptions'] }}</h3>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-3 shadow-sm">
+                <h6 class="text-muted">{{ __('dashboard.best_selling_package') }}</h6>
+                <h5 class="fw-bold">
+                    {{ app()->getLocale() == 'ar' ? $stats['top_package']->name_ar : $stats['top_package']->name_en }}
+                </h5>
+                <small>({{ $stats['top_package']->subscriptions_count }} {{ __('dashboard.subscriptions') }})</small>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-3 shadow-sm">
+                <h6 class="text-muted">{{ __('dashboard.least_selling_package') }}</h6>
+                <h5 class="fw-bold">
+                    {{ app()->getLocale() == 'ar' ? $stats['low_package']->name_ar : $stats['low_package']->name_en }}
+                </h5>
+                <small>({{ $stats['low_package']->subscriptions_count }} {{ __('dashboard.subscriptions') }})</small>
+            </div>
+        </div>
+    </div>
+    {{-- <div class="row my-4">
+        <div class="col-lg-6">
+            <div class="card shadow-sm p-3">
+                <h6 class="fw-bold mb-3">{{ __('dashboard.total_subscriptions') }}</h6>
+                <canvas id="subscriptionPieChart"></canvas>
+            </div>
+        </div>
+    </div> --}}
+
+
     <div class="my-2">
         <x-dashboard.search-sort :route="route('dashboard.subscription_packages.index')" :showName="true">
 
         </x-dashboard.search-sort>
     </div>
+
 
 
     <div class="row g-3" id="cardsContainer">
@@ -30,17 +70,19 @@
                                     {{ __('dashboard.days') }}</li>
                                 <li><strong>{{ __('dashboard.price') }}:</strong> {{ number_format($package->price, 2) }}
                                     {{ __('dashboard.currency') }}</li>
+                                <li><strong>{{ __('dashboard.total_subscriptions') }}:</strong>{{ $package->subscriptions_count }}
+                                </li>
                             </ul>
 
 
-                            @if (!empty($package->features))
+                            {{-- @if (!empty($package->features))
                                 <h6 class="text-secondary">{{ __('dashboard.features') }}:</h6>
                                 <ul class="small ps-3">
                                     @foreach ($package->features as $feature)
                                         <li>{{ $feature }}</li>
                                     @endforeach
                                 </ul>
-                            @endif
+                            @endif --}}
                         </div>
 
                         <div class="mt-3 text-end">
@@ -111,4 +153,35 @@
 
     <script src="{{ asset('admin/dashboard/pages/delete.js') }}"></script>
     <script src="{{ asset('admin/dashboard/pages/subscription_package.js') }}"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
+    {{--
+    <script>
+        const pieLabels = {!! json_encode(app()->getLocale() === 'ar' ? $chartData->pluck('name_ar') : $chartData->pluck('name_en')) !!};
+
+        const pieData = {!! json_encode($chartData->pluck('subscriptions_count')) !!};
+
+        const pieCtx = document.getElementById('subscriptionPieChart');
+
+        new Chart(pieCtx, {
+            type: 'pie',
+            data: {
+                labels: pieLabels,
+                datasets: [{
+                    data: pieData,
+                    backgroundColor: [
+                        '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e',
+                        '#e74a3b', '#858796', '#20c9a6', '#6f42c1'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            }
+        });
+    </script> --}}
 @endsection

@@ -110,6 +110,12 @@ $(document).ready(function () {
 
                 if (xhr.status === 422) {
                     displayErrors(xhr.responseJSON.errors);
+
+                     toastr.error(
+                        xhr.responseJSON?.message ??
+                            translations.error_unexpected
+                    );
+
                 } else {
                     toastr.error(
                         xhr.responseJSON?.message ??

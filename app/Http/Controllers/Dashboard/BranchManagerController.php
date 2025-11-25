@@ -9,6 +9,7 @@ use App\Models\SubscriptionPackage;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class BranchManagerController extends Controller
 {
@@ -23,7 +24,7 @@ class BranchManagerController extends Controller
         try {
             $managers = $this->userService->filterUsers($request, 'branch_manager', PaginationEnum::DefaultCount->value);
             $packages = SubscriptionPackage::all();
-            return view('dashboard.branch_managers.index', compact('managers','packages'));
+            return view('dashboard.branch_managers.index', compact('managers', 'packages'));
         } catch (\Throwable $e) {
             toastr()->error(__('messages.fetch_failed') . ': ' . $e->getMessage());
             return redirect()->back();
@@ -34,11 +35,12 @@ class BranchManagerController extends Controller
     {
         try {
             $user = User::where('role', 'branch_manager')
-                ->with(['branchManager.branches.user'])
+                ->with(['branchManager.branches.user',  'subscriptions.package'])
                 ->withTrashed()
                 ->findOrFail($id);
+            $packages = SubscriptionPackage::all();
 
-            return view('dashboard.branch_managers.show', compact('user'));
+            return view('dashboard.branch_managers.show', compact('user', 'packages'));
         } catch (\Throwable $e) {
             toastr()->error(__('messages.fetch_failed') . ': ' . $e->getMessage());
             return redirect()->back();
@@ -123,16 +125,24 @@ class BranchManagerController extends Controller
     public function activate($id)
     {
         try {
-            $user = User::where('role', 'branch_manager')->findOrFail($id);
-            $this->userService->changeStatus($user, 'active');
+            $manager = User::where('role', 'branch_manager')->findOrFail($id);
+            $this->userService->changeStatus($manager, 'active');
+
+
+            $managerBranches = $manager->branchManager?->branches;
+            if ($managerBranches) {
+                foreach ($managerBranches as $branch) {
+                    $this->userService->changeStatus($branch->user, 'active');
+                }
+            }
 
             // return response()->json(['status' => true, 'message' => __('messages.user_activated_successfully'), 'data' => $user]);
             return response()->json([
                 'status' => true,
                 'message' => __('messages.user_activated_successfully'),
                 'data' => [
-                    'id' => $user->id,
-                    'toggle_url' => route('dashboard.branch_managers.deactivate', $user->id),
+                    'id' => $manager->id,
+                    'toggle_url' => route('dashboard.branch_managers.deactivate', $manager->id),
                 ],
             ]);
         } catch (\Throwable $e) {
@@ -144,19 +154,29 @@ class BranchManagerController extends Controller
     public function deactivate($id)
     {
         try {
-            $user = User::where('role', 'branch_manager')->findOrFail($id);
-            $this->userService->changeStatus($user, 'inactive');
+            $manager = User::where('role', 'branch_manager')->findOrFail($id);
+            $this->userService->changeStatus($manager, 'inactive');
+
+            $managerBranches = $manager->branchManager?->branches;
+            if ($managerBranches) {
+                foreach ($managerBranches as $branch) {
+                    $this->userService->changeStatus($branch->user, 'inactive');
+                }
+            }
 
             // return response()->json(['status' => true, 'message' => __('messages.user_deactivated_successfully'), 'data' => $user]);
             return response()->json([
                 'status' => true,
                 'message' => __('messages.user_deactivated_successfully'),
                 'data' => [
-                    'id' => $user->id,
-                    'toggle_url' => route('dashboard.branch_managers.activate', $user->id),
+                    'id' => $manager->id,
+                    'toggle_url' => route('dashboard.branch_managers.activate', $manager->id),
                 ],
             ]);
         } catch (\Throwable $e) {
+            Log::error("Error deactivating branch manager ID {$id}: " . $e->getMessage(), [
+                'exception' => $e
+            ]);
             toastr()->error(__('messages.update_failed') . ': ' . $e->getMessage());
             return redirect()->back();
         }

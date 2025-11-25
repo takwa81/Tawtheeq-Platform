@@ -16,13 +16,23 @@ class SubscriptionPackageController extends Controller
     public function index(Request $request)
     {
         try {
-            $query = SubscriptionPackage::query();
+            $query = SubscriptionPackage::withCount('subscriptions');
 
             $query = $this->applyNameFilterAndSorting($request, $query);
 
             $packages  = $query->paginate(PaginationEnum::DefaultCount->value)->appends($request->all());
+            $stats = [
+                'total_subscriptions' => SubscriptionPackage::withCount('subscriptions')->get()->sum('subscriptions_count'),
+                'top_package' => SubscriptionPackage::withCount('subscriptions')->orderBy('subscriptions_count', 'desc')->first(),
+                'low_package' => SubscriptionPackage::withCount('subscriptions')->orderBy('subscriptions_count', 'asc')->first(),
+            ];
 
-            return view('dashboard.subscription_packages.index', compact('packages'));
+            $chartData = SubscriptionPackage::withCount('subscriptions')
+                ->get(['id', 'name_en', 'name_ar']); 
+
+
+            $totalSubscriptions = $chartData->sum('subscriptions_count');
+            return view('dashboard.subscription_packages.index', compact('packages', 'stats', 'chartData', 'totalSubscriptions'));
         } catch (\Throwable $e) {
 
             toastr()->error(__('messages.fetch_failed') . ': ' . $e->getMessage());

@@ -23,6 +23,20 @@ class UserService
             $query->with(['branchManager' => function ($q) {
                 $q->withCount('branches');
             }]);
+
+            $query->with(['branchManager' => function ($q) {
+                $q->withCount('branches');
+            }]);
+
+            if ($request->filled('not_subscribed') && $request->not_subscribed) {
+                $query->whereDoesntHave('activeSubscription');
+            }
+
+            if ($request->filled('package_id')) {
+                $query->whereHas('activeSubscription', function ($q) use ($request) {
+                    $q->where('package_id', $request->package_id);
+                });
+            }
         }
 
         if ($userType == "branch") {

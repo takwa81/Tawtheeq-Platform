@@ -7,6 +7,7 @@ use App\Models\Branch;
 use App\Models\BranchManager;
 use App\Models\Company;
 use App\Models\Order;
+use App\Models\SubscriptionPackage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -136,6 +137,16 @@ class HomeController extends Controller
         }
 
 
+
+
+
+        $chartData = SubscriptionPackage::withCount('subscriptions')
+            ->get(['id', 'name_en', 'name_ar']);
+
+        $totalSubscriptions = $chartData->sum('subscriptions_count');
+
+
+        
         return view('dashboard.home.index', compact(
             'totalBranchesCount',
             'totalManagersCount',
@@ -158,6 +169,8 @@ class HomeController extends Controller
             'ordersTotal',
             'ordersByMonthCount',
             'ordersByMonthTotal',
+            'chartData',
+            'totalSubscriptions'
         ));
     }
 }

@@ -59,7 +59,7 @@ class User extends Authenticatable
     }
     public function subscriptions()
     {
-        return $this->hasMany(Subscription::class);
+        return $this->hasMany(Subscription::class)->latest();
     }
     // public function activeSubscription()
     // {

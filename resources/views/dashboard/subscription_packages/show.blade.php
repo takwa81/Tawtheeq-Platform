@@ -10,7 +10,7 @@
 
 <div class="row">
     <!-- Package Info Card -->
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="card mb-3 shadow-sm">
             <div class="card-header bg-info text-white">
                 {{ __('dashboard.package_info') }}
@@ -32,7 +32,7 @@
     </div>
 
     <!-- Features Card -->
-    @if(!empty($package->features))
+    {{-- @if(!empty($package->features))
     <div class="col-md-6">
         <div class="card mb-3 shadow-sm">
             <div class="card-header bg-info text-white">
@@ -47,6 +47,6 @@
             </div>
         </div>
     </div>
-    @endif
+    @endif --}}
 </div>
 @endsection

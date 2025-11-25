@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="{{ $modalId }}Label">{{ $title }}</h5>
-                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button> 
             </div>
             <div class="modal-body">
                 <form id="{{ $formId }}" action="{{ $action }}" method="POST">

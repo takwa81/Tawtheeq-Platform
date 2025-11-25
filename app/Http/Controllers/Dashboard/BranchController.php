@@ -87,18 +87,39 @@ class BranchController extends Controller
         try {
 
             $data = $request->validated();
-            $user = $this->userService->createUser($data, 'branch');
             // $branchManager = BranchManager::where('user_id', $data['manager_id'])->firstOrFail();
             if (auth()->user()->role === 'branch_manager') {
-                $managerId = BranchManager::where('user_id', auth()->user()->id)->firstOrFail()->id;
+                $manager = BranchManager::where('user_id', auth()->user()->id)->firstOrFail();
             } else {
-                $managerId = BranchManager::where('user_id', $data['manager_id'])->firstOrFail()->id;
+                $manager = BranchManager::where('user_id', $data['manager_id'])->firstOrFail();
             }
+
+            $activeSub = $manager->user->activeSubscription;
+
+            if (!$activeSub) {
+                return response()->json([
+                    'status' => false,
+                    'message' => __('dashboard.manager_no_active_subscription')
+                ], 422);
+            }
+
+            $currentBranchesCount = $manager->branches()->count();
+            $branchesLimit = $activeSub->package->branches_limit;
+
+
+            if ($currentBranchesCount >= $branchesLimit) {
+                return response()->json([
+                    'status' => false,
+                    'message' => __('dashboard.manager_branch_limit_reached', ['limit' => $branchesLimit])
+                ], 422);
+            }
+
+            $user = $this->userService->createUser($data, 'branch');
 
             $branch = $user->branch()->create([
                 'user_id' => $user->id,
                 'creator_user_id' => auth()->user()->id,
-                'manager_id' => $managerId,
+                'manager_id' => $manager->id,
                 'branch_number' => $request->branch_number
             ]);
 

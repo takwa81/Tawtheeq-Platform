@@ -214,7 +214,7 @@
             </div>
         </div>
 
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="card card-body">
                 <h5>{{ __('dashboard.branch_orders_count', ['year' => $year]) }}</h5>
                 <div id="ordersSplineChart" style="height: 400px;"></div>
@@ -222,7 +222,7 @@
         </div>
 
         {{-- @if ($isSuperAdmin) --}}
-        <div class="col-md-12 mt-3">
+        <div class="col-md-6 mt-3">
             <div class="card card-body">
                 <h5>{{ __('dashboard.company_orders_count', ['year' => $year]) }}</h5>
                 <div id="companyOrdersBarChart" style="height: 400px;"></div>
@@ -232,6 +232,16 @@
 
     </div>
 
+    @if ($isSuperAdmin)
+        <div class="row my-4">
+            <div class="col-lg-6">
+                <div class="card shadow-sm p-3">
+                    <h6 class="fw-bold mb-3">{{ __('dashboard.total_subscriptions') }}</h6>
+                    <canvas id="subscriptionPieChart"></canvas>
+                </div>
+            </div>
+        </div>
+    @endif
 
 @endsection
 
@@ -521,6 +531,37 @@
                 }
             }).render();
 
+        });
+    </script>
+
+
+    <script>
+        const pieLabels = {!! json_encode(app()->getLocale() === 'ar' ? $chartData->pluck('name_ar') : $chartData->pluck('name_en')) !!};
+
+        const pieData = {!! json_encode($chartData->pluck('subscriptions_count')) !!};
+
+        const pieCtx = document.getElementById('subscriptionPieChart');
+
+        new Chart(pieCtx, {
+            type: 'pie',
+            data: {
+                labels: pieLabels,
+                datasets: [{
+                    data: pieData,
+                    backgroundColor: [
+                        '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e',
+                        '#e74a3b', '#858796', '#20c9a6', '#6f42c1'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            }
         });
     </script>
 @endsection

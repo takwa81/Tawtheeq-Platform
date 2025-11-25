@@ -34,6 +34,9 @@
                 <div class="col-4">{{ __('dashboard.restore_deleted') }} <i class="material-icons md-restore"></i></div>
                 <div class="col-4">{{ __('dashboard.view_details') }} <i class="material-icons md-remove_red_eye"></i>
                 </div>
+                <div class="col-4">{{ __('dashboard.not_subscribed_yet') }} <i class="material-icons md-block"></i></div>
+                <div class="col-4">{{ __('dashboard.filter_by_package') }} <i
+                        class="material-icons md-card_membership"></i></div>
             </div>
         </div>
 
@@ -62,12 +65,33 @@
                     </select>
                 </div>
 
+                <div class="col-lg-3 col-md-3 mt-1">
+                    <select name="package_id" class="form-select bg-white">
+                        <option value="">{{ __('dashboard.all_packages') }}</option>
+                        @foreach ($packages as $package)
+                            <option value="{{ $package->id }}"
+                                {{ request()->package_id == $package->id ? 'selected' : '' }}>
+                                {{ $package->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <div class="col-lg-3 col-md-3 mt-1 d-flex align-items-center">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="only_trashed" value="1" id="onlyTrashed"
                             {{ request()->get('only_trashed') ? 'checked' : '' }}>
                         <label class="form-check-label" for="onlyTrashed">
                             {{ __('dashboard.show_deleted_only') }}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 mt-1 d-flex align-items-center">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="not_subscribed" value="1"
+                            id="notSubscribed" {{ request()->not_subscribed ? 'checked' : '' }}>
+                        <label class="form-check-label" for="notSubscribed">
+                            {{ __('dashboard.not_subscribed_yet') }}
                         </label>
                     </div>
                 </div>
@@ -97,17 +121,30 @@
                             <td>
                                 @php
                                     $activeSub = $user->activeSubscription;
+                                    if ($activeSub) {
+                                        $endDate = \Carbon\Carbon::parse($activeSub->end_date);
+                                        $remainingDays = now()->lte($endDate) ? now()->diffInDays($endDate) : 0;
+                                        $remainingDays = (int) $remainingDays;
+                                    }
                                 @endphp
+
                                 @if ($activeSub)
                                     <span class="badge bg-success">
                                         {{ \Carbon\Carbon::parse($activeSub->start_date)->format('Y-m-d') }}
                                     </span>
+                                    <br>
+                                    <small>
+                                        {{ $activeSub->package->name }}
+                                        - {{ $remainingDays }} {{ __('dashboard.remaining_days') }}
+                                    </small>
                                 @else
                                     <span class="badge bg-danger">
                                         {{ __('dashboard.not_subscribed_yet') }}
                                     </span>
                                 @endif
+
                             </td>
+
 
                             <td>
                                 <div class="">
@@ -152,12 +189,14 @@
                                                 <i class="material-icons md-toggle_on"></i>
                                             </a>
                                         @endif
-                                        <a href="javascript:void(0)"
-                                            class="btn btn-md bg-purple rounded font-sm my-1 open-subscription-modal"
-                                            data-id="{{ $user->id }}" data-name="{{ $user->full_name }}"
-                                            title="{{ __('dashboard.add_subscription') }}">
-                                            <i class="material-icons md-card_membership"></i>
-                                        </a>
+                                        @if (!$activeSub)
+                                            <a href="javascript:void(0)"
+                                                class="btn btn-md bg-purple rounded font-sm my-1 open-subscription-modal"
+                                                data-id="{{ $user->id }}" data-name="{{ $user->full_name }}"
+                                                title="{{ __('dashboard.add_subscription') }}">
+                                                <i class="material-icons md-card_membership"></i>
+                                            </a>
+                                        @endif
                                     @endif
 
                                     @if ($user->deleted_at)
@@ -182,7 +221,7 @@
                         </tr>
                     @empty
                         <tr id="noDataRow">
-                            <td colspan="5" class="text-center">
+                            <td colspan="15" class="text-center">
                                 <x-no-data-found />
                             </td>
                         </tr>
