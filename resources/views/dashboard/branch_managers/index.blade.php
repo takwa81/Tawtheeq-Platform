@@ -22,20 +22,31 @@
         <div class="alert alert-secondary p-3 text-light" role="alert">
             <i class="material-icons md-info me-2 fs-4 align-top"></i>
             <strong>{{ __('dashboard.notes') }}:</strong>
+
             <div class="row mt-2" style="font-size: 13px; line-height: 1.4;">
-                <div class="col-4">{{ __('dashboard.search_by_name_or_phone') }}</div>
-                <div class="col-4">{{ __('dashboard.filter_by_status') }}</div>
-                <div class="col-4">
+                <div class="col-md-6">
+                    {{ __('dashboard.add_brand_then_subscription') }}
+                    <i class="material-icons md-card_membership"></i>
+                </div>
+
+                <div class="col-md-6">
+                    {{ __('dashboard.press_package_icon') }}
+                    <i class="material-icons md-card_membership"></i>
+                </div>
+
+                <div class="col-md-4">{{ __('dashboard.search_by_name_or_phone') }}</div>
+                <div class="col-md-4">{{ __('dashboard.filter_by_status') }}</div>
+                <div class="col-md-4">
                     {{ __('dashboard.activate_or_deactivate') }}
                     <i class="material-icons md-toggle_on"></i>/<i class="material-icons md-toggle_off"></i>
                 </div>
-                <div class="col-4">{{ __('dashboard.show_deleted_only') }} <i class="material-icons md-check_box"></i>
+                <div class="col-md-4">{{ __('dashboard.show_deleted_only') }} <i class="material-icons md-check_box"></i>
                 </div>
-                <div class="col-4">{{ __('dashboard.restore_deleted') }} <i class="material-icons md-restore"></i></div>
-                <div class="col-4">{{ __('dashboard.view_details') }} <i class="material-icons md-remove_red_eye"></i>
+                <div class="col-md-4">{{ __('dashboard.restore_deleted') }} <i class="material-icons md-restore"></i></div>
+                <div class="col-md-4">{{ __('dashboard.view_details') }} <i class="material-icons md-remove_red_eye"></i>
                 </div>
-                <div class="col-4">{{ __('dashboard.not_subscribed_yet') }} <i class="material-icons md-block"></i></div>
-                <div class="col-4">{{ __('dashboard.filter_by_package') }} <i
+                <div class="col-md-4">{{ __('dashboard.not_subscribed_yet') }} <i class="material-icons md-block"></i></div>
+                <div class="col-md-4">{{ __('dashboard.filter_by_package') }} <i
                         class="material-icons md-card_membership"></i></div>
             </div>
         </div>
@@ -182,12 +193,14 @@
                                                 <i class="material-icons md-toggle_off"></i>
                                             </a>
                                         @else
-                                            <a href="#"
-                                                class="btn btn-md bg-success rounded font-sm my-1 toggle-status"
-                                                data-url="{{ route('dashboard.branch_managers.activate', $user->id) }}"
-                                                data-status="inactive" title="{{ __('dashboard.activate') }}">
-                                                <i class="material-icons md-toggle_on"></i>
-                                            </a>
+                                            @if ($activeSub)
+                                                <a href="#"
+                                                    class="btn btn-md bg-success rounded font-sm my-1 toggle-status"
+                                                    data-url="{{ route('dashboard.branch_managers.activate', $user->id) }}"
+                                                    data-status="inactive" title="{{ __('dashboard.activate') }}">
+                                                    <i class="material-icons md-toggle_on"></i>
+                                                </a>
+                                            @endif
                                         @endif
                                         @if (!$activeSub)
                                             <a href="javascript:void(0)"

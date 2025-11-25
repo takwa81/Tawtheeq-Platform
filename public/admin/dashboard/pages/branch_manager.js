@@ -204,8 +204,10 @@ $(document).ready(function () {
                     const startDate = res.data.start_date; // from backend
                     const endDate = res.data.end_date; // optional
                     const badgeHtml = `<span class="badge bg-success">${startDate}</span>`;
+                    const badgeHtml1 = `<span class="badge bg-success">نشط</span>`;
 
                     row.find("td").eq(6).html(badgeHtml); // 7th td = subscribed_at
+                    row.find("td").eq(3).html(badgeHtml1);
                 }
             },
             error: function (xhr) {

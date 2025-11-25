@@ -53,6 +53,7 @@ class BranchManagerController extends Controller
         try {
 
             $data = $request->validated();
+            $data['status'] = 'inactive';
             $user = $this->userService->createUser($data, 'branch_manager');
             $user->branchManager()->create([
                 'user_id' => $user->id,

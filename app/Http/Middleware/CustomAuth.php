@@ -13,7 +13,14 @@ class CustomAuth
         if (!Auth::check()) {
             return redirect()->route('dashboard.login-form');
         }
+        $user = auth()->user();
 
+        if ($user->status !== "active") {
+
+            toastr()->error(__('dashboard.account_not_allowed'));
+
+            return redirect()->route('dashboard.login-form');
+        }
         return $next($request);
     }
 }

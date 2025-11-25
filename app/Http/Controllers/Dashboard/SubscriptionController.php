@@ -45,7 +45,7 @@ class SubscriptionController extends Controller
         try {
             $subscription = Subscription::with(['user.branchManager', 'package'])->findOrFail($id);
 
-          
+
             return view('dashboard.subscriptions.show', compact('subscription'));
         } catch (\Throwable $e) {
             Log::error('Error fetching subscriptions: ' . $e->getMessage(), [
@@ -74,6 +74,7 @@ class SubscriptionController extends Controller
                 return back()->with('error', __('messages.manager_has_active_subscription'));
             }
 
+
             $subscription = Subscription::create([
                 'user_id'   => $manager->id,
                 'package_id'   => $package->id,
@@ -82,6 +83,13 @@ class SubscriptionController extends Controller
                 'status' => 'active'
             ]);
 
+            $manager->update(['status' => 'active']);
+            $branches = $manager->branchManager?->branches;
+            if ($branches) {
+                foreach ($branches as $branch) {
+                    $branch->user->update(['status' => 'active']);
+                }
+            }
             DB::commit();
 
             return response()->json([
