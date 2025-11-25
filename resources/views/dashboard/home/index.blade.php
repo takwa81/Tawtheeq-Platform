@@ -115,7 +115,7 @@
         @endif
 
         <div class="col-md-2">
-            <button class="btn btn-primary w-100">{{ __('dashboard.update') }}</button>
+            <button class="btn btn-primary w-100">{{ __('dashboard.filter') }}</button>
         </div>
         <div class="col-md-1 mt-2">
             <a href="{{ route('dashboard.home') }}" class="btn text-light w-100 bg-secondary"

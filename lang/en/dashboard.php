@@ -381,5 +381,5 @@ return [
     'account_not_allowed' => 'Your account is inactive or unauthorized to access the dashboard.',
     'add_brand_then_subscription' => 'Add the brand first, then add a subscription to activate it and allow adding its branches.',
     'press_package_icon' => 'Click the subscription icon and choose the appropriate package.',
-
+    'filter' => 'Filter'
 ];
