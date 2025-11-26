@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-<title>{{ __('dashboard.site_title') }}</title>
+    <title>{{ __('dashboard.site_title') }}</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -235,7 +235,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('dashboard.clear.cache') }}" class="" title="{{ __('dashboard.clear_cache') }}">
+                        <a href="{{ route('dashboard.clear.cache') }}" class=""
+                            title="{{ __('dashboard.clear_cache') }}">
                             <i class="material-icons md-cached"></i>
                         </a>
                     </li>
@@ -283,6 +284,26 @@
     <script src="{{ asset('assets/js/main.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/custom-chart.js') }}" type="text/javascript"></script>
     <script src="{{ asset('vendor/flasher/toastr.min.js') }}"></script>
+    <script>
+        window.translations = {
+            delete_confirm_title: "{{ __('dashboard.delete_confirm_title') }}",
+            delete_confirm_text: "{{ __('dashboard.delete_confirm_text') }}",
+            delete_confirm_yes: "{{ __('dashboard.delete_confirm_yes') }}",
+            delete_confirm_cancel: "{{ __('dashboard.delete_confirm_cancel') }}",
+            delete_success: "{{ __('messages.deleted_successfully') }}",
+            delete_error: "{{ __('messages.delete_failed') }}",
+            toggle_activate_title: "{{ __('dashboard.toggle_activate_title') }}",
+            toggle_deactivate_title: "{{ __('dashboard.toggle_deactivate_title') }}",
+            toggle_confirm_text: "{{ __('dashboard.toggle_confirm_text') }}",
+            toggle_yes: "{{ __('dashboard.toggle_yes') }}",
+            toggle_cancel: "{{ __('dashboard.toggle_cancel') }}",
+            toggle_success: "{{ __('messages.updated_successfully') }}",
+            toggle_error: "{{ __('messages.update_failed') }}",
+            status_active: "{{ __('dashboard.active') }}",
+            status_inactive: "{{ __('dashboard.inactive') }}",
+        }
+    </script>
+
     <script>
         toastr.options = {!! json_encode(config('toastr.options')) !!};
 

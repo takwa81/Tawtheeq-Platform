@@ -103,11 +103,16 @@ class OrderController extends Controller
                 $data['branch_id'] = $user->branch->id;
             }
             $data['created_by'] = $user->id;
-            $imagePath = null;
-            if ($request->hasFile('order_image')) {
-                $imagePath = $this->storeImage($request->file('order_image'), 'orders');
+            // $imagePath = null;
+            // if ($request->hasFile('order_image')) {
+            //     $imagePath = $this->storeImage($request->file('order_image'), 'orders');
+            // }
+            // $data['order_image'] = $imagePath;
+            $file      = $request->file('order_image');
+            if (str_starts_with($file->getMimeType(), 'image/')) {
+                $data['order_image'] = $this->storeImageWithResize($file, 'orders');
             }
-            $data['order_image'] = $imagePath;
+
             $data['status'] = "completed";
 
 

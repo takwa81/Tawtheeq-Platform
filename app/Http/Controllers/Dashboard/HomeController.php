@@ -25,7 +25,7 @@ class HomeController extends Controller
 
         // Companies for filter
         $companies = in_array($user->role, ['super_admin', 'branch_manager'])
-            ? Company::select('id', 'name_ar')->get()
+            ? Company::all()
             : collect();
 
         // Branches for filter
@@ -146,7 +146,7 @@ class HomeController extends Controller
         $totalSubscriptions = $chartData->sum('subscriptions_count');
 
 
-        
+
         return view('dashboard.home.index', compact(
             'totalBranchesCount',
             'totalManagersCount',

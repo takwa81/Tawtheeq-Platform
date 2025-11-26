@@ -26,7 +26,7 @@ class OrderRequest extends FormRequest
             'customer_name' => ['nullable', 'string', 'max:255'],
             'driver_name' => ['nullable', 'string', 'max:255'],
             'customer_phone' => ['nullable', 'string', 'max:20'],
-            'order_image' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+            'order_image' => ['required'],
             'notes' => ['nullable', 'string'],
             'order_number' => 'required'
         ];

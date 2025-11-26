@@ -105,8 +105,15 @@ class CompanyController extends Controller
     public function destroy($id)
     {
         try {
-            $type = Company::findOrFail($id);
-            $type->delete();
+            $company = Company::findOrFail($id);
+            if ($company->orders()->exists()) {
+                return response()->json([
+                    'status'  => false,
+                    'message' => __('messages.company_has_orders_cannot_delete'),
+                ], 400);
+            }
+
+            $company->delete();
 
             return response()->json([
                 'status'  => true,

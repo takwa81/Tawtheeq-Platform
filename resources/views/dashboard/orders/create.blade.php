@@ -76,7 +76,7 @@
                             errorId="customer_phoneError" placeholder="{{ __('dashboard.customer_phone') }}" />
 
                         <x-form.file id="order_image" name="order_image" :label="__('dashboard.order_image')" errorId="order_imageError"
-                            required="true" previewSrc="{{ asset('assets/images/upload.svg') }}" />
+                            required="true" previewSrc="{{ asset('assets/images/upload.svg') }}" accept="image/*" />
 
                         <x-form.textarea id="notes" name="notes" :label="__('dashboard.notes')" :col="12" />
 
@@ -92,14 +92,14 @@
 @endsection
 
 @section('scripts')
-<script>
-    window.translations = {
-        saving: "{{ __('dashboard.saving') }}",
-        save: "{{ __('dashboard.save') }}",
-        success: "{{ __('dashboard.success_create') }}",
-        validation_error: "{{ __('dashboard.validation_error') }}",
-        unexpected_error: "{{ __('dashboard.error_unexpected') }}"
-    };
-</script>
+    <script>
+        window.translations = {
+            saving: "{{ __('dashboard.saving') }}",
+            save: "{{ __('dashboard.save') }}",
+            success: "{{ __('dashboard.success_create') }}",
+            validation_error: "{{ __('dashboard.validation_error') }}",
+            unexpected_error: "{{ __('dashboard.error_unexpected') }}"
+        };
+    </script>
     <script src="{{ asset('admin/dashboard/pages/orders.js') }}"></script>
 @endsection

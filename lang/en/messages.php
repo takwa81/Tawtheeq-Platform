@@ -177,5 +177,6 @@ return [
     'end_date' => 'End Date',
     'save' => 'Save',
     'close' => 'Close',
+    'company_has_orders_cannot_delete' => 'Cannot delete this company because it has related orders.',
 
 ];

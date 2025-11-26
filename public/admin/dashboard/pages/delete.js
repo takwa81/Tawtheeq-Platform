@@ -9,14 +9,14 @@ $(document).ready(function () {
         let token = form.find("input[name='_token']").val();
 
         Swal.fire({
-            title: "هل أنت متأكد من هذه العملية؟",
-            text: "لن تتمكن من استرجاع البيانات بعد الحذف!",
+            title: window.translations.delete_confirm_title,
+            text: window.translations.delete_confirm_text,
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#ff5087",
             cancelButtonColor: "#d33",
-            confirmButtonText: "نعم، احذف",
-            cancelButtonText: "إلغاء",
+            confirmButtonText: window.translations.delete_confirm_yes,
+            cancelButtonText: window.translations.delete_confirm_cancel,
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
@@ -27,11 +27,18 @@ $(document).ready(function () {
                         _method: "DELETE",
                     },
                     success: function (response) {
-                        $(`#row-${id}`).remove();
-                        toastr.success("تم الحذف بنجاح");
+                        if (response.status === true) {
+                            $(`#row-${id}`).remove();
+                            toastr.success(window.translations.delete_success);
+                        } else {
+                            toastr.error(response.message);
+                        }
                     },
                     error: function (xhr) {
-                        toastr.error("حدث خطأ أثناء تنفيذ العملية");
+                        let errorMessage =
+                            xhr.responseJSON?.message ??
+                            window.translations.delete_error;
+                        toastr.error(errorMessage);
                     },
                 });
             }

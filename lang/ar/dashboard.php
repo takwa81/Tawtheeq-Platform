@@ -381,5 +381,16 @@ return [
     'account_not_allowed' => 'حسابك غير نشط أو ليست لديك صلاحية الدخول إلى لوحة التحكم',
     'add_brand_then_subscription' => 'قم بإضافة البراند، ثم أضف له اشتراك ليتم تفعيله وتمكين إضافة الفروع التابعة له.',
     'press_package_icon' => 'اضغط على أيقونة الباقات واختر الباقة المناسبة لإتمام الاشتراك.',
-    'filter' => 'بحث'
+    'filter' => 'بحث',
+    'delete_confirm_title' => 'هل أنت متأكد؟',
+    'delete_confirm_text' => 'لن تتمكن من استرجاع البيانات بعد الحذف!',
+    'delete_confirm_yes' => 'نعم، احذف',
+    'delete_confirm_cancel' => 'إلغاء',
+    'toggle_activate_title' => 'تفعيل',
+    'toggle_deactivate_title' => 'إلغاء التفعيل',
+    'toggle_confirm_text' => 'هل أنت متأكد من هذه العملية؟',
+    'toggle_yes' => 'نعم',
+    'toggle_cancel' => 'إلغاء',
+    'active' => 'فعال',
+    'inactive' => 'غير فعال',
 ];

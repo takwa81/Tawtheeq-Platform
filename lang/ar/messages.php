@@ -184,5 +184,6 @@ return [
     'end_date' => 'تاريخ الانتهاء',
     'save' => 'حفظ',
     'close' => 'إغلاق',
+    'company_has_orders_cannot_delete' => 'لا يمكن حذف هذه الشركة لأنها مرتبطة بطلبات.',
 
 ];

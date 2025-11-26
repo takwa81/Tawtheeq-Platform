@@ -28,8 +28,8 @@
                                     {{ $order->branch->user->full_name ?? '-' }}
                                 </a>
                             </p>
-                            <p class="mb-1"><strong>{{ __('dashboard.company') }}:</strong> {{ $order->company->name_ar ?? '-' }}</p>
-                            <p class="mb-1"><strong>{{ __('dashboard.amount') }}:</strong> {{ number_format($order->total_order, 2) }} ر.س</p>
+                            <p class="mb-1"><strong>{{ __('dashboard.company') }}:</strong> {{ $order->company->name ?? '-' }}</p>
+                            <p class="mb-1"><strong>{{ __('dashboard.amount') }}:</strong> {{ number_format($order->total_order, 2) }} {{ __('dashboard.currency') }}</p>
                         </div>
 
                         <div class="col-12 col-md-6">

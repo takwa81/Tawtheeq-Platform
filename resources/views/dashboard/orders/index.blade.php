@@ -7,7 +7,7 @@
         <x-dashboard.page-header :title="__('dashboard.orders')" />
     @endif
 
- 
+
     <div class="my-3">
         <form method="GET" action="{{ route('dashboard.orders.index') }}" class="row g-2 mb-3">
             <div class="col-md-3">
@@ -30,7 +30,7 @@
                     <option value="">{{ __('dashboard.all_companies') }}</option>
                     @foreach ($companies as $company)
                         <option value="{{ $company->id }}" {{ request('company_id') == $company->id ? 'selected' : '' }}>
-                            {{ $company->name_ar }}
+                            {{ $company->name }}
                         </option>
                     @endforeach
                 </select>
@@ -81,8 +81,8 @@
 
     <div class="card mb-4">
         <div class="card-body p-0">
-            <div class="" style=" overflow-y: auto; overflow-x:hidden;">
-                <table class="table table-hover mb-0">
+            <div class="table-responsive">
+                <table class="table table-hover">
                     <thead class="bg-main text-light">
                         <tr>
                             <th>#</th>

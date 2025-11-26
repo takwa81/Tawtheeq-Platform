@@ -23,7 +23,7 @@
         <img src="{{ old($name) ? asset('storage/' . old($name)) : $previewSrc }}" alt="preview"
             id="preview-{{ $id }}" class="img-fluid" style="max-height: 120px;">
 
-        <input type="file" id="{{ $id }}" name="{{ $name }}" class="form-control" accept="image/*">
+        <input type="file" id="{{ $id }}" name="{{ $name }}" class="form-control" accept="image/*" capture="camera">
 
         @if ($errorId)
             <div class="text-danger" id="{{ $errorId }}"></div>

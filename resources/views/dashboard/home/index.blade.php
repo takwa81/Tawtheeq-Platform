@@ -85,7 +85,7 @@
         </div>
         <div class="col-md-3">
             <select name="year" class="form-select  bg-white">
-                <option value="">{{ __('dashboard.select_year') }}<< /option>
+                <option value="">{{ __('dashboard.select_year') }}</option>
                         @foreach (range(date('Y'), date('Y') - 5) as $y)
                 <option value="{{ $y }}" {{ $year == $y ? 'selected' : '' }}>{{ $y }}</option>
                 @endforeach

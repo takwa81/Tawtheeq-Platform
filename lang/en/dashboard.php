@@ -381,5 +381,16 @@ return [
     'account_not_allowed' => 'Your account is inactive or unauthorized to access the dashboard.',
     'add_brand_then_subscription' => 'Add the brand first, then add a subscription to activate it and allow adding its branches.',
     'press_package_icon' => 'Click the subscription icon and choose the appropriate package.',
-    'filter' => 'Filter'
+    'filter' => 'Filter',
+    'delete_confirm_title' => 'Are you sure?',
+    'delete_confirm_text' => 'You will not be able to recover this data!',
+    'delete_confirm_yes' => 'Yes, Delete',
+    'delete_confirm_cancel' => 'Cancel',
+      'toggle_activate_title' => 'Activate',
+    'toggle_deactivate_title' => 'Deactivate',
+    'toggle_confirm_text' => 'Are you sure you want to continue?',
+    'toggle_yes' => 'Yes',
+    'toggle_cancel' => 'Cancel',
+    'active' => 'Active',
+    'inactive' => 'Inactive',
 ];

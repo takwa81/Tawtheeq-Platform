@@ -2,8 +2,8 @@ $(document).on("click", ".toggle-status", function (e) {
     e.preventDefault();
 
     let button = $(this);
-    let url = button.data("url"); // always get URL from data-url
-    let currentStatus = button.data("status"); // always get current status from data-status
+    let url = button.data("url");
+    let currentStatus = button.data("status");
 
     if (!url) {
         console.error("Toggle URL not found on element!");
@@ -11,75 +11,77 @@ $(document).on("click", ".toggle-status", function (e) {
     }
 
     Swal.fire({
-        title: currentStatus === "active" ? "إلغاء التفعيل" : "تفعيل",
-        text: "هل أنت متأكد من هذه العملية؟",
+        title: currentStatus === "active"
+            ? window.translations.toggle_deactivate_title
+            : window.translations.toggle_activate_title,
+        text: window.translations.toggle_confirm_text,
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#00c1ca",
         cancelButtonColor: "#d33",
-        confirmButtonText: "نعم",
-        cancelButtonText: "إلغاء",
+        confirmButtonText: window.translations.toggle_yes,
+        cancelButtonText: window.translations.toggle_cancel,
     }).then((result) => {
         if (!result.isConfirmed) return;
 
         $.get(url, { _token: $("meta[name='csrf-token']").attr("content") })
             .done(function (response) {
                 if (!response.status) {
-                    toastr.error(response.message ?? "حدث خطأ أثناء تنفيذ العملية");
+                    toastr.error(response.message ?? window.translations.toggle_error);
                     return;
                 }
 
-                toastr.success(response.message ?? "تمت العملية بنجاح");
+                toastr.success(response.message ?? window.translations.toggle_success);
 
-                // Update table row if exists
+                let newStatus = currentStatus === "active" ? "inactive" : "active";
+
+                // Update table row badge
                 let row = button.closest("tr");
                 let badgeCell = row.find("td").eq(3);
 
                 if (badgeCell.length) {
                     badgeCell.html(
-                        currentStatus === "active"
-                            ? '<span class="badge bg-danger">غير فعال</span>'
-                            : '<span class="badge bg-success">فعال</span>'
+                        newStatus === "active"
+                            ? `<span class="badge bg-success">${window.translations.status_active}</span>`
+                            : `<span class="badge bg-danger">${window.translations.status_inactive}</span>`
                     );
 
-                    // Update button inside table row
+                    // Replace toggle button in list
                     button.replaceWith(
-                        `<a href="#" class="btn btn-md ${currentStatus === "active" ? "bg-success" : "bg-warning"} rounded font-sm my-1 toggle-status"
+                        `<a href="#" class="btn btn-md ${newStatus === "active" ? "bg-warning" : "bg-success"} rounded font-sm my-1 toggle-status"
                            data-url="${response.data.toggle_url}"
-                           data-status="${currentStatus === "active" ? "inactive" : "active"}"
-                           title="${currentStatus === "active" ? "تفعيل" : "إلغاء التفعيل"}">
-                            <i class="material-icons ${currentStatus === "active" ? "md-toggle_on" : "md-toggle_off"}"></i>
+                           data-status="${newStatus}"
+                           title="${newStatus === "active" ? window.translations.toggle_deactivate_title : window.translations.toggle_activate_title}">
+                            <i class="material-icons ${newStatus === "active" ? "md-toggle_off" : "md-toggle_on"}"></i>
                         </a>`
                     );
                 }
 
-                // Update show page badge & dropdown if exists
+                // Update show page badge
                 const badgePage = $("#statusBadge");
-                const actionPage = $("#actionState"); // the container for dropdown link
-
                 if (badgePage.length) {
                     badgePage.html(
-                        currentStatus === "active"
-                            ? '<span class="badge bg-danger">غير فعال</span>'
-                            : '<span class="badge bg-success">فعال</span>'
+                        newStatus === "active"
+                            ? `<span class="badge bg-success">${window.translations.status_active}</span>`
+                            : `<span class="badge bg-danger">${window.translations.status_inactive}</span>`
                     );
                 }
-                console.log(actionPage,'actionPage');
 
+                // Update dropdown action in show page
+                const actionPage = $("#actionState");
                 if (actionPage.length) {
                     actionPage.find(".toggle-status").replaceWith(
                         `<a class="dropdown-item toggle-status" href="#"
                            data-url="${response.data.toggle_url}"
-                           data-status="${currentStatus === "active" ? "inactive" : "active"}"
-                           title="${currentStatus === "active" ? "تفعيل" : "إلغاء التفعيل"}">
-                            <i class="material-icons ${currentStatus === "active" ? "md-toggle_on" : "md-toggle_off"} me-1"></i>
-                            ${currentStatus === "active" ? "تفعيل" : "إلغاء التفعيل"}
+                           data-status="${newStatus}">
+                            <i class="material-icons ${newStatus === "active" ? "md-toggle_off" : "md-toggle_on"} me-1"></i>
+                            ${newStatus === "active" ? window.translations.toggle_deactivate_title : window.translations.toggle_activate_title}
                         </a>`
                     );
                 }
             })
             .fail(function () {
-                toastr.error("حدث خطأ أثناء تنفيذ العملية");
+                toastr.error(window.translations.toggle_error);
             });
     });
 });
