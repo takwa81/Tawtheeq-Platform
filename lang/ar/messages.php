@@ -185,5 +185,9 @@ return [
     'save' => 'حفظ',
     'close' => 'إغلاق',
     'company_has_orders_cannot_delete' => 'لا يمكن حذف هذه الشركة لأنها مرتبطة بطلبات.',
-
+    'validations' => [
+        'password_required'  => 'كلمة المرور الجديدة مطلوبة.',
+        'password_min'       => 'يجب أن تتكون كلمة المرور الجديدة من 6 أحرف على الأقل.',
+        'password_confirmed' => 'تأكيد كلمة المرور غير متطابق.',
+    ],
 ];

@@ -72,10 +72,16 @@ Route::middleware(['set_language'])->group(function () {
 
         Route::resource('subscription_packages', SubscriptionPackageController::class);
 
-        Route::resource('subscriptions',SubscriptionController::class);
+        Route::resource('subscriptions', SubscriptionController::class);
 
 
         Route::post('logout', [UserAuthController::class, 'logout'])->name('logout');
+
+        Route::get('account', [UserAuthController::class, 'account'])->name('account.index');
+        Route::post('account', [UserAuthController::class, 'update_account'])->name('account.update');
+        Route::post('reset-password', [UserAuthController::class, 'reset_password'])->name('reset-password.update');
+        Route::get('reset-password', [UserAuthController::class, 'reset_password_form'])->name('reset-password');
+
 
         Route::get('/clear-cache', function () {
             Artisan::call('optimize:clear');

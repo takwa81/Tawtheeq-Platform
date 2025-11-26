@@ -179,4 +179,9 @@ return [
     'close' => 'Close',
     'company_has_orders_cannot_delete' => 'Cannot delete this company because it has related orders.',
 
+      'validations' => [
+        'password_required'  => 'The new password is required.',
+        'password_min'       => 'The new password must be at least 6 characters.',
+        'password_confirmed' => 'The password confirmation does not match.',
+    ],
 ];
