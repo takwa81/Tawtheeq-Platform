@@ -8,6 +8,7 @@ use App\Models\BranchManager;
 use App\Models\Company;
 use App\Models\Order;
 use App\Models\SubscriptionPackage;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,7 @@ class HomeController extends Controller
         $year = $request->year ?? now()->year;
         $companyId = $request->company_id;
         $branchId = $request->branch_id;
+        $branchManagerId = $request->branch_manager_id;
 
         // Companies for filter
         $companies = in_array($user->role, ['super_admin', 'branch_manager'])
@@ -35,12 +37,23 @@ class HomeController extends Controller
             default => Branch::where('id', $user->branch->id)->with('user:id,full_name')->get(),
         };
 
+        $branchIdsForManager = null;
+        if ($branchManagerId) {
+            $manager = BranchManager::where('user_id', $branchManagerId)->first();
+            if ($manager) {
+                $branchIdsForManager = $manager->branches->pluck('id')->toArray();
+            }
+        }
+
         // Base Orders Query
         $ordersQuery = Order::query();
         if ($month) $ordersQuery->whereMonth('created_at', $month);
         if ($year) $ordersQuery->whereYear('created_at', $year);
         if ($companyId) $ordersQuery->where('company_id', $companyId);
         if ($branchId) $ordersQuery->where('branch_id', $branchId);
+        if ($branchIdsForManager) $ordersQuery->whereIn('branch_id', $branchIdsForManager);
+
+
 
         if ($user->role === 'branch_manager') {
             $branchIds = $user->branchManager->branches->pluck('id')->toArray();
@@ -57,16 +70,18 @@ class HomeController extends Controller
 
         // Orders per branch
         $branchesWithOrders = $branches->load([
-            'orders' => function ($q) use ($month, $year, $companyId) {
+            'orders' => function ($q) use ($month, $year, $companyId, $branchIdsForManager) {
                 if ($month) $q->whereMonth('created_at', $month);
                 if ($year) $q->whereYear('created_at', $year);
                 if ($companyId) $q->where('company_id', $companyId);
+                if ($branchIdsForManager) $q->whereIn('branch_id', $branchIdsForManager);
             }
         ])->loadCount([
-            'orders as orders_count' => function ($q) use ($month, $year, $companyId) {
+            'orders as orders_count' => function ($q) use ($month, $year, $companyId, $branchIdsForManager) {
                 if ($month) $q->whereMonth('created_at', $month);
                 if ($year) $q->whereYear('created_at', $year);
                 if ($companyId) $q->where('company_id', $companyId);
+                if ($branchIdsForManager) $q->whereIn('branch_id', $branchIdsForManager);
             }
         ]);
 
@@ -87,7 +102,9 @@ class HomeController extends Controller
             ->whereYear('created_at', $year);
 
         // Apply role-based filtering
-        if (auth()->user()->role === 'branch_manager') {
+        if ($branchIdsForManager) {
+            $companyStatsQuery->whereIn('branch_id', $branchIdsForManager);
+        } elseif (auth()->user()->role === 'branch_manager') {
             // Get IDs of branches managed by this branch manager
             $branchIds = auth()->user()->branchManager->branches->pluck('id')->toArray();
             $companyStatsQuery->whereIn('branch_id', $branchIds);
@@ -117,6 +134,7 @@ class HomeController extends Controller
 
         $monthlyOrders = Order::selectRaw('MONTH(created_at) as month, COUNT(*) as count, SUM(total_order) as total')
             ->when($companyId, fn($q) => $q->where('company_id', $companyId))
+            ->when(isset($branchIdsForManager), fn($q) => $q->whereIn('branch_id', $branchIdsForManager))
             ->when(isset($branchIds), fn($q) => $q->whereIn('branch_id', $branchIds))
             ->when($branchId, fn($q) => $q->where('branch_id', $branchId))
             ->when(auth()->user()->role === 'branch', function ($q) {
@@ -146,6 +164,7 @@ class HomeController extends Controller
         $totalSubscriptions = $chartData->sum('subscriptions_count');
 
 
+        $branchManagers = User::where('role', 'branch_manager')->get();
 
         return view('dashboard.home.index', compact(
             'totalBranchesCount',
@@ -170,7 +189,8 @@ class HomeController extends Controller
             'ordersByMonthCount',
             'ordersByMonthTotal',
             'chartData',
-            'totalSubscriptions'
+            'totalSubscriptions',
+            'branchManagers'
         ));
     }
 }

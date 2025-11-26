@@ -410,5 +410,5 @@ return [
     'generate_strong_password' => 'Generate Strong Password',
     'save_changes' => 'Save Changes',
     'my_account' => 'My Account',
-
+    'select_brand' => 'Select Brand'
 ];

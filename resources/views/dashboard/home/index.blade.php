@@ -86,11 +86,25 @@
         <div class="col-md-3">
             <select name="year" class="form-select  bg-white">
                 <option value="">{{ __('dashboard.select_year') }}</option>
-                        @foreach (range(date('Y'), date('Y') - 5) as $y)
-                <option value="{{ $y }}" {{ $year == $y ? 'selected' : '' }}>{{ $y }}</option>
+                @foreach (range(date('Y'), date('Y') - 5) as $y)
+                    <option value="{{ $y }}" {{ $year == $y ? 'selected' : '' }}>{{ $y }}</option>
                 @endforeach
             </select>
         </div>
+        @if ($isSuperAdmin)
+            <div class="col-md-3">
+                <select name="branch_manager_id" class="form-select bg-white">
+                    <option value="">{{ __('dashboard.select_brand') }}</option>
+                    @foreach ($branchManagers as $manager)
+                        <option value="{{ $manager->id }}"
+                            {{ request('branch_manager_id') == $manager->id ? 'selected' : '' }}>
+                            {{ $manager->full_name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+        @endif
+
         @if ($isSuperAdmin || $isBranchManager)
             <div class="col-md-3">
                 <select name="branch_id" class="form-select bg-white">

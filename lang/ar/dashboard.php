@@ -410,5 +410,6 @@ return [
     'generate_strong_password' => 'توليد كلمة مرور قوية',
     'save_changes' => 'حفظ التغييرات',
     'my_account' => 'حسابي',
+    'select_brand'=>'اختر البراند'
 
 ];
